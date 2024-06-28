@@ -1,0 +1,6 @@
+--2024-06-27 17:01:22--  https://zed.dev/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero-1.bb06921e.png
+Resolving zed.dev (zed.dev)... 104.26.10.80, 104.26.11.80, 172.67.73.169, ...
+Connecting to zed.dev (zed.dev)|104.26.10.80|:443... connected.
+HTTP request sent, awaiting response... 400 Bad Request
+2024-06-27 17:01:22 ERROR 400: Bad Request.
+
