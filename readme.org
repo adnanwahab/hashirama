@@ -1,3 +1,130 @@
+This repo downloads nix
+then downloads all the nix packages needed to run hashirama in a nixos VM
+
+It can also deploy a hashirama nixos iso to a nvidia jetson or to a cloud server
+
+It covers self hosted, on prem, cloud, iot and edge installations
+
+To run.. nix build -> output a VM with woking
+
+
+3 toplevel functions
+
+hashirama build
+hashirama deploy <server-url-in-tailscale>
+
+1. move immich + jellyfin into NIXOS
+2. wayland VM BUILD
+3. save state
+4. measure 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+todo
+1. finish landing pages
+2. connect all machines
+3. connect and test all hardware
+4. execute user requests
+
+   lamafile and sqlite-vec
+
+   vision transformations
+   https://github.com/microsoft/LoRA
+
+
+  arc - summarize tab - fast
+      - 
+      - writing help
+      - visualize + audit Rag
+      - continuous Evaluation
+      - autocomplete - prompt engineer - extended memory for gpt etc
+      - https://chat.lmsys.org/
+      - audit your reccomendations and information diet - tune your reccomendations and swap moods from comedy, to politics, to
+      - stumble upon button
+
+
+      3 main features
+
+      - information ingestion for indexing + correlations
+        web browsing at its core is mostly information retrieval
+        turn every website into reflect / roam research - automatically
+      - microsoft "recall" + context navigation
+        when texting my gf, be romantic and sweet - reassurance, praise
+        when talking to dad,
+        you can teach the AI a "shared model" of reality, use that to create rules and then enforce those while browsing
+
+
+
+      kill apple intelligence + microsoft
+      launch homebrew robotic surgeon that can perform quadruple bypass using household materials
+
+      sqlite-vecyyy
+
+
+
+
+
+
+
+
+
+
+
+
+```
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
+```
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+
+nix-channel --update
+
+nix-shell '<home-manager>' -A install
+
+echo "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh¨ >> ~/.profile
+```
+
+The system config is split up into 3 sections
+
+each module has a flake defining dependencies and workflow scheduling
+The top level flake has a home manager, /etc/nixos/configuration.nix or /etc/nix/
+
+running install.sh will
+
+1. download nix, then download home-manager, then sync secrets
+
+2. then it will install all deps, and the home-manager config needed to create a unified subnet
+
+3. then modules will communicate via grpc
+
+/etc/nix/*.nix
+home manager config
+flake 
+
 1. home-manager config /configuration/home.nix w/ imports ? 
 2. vm - /etc/conf.nix w/ imports? (hardware etc )
 3. info-diet FF extension home page

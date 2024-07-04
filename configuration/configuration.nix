@@ -27,4 +27,10 @@
 
   # Specify your username here
   users.users.yourusername.initialPassword = "yourpassword";
+
+    services.prometheus = {
+    enable = true;
+    port = 9001;
+  };
+
 }

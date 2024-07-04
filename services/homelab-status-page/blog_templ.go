@@ -25,20 +25,20 @@ func headerComponent(body string, title string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><meta charset=\"utf-8\"><meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\"><title>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html class=\"h-full\"><head><meta charset=\"utf-8\"><meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\"><title>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `blog.templ`, Line: 12, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `blog.templ`, Line: 11, Col: 22}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><meta name=\"description\" content=\"\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"><!-- Place favicon.ico in the root directory --><!-- <link rel=\"stylesheet\" href=\"/static/css/tailwind.css\" /> --><link href=\"/static/output.css\" rel=\"stylesheet\"><link href=\"/static/anus.css\" rel=\"stylesheet\"><link href=\"/static/fuck.css\" rel=\"stylesheet\"><script src=\"https://cdn.tailwindcss.com\"></script><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><script src=\"/static/adnan.js\"></script><!-- <meta http-equiv=\"refresh\" content=\".1\" /> --></head><!-- begin body-->")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><meta name=\"description\" content=\"shit\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"apple-touch-icon\" href=\"/static/favicon.ico\"><!-- <link rel=\"stylesheet\" href=\"/static/css/tailwind.css\" /> --><link href=\"/static/output.css\" rel=\"stylesheet\"><link href=\"/static/tailwind.css\" rel=\"stylesheet\"><link href=\"/static/index.css\" rel=\"stylesheet\"><script src=\"https://cdn.tailwindcss.com\"></script><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><script src=\"/static/index.js\"></script><!-- <meta http-equiv=\"refresh\" content=\".1\" /> --></head><!-- begin body-->")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

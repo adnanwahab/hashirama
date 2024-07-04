@@ -4,27 +4,25 @@ package main
 //import "github.com/gosimple/slug"
 
 templ headerComponent(body string, title string) {
-<html class="h-full">
-
+     <html class="h-full">
           <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>{ title }</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="shit" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
+        <link rel="apple-touch-icon" href="/static/favicon.ico" />
 
         <!-- <link rel="stylesheet" href="/static/css/tailwind.css" /> -->
         <link href="/static/output.css" rel="stylesheet">
-        <link href="/static/anus.css" rel="stylesheet">
-        <link href="/static/fuck.css" rel="stylesheet">
+        <link href="/static/tailwind.css" rel="stylesheet">
+        <link href="/static/index.css" rel="stylesheet">
 
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-        <script src="/static/adnan.js"></script>
+        <script src="/static/index.js"></script>
+
         <!-- <meta http-equiv="refresh" content=".1" /> -->
     </head>
 
@@ -33,5 +31,5 @@ templ headerComponent(body string, title string) {
             @templ.Raw(body)
 
         <!-- end body-->
-</html>
+   </html>
 }
