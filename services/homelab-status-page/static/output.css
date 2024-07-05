@@ -782,8 +782,9 @@ select {
   color: inherit;
 }
 
-.footer.open{
-  transform: translate3d(0,-100%,0);
+.footer.open {
+  transform: translate3d(0, -100px, 0);
+  transition-delay: 0s;
 }
 
 
