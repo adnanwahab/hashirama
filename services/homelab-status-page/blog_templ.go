@@ -12,7 +12,7 @@ import "bytes"
 
 // import "path"
 // import "github.com/gosimple/slug"
-func headerComponent(body string, title string) templ.Component {
+func headerComponent(body string, title string, description string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -38,7 +38,7 @@ func headerComponent(body string, title string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><meta name=\"description\" content=\"shit\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"apple-touch-icon\" href=\"/static/favicon.ico\"><!-- <link rel=\"stylesheet\" href=\"/static/css/tailwind.css\" /> --><link href=\"/static/output.css\" rel=\"stylesheet\"><link href=\"/static/tailwind.css\" rel=\"stylesheet\"><link href=\"/static/index.css\" rel=\"stylesheet\"><script src=\"https://cdn.tailwindcss.com\"></script><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><script src=\"/static/index.js\"></script><!-- <meta http-equiv=\"refresh\" content=\".1\" /> --></head><!-- begin body-->")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</title><meta name=\"description\" content=\"shit\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"apple-touch-icon\" href=\"/static/favicon.ico\"><!-- <link rel=\"stylesheet\" href=\"/static/css/tailwind.css\" /> --><link href=\"/static/output.css\" rel=\"stylesheet\"><link href=\"/static/tailwind.css\" rel=\"stylesheet\"><link href=\"/static/index.css\" rel=\"stylesheet\"><script src=\"https://cdn.tailwindcss.com\"></script><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><script src=\"/static/index.js\"></script><!-- <meta http-equiv=\"refresh\" content=\".1\" /> --></head><body><!-- begin body--><!-- begin body<div class=\"top-left slider-controls\"></div>--><div class=\"body\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -46,7 +46,23 @@ func headerComponent(body string, title string) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- end body--></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"footer\"><div class=\"info\"><div class=\"title\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templ.Raw(title).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"description\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templ.Raw(description).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></div><div class=\"menu\"><button class=\"button preve\">prev</button> <button class=\"button home\">Home</button> <button class=\"button next\">next</button></div></div><!-- end body--></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

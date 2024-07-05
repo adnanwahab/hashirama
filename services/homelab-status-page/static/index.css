@@ -888,6 +888,7 @@ select {
 @font-face {
   font-family:__agrandir_24f3dc;
 
+
   font-display:swap;
   font-weight:700;
   font-style:normal
@@ -3066,3 +3067,6 @@ img {
   max-width: 100%;
   display: block;
   }
+
+
+

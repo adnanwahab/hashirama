@@ -1,3 +1,7 @@
+reach a level of skill, that no one you know has remotely close to.
+
+https://www.kaggle.com/
+https://chat.lmsys.org/
 * this repo has 10 tools on different routes
 
 1. /apm.el - emacs mode

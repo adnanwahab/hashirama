@@ -3,7 +3,7 @@ package main
 //import "path"
 //import "github.com/gosimple/slug"
 
-templ headerComponent(body string, title string) {
+templ headerComponent(body string, title string, description string) {
      <html class="h-full">
           <head>
         <meta charset="utf-8">
@@ -22,14 +22,23 @@ templ headerComponent(body string, title string) {
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://unpkg.com/htmx.org@1.9.12"></script>
         <script src="/static/index.js"></script>
-
         <!-- <meta http-equiv="refresh" content=".1" /> -->
     </head>
+        <body><!-- begin body-->
+            <!-- begin body<div class="top-left slider-controls"></div>-->
+            <div class="body">@templ.Raw(body)</div>
 
-        <!-- begin body-->
-
-            @templ.Raw(body)
-
-        <!-- end body-->
+            <div class="footer">
+              <div class="info">
+               <div class="title">@templ.Raw(title)</div>
+               <div class="description">@templ.Raw(description)</div>
+              </div>
+             <div class="menu">
+              <button class="button preve">prev</button>
+              <button class="button home">Home</button>
+              <button class="button next">next</button>
+            </div>
+            </div>
+        <!-- end body--></body>
    </html>
 }
