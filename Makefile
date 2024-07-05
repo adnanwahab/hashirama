@@ -1,26 +1,12 @@
 build-image:
-	nix-build '<nixpkgs/nixos>' -A vm -I nixpkgs=channel:nixos-24.05 -I nixos-config=./configuration.nix
-
+	nix-build '<nixpkgs/nixos>' -A vm -I nixpkgs=channel:nixos-23.11 -I nixos-config=./configuration/configuration.nix 	#nix-build '<nixpkgs/nixos>' -A vm -I nixpkgs=channel:nixos-24.05 -I nixos-config=./configuration.nix
 run-vm:
 	./result/bin/run-nixos-vm
-
 generate-qcow:
 	nixos-generate -f qcow -c ./configuration/configuration.nix -o ./output.qcow2
 
 run-image:
 	QEMU_KERNEL_PARAMS=console=ttyS0 ./result/bin/run-nixos-vm
-
-fuck:
-	nixos-generate -f qcow -c ./configuration.nix
-
-cp-config:
-	cp ./configuration/home.nix ~/.config/home-manager/
-    cp ./configuration.nix /etc/nixos/configuration.nix
-
-
-install:
-	echo "lol fuck"
-
 
 NIXADDR ?= unset
 NIXPORT ?= 22

@@ -1,198 +1,56 @@
+* this repo has 10 tools on different routes
+
+1. /apm.el - emacs mode
+2. /linux-intelligence-firefox-extension
+3. /linux-intelligence
+
+4. /auto-labeling
+5. /cont-eval
+6. /RLHF
+7. /simulation-unreal-pixel-stream
+
+
+8. /agent.playground
+9. /vacation-photo
+10. /robot doctor - paip + https://withregard.com/ + llm + ¿ 
+
+* Backlog
+  — twitch-tools
+ - video-summarizer
+ - auto-anki - srs
+-  observableFramework dashboard - https://observablehq.com/d/76d733babc7278d7#cell-18
+* Design
 This repo downloads nix
 then downloads all the nix packages needed to run hashirama in a nixos VM
-
 It can also deploy a hashirama nixos iso to a nvidia jetson or to a cloud server
-
 It covers self hosted, on prem, cloud, iot and edge installations
-
 To run.. nix build -> output a VM with woking
 
+* deploy targets 
 
-3 toplevel functions
+1. digital-ocean / hertzner
+2. modal-labs / lambdalabs / voltage.park 
+3. on-prem, self-hosted, 
+4. aws, azure, gcp
+5. steam-deck
+6. ios,android web,
+7. mac, windows, wayland
+8. jetson nano, orin, ngx, 4070s, a100
 
-hashirama build
-hashirama deploy <server-url-in-tailscale>
+* 3 toplevel functions
 
+1. hashirama build
+2. hashirama deploy <server-url-in-tailscale>
+3. hashirama vm/
+
+* this repo contains 4 things
+1. my nixos-config as a flake w/ home-manager
+2. my homelab config 
+3. my homebrew robotics config
+4. utils for various consulting projects and startup products
+
+* TODO
 1. move immich + jellyfin into NIXOS
 2. wayland VM BUILD
 3. save state
 4. measure 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-todo
-1. finish landing pages
-2. connect all machines
-3. connect and test all hardware
-4. execute user requests
-
-   lamafile and sqlite-vec
-
-   vision transformations
-   https://github.com/microsoft/LoRA
-
-
-  arc - summarize tab - fast
-      - 
-      - writing help
-      - visualize + audit Rag
-      - continuous Evaluation
-      - autocomplete - prompt engineer - extended memory for gpt etc
-      - https://chat.lmsys.org/
-      - audit your reccomendations and information diet - tune your reccomendations and swap moods from comedy, to politics, to
-      - stumble upon button
-
-
-      3 main features
-
-      - information ingestion for indexing + correlations
-        web browsing at its core is mostly information retrieval
-        turn every website into reflect / roam research - automatically
-      - microsoft "recall" + context navigation
-        when texting my gf, be romantic and sweet - reassurance, praise
-        when talking to dad,
-        you can teach the AI a "shared model" of reality, use that to create rules and then enforce those while browsing
-
-
-
-      kill apple intelligence + microsoft
-      launch homebrew robotic surgeon that can perform quadruple bypass using household materials
-
-      sqlite-vecyyy
-
-
-
-
-
-
-
-
-
-
-
-
-```
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-```
-
-```
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-
-nix-channel --update
-
-nix-shell '<home-manager>' -A install
-
-echo "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh¨ >> ~/.profile
-```
-
-The system config is split up into 3 sections
-
-each module has a flake defining dependencies and workflow scheduling
-The top level flake has a home manager, /etc/nixos/configuration.nix or /etc/nix/
-
-running install.sh will
-
-1. download nix, then download home-manager, then sync secrets
-
-2. then it will install all deps, and the home-manager config needed to create a unified subnet
-
-3. then modules will communicate via grpc
-
-/etc/nix/*.nix
-home manager config
-flake 
-
-1. home-manager config /configuration/home.nix w/ imports ? 
-2. vm - /etc/conf.nix w/ imports? (hardware etc )
-3. info-diet FF extension home page
-4. robot doctor home page (multiplayer)
-   
-hook into l4loopback to generate video programatially lol
-
-nixos = os config layer
-
-nix has 3 steps
-nix pkgmanager with home manager = host
-then make NIXOS VMS or docker images and yay
-so
-
-nix config =
-
-flake of flakes = each module defines its deps 
-vm nixos w/ identical or subset of nix umbrella folder
-share nix vm on all platforms 
-host home manager setup
-https://github.com/Haxxnet/Compose-Examples
-
-diet adherence
-focus training
-kage bunshin
-
-
-python = nn 
-golang == platform 
-nix - (home-manager ~/.config/home, vm-nixos-/etc/nixos/conf.nix, )
-https://nix-community.github.io/home-manager/index.xhtml#sec-install-nixos-module
-
-
-# Hashirama Robotics Consulting Services 
-
-# We specialize in Neural Net Plumbing to discover the true nature of the mind.
-
-deploy targets
-
-x1c, mbp, jetson×3, cloud 
-
-VM with nixos 
-
-
-https://nixos.wiki/wiki/Nix_Cookbook
-https://nixos.wiki/wiki/NixOps/Virtualization
-https://nixos.wiki/wiki/1Password
-https://nixos.wiki/wiki/Hyprlaznd
-https://nixos.wiki/wiki/Grafana
-https://nixos.wiki/wiki/Go
-https://nixos.wiki/wiki/Git
-https://nixos.wiki/wiki/GStreamer
-https://nixos.wiki/wiki/Fzf
-https://nixos.wiki/wiki/Fish
-https://nixos.wiki/wiki/Emacs
-https://nixos.wiki/wiki/Docker
-https://nixos.wiki/wiki/Accelerated_Video_Playback
-https://nixos.wiki/wiki/Android
-https://nixos.wiki/wiki/Appimage
-https://nixos.wiki/wiki/Bootloader
-https://nixos.wiki/wiki/Btrfs
-https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
-https://nixos.wiki/wiki/Continuous_Integration_(CI)
-https://nixos.wiki/wiki/Remote_Desktop
-https://nixos.wiki/wiki/Home_Manager
-https://nixos.wiki/wiki/NixOps
-
-https://emacsdocs.org/docs/elisp/Signals-to-Processes
-https://nixos.wiki/wiki/Syncthing
-
-https://frame.work/products/laptop-diy-13-gen-amd/configuration/new 800

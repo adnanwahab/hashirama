@@ -225,6 +225,16 @@ func go2node () {
 	// https://github.com/zealic/go2node/blob/6eb98c52fa4b9cb7bab0f550db04eebac66ff113/ipc/channel.go#L25
 }
 
+
+
+type Agent struct {
+	Name string `json:"name" form:"name"`
+	Type string `json:"type" form:"type"`
+}
+
+var agents []Agent
+
+
 func reader() {
     pipePath := "/tmp/my_named_pipe"
 
@@ -710,7 +720,7 @@ type YM struct {
 }
 
 func handleConvertVideoToPDF(c echo.Context) error {
-	fmt.Println("error", "my niggar")
+	fmt.Println("error", "reset")
     formData := new(YM)
     if err := c.Bind(formData); err != nil {
 		fmt.Println("error", err)
@@ -723,7 +733,7 @@ func handleConvertVideoToPDF(c echo.Context) error {
     youtubeURL := formData.URL
     //video, stream, format, err := ExampleClient(youtubeURL)
     videoLoc := ExampleClient(youtubeURL)
-fmt.Println("finish DL", youtubeURL)
+	fmt.Println("finish DL", youtubeURL)
     // Set the headers to serve the video directly
     // c.Response().Header().Set("Content-Type", format.MimeType)
     // c.Response().Header().Set("Content-Disposition", fmt.Sprintf("inline; filename=\"%s.mp4\"", video.Title))
@@ -770,6 +780,22 @@ func beep (c echo.Context) error {
 
 }
 
+func handleAgents(c echo.Context) error{
+	
+	return c.JSON(http.StatusOK, agents)
+}
+
+
+func handleAddAgent(c echo.Context) error{
+	agent := new(Agent)
+	if err := c.Bind(agent); err != nil {
+	 return err
+   }
+	
+	agents = append(agents, *agent)
+	return c.JSON(http.StatusCreated, agents)
+}
+
 func main() {
 	 binaryName := os.Args[0]
 
@@ -780,9 +806,22 @@ func main() {
 	if false { tryStream()}
 	e := echo.New()
 	e.POST("/video-to-pdf", handleConvertVideoToPDF)
+	e.GET("/agents", handleAgents)
+	e.POST("/add-agent", handleAddAgent)
 
 
-shit := os.ExpandEnv("$HOME/hashirama/services/homelab-status-page/views/tools/*.html")
+	e.GET("/download_apm.el", func (c echo.Context) error {
+
+		dat, err := os.ReadFile("/home/adnan/.config/Dot-files-main/doom/+apm.el")
+		if err != nil {
+			fmt.Printf("err", err)
+			return err
+		}
+
+		fmt.Printf("downloading apm.el to your ~/.config/doom/autoload/")
+		return c.String(http.StatusOK, string(dat))
+	})
+	shit := os.ExpandEnv("$HOME/hashirama/services/homelab-status-page/views/tools/*.html")
 	allMyRoutes, err := filepath.Glob(shit)
 	fmt.Println("wtfff", allMyRoutes)
 
