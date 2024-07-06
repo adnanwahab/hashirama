@@ -650,6 +650,34 @@ func handleAddAgent(c echo.Context) error{
 	return c.JSON(http.StatusCreated, agents)
 }
 
+func customHTTPErrorHandler(err error, c echo.Context) {
+	code := http.StatusInternalServerError
+	if he, ok := err.(*echo.HTTPError); ok {
+		code = he.Code
+	}
+	if code == http.StatusNotFound {
+		errorPage := `
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>404 - Page Not Found</title>
+		</head>
+		<body>
+			<h1>404 - Page Not Found</h1>
+			<p>The page you are looking for doesn't exist.</p>
+		</body>
+		</html>
+		`
+		if err := c.HTML(http.StatusNotFound, errorPage); err != nil {
+			c.Logger().Error(err)
+		}
+		return
+	}
+	c.Echo().DefaultHTTPErrorHandler(err, c)
+}
+
 func main() {
 	binaryName := os.Args[0]
 
@@ -708,5 +736,7 @@ func main() {
 
 	e.Static("/static", "static")
 	e.Static("/assets", "static")
+
+	e.HTTPErrorHandler = customHTTPErrorHandler
 	e.Logger.Fatal(e.Start("0.0.0.0:1337"))
 }
