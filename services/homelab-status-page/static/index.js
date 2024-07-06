@@ -89,19 +89,15 @@ function isLabelingCode () {
     // ... (remaining event listeners and initializations) ...
 }
 setTimeout(function () {
-  if (window.location.pathname === '/tools/auto-labeling') {
-    console.log('isLabelingCode entrypoint')
-    //isLabelingCode()
-  }
-
-                                    //bottom—left
   let el = document.querySelector('.footer')
-  console.log(el)
   if (! el.textContent.includes('tools/')) {
     el.textContent = ''
-    //if its not a chosen tool, we dont render controls 
+    //if its not a chosen tool, we dont render controls
   }
-
+  if (window.location.pathname !== '/tools/auto-labeling') {
+    return console.log('isLabelingCode entrypoint')
+    //isLabelingCode()
+  }
   el.addEventListener('mouseenter', () => {
     console.log('yay')
     el.classList.add('open')

@@ -78,15 +78,19 @@ tls {
 
 
 hashirama.blog {
-tls {
-dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
-}
+  tls {
+     dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+  }
 
 
-handle {
-reverse_proxy 0.0.0.0:1337
-}
+  handle {
+    reverse_proxy 0.0.0.0:1337
+  }
 
-encode zstd gzip
+  handle_errors {
+    rewrite * /404.html
+    file_server
+  }
 
+  encode zstd gzip
 }
