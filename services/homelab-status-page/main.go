@@ -23,6 +23,7 @@ import (
 	"os/exec"
 	"github.com/ollama/ollama/api"
 	"log"
+	"sync"
 	//1. webrtc
 	//2. mediapipe / tensorflow-go
 	//3. playwright
@@ -650,32 +651,55 @@ func handleAddAgent(c echo.Context) error{
 	return c.JSON(http.StatusCreated, agents)
 }
 
+// func customHTTPErrorHandler(err error, c echo.Context) {
+// 	code := http.StatusInternalServerError
+// 	if he, ok := err.(*echo.HTTPError); ok {
+// 		code = he.Code
+// 	}
+// 	if code == http.StatusNotFound {
+// 		errorPage, err := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/index.html")
+// 		if err = c.HTML(http.StatusNotFound, errorPage); err != nil {
+// 			c.Logger().Error(err)
+// 		}
+// 		return
+// 	}
+// 	c.Echo().DefaultHTTPErrorHandler(err, c)
+//
+var (
+	errorPageContent []byte
+	errorPageOnce    sync.Once
+)
+
+func serveErrorPage(c echo.Context, code int) {
+	errorPageOnce.Do(func() {
+		var err error
+		errorPageContent, err = os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/index.html")
+		if err != nil {
+			c.Logger().Errorf("Failed to read error page: %v", err)
+			errorPageContent = []byte("404 - Page Not Found")
+		}
+	})
+
+	c.HTMLBlob(code, errorPageContent)
+}
+
 func customHTTPErrorHandler(err error, c echo.Context) {
 	code := http.StatusInternalServerError
+	message := "Internal Server Error"
+
 	if he, ok := err.(*echo.HTTPError); ok {
 		code = he.Code
+		message = fmt.Sprintf("%v", he.Message)
 	}
-	if code == http.StatusNotFound {
-		errorPage := `
-		<!DOCTYPE html>
-		<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>404 - Page Not Found</title>
-		</head>
-		<body>
-			<h1>404 - Page Not Found</h1>
-			<p>The page you are looking for doesn't exist.</p>
-		</body>
-		</html>
-		`
-		if err := c.HTML(http.StatusNotFound, errorPage); err != nil {
-			c.Logger().Error(err)
-		}
-		return
+
+	switch code {
+	case http.StatusNotFound:
+		serveErrorPage(c, code)
+	default:
+		c.JSON(code, map[string]string{"error": message})
 	}
-	c.Echo().DefaultHTTPErrorHandler(err, c)
+
+	c.Logger().Error(err)
 }
 
 func main() {
