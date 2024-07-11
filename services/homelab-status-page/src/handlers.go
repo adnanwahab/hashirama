@@ -6,7 +6,6 @@ import (
     "os"
 	"path"
 
-
 	"github.com/a-h/templ"
 
 
@@ -14,8 +13,49 @@ import (
 	"path/filepath"
 
 	"strings"
+	"html/template"
+
+	"net/url"
+	//"hashirama/services/homelab-status-page/views"
     //"github.com/kkdai/youtube/v2"
 )
+
+func renderThemes() string {
+    tmpl := `
+    {{range $index, $theme := .}}
+        <h3 class="text-xl font-semibold mt-6 mb-3 text-indigo-700">{{.Name}}</h3>
+        <ul class="space-y-2">
+            {{range $toolIndex, $tool := .Tools}}
+                <li>
+                    <a href="/tools/{{$tool}}" class="pl-16 hover:text-indigo-500 transition-colors">
+                        {{add $toolIndex 1}}. {{$tool}}
+                    </a>
+                </li>
+            {{end}}
+        </ul>
+    {{end}}
+    `
+
+    funcMap := template.FuncMap{
+        "add": func(a, b int) int {
+            return a + b
+        },
+    }
+
+    t, err := template.New("themes").Funcs(funcMap).Parse(tmpl)
+    if err != nil {
+        return err.Error()
+    }
+
+    var result strings.Builder
+    err = t.Execute(&result, themes)
+    if err != nil {
+        return err.Error()
+    }
+
+    return result.String()
+}
+
 
 func setupRoutes(e *echo.Echo) {
 	fmt.Printf("wtf setup routes\n")
@@ -35,7 +75,7 @@ func setupRoutes(e *echo.Echo) {
 
 
 
-	
+
 }
 
 func handleConvertVideoToPDF(c echo.Context) error {
@@ -64,7 +104,7 @@ func handleDownloadApmEl(c echo.Context) error {
 	//
 	// wget  /home/adnan/.config/Dot-files-main/doom/+apm.el
 	// mv apm.el ~/.config/doom/???
-	// exactly - universal constructor 
+	// exactly - universal constructor
     if err != nil {
         return err
     }
@@ -104,7 +144,7 @@ func renderTemplate(templateName string) echo.HandlerFunc {
 		defer templ.ReleaseBuffer(buf)
 
 
-		parsedURL, err := url.parse(templateName)
+		parsedURL, err := url.Parse(templateName)
 
 		if err != nil {
 			fmt.Println("Error parsing Url: ", err )
@@ -114,20 +154,18 @@ func renderTemplate(templateName string) echo.HandlerFunc {
 		baseOfTemplate := path.Base(parsedURL.Path)
 
 
-		t := views.headerComponent(string(b), baseOfTemplate, "Description text")
+		t := headerComponent(string(b), baseOfTemplate, "Description text")
 
 		if err = t.Render(c.Request().Context(), buf); err != nil {
 			fmt.Println("Error rendering template ", err)
 			return err
 		}
-		
+
 		return c.HTML(http.StatusOK, buf.String())
     }
 }
-func trimMyDick(filePath string) string {
-	baseName := filepath.Base(filePath)
-    fileName := strings.TrimSuffix(baseName, filepath.Ext(baseName))
-	return fileName
+func trimFilename(filePath string) string {
+	return strings.TrimSuffix(filepath.Base(filePath), filepath.Ext(filePath))
 }
 
 
@@ -140,7 +178,7 @@ func this_is_shit(e *echo.Echo, baseDirectory string, prefix string ) {
 	for i := 0; i < len(allMyRoutes); i++ {
 		filePath := string(allMyRoutes[i])
 		if filePath == "/" {continue}
-		trimmed := prefix + trimMyDick(filePath)
+		trimmed := prefix + trimFilename(filePath)
 		fmt.Println("adding route for", trimmed)
 		e.GET(trimmed, renderTemplate(trimmed))
     }

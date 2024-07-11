@@ -1,36 +1,8 @@
-module example.com/gomod2nix-template
+module adnanwahab.com/hashirama
 
 go 1.22.0
 
 toolchain go1.22.3
-
-/// github.com/charmbracelet/bubbletea - use this for CLI
-/// // github.com/gocolly/colly - scraping
-/// // github.com/kovidgoyal/kitty - terminal
-
-// github.com/iawia002/lux video down load
-// // github.com/qax-os/excelize
-// github.com/etcd-io/etcd  - kv store
-
-// github.com/minio/minio - s3 ojbect store
-// github.com/rclone/rclone - s3 object store - gdrive, dropbox, backblaze b2, s3, wasabi
-// github.com/spf13/cobra - 36k stars
-// github.com/yudai/gotty  - use for rtorrent
-
-// github.com/fogleman/primitive - draws shit
-//
-
-// github.com/bluenviron/mediamtx
-
-// github.com/go-task/task
-
-// github.com/golang/protobuf
-// github.com/wader/fq
-// github.com/go-vgo/robotgo
-// github.com/hybridgroup/gobot
-// github.com/gcla/termshark
-// github.com/flannel-io/flannel
-// github.com/joho/godotenv
 
 require (
 	github.com/a-h/templ v0.2.707
