@@ -89,15 +89,24 @@ function isLabelingCode () {
     // ... (remaining event listeners and initializations) ...
 }
 setTimeout(function () {
+    return
+    console.log('binding footer')
   let el = document.querySelector('.footer')
-  if (! el.textContent.includes('tools/')) {
-    el.textContent = ''
-    //if its not a chosen tool, we dont render controls
-  }
-  if (window.location.pathname !== '/tools/auto-labeling') {
-    return console.log('isLabelingCode entrypoint')
-    //isLabelingCode()
-  }
+    console.log(el)
+  // if (! el.textContent.includes('tools/')) {
+  //   el.textContent = ''
+  //   //if its not a chosen tool, we dont render controls
+  // }
+  // if (window.location.pathname !== '/tools/auto-labeling') {
+  //   return console.log('isLabelingCode entrypoint')
+  //   //isLabelingCode()
+  // }
+    //
+    /
+    el.addEventListener('mousemoce', () => {
+    console.log('yay')
+    el.classList.add('open')
+  })
   el.addEventListener('mouseenter', () => {
     console.log('yay')
     el.classList.add('open')

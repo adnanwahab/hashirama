@@ -423,4 +423,6 @@ google-services.json
 # Android Profiling
 *.hprof
 
+
 **/.vagrant/
+*.zip

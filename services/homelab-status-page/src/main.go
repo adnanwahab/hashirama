@@ -18,8 +18,8 @@ func main() {
     setupRoutes(e)
 
     // Setup static files
-    e.Static("/static", "../static")
-    e.Static("/assets", "../static")
+    e.Static("/static", "static")
+    e.Static("/assets", "static")
 
     // Setup error handler
     e.HTTPErrorHandler = customHTTPErrorHandler

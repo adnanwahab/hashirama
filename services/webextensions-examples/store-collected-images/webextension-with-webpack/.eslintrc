@@ -1,6 +1,0 @@
-{
-  "parser": "@babel/eslint-parser",
-  "env": {
-    "commonjs": true
-  }
-}

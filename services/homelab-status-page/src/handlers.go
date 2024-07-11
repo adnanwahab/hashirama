@@ -57,6 +57,24 @@ func renderThemes() string {
 }
 
 
+func download_kyubii(c echo.Context) error {
+
+	// firefox-ext
+	// web-ext reload??
+	// firefox - send command 
+	// dat, err := os.ReadFile("/home/adnan/hashirama/services/firefox-ext/web-ext-artifacts/kyubii-1.0.zip")
+	// if err != nil {
+	// 	fmt.Println("wtf man", err)
+	// 	return ""
+	// }
+	//
+	fmt.Printf("DOWNLOAD KYUBI\n")
+	 c.File("/home/adnan/hashirama/services/firefox-ext/web-ext-artifacts/kyubii-1.0.zip")
+	return nil
+	//c.Binary(http.StatusOK, dat)
+}
+
+
 func setupRoutes(e *echo.Echo) {
 	fmt.Printf("wtf setup routes\n")
 
@@ -71,6 +89,8 @@ func setupRoutes(e *echo.Echo) {
     e.GET("/form", renderTemplate("form"))
     e.GET("/", renderTemplate("index"))
     e.GET("/api/themes", handleThemes)
+
+	e.GET("/api/download_kyubii", download_kyubii)
     e.POST("/beep", beep)
 
 
@@ -152,9 +172,8 @@ func renderTemplate(templateName string) echo.HandlerFunc {
 		}
 
 		baseOfTemplate := path.Base(parsedURL.Path)
-
-
-		t := headerComponent(string(b), baseOfTemplate, "Description text")
+		description := "Generative, autonomous creatures inhabit a viscous liquid. Their survival depends on their ability to move, which is determined by their DNA as they evolve through the generations. Locomotion is determined by interactions between body segments."
+		t := headerComponent(string(b), baseOfTemplate, description)
 
 		if err = t.Render(c.Request().Context(), buf); err != nil {
 			fmt.Println("Error rendering template ", err)

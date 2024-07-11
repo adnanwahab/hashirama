@@ -753,13 +753,17 @@ select {
 /* rename to viewport ?  */
 .body {
   /* background: #16191b; */
-  position: absolute;
-  bottom: 50px;
-  right: 0;
-  left: 0;
-  top: 0;
+  /* position: absolute; */
+  /* bottom: 50px; */
+  /* right: 0; */
+  /* left: 0; */
+  /* top: 0; */
 }
 
+
+.footer {
+display: none !important;
+}
 
 .footer{
   position: absolute;
@@ -768,7 +772,7 @@ select {
   height: 50px;
   padding: 0 16px;
 
-  transform: translate3d(0, -50px, 0);
+  /* transform: translate3d(0, -50px, 0); */
   transition-delay: .2s;
   width: 100%;
   background: #16191b;
@@ -777,23 +781,28 @@ select {
   transition: transform .3s cubic-bezier(.23, 1, .32, 1);
   color: #e2e6e8;
 }
+
 .footer * {
   background: inherit;
   color: inherit;
 }
 
+.footer.show {
+  transform: translate3d(0, -50px, 0);
+  transition-delay: .2;
+  background: #16191b;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+}
+
+
 .footer.open {
-  transform: translate3d(0, -100px, 0);
+  /* transform: translate3d(0, -100px, 0); */
   transition-delay: 0s;
 }
 
 
-.footer .info {
-  padding: 0 16px 20px;
-  —webkit-box-flex: 1;
-  flex: 1 1 auto;
-  margin: 0;
-}
 
 
 .footer .info .title {
@@ -803,9 +812,77 @@ select {
 }
 
 
-.footer .info .description {
-  line-height: 1.75;
-  max-width: 720px;
-  font-size: 11px;
-  display: block;
+/* .footer .info .description { */
+/*   line-height: 1.75; */
+/*   max-width: 720px; */
+/*   font-size: 11px; */
+/*   display: block; */
+/* } jq */
+
+.footer .info {
+  padding: 0 16px 20px;
+  —webkit-box-flex: 1;
+  
+  flex: 1 1 auto;
+  margin: 0;
+}
+
+.menu {
+align-items: center;
+/* transform:translate3d(0,—100%,0); */
+display: flex;
+}
+
+.toggle {
+  pointer-events: auto;
+  -webkit-transform: none;
+  transform: none;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+
+  align-items: center;
+  position: absolute;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  height: 50px;
+  right: 0;
+  top: 0;
+  transition: all .3s cubic-bezier(.86,0,.07,1) .2s;
+  -webkit-box-align: center;
+}
+
+.icon {
+height: 16px;
+  width: 24px;
+  fill: #e2e6e8;
+}
+
+
+.menu .button {
+cursor: pointer;
+  font-size: 0;
+  sizing: box-sizing;
+    padding: 0 20px;
+  height: 100%;
+    font-family: Roboto Mono,monospace;
+  background: none;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+
+.home {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+  line-height: 14px;
+  font-size: 12px;
+  padding: 0 8px;
+  margin: 0 1px;
+  color: #e2e6e8;
 }

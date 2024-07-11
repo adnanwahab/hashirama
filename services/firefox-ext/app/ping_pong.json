@@ -1,0 +1,7 @@
+{
+  "name": "ping_pong",
+  "description": "Example host for native messaging",
+  "path": "/home/adnan/hashirama/services/firefox-ext/app/nm_nodejs.mjs",
+  "type": "stdio",
+  "allowed_extensions": [ "ping_pong@example.org" ]
+}

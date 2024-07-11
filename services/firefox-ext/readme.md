@@ -2,6 +2,9 @@
 
 https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/
 
+
+
 npm install --global web-ext
-web-ext run
+web-ext build --source-dir add-on/
+
 

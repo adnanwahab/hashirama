@@ -1,0 +1,38 @@
+{"description": "Local-First AI for writing, productivity, and natural language customization of firefox and the web!",
+  "manifest_version": 2,
+ "name": "Kyubii",
+  "version": "0.1.3",
+
+  "icons": {
+    "48": "icons/border-48.svg"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ping_pong@example.org",
+      "strict_min_version": "50.0"
+    }
+  },
+
+  "browser_action": {
+    "default_icon": "icons/message.svg"
+  },
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>",
+    "nativeMessaging"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+    
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+
+}

@@ -1,7 +1,0 @@
-{
-  "name": "ping_pong",
-  "description": "Example host for native messaging",
-  "path": "/Users/shelbernstein/hashirama/services/homelab-status-page/webextensions-examples/native-messaging/app/ping_pong.py",
-  "type": "stdio",
-  "allowed_extensions": [ "ping_pong@example.org" ]
-}
