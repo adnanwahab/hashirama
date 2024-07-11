@@ -4,24 +4,13 @@ github.com/a-h/templ
 github.com/a-h/templ/safehtml
 # github.com/bitly/go-simplejson v0.5.1
 ## explicit; go 1.17
-github.com/bitly/go-simplejson
 # github.com/deckarep/golang-set/v2 v2.6.0
 ## explicit; go 1.18
 github.com/deckarep/golang-set/v2
 # github.com/dlclark/regexp2 v1.11.0
 ## explicit; go 1.13
-github.com/dlclark/regexp2
-github.com/dlclark/regexp2/syntax
 # github.com/dop251/goja v0.0.0-20240220182346-e401ed450204
 ## explicit; go 1.16
-github.com/dop251/goja
-github.com/dop251/goja/ast
-github.com/dop251/goja/file
-github.com/dop251/goja/ftoa
-github.com/dop251/goja/ftoa/internal/fast
-github.com/dop251/goja/parser
-github.com/dop251/goja/token
-github.com/dop251/goja/unistring
 # github.com/flosch/pongo2/v6 v6.0.0
 ## explicit; go 1.18
 # github.com/go-jose/go-jose/v3 v3.0.3
@@ -29,8 +18,6 @@ github.com/dop251/goja/unistring
 github.com/go-jose/go-jose/v3/json
 # github.com/go-sourcemap/sourcemap v2.1.3+incompatible
 ## explicit
-github.com/go-sourcemap/sourcemap
-github.com/go-sourcemap/sourcemap/internal/base64vlq
 # github.com/go-stack/stack v1.8.1
 ## explicit; go 1.17
 github.com/go-stack/stack
@@ -39,10 +26,14 @@ github.com/go-stack/stack
 github.com/golang/mock/gomock
 # github.com/google/pprof v0.0.0-20240227163752-401108e1b7e7
 ## explicit; go 1.19
-github.com/google/pprof/profile
+# github.com/gosimple/slug v1.14.0
+## explicit; go 1.11
+github.com/gosimple/slug
+# github.com/gosimple/unidecode v1.0.1
+## explicit; go 1.16
+github.com/gosimple/unidecode
 # github.com/kkdai/youtube/v2 v2.10.1
 ## explicit; go 1.21
-github.com/kkdai/youtube/v2
 # github.com/labstack/echo/v4 v4.12.0
 ## explicit; go 1.18
 github.com/labstack/echo/v4
@@ -58,9 +49,6 @@ github.com/mattn/go-colorable
 github.com/mattn/go-isatty
 # github.com/ollama/ollama v0.1.42
 ## explicit; go 1.22.0
-github.com/ollama/ollama/api
-github.com/ollama/ollama/format
-github.com/ollama/ollama/version
 # github.com/pkg/errors v0.9.1
 ## explicit
 github.com/pkg/errors
@@ -139,22 +127,12 @@ golang.org/x/net/http2
 golang.org/x/net/http2/h2c
 golang.org/x/net/http2/hpack
 golang.org/x/net/idna
-golang.org/x/net/websocket
 # golang.org/x/sys v0.21.0
 ## explicit; go 1.18
 golang.org/x/sys/unix
 # golang.org/x/text v0.16.0
 ## explicit; go 1.18
-golang.org/x/text/cases
-golang.org/x/text/collate
-golang.org/x/text/internal
-golang.org/x/text/internal/colltab
-golang.org/x/text/internal/language
-golang.org/x/text/internal/language/compact
-golang.org/x/text/internal/tag
-golang.org/x/text/language
 golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
-golang.org/x/text/unicode/rangetable

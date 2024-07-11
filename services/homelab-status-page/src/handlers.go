@@ -103,11 +103,24 @@ func renderTemplate(templateName string) echo.HandlerFunc {
 		buf := templ.GetBuffer()
 		defer templ.ReleaseBuffer(buf)
 
-		t := headerComponent(string(b), templateName, "is gay")
 
-		if err := t.Render(c.Request().Context(), buf); err != nil {
+		parsedURL, err := url.parse(templateName)
+
+		if err != nil {
+			fmt.Println("Error parsing Url: ", err )
+				return err
+		}
+
+		baseOfTemplate := path.Base(parsedURL.Path)
+
+
+		t := views.headerComponent(string(b), baseOfTemplate, "Description text")
+
+		if err = t.Render(c.Request().Context(), buf); err != nil {
+			fmt.Println("Error rendering template ", err)
 			return err
 		}
+		
 		return c.HTML(http.StatusOK, buf.String())
     }
 }
@@ -128,7 +141,7 @@ func this_is_shit(e *echo.Echo, baseDirectory string, prefix string ) {
 		filePath := string(allMyRoutes[i])
 		if filePath == "/" {continue}
 		trimmed := prefix + trimMyDick(filePath)
-		//fmt.Println("adding route for", filepath.Base(trimmed))
+		fmt.Println("adding route for", trimmed)
 		e.GET(trimmed, renderTemplate(trimmed))
     }
 }
