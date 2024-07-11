@@ -44,4 +44,14 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   system.stateVersion = "23.11";
+
+
+
+programs._1password = { enable = true; };
+
+# Enables the 1Password desktop app
+programs._1password-gui = {
+enable = true;
+# this makes system auth etc. work properly
+  polkitPolicyOwners = [ "adnan" ];
 }
