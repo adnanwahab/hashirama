@@ -1,0 +1,38 @@
+items:
+  - name: "Awesome app"
+    logo: "assets/tools/sample.png"
+    # Alternatively a fa icon can be provided:
+    # icon: "fab fa-jenkins"
+    subtitle: "Bookmark example"
+    tag: "app"
+    keywords: "self hosted reddit" # optional keyword used for searching purpose
+    url: "https://www.reddit.com/r/selfhosted/"
+    target: "_blank"
+    # optional html tag target attribute
+  - name: "Another one"
+    logo: "assets/tools/sample2.png"
+    subtitle: "Another application"
+    tag: "app"
+    # Optional tagstyle
+    tagstyle: "is-success"
+    url: "#"
+  - name: "Other group"
+    icon: "fas fa-heartbeat"
+  - name: "Pi-hole"
+    logo: "assets/tools/sample.png"
+    # subtitle: "Network-wide Ad Blocking" # optional, if no subtitle is defined, PiHole statistics will be shown
+    tag: "other"
+    url: "http://192.168.0.151/admin"
+    type: "PiHole" # optional, loads a specific component that provides extra features. MUST MATCH a file name (without file extension) available in `src/components/services`
+    target: "_blank" # optional html a tag target attribute
+    # class: "green" # optional custom CSS class for card, useful with custom stylesheet
+       # background: red # optional color for card to set color directly without custom stylesheet
+https://www.reddit.com/r/selfhosted/comments/1d917j8/the_most_under_rated_project_localsend/
+https://www.reddit.com/r/startpages/comments/v8o7vm/outgrew_chromes_newtab_and_installed_flame/
+https://localsend.org/download
+https://changelog.cursor.sh/
+header: true # Set to false to hide the header
+# Optional: Different hotkey for search, defaults to "/"
+# hotkey:
+#   search: "Shift"
+footer: '<p>Created with <span class="has-text-danger">❤️</span> with <a href="https://bulma.io/">bulma</a>, <a href="https://vuejs.org/">vuejs</a> & <a href="https://fontawesome.com/">font awesome</a> // Fork me on <a href="https://github.com/bastienwirtz/homer"><i class="fab fa-github-alt"></i></a></p>' # set false if you want to hide it.
