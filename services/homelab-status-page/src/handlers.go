@@ -54,7 +54,7 @@ func renderChat() string{
 	yesterday := []string{
   "Set Up Desktop Remotely",
   "New chat",
-  "Texas road network access",
+  "Travel to Bali",
   "Firefox Extension Name: \"ArcAI Edge\"",
   "Remote GPU Docker Setup",
   "petabyte to Terabyte Conversion",
@@ -93,7 +93,7 @@ func renderChat() string{
 			} else {
 				chatInstance.avatar_url = &avatars["404"][0]
 			}
-			fmt.Print("rendering history for ", v, "\n")
+			fmt.Print("rendering history for ", v)
 			data.ChatHistory[name] = append(data.ChatHistory[name], chatInstance)	
 		} 
 	}
@@ -119,10 +119,34 @@ func renderChat() string{
     return result.String()
 }
 
+
+func renderContainer() string{
+
+	tmpl, shit := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/container.html")
+	if shit != nil {
+        return shit.Error()
+    }
+
+	t, err := template.New("chat").Parse(string(tmpl))
+    if err != nil {
+        return err.Error()
+    }
+
+	fake_data := []string{"Pinned", "Today", "Yesterday"}
+	
+    var result strings.Builder
+    err = t.Execute(&result, fake_data)
+    if err != nil {
+        return err.Error()
+    }
+
+    return result.String()
+}
+
 func renderThemes() string {
     tmpl := `
     {{range $index, $theme := .}}
-     <div class="bg-white rounded-lg shadow-md p-6">
+     <div class="rounded-lg shadow-md p-6">
         <h3 class="text-2xl font-semibold mb-4 text-indigo-700">{{.Name}}</h3>
         <ul class="space-y-2">
             {{range $toolIndex, $tool := .Tools}}
@@ -194,6 +218,8 @@ func setupRoutes(e *echo.Echo) {
 
     e.GET("/api/themes", handleThemes)
 	e.GET("/api/chat", handleChat)
+
+	e.GET("/api/container", func (c echo.Context) error { return c.HTML(http.StatusOK, renderContainer()) } )
 	
 
 	e.GET("/api/download_kyubii", download_kyubii)
