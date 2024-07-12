@@ -1,0 +1,127 @@
+<div class="flex-shrink-0 overflow-x-hidden bg-token-sidebar-surface-primary" style="width: 260px; visibility: visible;" id="sidebar">
+    <div class="h-full w-[260px]">
+        <div class="flex h-full min-h-0 flex-col">
+            <div class="flex h-full min-h-0 flex-col">
+                <div class="relative h-full w-full flex-1 items-start border-white/20">
+                    <h2 class="sr-only">Chat history</h2>
+                    <nav class="flex h-full w-full flex-col px-3 pb-3.5" aria-label="Chat history">
+                        <div class="flex justify-between flex h-14 items-center">
+                            {{template "nav-buttons"}}
+                        </div>
+                        <div class="flex-col flex-1 transition-opacity duration-500 -mr-2 pr-2 overflow-y-auto">
+                            {{template "chat-history-section" .}}
+                        </div>
+                        <div class="flex flex-col pt-2 empty:hidden dark:border-white/20">
+                            <!-- {{template "add-team-workspace"}} -->
+                            {{template "profile-section" .}}
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{define "cube"}}
+<div>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="h-2/3 w-2/3 text-gray-400"><path fill="currentColor" fill-rule="evenodd" d="M12.5 3.444a1 1 0 0 0-1 0l-6.253 3.61 6.768 3.807 6.955-3.682zm7.16 5.632L13 12.602v7.666l6.16-3.556a1 1 0 0 0 .5-.867zM11 20.268v-7.683L4.34 8.839v7.006a1 1 0 0 0 .5.867zm-.5-18.557a3 3 0 0 1 3 0l6.66 3.846a3 3 0 0 1 1.5 2.598v7.69a3 3 0 0 1-1.5 2.598L13.5 22.29a3 3 0 0 1-3 0l-6.66-3.846a3 3 0 0 1-1.5-2.598v-7.69a3 3 0 0 1 1.5-2.598z" clip-rule="evenodd"></path></svg>
+</div>
+{{end}}
+
+{{define "chat-history-section"}}
+<div class="pb-0.5 last:pb-0 jice:pb-0">  <!--b-0.5 last:pb-0 -- -->
+    {{range $category, $chats := .ChatHistory}}
+    <div class="relative mt-5 empty:mt-0 empty:hidden juice:first:mt-0 juice:last:mb-5">
+        <!-- <div class="juice:sticky juice:top-0 juice:z-20 juice:bg-token-sidebar-surface-primary">
+             <span class="flex h-9 items-center">
+             <h3 class="pb-2 pt-3 px-2 text-xs font-semibold text-ellipsis overflow-hidden break-all text-token-text-secondary">
+             {{$category}}
+             </h3>
+             </span>
+             </div> -->
+        {{range $chats}}
+        <a class="group flex h-10 items-center gap-2 rounded-lg bg-token-sidebar-surface-primary px-2 font-semibold juice:gap-2.5 juice:font-normal hover:bg-token-sidebar-surface-secondary" href="/g/g-EH93Nn6xz-neural-network-plumber">
+            <!-- avatar img  -->
+            <div class="h-6 w-6 flex-shrink-0">
+                <div class="gizmo-shadow-stroke overflow-hidden rounded-full">
+
+                    {{template "cube" .}}
+
+
+
+                </div>
+            </div>
+            <div class="grow overflow-hidden text-ellipsis whitespace-nowrap text-sm text-token-text-primary">{{.Title}}</div>
+        </a>
+        {{end}}
+    </div>
+    {{end}}
+</div>
+    {{end}}
+
+
+{{define "nav-buttons"}}
+<span class="flex" data-state="closed">
+    <button
+        id="hide-sidebar"
+        class="h-10 rounded-lg px-2 text-token-text-secondary focus-visible:outline-0 hover:bg-token-sidebar-surface-secondary focus-visible:bg-token-sidebar-surface-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-xl-heavy">
+            <path fill="currentColor" fill-rule="evenodd" d="M8.857 3h6.286c1.084 0 1.958 0 2.666.058.729.06 1.369.185 1.961.487a5 5 0 0 1 2.185 2.185c.302.592.428 1.233.487 1.961.058.708.058 1.582.058 2.666v3.286c0 1.084 0 1.958-.058 2.666-.06.729-.185 1.369-.487 1.961a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C17.1 21 16.227 21 15.143 21H8.857c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.232-.487-1.961C1.5 15.6 1.5 14.727 1.5 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.728.185-1.369.487-1.96A5 5 0 0 1 4.23 3.544c.592-.302 1.233-.428 1.961-.487C6.9 3 7.773 3 8.857 3M6.354 5.051c-.605.05-.953.142-1.216.276a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216-.05.617-.051 1.41-.051 2.546v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h.6V5h-.6c-1.137 0-1.929 0-2.546.051M11.5 5v14h3.6c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.134-.263.226-.611.276-1.216.05-.617.051-1.41.051-2.546v-3.2c0-1.137 0-1.929-.051-2.546-.05-.605-.142-.953-.276-1.216a3 3 0 0 0-1.311-1.311c-.263-.134-.611-.226-1.216-.276C17.029 5.001 16.236 5 15.1 5zM5 8.5a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1M5 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1" clip-rule="evenodd">
+            </path>
+        </svg>
+    </button>
+</span>
+<span class="flex" data-state="closed">
+    <button class="h-10 rounded-lg px-2 text-token-text-secondary focus-visible:outline-0 hover:bg-token-sidebar-surface-secondary focus-visible:bg-token-sidebar-surface-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" class="icon-xl-heavy">
+            <path d="M15.673 3.913a3.121 3.121 0 1 1 4.414 4.414l-5.937 5.937a5 5 0 0 1-2.828 1.415l-2.18.31a1 1 0 0 1-1.132-1.13l.311-2.18A5 5 0 0 1 9.736 9.85zm3 1.414a1.12 1.12 0 0 0-1.586 0l-5.937 5.937a3 3 0 0 0-.849 1.697l-.123.86.86-.122a3 3 0 0 0 1.698-.849l5.937-5.937a1.12 1.12 0 0 0 0-1.586M11 4A1 1 0 0 1 10 5c-.998 0-1.702.008-2.253.06-.54.052-.862.141-1.109.267a3 3 0 0 0-1.311 1.311c-.134.263-.226.611-.276 1.216C5.001 8.471 5 9.264 5 10.4v3.2c0 1.137 0 1.929.051 2.546.05.605.142.953.276 1.216a3 3 0 0 0 1.311 1.311c.263.134.611.226 1.216.276.617.05 1.41.051 2.546.051h3.2c1.137 0 1.929 0 2.546-.051.605-.05.953-.142 1.216-.276a3 3 0 0 0 1.311-1.311c.126-.247.215-.569.266-1.108.053-.552.06-1.256.06-2.255a1 1 0 1 1 2 .002c0 .978-.006 1.78-.069 2.442-.064.673-.192 1.27-.475 1.827a5 5 0 0 1-2.185 2.185c-.592.302-1.232.428-1.961.487C15.6 21 14.727 21 13.643 21h-3.286c-1.084 0-1.958 0-2.666-.058-.728-.06-1.369-.185-1.96-.487a5 5 0 0 1-2.186-2.185c-.302-.592-.428-1.233-.487-1.961C3 15.6 3 14.727 3 13.643v-3.286c0-1.084 0-1.958.058-2.666.06-.729.185-1.369.487-1.961A5 5 0 0 1 5.73 3.545c.556-.284 1.154-.411 1.827-.475C8.22 3.007 9.021 3 10 3A1 1 0 0 1 11 4">
+            </path>
+        </svg>
+    </button>
+</span>
+{{end}}
+
+
+{{define "add-team-workspace"}}
+<a class="group flex gap-2 p-2.5 text-sm cursor-pointer focus:ring-0 radix-disabled:pointer-events-none radix-disabled:opacity-50 group items-center hover:bg-token-sidebar-surface-secondary m-0 rounded-lg px-2">
+    <span class="flex w-full flex-row flex-wrap-reverse justify-between">
+        <div class="flex items-center gap-2">
+            <span class="flex h-7 w-7 items-center justify-center rounded-full border border-token-border-light">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-sm shrink-0">
+                    <path fill="currentColor" d="M6.394 4.444c.188-.592 1.024-.592 1.212 0C8.4 8.9 9.1 9.6 13.556 10.394c.592.188.592 1.024 0 1.212C9.1 12.4 8.4 13.1 7.606 17.556c-.188.592-1.024.592-1.212 0C5.6 13.1 4.9 12.4.444 11.606c-.592-.188-.592-1.024 0-1.212C4.9 9.6 5.6 8.9 6.394 4.444m8.716 9.841a.41.41 0 0 1 .78 0c.51 2.865.96 3.315 3.825 3.826.38.12.38.658 0 .778-2.865.511-3.315.961-3.826 3.826a.408.408 0 0 1-.778 0c-.511-2.865-.961-3.315-3.826-3.826a.408.408 0 0 1 0-.778c2.865-.511 3.315-.961 3.826-3.826Zm2.457-12.968a.454.454 0 0 1 .866 0C19 4.5 19.5 5 22.683 5.567a.454.454 0 0 1 0 .866C19.5 7 19 7.5 18.433 10.683a.454.454 0 0 1-.866 0C17 7.5 16.5 7 13.317 6.433a.454.454 0 0 1 0-.866C16.5 5 17 4.5 17.567 1.317">
+                    </path>
+                </svg>
+            </span>
+            <div class="flex flex-col">
+                <span>Add Team workspace</span>
+                <span class="line-clamp-1 text-xs text-token-text-tertiary">Collaborate on a Team plan</span>
+            </div>
+        </div>
+    </span>
+</a>
+{{end}}
+
+{{define "profile-section"}}
+<div class="flex w-full items-center md:hidden">
+    <div class="max-w-[100%] grow">
+        <div class="group relative" data-headlessui-state="">
+            <button data-testid="profile-button" class="flex w-full max-w-[100%] items-center gap-2 rounded-lg p-2 text-sm hover:bg-token-sidebar-surface-secondary group-ui-open:bg-token-sidebar-surface-secondary" id="headlessui-menu-button-:r9:" type="button" aria-haspopup="true" aria-expanded="false" data-headlessui-state="">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center overflow-hidden rounded-full">
+                        <div class="relative flex">
+                            <img alt="User" referrerpolicy="no-referrer" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" class="rounded-sm" style="color: transparent;" src="{{.UserProfileImage}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="relative -top-px grow -space-y-px truncate text-start text-token-text-primary">
+                    <div dir="auto">{{.UserName}}</div>
+                </div>
+            </button>
+        </div>
+    </div>
+</div>
+{{end}}
+
+
+
+
+
