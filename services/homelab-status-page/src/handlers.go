@@ -23,16 +23,19 @@ import (
 func renderThemes() string {
     tmpl := `
     {{range $index, $theme := .}}
-        <h3 class="text-xl font-semibold mt-6 mb-3 text-indigo-700">{{.Name}}</h3>
+     <div class="bg-white rounded-lg shadow-md p-6">
+        <h3 class="text-2xl font-semibold mb-4 text-indigo-700">{{.Name}}</h3>
         <ul class="space-y-2">
             {{range $toolIndex, $tool := .Tools}}
-                <li>
-                    <a href="/tools/{{$tool}}" class="pl-16 hover:text-indigo-500 transition-colors">
-                        {{add $toolIndex 1}}. {{$tool}}
-                    </a>
+                <li hx-get="/tools/{{$tool}}" hx-target="#my-ass"   class="cursor-pointer hover:bg-indigo-50 p-2 rounded transition-colors">
+                    <div href="#tools/{{$tool}}" class="pl-16 hover:text-indigo-500 transition-colors">
+                        
+                    <span class="hover:text-indigo-500">{{add $toolIndex 1}}. {{$tool}}</span>
+                    </div>
                 </li>
             {{end}}
         </ul>
+    </div>
     {{end}}
     `
 

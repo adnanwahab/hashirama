@@ -14,7 +14,7 @@ var agents []Agent
 
 var themes = []Theme{
     {
-        Name:  "On Device / On Prem AI / consumer creative AI",
+        Name:  "Creative AI",
         Tools: []string{"linux-intelligence", "apm.el", "kyubii"},
     },
     {
