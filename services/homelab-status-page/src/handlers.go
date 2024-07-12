@@ -18,7 +18,100 @@ import (
 	"net/url"
 	//"hashirama/services/homelab-status-page/views"
     //"github.com/kkdai/youtube/v2"
+    "log"
+	"github.com/gorilla/websocket"
+	///"github.com/pion/webrtc/v3"
 )
+
+// func handle_webrtc() {
+// 	// Initialize ZED camera
+// 	camera, err := zed.Create(zed.ID_ZED2i)
+// 	if err != nil {
+// 		log.Fatal("Failed to create ZED camera:", err)
+// 	}
+// 	defer camera.Close()
+
+	// Set ZED camera parameters
+	// params := zed.NewInitParameters()
+// 	params.SetDepthMode(zed.DEPTH_MODE_NONE)
+// 	params.SetCoordinateUnits(zed.UNIT_MILLIMETER)
+// 	params.SetCoordinateSystem(zed.COORDINATE_SYSTEM_IMAGE)
+
+// 	// Open the camera
+// 	err = camera.Open(params)
+// 	if err != nil {
+// 		log.Fatal("Failed to open ZED camera:", err)
+// 	}
+
+// 	// Configure WebRTC
+// 	config := webrtc.Configuration{
+// 		ICEServers: []webrtc.ICEServer{
+// 			{
+// 				URLs: []string{"stun:stun.l.google.com:19302"},
+// 			},
+// 		},
+// 	}
+
+// 	// Create a new RTCPeerConnection
+// 	peerConnection, err := webrtc.NewPeerConnection(config)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	defer peerConnection.Close()
+
+// 	// Create a video track
+// 	videoTrack, err := webrtc.NewTrackLocalStaticSample(webrtc.RTPCodecCapability{MimeType: "video/h264"}, "video", "pion")
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+
+// 	// Add the track to the peer connection
+// 	_, err = peerConnection.AddTrack(videoTrack)
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+
+// 	// Set the handler for ICE connection state
+// 	peerConnection.OnICEConnectionStateChange(func(connectionState webrtc.ICEConnectionState) {
+// 		fmt.Printf("ICE Connection State has changed: %s\n", connectionState.String())
+// 	})
+
+// 	// Start capturing and streaming
+// 	go func() {
+// 		for {
+// 			// Grab a new frame from the ZED camera
+// 			if camera.Grab(zed.NewRuntimeParameters()) == nil {
+// 				// Retrieve the left image
+// 				image, err := camera.RetrieveImage(zed.VIEW_LEFT)
+// 				if err != nil {
+// 					log.Println("Failed to retrieve image:", err)
+// 					continue
+// 				}
+
+// 				// TODO: Encode the image to H264
+// 				// This step depends on your preferred H264 encoding library
+// 				encodedFrame := encodeToH264(image)
+
+// 				// Write the encoded frame to the video track
+// 				err = videoTrack.WriteSample(media.Sample{Data: encodedFrame, Duration: time.Second / 30})
+// 				if err != nil {
+// 					log.Println("Failed to write sample:", err)
+// 				}
+// 			}
+// 		}
+// 	}()
+
+// 	// Wait forever
+// 	select {}
+// }
+
+// func encodeToH264(image *zed.Mat) []byte {
+// 	// TODO: Implement H264 encoding
+// 	// This function should take the ZED image and return H264 encoded data
+// 	// You might use a library like x264 or OpenH264 for this
+// 	return []byte{}
+// }
+
 
 type Chat struct {
     ID    string
@@ -244,34 +337,6 @@ func download_kyubii(c echo.Context) error {
 }
 
 
-func setupRoutes(e *echo.Echo) {
-	fmt.Printf("wtf setup routes\n")
-
-    e.POST("/video-to-pdf", handleConvertVideoToPDF)
-    e.GET("/agents", handleAgents)
-    e.POST("/add-agent", handleAddAgent)
-    e.GET("/download_apm.el", handleDownloadApmEl)
-
-    // Setup dynamic routes
-    setupDynamicRoutes(e)
-
-    e.GET("/form", renderTemplate("form"))
-    e.GET("/", renderTemplate("index"))
-
-
-    e.GET("/api/themes", handleThemes)
-	e.GET("/api/chat", handleChat)
-
-	e.GET("/api/container", func (c echo.Context) error { return c.HTML(http.StatusOK, renderContainer()) } )
-	
-
-	e.GET("/api/download_kyubii", download_kyubii)
-    e.POST("/beep", beep)
-
-
-	
-
-}
 
 func handleConvertVideoToPDF(c echo.Context) error {
     // Implementation
@@ -386,5 +451,69 @@ func setupDynamicRoutes(e *echo.Echo) {
     // Implementation for setting up dynamic routes
 	this_is_shit(e, "$HOME/hashirama/services/homelab-status-page/views/*.html", "")
 	this_is_shit(e, "$HOME/hashirama/services/homelab-status-page/views/tools/*.html", "tools/")
+
+}
+
+
+
+var upgrader = websocket.Upgrader{
+	ReadBufferSize:  1024,
+	WriteBufferSize: 1024,
+	CheckOrigin: func(r *http.Request) bool {
+		return true // Be careful with this in production!
+	},
+}
+
+func handleWebSocket(w http.ResponseWriter, r *http.Request) {
+	conn, err := upgrader.Upgrade(w, r, nil)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer conn.Close()
+
+	for {
+		messageType, p, err := conn.ReadMessage()
+		if err != nil {
+			log.Println(err)
+			return
+		}
+		log.Printf("Received: %s", p)
+
+		// Echo the message back
+		if err := conn.WriteMessage(messageType, p); err != nil {
+			log.Println(err)
+			return
+		}
+	}
+}
+func setupRoutes(e *echo.Echo) {
+
+	http.HandleFunc("/ws", handleWebSocket)
+	fmt.Printf("wtf setup routes\n")
+
+    e.POST("/video-to-pdf", handleConvertVideoToPDF)
+    e.GET("/agents", handleAgents)
+    e.POST("/add-agent", handleAddAgent)
+    e.GET("/download_apm.el", handleDownloadApmEl)
+
+    // Setup dynamic routes
+    setupDynamicRoutes(e)
+
+    e.GET("/form", renderTemplate("form"))
+    e.GET("/", renderTemplate("index"))
+
+
+    e.GET("/api/themes", handleThemes)
+	e.GET("/api/chat", handleChat)
+
+	e.GET("/api/container", func (c echo.Context) error { return c.HTML(http.StatusOK, renderContainer()) } )
+	
+
+	e.GET("/api/download_kyubii", download_kyubii)
+    e.POST("/beep", beep)
+
+
+	
 
 }
