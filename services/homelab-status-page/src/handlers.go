@@ -33,9 +33,20 @@ type PageData struct {
 	ShowTeamWorkSpace bool
 }
 
-func renderChat() string{
+type Agent struct {
+    Name string `json:"name" form:"name"`
+    Type string `json:"type" form:"type"`
+}
 
-	avatars := map[string][]string{
+type Theme struct {
+    Name  string
+    Tools []string
+}
+
+var agents []Agent
+
+
+var avatars = map[string][]string{
 		"Neural Network Plumbing":{"https://files.oaiusercontent.com/file-PeqnTG5NGsLDRMNCxmipWC20?se=2124-05-06T10%3A22%3A42Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D1209600%2C%20immutable&rscd=attachment%3B%20filename%3D316758dd-54a8-4864-aa60-58b9bf5663a5.png&sig=Y7Wo1VW4PUU6CLQZw%2BPKNiQkcI1yp0QrIxO1sx3soQg%3D"},
 		"DoomEmacs and Devops":{"https://files.oaiusercontent.com/file-soCSJ2n0ySryDfgySffuOBIf?se=2124-05-06T09%3A51%3A23Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D1209600%2C%20immutable&rscd=attachment%3B%20filename%3D3b0cb232-0805-4851-b34a-1c2e6c04430c.png&sig=mro7QVJHH3S7IlnwmnMTRgQrSl%2BYy9s2uwPFkM9f7Og%3D"},
 		"NixOS Guide":{"https://files.oaiusercontent.com/file-KMabO7iGoP0sAGTu7rDNH3Ju?se=2124-05-06T03%3A54%3A45Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D1209600%2C%20immutable&rscd=attachment%3B%20filename%3D4999a3ed-211f-41ca-a6b6-1ce0bddda99e.png&sig=Y%2BxB2//UkVTHr3t7yopFHei9duv3cOB%2BaxKkXeUEjRo%3D"},
@@ -43,7 +54,7 @@ func renderChat() string{
 		"404": {"https://pbs.twimg.com/profile_images/1486033940301426711/HoYf1hzR_400x400.jpg"},
 	}
 
-	pinned := []string{
+var pinned = []string{
 		"Neural Network",
                 "DoomEmacs and Devops",
                 "NixOs Guide",
@@ -51,7 +62,7 @@ func renderChat() string{
 				"Explore GPTs",
 	}
 	
-	yesterday := []string{
+	var yesterday = []string{
   "Set Up Desktop Remotely",
   "New chat",
   "Travel to Bali",
@@ -60,7 +71,7 @@ func renderChat() string{
   "petabyte to Terabyte Conversion",
 	}
 
-		more_than_7 := []string{
+		var more_than_7 = []string{
   "Set Up Desktop Remotely",
   "New chat",
   "Firefox Extension Name: \"ArcAI Edge\"",
@@ -68,35 +79,67 @@ func renderChat() string{
   "Petabyte to Terabyte Conversion",
 		}
 
+	var list_of_lists = [][]string{pinned,  yesterday, more_than_7}
+var list_of_names = []string{"Pinned", "Today", "Yesterday"}	
+
 	
+var themes = []Theme{
+    {
+        Name:  "Creative AI",
+        Tools: []string{"linux-intelligence", "apm.el", "kyubii"},
+    },
+    {
+        Name:  "Robotics + ML",
+        Tools: []string{"multiplayer-command-and-control", "continuous-eval", "simulation-pixel-streaming", "auto-labeling"},
+    },
+    {
+        Name:  "Domain Knowledge / Expertise",
+        Tools: []string{"agent-playground", "dating-photos", "robot-doctor"},
+    },
+}
+	
+
+
+
+
+func renderChat() string{
     data := PageData{
         ChatHistory: map[string][]Chat{
-			"Pinned": {},
-            "Today": {},
-            "Yesterday": {},
+			// "Pinned": {},
+            // "Today": {},
+            // "Yesterday": {},
         },
         UserProfileImage: "https://example.com/profile.jpg",
         UserName: "John Doe",
 		ShowTeamWorkSpace: true,
     }
-	list_of_lists := [][]string{pinned,  yesterday, more_than_7}
-	list_of_names := []string{"Pinned", "Today", "Yesterday"}
+
+
+    for _, theme := range themes {
+        chats := make([]Chat, len(theme.Tools))
+        for i, tool := range theme.Tools {
+            chats[i] = Chat{ID: fmt.Sprintf("%d", i+1), Title: tool}
+        }
+        data.ChatHistory[theme.Name] = chats
+    }
+	//list_of_names := []string{"FavoriteBlogs", "FavoriteApps", "Cool"}
+	// for idx, name := range list_of_names {
+	// 	for i, v := range list_of_lists[idx] {
+	// 		chatInstance := Chat{ID: fmt.Sprintf("%d", i+1), Title: v}
+
+	// 		if urls, ok := avatars[v]; ok && len(urls) > 0 {
+	// 			chatInstance.avatar_url = &urls[0]
+	// 		} else {
+	// 			chatInstance.avatar_url = &avatars["404"][0]
+	// 		}
+	// 		fmt.Print("rendering history for ", v)
+	// 		data.ChatHistory[name] = append(data.ChatHistory[name], chatInstance)	
+	// 	} 
+	// }
+
+
 
 	
-	
-	for idx, name := range list_of_names {
-		for i, v := range list_of_lists[idx] {
-			chatInstance := Chat{ID: fmt.Sprintf("%d", i+1), Title: v}
-
-			if urls, ok := avatars[v]; ok && len(urls) > 0 {
-				chatInstance.avatar_url = &urls[0]
-			} else {
-				chatInstance.avatar_url = &avatars["404"][0]
-			}
-			fmt.Print("rendering history for ", v)
-			data.ChatHistory[name] = append(data.ChatHistory[name], chatInstance)	
-		} 
-	}
 
 	tmpl, shit := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/chat-sidebar.html")
 	if shit != nil {
