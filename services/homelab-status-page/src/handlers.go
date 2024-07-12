@@ -20,6 +20,105 @@ import (
     //"github.com/kkdai/youtube/v2"
 )
 
+type Chat struct {
+    ID    string
+    Title string
+	avatar_url *string
+}
+
+type PageData struct {
+    ChatHistory map[string][]Chat
+    UserProfileImage string
+    UserName string
+	ShowTeamWorkSpace bool
+}
+
+func renderChat() string{
+
+	avatars := map[string][]string{
+		"Neural Network Plumbing":{"https://files.oaiusercontent.com/file-PeqnTG5NGsLDRMNCxmipWC20?se=2124-05-06T10%3A22%3A42Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D1209600%2C%20immutable&rscd=attachment%3B%20filename%3D316758dd-54a8-4864-aa60-58b9bf5663a5.png&sig=Y7Wo1VW4PUU6CLQZw%2BPKNiQkcI1yp0QrIxO1sx3soQg%3D"},
+		"DoomEmacs and Devops":{"https://files.oaiusercontent.com/file-soCSJ2n0ySryDfgySffuOBIf?se=2124-05-06T09%3A51%3A23Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D1209600%2C%20immutable&rscd=attachment%3B%20filename%3D3b0cb232-0805-4851-b34a-1c2e6c04430c.png&sig=mro7QVJHH3S7IlnwmnMTRgQrSl%2BYy9s2uwPFkM9f7Og%3D"},
+		"NixOS Guide":{"https://files.oaiusercontent.com/file-KMabO7iGoP0sAGTu7rDNH3Ju?se=2124-05-06T03%3A54%3A45Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D1209600%2C%20immutable&rscd=attachment%3B%20filename%3D4999a3ed-211f-41ca-a6b6-1ce0bddda99e.png&sig=Y%2BxB2//UkVTHr3t7yopFHei9duv3cOB%2BaxKkXeUEjRo%3D"},
+		"Golang, Networking, and Unix Fundamentals":{ "https://lh3.googleusercontent.com/a-/AOh14GjRgSbI8yMMWfTagyCfu2C1YlqG-7n9aJ_46C7kgQ=s96-c"},
+		"404": {"https://pbs.twimg.com/profile_images/1486033940301426711/HoYf1hzR_400x400.jpg"},
+	}
+
+	pinned := []string{
+		"Neural Network",
+                "DoomEmacs and Devops",
+                "NixOs Guide",
+				"Golang Networking",
+				"Explore GPTs",
+	}
+	
+	yesterday := []string{
+  "Set Up Desktop Remotely",
+  "New chat",
+  "Texas road network access",
+  "Firefox Extension Name: \"ArcAI Edge\"",
+  "Remote GPU Docker Setup",
+  "petabyte to Terabyte Conversion",
+	}
+
+		more_than_7 := []string{
+  "Set Up Desktop Remotely",
+  "New chat",
+  "Firefox Extension Name: \"ArcAI Edge\"",
+  "Remote GPU Docker Setup",
+  "Petabyte to Terabyte Conversion",
+		}
+
+	
+    data := PageData{
+        ChatHistory: map[string][]Chat{
+			"Pinned": {},
+            "Today": {},
+            "Yesterday": {},
+        },
+        UserProfileImage: "https://example.com/profile.jpg",
+        UserName: "John Doe",
+		ShowTeamWorkSpace: true,
+    }
+	list_of_lists := [][]string{pinned,  yesterday, more_than_7}
+	list_of_names := []string{"Pinned", "Today", "Yesterday"}
+
+	
+	
+	for idx, name := range list_of_names {
+		for i, v := range list_of_lists[idx] {
+			chatInstance := Chat{ID: fmt.Sprintf("%d", i+1), Title: v}
+
+			if urls, ok := avatars[v]; ok && len(urls) > 0 {
+				chatInstance.avatar_url = &urls[0]
+			} else {
+				chatInstance.avatar_url = &avatars["404"][0]
+			}
+			fmt.Print("rendering history for ", v, "\n")
+			data.ChatHistory[name] = append(data.ChatHistory[name], chatInstance)	
+		} 
+	}
+
+	tmpl, shit := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/chat-sidebar.html")
+	if shit != nil {
+        return shit.Error()
+    }
+
+	t, err := template.New("chat").Parse(string(tmpl))
+    if err != nil {
+        return err.Error()
+    }
+
+	
+
+    var result strings.Builder
+    err = t.Execute(&result, data)
+    if err != nil {
+        return err.Error()
+    }
+
+    return result.String()
+}
+
 func renderThemes() string {
     tmpl := `
     {{range $index, $theme := .}}
@@ -91,13 +190,17 @@ func setupRoutes(e *echo.Echo) {
 
     e.GET("/form", renderTemplate("form"))
     e.GET("/", renderTemplate("index"))
+
+
     e.GET("/api/themes", handleThemes)
+	e.GET("/api/chat", handleChat)
+	
 
 	e.GET("/api/download_kyubii", download_kyubii)
     e.POST("/beep", beep)
 
 
-
+	
 
 }
 
@@ -136,6 +239,10 @@ func handleDownloadApmEl(c echo.Context) error {
 
 func handleThemes(c echo.Context) error {
     return c.HTML(http.StatusOK, renderThemes())
+}
+
+func handleChat(c echo.Context) error {
+    return c.HTML(http.StatusOK, renderChat())
 }
 
 func beep(c echo.Context) error {
