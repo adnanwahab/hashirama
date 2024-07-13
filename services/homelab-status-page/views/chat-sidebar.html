@@ -4,23 +4,66 @@
                 <div class="relative h-full w-full flex-1 items-start border-white/20">
                     <h2 class="sr-only">Chat history</h2>
                     <nav class="flex h-full w-full flex-col px-3 pb-3.5" aria-label="Chat history">
-                        <div class="flex justify-between flex h-14 items-center">
-                            {{template "nav-buttons"}}
-                        </div>
-                        <div class="flex-col flex-1 transition-opacity duration-500 -mr-2 pr-2 overflow-y-auto">
-                            <!-- make sure inner column nav is fixed width to prevent cpu rendering on tick??  -->
-                            {{template "chat-history-section" .}}
-                        </div>
-                        <div class="flex flex-col pt-2 empty:hidden dark:border-white/20">
-                            <!-- {{template "add-team-workspace"}} -->
-                            {{template "profile-section" .}}
-                        </div>
+                        {{template "apotheosis" .}}
+                        {{template "nav-content"}}
                     </nav>
                 </div>
             </div>
         </div>
     </div>
 
+    {{define "apotheosis"}}
+    <div class="measure-narrow-l flex-none pa4 dn db-l br-l b--moon-gray"></div>
+    <header>
+  <h1 class="mv0 f2 f1-l lh-solid">
+    <a href="/" class="link navy fw2 tracked-tight ttu">Eggnog Hashirama</a>
+  </h1>
+
+  <p class="f6 dark-gray">
+    Software Engineer /
+    <br>Neural Network Plumber - NixOS Purist
+  </p>
+
+<style>
+  @media (max-width: 767px) {
+   .hide-small {
+      display: none;
+   }
+}
+</style>
+
+  <nav aria-label="site" class="">
+    <ul class="list ml0 pl0 mb0">
+      <li class="mt1 mt2-l dib db-l mr3"><a class="link near-black f4-ns underline-hover" href="/">Posts</a></li>
+      <li class="mt1 mt2-l dib db-l mr3"><a class="link near-black f4-ns underline-hover" href="/about">About</a></li>
+      <li class="mt1 mt2-l dib db-l mr3"><a class="link near-black f4-ns underline-hover" href="https://twitter.com/Adnan_wahab_">Twitter</a></li>
+      <li class="mt1 mt2-l dib db-l mr3"><a class="link near-black f4-ns underline-hover" href="/newsletter">Subscribe</a></li>
+      <!-- <li class="mt1 mt2-l dib db-l mr3 hide-small"><a class="link near-black f4-ns underline-hover" href="/office-hours">Office Hours</a></li> -->
+      <!--<li class="mt1 mt2-l dib db-l mr3 hide-small"><a class="link near-black f4-ns underline-hover" href="https://advancedbeginners.substack.com">Programming Feedback for Advanced Beginners</a></li>-->
+    </ul>
+  </nav>
+    </header>
+{{end }}
+
+{{define "nav-content"}}
+    <div class="flex justify-between flex h-14 items-center">
+
+                            {{template "nav-buttons"}}
+                        </div>
+                        <div class="flex-col flex-1 transition-opacity duration-500 -mr-2 pr-2 overflow-y-auto">
+                            <!-- make sure inner column nav is fixed width to prevent cpu rendering on tick??  -->
+
+                            {{template "chat-history-section" .}}
+
+                        </div>
+                        <div class="flex flex-col pt-2 empty:hidden dark:border-white/20">
+                            <!-- {{template "add-team-workspace"}} -->
+
+                            {{template "profile-section" .}}
+
+                        </div>
+                        {{end}}
+    
 {{define "archive"}}
 
 <!-- top bar -->
@@ -118,8 +161,10 @@
         <a
 
             hx-target="#main-content"
+            hx-trigger="mouseenter"
             class="hover:bg-indigo-50 transition-colors  group flex h-10 items-center gap-2 rounded-lg bg-token-sidebar-surface-primary px-2 font-semibold juice:gap-2.5 juice:font-normal hover:bg-token-sidebar-surface-secondary"
-            hx-get="/tools/{{.Title}}">
+            hx-get="/tools/{{.Title}}"
+        >
             <!-- avatar img  -->
             <div class="h-6 w-6 flex-shrink-0">
                 <div class="gizmo-shadow-stroke overflow-hidden rounded-full">
