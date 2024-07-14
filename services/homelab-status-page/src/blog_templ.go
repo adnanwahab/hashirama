@@ -23,7 +23,7 @@ func headerComponent(body string, title string, description string) templ.Compon
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><meta charset=\"utf-8\"><meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\"><title>hashira - robotic revolution</title><meta name=\"description\" content=\"\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"><!-- Place favicon.ico in the root directory --><!-- <link rel=\"stylesheet\" href=\"/static/css/tailwind.css\" /> --><link href=\"/static/output.css\" rel=\"stylesheet\"><script src=\"https://cdn.tailwindcss.com\"></script><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><script src=\"/static/index.js\"></script><!-- <meta http-equiv=\"refresh\" content=\".1\" /> --></head><body><!-- begin body--><!-- begin body<div class=\"top-left slider-controls\"></div>--><div class=\"body\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html><head><meta charset=\"utf-8\"><meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\"><title>hashira - robotic revolution</title><meta name=\"description\" content=\"\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"><!-- Place favicon.ico in the root directory --><!-- <link rel=\"stylesheet\" href=\"/static/css/tailwind.css\" /> --><link href=\"/static/output.css\" rel=\"stylesheet\"><script src=\"https://cdn.tailwindcss.com\"></script><script src=\"https://unpkg.com/htmx.org@1.9.12\"></script><script src=\"/static/index.js\"></script><!-- <meta http-equiv=\"refresh\" content=\".1\" /> --></head><body class=\"bg-gray-100 min-h-screen\"><!-- begin body--><!-- begin body<div class=\"top-left slider-controls\"></div>--><div class=\"body\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -31,7 +31,7 @@ func headerComponent(body string, title string, description string) templ.Compon
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"footer open\"><div class=\"info\"><div class=\"title\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div><div class=\"footer open\"><div class=\"info cursor-pointer\"><div class=\"text-blue-500 hover:bg-sky-700 title\" hx-on:click=\"window.location.href=&#39;/sitemap&#39;\" target=\"body\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

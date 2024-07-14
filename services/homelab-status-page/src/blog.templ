@@ -21,15 +21,15 @@ templ headerComponent(body string, title string, description string) {
         <script src="https://unpkg.com/htmx.org@1.9.12"></script>
         <script src="/static/index.js"></script>
         <!-- <meta http-equiv="refresh" content=".1" /> -->
-    </head>
+          </head>
 
-    <body class="bg-gray-100 min-h-screen"><!-- begin body-->
+          <body class="bg-gray-100 min-h-screen"><!-- begin body-->
             <!-- begin body<div class="top-left slider-controls"></div>-->
             <div class="body">@templ.Raw(body)</div>
 
             <div class="footer open">
-              <div class="info">
-               <div class="title">@templ.Raw(title)</div>
+              <div class="info cursor-pointer">
+                <div class="text-blue-500 hover:bg-sky-700 title" hx-on:click="window.location.href='/sitemap'" target="body">@templ.Raw(title)</div>
                <!-- <div class="description">@templ.Raw(description)</div> -->
               </div>
              <div class="menu">

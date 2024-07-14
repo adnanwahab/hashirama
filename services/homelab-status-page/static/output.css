@@ -749,145 +749,6 @@ select {
   --tw-contain-style:  ;
 }
 
-
-/* rename to viewport ?  */
-.body {
-  /* background: #16191b; */
-  /* position: absolute; */
-  /* bottom: 50px; */
-  /* right: 0; */
-  /* left: 0; */
-  /* top: 0; */
-}
-
-
-.footer {
-display: none !important;
-}
-
-.footer{
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  height: 50px;
-  padding: 0 16px;
-
-  /* transform: translate3d(0, -50px, 0); */
-  transition-delay: .2s;
-  width: 100%;
-  background: #16191b;
-
-
-  transition: transform .3s cubic-bezier(.23, 1, .32, 1);
-  color: #e2e6e8;
-}
-
-.footer * {
-  background: inherit;
-  color: inherit;
-}
-
-.footer.show {
-  transform: translate3d(0, -50px, 0);
-  transition-delay: .2;
-  background: #16191b;
-  position: absolute;
-  overflow: hidden;
-  display: flex;
-}
-
-
-.footer.open {
-  /* transform: translate3d(0, -100px, 0); */
-  transition-delay: 0s;
-}
-
-
-
-
-.footer .info .title {
-  line-height: 50px;
-  font-size: 14px;
-  display: block;
-}
-
-
-/* .footer .info .description { */
-/*   line-height: 1.75; */
-/*   max-width: 720px; */
-/*   font-size: 11px; */
-/*   display: block; */
-/* } jq */
-
-.footer .info {
-  padding: 0 16px 20px;
-  —webkit-box-flex: 1;
-  
-  flex: 1 1 auto;
-  margin: 0;
-}
-
-.menu {
-align-items: center;
-/* transform:translate3d(0,—100%,0); */
-display: flex;
-}
-
-.toggle {
-  pointer-events: auto;
-  -webkit-transform: none;
-  transform: none;
-  opacity: 1;
-  -ms-filter: none;
-  filter: none;
-
-  align-items: center;
-  position: absolute;
-  padding: 0 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  height: 50px;
-  right: 0;
-  top: 0;
-  transition: all .3s cubic-bezier(.86,0,.07,1) .2s;
-  -webkit-box-align: center;
-}
-
-.icon {
-height: 16px;
-  width: 24px;
-  fill: #e2e6e8;
-}
-
-
-.menu .button {
-cursor: pointer;
-  font-size: 0;
-  sizing: box-sizing;
-    padding: 0 20px;
-  height: 100%;
-    font-family: Roboto Mono,monospace;
-  background: none;
-  padding: 0;
-  outline: none;
-  border: none;
-}
-
-
-.home {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 300;
-  line-height: 14px;
-  font-size: 12px;
-  padding: 0 8px;
-  margin: 0 1px;
-  color: #e2e6e8;
-}
-
-
 .dark\:bg-emerald-500\/10:where(.dark,
 .dark *) {
   background-color:rgba(16,185,129,.1)
@@ -989,3 +850,298 @@ cursor: pointer;
 /* .reset-styles *::after { */
 /*     all: initial; */
 /* } */
+
+
+
+
+.footer{
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  height: 50px;
+  padding: 0 16px;
+
+  /* transform: translate3d(0, -50px, 0); */
+  transition-delay: .2s;
+  width: 100%;
+  background: #16191b;
+
+
+  transition: transform .3s cubic-bezier(.23, 1, .32, 1);
+  color: #e2e6e8;
+}
+
+.footer * {
+  background: inherit;
+  color: inherit;
+}
+
+.footer.show {
+  transform: translate3d(0, -50px, 0);
+  transition-delay: .2;
+  background: #16191b;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+}
+
+
+.footer.open {
+  /* transform: translate3d(0, -100px, 0); */
+  transition-delay: 0s;
+}
+
+
+
+
+.footer .info .title {
+  line-height: 50px;
+  font-size: 14px;
+  display: block;
+}
+
+
+
+/* rename to viewport ?  */
+.body {
+  /* background: #16191b; */
+  /* position: absolute; */
+  /* bottom: 50px; */
+  /* right: 0; */
+  /* left: 0; */
+  /* top: 0; */
+}
+
+
+.footer {
+/*   display: none !important; */
+}
+
+
+
+/* .footer .info .description { */
+/*   line-height: 1.75; */
+/*   max-width: 720px; */
+/*   font-size: 11px; */
+/*   display: block; */
+/* } jq */
+
+.footer .info {
+  padding: 0 16px 20px;
+  —webkit-box-flex: 1;
+
+  flex: 1 1 auto;
+  margin: 0;
+}
+
+.menu {
+align-items: center;
+/* transform:translate3d(0,—100%,0); */
+display: flex;
+}
+
+.toggle {
+  pointer-events: auto;
+  -webkit-transform: none;
+  transform: none;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+
+  align-items: center;
+  position: absolute;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  height: 50px;
+  right: 0;
+  top: 0;
+  transition: all .3s cubic-bezier(.86,0,.07,1) .2s;
+  -webkit-box-align: center;
+}
+
+.icon {
+height: 16px;
+  width: 24px;
+  fill: #e2e6e8;
+}
+
+
+.menu .button {
+cursor: pointer;
+  font-size: 0;
+  sizing: box-sizing;
+    padding: 0 20px;
+  height: 100%;
+    font-family: Roboto Mono,monospace;
+  background: none;
+  padding: 0;
+  outline: none;
+  border: none;
+}
+
+
+.home {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+  line-height: 14px;
+  font-size: 12px;
+  padding: 0 8px;
+  margin: 0 1px;
+  color: #e2e6e8;
+}
+
+/* tachyons why */
+
+
+}
+@media screen and (min-width: 60em) {
+  .measure-narrow-l {
+    max-width: 20em;
+  }
+}
+@media screen and (min-width: 60em) {
+  .fixed-l {
+    position: fixed;
+  }
+}
+.pa4 {
+  padding: 2rem;
+}
+.flex-auto {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+}
+html, body, div, article, aside, section, main, nav, footer, header, form, fieldset, legend, pre, code, a, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, blockquote, figcaption, figure, textarea, table, td, th, tr, input[type="email"], input[type="number"], input[type="password"], input[type="tel"], input[type="text"], input[type="url"], .border-box {
+  box-sizing: border-box;
+}
+article, aside, details, div, dt, figcaption, footer, form, header, hgroup, html, main, nav, search, section, summary {
+  display: block;
+}
+address, article, aside, blockquote, body, caption, center, col, colgroup, dd, dir, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, legend, li, listing, main, marquee, menu, nav, noframes, ol, p, plaintext, pre, search, section, summary, table, tbody, td, tfoot, th, thead, tr, ul, xmp {
+  unicode-bidi: isolate;
+}
+.lh-copy {
+  line-height: 1.5;
+}
+.sans-serif {
+  font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+}
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+:root {
+  color: CanvasText;
+}
+@media screen and (min-width: 60em) {
+  .flex-l {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .f1-l {
+    font-size: 3rem;
+  }
+}
+.f2 {
+  font-size: 2.25rem;
+}
+.mv0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.lh-solid {
+  line-height: 1;
+}
+html, body, div, article, aside, section, main, nav, footer, header, form, fieldset, legend, pre, code, a, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, blockquote, figcaption, figure, textarea, table, td, th, tr, input[type="email"], input[type="number"], input[type="password"], input[type="tel"], input[type="text"], input[type="url"], .border-box {
+  box-sizing: border-box;
+}
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+}
+h1 {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  margin-block: .67em;
+}
+address, article, aside, blockquote, body, caption, center, col, colgroup, dd, dir, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, legend, li, listing, main, marquee, menu, nav, noframes, ol, p, plaintext, pre, search, section, summary, table, tbody, td, tfoot, th, thead, tr, ul, xmp {
+  unicode-bidi: isolate;
+}
+.lh-copy {
+  line-height: 1.5;
+}
+.sans-serif {
+  font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+}
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+:root {
+  color: CanvasText;
+}
+
+
+element {
+}
+.link:link, .link:visited {
+  transition: color .15s ease-in;
+}
+.ttu {
+  text-transform: uppercase;
+}
+.navy {
+  color: #001b44;
+}
+.link {
+  text-decoration: none;
+  transition: color .15s ease-in;
+}
+.tracked-tight {
+  letter-spacing: -.05em;
+}
+.fw2 {
+  font-weight: 200;
+}
+a {
+  color: rgb(0, 0, 238);
+}
+html, body, div, article, aside, section, main, nav, footer, header, form, fieldset, legend, pre, code, a, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, blockquote, figcaption, figure, textarea, table, td, th, tr, input[type="email"], input[type="number"], input[type="password"], input[type="tel"], input[type="text"], input[type="url"], .border-box {
+  box-sizing: border-box;
+}
+a {
+  background-color: transparent;
+}
+@media (-moz-bool-pref: "layout.css.always_underline_links") {
+  :any-link {
+    text-decoration: underline !important;
+  }
+}
+:visited {
+  color: VisitedText;
+}
+:any-link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+@media screen and (min-width: 60em) {
+  .f1-l {
+    font-size: 3rem;
+  }
+}
+.f2 {
+  font-size: 2.25rem;
+}
+.lh-solid {
+  line-height: 1;
+}
