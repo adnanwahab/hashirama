@@ -1,14 +1,33 @@
+<body class="bg-gray-900 text-white font-sans">
+  <h1 class="text-3xl font-bold text-center pt-8">Send a Text</h1>
 
+  <form
+    class="w-full max-w-md p-6 m-auto bg-white rounded-lg shadow-md flex items-end space-x-4 sm:flex-row flex-col"
+  >
+    <label for="textInput" class="block text-gray-700">Text:</label>
+    <input
+      type="text"
+      id="textInput"
+      name="textInput"
+      required
+      class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+    />
 
-    <body class="bg-gray-900 text-white font-sans">
-        <h1 class="text-3xl font-bold text-center pt-8">Send a Text</h1>
-
-        <form class="w-full max-w-md p-6 m-auto bg-white rounded-lg shadow-md flex items-end space-x-4 sm:flex-row flex-col">
-            <label for="textInput" class="block text-gray-700">Text:</label>
-            <input type="text" id="textInput" name="textInput" required class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
-
-            <label for="phoneNumberInput" class="block text-gray-700 sm:w-1/3">Phone Number:</label>
-            <input type="tel" id="phoneNumberInput" name="phoneNumberInput" required class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
-            <button type="submit" class="flex items-center justify-center w-full py-3 px-6 space-x-2 text-sm font-medium rounded-lg bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500 dark:focus:ring-purple-900">Submit</button>
-        </form>
-    </body>
+    <label for="phoneNumberInput" class="block text-gray-700 sm:w-1/3"
+      >Phone Number:</label
+    >
+    <input
+      type="tel"
+      id="phoneNumberInput"
+      name="phoneNumberInput"
+      required
+      class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+    />
+    <button
+      type="submit"
+      class="flex items-center justify-center w-full py-3 px-6 space-x-2 text-sm font-medium rounded-lg bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500 dark:focus:ring-purple-900"
+    >
+      Submit
+    </button>
+  </form>
+</body>

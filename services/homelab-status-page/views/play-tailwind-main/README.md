@@ -21,6 +21,7 @@ You can always support this project by [Starring🌟 This Repository](https://gi
 and sharing with friends. Also open an issue if you find bug or feel free to contribute by pull requests after fixing any issue or adding more values.
 
 ### Update Logs: 2.0 - Nov 2023
+
 - Design refresh
 - New marketing section
 - Dark mode support

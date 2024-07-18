@@ -1,41 +1,55 @@
-
 <body class="bg-gray-800 text-white p-6">
-    <form hx-post="/video-to-pdf" hx-target="#result">
-        <div>
-            <label for="url" class="block mb-2">Youtube URL:</label>
-            <input type="text" id="url" name="url" required class="w-full px-3 py-2 placeholder-gray-400 border rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-green-500">
-        </div>
-        <div class="mt-4">
-            <label for="auto-download" class="flex items-center mb-2">
-                <input type="checkbox" id="auto-download" name="auto-download" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <span class="ml-2 text-sm font-medium text-white">Download automatically</span>
-            </label>
-        </div>
-        <button type="submit" class="w-full mt-4 py-2 px-4 bg-blue-600 rounded hover:bg-blue-700 focus:ring-blue-500 text-white">Get Video Info & Download</button>
-    </form>
-    <div id="result">
-
+  <form hx-post="/video-to-pdf" hx-target="#result">
+    <div>
+      <label for="url" class="block mb-2">Youtube URL:</label>
+      <input
+        type="text"
+        id="url"
+        name="url"
+        required
+        class="w-full px-3 py-2 placeholder-gray-400 border rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-green-500"
+      />
     </div>
-    <script>
-     console.log('good')
-     document.addEventListener("htmx:afterRequest", function(event) {
-         console.log('good', event.detail.xhr.status)
-         if (event.detail.xhr.status === 200) {
-             const response = JSON.parse(event.detail.xhr.responseText);
-             const videoUrl = response.videoUrl;
-             const videoContainer = document.getElementById("result");
-             console.log(response.videoUrl)
-             videoContainer.innerHTML = `<video width="320" height="240" controls><source src="${videoUrl}" type="video/mp4">Your browser does not support the video tag.</video>`    ;
+    <div class="mt-4">
+      <label for="auto-download" class="flex items-center mb-2">
+        <input
+          type="checkbox"
+          id="auto-download"
+          name="auto-download"
+          class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+        />
+        <span class="ml-2 text-sm font-medium text-white"
+          >Download automatically</span
+        >
+      </label>
+    </div>
+    <button
+      type="submit"
+      class="w-full mt-4 py-2 px-4 bg-blue-600 rounded hover:bg-blue-700 focus:ring-blue-500 text-white"
+    >
+      Get Video Info & Download
+    </button>
+  </form>
+  <div id="result"></div>
+  <script>
+    console.log("good");
+    document.addEventListener("htmx:afterRequest", function (event) {
+      console.log("good", event.detail.xhr.status);
+      if (event.detail.xhr.status === 200) {
+        const response = JSON.parse(event.detail.xhr.responseText);
+        const videoUrl = response.videoUrl;
+        const videoContainer = document.getElementById("result");
+        console.log(response.videoUrl);
+        videoContainer.innerHTML = `<video width="320" height="240" controls><source src="${videoUrl}" type="video/mp4">Your browser does not support the video tag.</video>`;
 
-             // const blob = new Blob([binaryBuffer], { type: 'video/mp4' }); // Adjust the 'type' according to your video format
-             //
-             // // Create a data URL from the Blob
-             // const dataURL = URL.createObjectURL(blob);
+        // const blob = new Blob([binaryBuffer], { type: 'video/mp4' }); // Adjust the 'type' according to your video format
+        //
+        // // Create a data URL from the Blob
+        // const dataURL = URL.createObjectURL(blob);
 
-             // Get the video element and set the data URL as the source
-             const videoPlayer = document.querySelector('video');
-
-         }
-     });
-    </script>
+        // Get the video element and set the data URL as the source
+        const videoPlayer = document.querySelector("video");
+      }
+    });
+  </script>
 </body>

@@ -1,25 +1,48 @@
 <div class="bg-gray-100 p-8">
-    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-        <div class="p-8">
-            <h1 class="text-2xl font-bold mb-4">Agent Playground</h1>
+  <div
+    class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"
+  >
+    <div class="p-8">
+      <h1 class="text-2xl font-bold mb-4">Agent Playground</h1>
 
-            <form hx-post="/add-agent" hx-target="#agent-list" hx-swap="beforeend">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Agent Name:</label>
-                    <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                </div>
-                <div class="mb-4">
-                    <label for="type" class="block text-gray-700 text-sm font-bold mb-2">Agent Type:</label>
-                    <input type="text" id="type" name="type" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                </div>
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    Add Agent
-                </button>
-            </form>
-
-            <h2 class="text-xl font-bold mt-8 mb-4">Agents</h2>
-            <ul id="agent-list" hx-get="/agents" hx-trigger="load" hx-swap="innerHTML">
-            </ul>
+      <form hx-post="/add-agent" hx-target="#agent-list" hx-swap="beforeend">
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
+            >Agent Name:</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
         </div>
+        <div class="mb-4">
+          <label for="type" class="block text-gray-700 text-sm font-bold mb-2"
+            >Agent Type:</label
+          >
+          <input
+            type="text"
+            id="type"
+            name="type"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Add Agent
+        </button>
+      </form>
+
+      <h2 class="text-xl font-bold mt-8 mb-4">Agents</h2>
+      <ul
+        id="agent-list"
+        hx-get="/agents"
+        hx-trigger="load"
+        hx-swap="innerHTML"
+      ></ul>
     </div>
+  </div>
 </div>
