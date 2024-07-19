@@ -1,7 +1,5 @@
 <body class="bg-gray-100 min-h-screen"><!-- begin body-->
             <!-- begin body<div class="top-left slider-controls"></div>-->
-
-
             <div class="footer open">
               <div class="info cursor-pointer">
                 <div class="text-blue-500 hover:bg-sky-700 title" hx-on:click="window.location.href='/sitemap'" target="body">@templ.Raw(title)</div>
