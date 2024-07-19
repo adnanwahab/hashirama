@@ -194,8 +194,22 @@ var themes = []Theme{
 
 
 
+// Keep the struct definitions as they are
+type BlogPost struct {
+    Title string
+    URL   string
+    Date  string
+}
+
+
+// Update the HTML template
+var tmpl = `
+
+`
 
 func renderChat() string{
+
+	
     data := PageData{
         ChatHistory: map[string][]Chat{
 			// "Pinned": {},
@@ -232,8 +246,6 @@ func renderChat() string{
 
 
 
-	
-
 	tmpl, shit := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/chat-sidebar.html")
 	if shit != nil {
         return shit.Error()
@@ -256,29 +268,84 @@ func renderChat() string{
 }
 
 
-func renderContainer() string{
+func renderContainer() string {
+	type PageData struct {
+    LatestPosts []BlogPost
+    BestPosts   []BlogPost
+		Robotics []BlogPost
+		Biotech []BlogPost
+		Medtech  []BlogPost
+}
 
-	tmpl, shit := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/container.html")
+    // Populate the data
+    data := PageData{
+        LatestPosts: []BlogPost{
+            {Title: "PySkyWiFi: completely free, unbelievably stupid wi-fi on long-haul flights", URL: "/pyskywifi/", Date: "09 Jul 2024"},
+            {Title: "I've written a book about being a dad; now I want to get it published", URL: "/book-draft-finished/", Date: "25 Mar 2024"},
+            {Title: "Thousands of elderly twins assure me that my kids will be alright", URL: "/twins/", Date: "18 Oct 2023"},
+            {Title: "Hello Deep Learning", URL: "/hello-deep-learning/", Date: "13 Oct 2023"},
+            {Title: "How to pass a coding interview with me", URL: "/interview/", Date: "30 Aug 2023"},
+        },
+        BestPosts: []BlogPost{
+            {Title: "Tracking friends and strangers using WhatsApp", URL: "/whatsapp-tracking/"},
+            {Title: "How Tinder keeps your exact location (a bit) private", URL: "/tinder-location/"},
+            {Title: "\"Stylish\" browser extension steals all your internet history", URL: "/stylish/"},
+            {Title: "HTTPS in the real world", URL: "/https-in-the-real-world/"},
+            {Title: "I was 7 words away from being spear-phished", URL: "/spear-phishing/"},
+            {Title: "Childbirth: a father's-eye view", URL: "/childbirth/"},
+            {Title: "Making peace with Simpson's Paradox", URL: "/simpsons-paradox/"},
+        },
+		Robotics: []BlogPost{
+            {Title: "Tracking friends and strangers using WhatsApp", URL: "/whatsapp-tracking/"},
+            {Title: "How Tinder keeps your exact location (a bit) private", URL: "/tinder-location/"},
+            {Title: "\"Stylish\" browser extension steals all your internet history", URL: "/stylish/"},
+            {Title: "HTTPS in the real world", URL: "/https-in-the-real-world/"},
+            {Title: "I was 7 words away from being spear-phished", URL: "/spear-phishing/"},
+            {Title: "Childbirth: a father's-eye view", URL: "/childbirth/"},
+            {Title: "Making peace with Simpson's Paradox", URL: "/simpsons-paradox/"},
+        },
+		Biotech: []BlogPost{
+            {Title: "Tracking friends and strangers using WhatsApp", URL: "/whatsapp-tracking/"},
+            {Title: "How Tinder keeps your exact location (a bit) private", URL: "/tinder-location/"},
+            {Title: "\"Stylish\" browser extension steals all your internet history", URL: "/stylish/"},
+            {Title: "HTTPS in the real world", URL: "/https-in-the-real-world/"},
+            {Title: "I was 7 words away from being spear-phished", URL: "/spear-phishing/"},
+            {Title: "Childbirth: a father's-eye view", URL: "/childbirth/"},
+            {Title: "Making peace with Simpson's Paradox", URL: "/simpsons-paradox/"},
+        },
+		Medtech: []BlogPost{
+            {Title: "Tracking friends and strangers using WhatsApp", URL: "/whatsapp-tracking/"},
+            {Title: "How Tinder keeps your exact location (a bit) private", URL: "/tinder-location/"},
+            {Title: "\"Stylish\" browser extension steals all your internet history", URL: "/stylish/"},
+            {Title: "HTTPS in the real world", URL: "/https-in-the-real-world/"},
+            {Title: "I was 7 words away from being spear-phished", URL: "/spear-phishing/"},
+            {Title: "Childbirth: a father's-eye view", URL: "/childbirth/"},
+            {Title: "Making peace with Simpson's Paradox", URL: "/simpsons-paradox/"},
+        },
+    }
+
+
+		tmpl, shit := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/container.html")
 	if shit != nil {
         return shit.Error()
     }
 
-	t, err := template.New("chat").Parse(string(tmpl))
+	t, err := template.New("blag-cant").Parse(string(tmpl))
     if err != nil {
         return err.Error()
     }
 
-	fake_data := []string{"Pinned", "Today", "Yesterday"}
 	
+
     var result strings.Builder
-    err = t.Execute(&result, fake_data)
+    err = t.Execute(&result, data)
     if err != nil {
         return err.Error()
     }
 
     return result.String()
-}
 
+}
 func renderThemes() string {
     tmpl := `
     {{range $index, $theme := .}}
