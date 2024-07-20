@@ -1,33 +1,8 @@
+<div class="oops" hx-trigger="load" hx-get="/api/hero" hx-swap="innerHTML">
+  anus
+</div>
+
 <div class="body">
-
-
-
-
-
-
-
-    <!-- banner
-
-         topnav (logo search docs blog pricing getstarted)
-
-         hero (cta) - radio (3 notebooks)
-
-         testimonials
-
-         logos
-
-         2 column notes
-
-         docs -->
-
-
-
-
-
-
-
-
-    
   <div class="flex min-h-full bg-white dark:bg-slate-900">
     <div class="flex w-full flex-col">
       <div
@@ -50,38 +25,36 @@
   </div>
 </div>
 
+<!-- lies are insulting to your intelligence - they think you cant see it .. -->
 <!-- <div class="inset-0 flex-shrink-0 overflow-x-hidden bg-token-sidebar-surface-primary" style="width: 260px; visibility: visible" id="sidebar" ></div> -->
-<!-- <div class="grid md:grid-cols-1 gap-6 mb-8 rounded-lg shadow-md p-6" hx-trigger="load" hx-get="/api/chat" hx-swap="innerHTML"></div> -->
-
-<!-- bg-zinc-50 dark:bg-black text-white -->
 <!-- <div class="relative z-0 flex h-full w-full overflow-hidden"></div> -->
 
-<!-- <script>
-     function toggleSidebar(hideEl, showEl, shouldShow) {
-     let currentStateToggled =
-     document.querySelector("#sidebar").style.visbility === "none";
-     console.log(currentStateToggled);
+<script>
+  function toggleSidebar(hideEl, showEl, shouldShow) {
+    let currentStateToggled =
+      document.querySelector("#sidebar").style.visbility === "none";
+    console.log(currentStateToggled);
 
-     if (shouldShow) {
-     showEl.style.display = "none";
-     document.querySelector("#sidebar").style.width = "260px";
-     document.querySelector("#sidebar").style.visbility = "visible";
-     } else {
-     showEl.style.display = "block";
-     document.querySelector("#sidebar").style.width = "0px";
-     document.querySelector("#sidebar").style.visbility = "none";
-     }
-     }
+    if (shouldShow) {
+      showEl.style.display = "none";
+      document.querySelector("#sidebar").style.width = "260px";
+      document.querySelector("#sidebar").style.visbility = "visible";
+    } else {
+      showEl.style.display = "block";
+      document.querySelector("#sidebar").style.width = "0px";
+      document.querySelector("#sidebar").style.visbility = "none";
+    }
+  }
 
-     setTimeout(function () {
-     let [hide, show] = ["#hide-sidebar", "#show-sidebar"].map((q) =>
-     document.querySelector(q),
-     );
-     //console.log(hide, show)
-     if (show) show.style.display = "none";
-     if (hide)
-     hide.addEventListener("click", () => toggleSidebar(hide, show, false));
-     if (show)
-     show.addEventListener("click", () => toggleSidebar(hide, show, true));
-     }, 0);
-     </script> -->
+  setTimeout(function () {
+    let [hide, show] = ["#hide-sidebar", "#show-sidebar"].map((q) =>
+      document.querySelector(q),
+    );
+    //console.log(hide, show)
+    if (show) show.style.display = "none";
+    if (hide)
+      hide.addEventListener("click", () => toggleSidebar(hide, show, false));
+    if (show)
+      show.addEventListener("click", () => toggleSidebar(hide, show, true));
+  }, 0);
+</script>

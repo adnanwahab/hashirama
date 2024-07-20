@@ -123,3 +123,13 @@ el.classList.remove('open')
     //window.history.pushState({taskId: e.target.textContent}, '', newUrl);
   });
 }, 500)
+
+
+
+
+
+
+
+
+
+console.log('fullstory loaded good')

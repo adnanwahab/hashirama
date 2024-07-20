@@ -332,39 +332,42 @@ func renderContainer() string {
 // },
 // }
 
-
+	//na1.MTBYU0NTL21haWxAYWRuYW53YWhhYi5jb206RBSlfubYqsZSw6yPk9jBchqZBpVg/zGzrFUVGXejbXsu/JG0XBMZ
     // Populate the data
+    // ML () , visualization, (networks, storage,
+    // https://arxivdigest.org/login)
     data := PageData{
         LatestPosts: []BlogPost{
-            {Title: "hi", URL: "", Date: ""},
-            {Title: "it", URL: "", Date: ""},
-            {Title: "gi", URL: "", Date: ""},
+            {Title: "Tisane: Authoring Statistical Models via Formal Reasoning from Conceptual and Data Relationships", URL: "https://idl.uw.edu/", Date: ""},
+            {Title: " Deep Neural Nets: 33 years ago and 33 years from now ", URL: "", Date: "http://karpathy.github.io/"},
+            {Title: "harmony of dissonance", URL: "", Date: ""},
         },
         BestPosts: []BlogPost{
-            {Title: "ai", URL: ""},
-            {Title: "ga", URL: ""},
+            {Title: "Concept Induction: Analyzing Unstructured Text with High-Level Concepts Using LLooM", URL: ""},
+            {Title: "Visualizing Urban Accessibility: Investigating Multi-Stakeholder Perspectives through a Map-based Design Probe Study", URL: ""},
         },
 
         Projects: []BlogPost{
-            {Title: "i", URL: ""},
+            {Title: "Linux Intelligence", URL: ""},
+			{Title: "Robotics Command Center", URL: ""},
         },
 
 		Robotics: []BlogPost{
-            {Title: "°", URL: ""},
+            {Title: "Palmer Luckey", URL: ""},
         },
 		Biotech: []BlogPost{
-            {Title: "wtf", URL: ""},
+            {Title: "Robert Sapolsky", URL: ""},
         },
 
 		Medtech: []BlogPost{
-            {Title: "wtf", URL: ""},
+            {Title: "Kapil Gupta", URL: ""},
         },
 
         GovTech: []BlogPost{
-            {Title: "wtf", URL: ""},
+            {Title: "The beauty of the constitution", URL: ""},
         },
         CreativeAI: []BlogPost{
-            {Title: "asdf", URL: ""},
+            {Title: "Bret Victor", URL: ""},
         },
     }
 
@@ -513,6 +516,7 @@ func renderTemplate(templateName string) echo.HandlerFunc {
 			fmt.Printf("oh shit dog %s\n", err)
 			return err
 		}
+		
 		c.Response().Header().Set("Content-Type", "text/html")
 
 		buf := templ.GetBuffer()
@@ -598,11 +602,34 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+func handleHero(c echo.Context) error {
+	tmpl, shit := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/shit-dont-need.html")
+	if shit != nil {
+        return shit
+    }
+
+	t, err := template.New("chat").Parse(string(tmpl))
+    if err != nil {
+        return err
+    }
+
+	data := []string{"hi", "hit"}
+
+    var result strings.Builder
+    err = t.Execute(&result, data)
+    if err != nil {
+        return err
+    }
+
+    c.HTML(http.StatusOK, result.String())
+	return nil
+}
+
 func setupRoutes(e *echo.Echo) {
 
 	http.HandleFunc("/ws", handleWebSocket)
 	fmt.Printf("wtf setup routes\n")
-
+	e.GET("/api/hero", handleHero)
     e.POST("/video-to-pdf", handleConvertVideoToPDF)
     e.GET("/agents", handleAgents)
     e.POST("/add-agent", handleAddAgent)
