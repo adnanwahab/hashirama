@@ -154,7 +154,7 @@ var pinned = []string{
 				"Golang Networking",
 				"Explore GPTs",
 	}
-	
+
 	var yesterday = []string{
   "Set Up Desktop Remotely",
   "New chat",
@@ -173,9 +173,9 @@ var pinned = []string{
 		}
 
 	var list_of_lists = [][]string{pinned,  yesterday, more_than_7}
-var list_of_names = []string{"Pinned", "Today", "Yesterday"}	
+var list_of_names = []string{"Pinned", "Today", "Yesterday"}
 
-	
+
 var themes = []Theme{
     {
         Name:  "Creative AI",
@@ -190,7 +190,7 @@ var themes = []Theme{
         Tools: []string{"agent-playground", "dating-photos", "robot-doctor"},
     },
 }
-	
+
 
 
 
@@ -209,7 +209,7 @@ var tmpl = `
 
 func renderChat() string{
 
-	
+
     data := PageData{
         ChatHistory: map[string][]Chat{
 			// "Pinned": {},
@@ -240,8 +240,8 @@ func renderChat() string{
 	// 			chatInstance.avatar_url = &avatars["404"][0]
 	// 		}
 	// 		fmt.Print("rendering history for ", v)
-	// 		data.ChatHistory[name] = append(data.ChatHistory[name], chatInstance)	
-	// 	} 
+	// 		data.ChatHistory[name] = append(data.ChatHistory[name], chatInstance)
+	// 	}
 	// }
 
 
@@ -256,7 +256,7 @@ func renderChat() string{
         return err.Error()
     }
 
-	
+
 
     var result strings.Builder
     err = t.Execute(&result, data)
@@ -272,55 +272,99 @@ func renderContainer() string {
 	type PageData struct {
     LatestPosts []BlogPost
     BestPosts   []BlogPost
+
+		Projects   []BlogPost
 		Robotics []BlogPost
 		Biotech []BlogPost
 		Medtech  []BlogPost
+		GovTech  []BlogPost
+		CreativeAI  []BlogPost
 }
+// var avatars = map[string][]string{
+//     "Neural Network Plumbing":{"https://files.oaiusercontent.com/file-PeqnTG5NGsLDRMNCxmipWC20?se=2124-05-06T10%3A22%3A42Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D1209600%2C%20immutable&rscd=attachment%3B%20filename%3D316758dd-54a8-4864-aa60-58b9bf5663a5.png&sig=Y7Wo1VW4PUU6CLQZw%2BPKNiQkcI1yp0QrIxO1sx3soQg%3D"},
+//     "DoomEmacs and Devops":{"https://files.oaiusercontent.com/file-soCSJ2n0ySryDfgySffuOBIf?se=2124-05-06T09%3A51%3A23Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D1209600%2C%20immutable&rscd=attachment%3B%20filename%3D3b0cb232-0805-4851-b34a-1c2e6c04430c.png&sig=mro7QVJHH3S7IlnwmnMTRgQrSl%2BYy9s2uwPFkM9f7Og%3D"},
+//     "NixOS Guide":{"https://files.oaiusercontent.com/file-KMabO7iGoP0sAGTu7rDNH3Ju?se=2124-05-06T03%3A54%3A45Z&sp=r&sv=2023-11-03&sr=b&rscc=max-age%3D1209600%2C%20immutable&rscd=attachment%3B%20filename%3D4999a3ed-211f-41ca-a6b6-1ce0bddda99e.png&sig=Y%2BxB2//UkVTHr3t7yopFHei9duv3cOB%2BaxKkXeUEjRo%3D"},
+//     "Golang, Networking, and Unix Fundamentals":{ "https://lh3.googleusercontent.com/a-/AOh14GjRgSbI8yMMWfTagyCfu2C1YlqG-7n9aJ_46C7kgQ=s96-c"},
+//     "404": {"https://pbs.twimg.com/profile_images/1486033940301426711/HoYf1hzR_400x400.jpg"},
+// }
+
+// var pinned = []string{
+//     "Neural Network",
+//             "DoomEmacs and Devops",
+//             "NixOs Guide",
+//             "Golang Networking",
+//             "Explore GPTs",
+// }
+
+// var yesterday = []string{
+// "Set Up Desktop Remotely",
+// "New chat",
+// "Travel to Bali",
+// "Firefox Extension Name: \"ArcAI Edge\"",
+// "Remote GPU Docker Setup",
+// "petabyte to Terabyte Conversion",
+// }
+
+//     var more_than_7 = []string{
+// "Set Up Desktop Remotely",
+// "New chat",
+// "Firefox Extension Name: \"ArcAI Edge\"",
+// "Remote GPU Docker Setup",
+// "Petabyte to Terabyte Conversion",
+//     }
+
+// var list_of_lists = [][]string{pinned,  yesterday, more_than_7}
+// var list_of_names = []string{"Pinned", "Today", "Yesterday"}
+
+
+// var themes = []Theme{
+// {
+//     Name:  "Creative AI",
+//     Tools: []string{"linux-intelligence", "apm.el", "kyubii"},
+// },
+// {
+//     Name:  "Robotics + ML",
+//     Tools: []string{"multiplayer-command-and-control", "continuous-eval", "simulation-pixel-streaming", "auto-labeling"},
+// },
+// {
+//     Name:  "Domain Knowledge / Expertise",
+//     Tools: []string{"agent-playground", "dating-photos", "robot-doctor"},
+// },
+// }
+
 
     // Populate the data
     data := PageData{
         LatestPosts: []BlogPost{
-            {Title: "PySkyWiFi: completely free, unbelievably stupid wi-fi on long-haul flights", URL: "/pyskywifi/", Date: "09 Jul 2024"},
-            {Title: "I've written a book about being a dad; now I want to get it published", URL: "/book-draft-finished/", Date: "25 Mar 2024"},
-            {Title: "Thousands of elderly twins assure me that my kids will be alright", URL: "/twins/", Date: "18 Oct 2023"},
-            {Title: "Hello Deep Learning", URL: "/hello-deep-learning/", Date: "13 Oct 2023"},
-            {Title: "How to pass a coding interview with me", URL: "/interview/", Date: "30 Aug 2023"},
+            {Title: "hi", URL: "", Date: ""},
+            {Title: "it", URL: "", Date: ""},
+            {Title: "gi", URL: "", Date: ""},
         },
         BestPosts: []BlogPost{
-            {Title: "Tracking friends and strangers using WhatsApp", URL: "/whatsapp-tracking/"},
-            {Title: "How Tinder keeps your exact location (a bit) private", URL: "/tinder-location/"},
-            {Title: "\"Stylish\" browser extension steals all your internet history", URL: "/stylish/"},
-            {Title: "HTTPS in the real world", URL: "/https-in-the-real-world/"},
-            {Title: "I was 7 words away from being spear-phished", URL: "/spear-phishing/"},
-            {Title: "Childbirth: a father's-eye view", URL: "/childbirth/"},
-            {Title: "Making peace with Simpson's Paradox", URL: "/simpsons-paradox/"},
+            {Title: "ai", URL: ""},
+            {Title: "ga", URL: ""},
         },
+
+        Projects: []BlogPost{
+            {Title: "i", URL: ""},
+        },
+
 		Robotics: []BlogPost{
-            {Title: "Tracking friends and strangers using WhatsApp", URL: "/whatsapp-tracking/"},
-            {Title: "How Tinder keeps your exact location (a bit) private", URL: "/tinder-location/"},
-            {Title: "\"Stylish\" browser extension steals all your internet history", URL: "/stylish/"},
-            {Title: "HTTPS in the real world", URL: "/https-in-the-real-world/"},
-            {Title: "I was 7 words away from being spear-phished", URL: "/spear-phishing/"},
-            {Title: "Childbirth: a father's-eye view", URL: "/childbirth/"},
-            {Title: "Making peace with Simpson's Paradox", URL: "/simpsons-paradox/"},
+            {Title: "°", URL: ""},
         },
 		Biotech: []BlogPost{
-            {Title: "Tracking friends and strangers using WhatsApp", URL: "/whatsapp-tracking/"},
-            {Title: "How Tinder keeps your exact location (a bit) private", URL: "/tinder-location/"},
-            {Title: "\"Stylish\" browser extension steals all your internet history", URL: "/stylish/"},
-            {Title: "HTTPS in the real world", URL: "/https-in-the-real-world/"},
-            {Title: "I was 7 words away from being spear-phished", URL: "/spear-phishing/"},
-            {Title: "Childbirth: a father's-eye view", URL: "/childbirth/"},
-            {Title: "Making peace with Simpson's Paradox", URL: "/simpsons-paradox/"},
+            {Title: "wtf", URL: ""},
         },
+
 		Medtech: []BlogPost{
-            {Title: "Tracking friends and strangers using WhatsApp", URL: "/whatsapp-tracking/"},
-            {Title: "How Tinder keeps your exact location (a bit) private", URL: "/tinder-location/"},
-            {Title: "\"Stylish\" browser extension steals all your internet history", URL: "/stylish/"},
-            {Title: "HTTPS in the real world", URL: "/https-in-the-real-world/"},
-            {Title: "I was 7 words away from being spear-phished", URL: "/spear-phishing/"},
-            {Title: "Childbirth: a father's-eye view", URL: "/childbirth/"},
-            {Title: "Making peace with Simpson's Paradox", URL: "/simpsons-paradox/"},
+            {Title: "wtf", URL: ""},
+        },
+
+        GovTech: []BlogPost{
+            {Title: "wtf", URL: ""},
+        },
+        CreativeAI: []BlogPost{
+            {Title: "asdf", URL: ""},
         },
     }
 
@@ -335,7 +379,7 @@ func renderContainer() string {
         return err.Error()
     }
 
-	
+
 
     var result strings.Builder
     err = t.Execute(&result, data)
@@ -355,7 +399,7 @@ func renderThemes() string {
             {{range $toolIndex, $tool := .Tools}}
                 <li hx-get="/tools/{{$tool}}" hx-target="#my-ass"   class="cursor-pointer hover:bg-indigo-50 p-2 rounded transition-colors">
                     <div href="#tools/{{$tool}}" class="pl-16 hover:text-indigo-500 transition-colors">
-                        
+
                     <span class="hover:text-indigo-500">{{add $toolIndex 1}}. {{$tool}}</span>
                     </div>
                 </li>
@@ -390,7 +434,7 @@ func download_kyubii(c echo.Context) error {
 
 	// firefox-ext
 	// web-ext reload??
-	// firefox - send command 
+	// firefox - send command
 	// dat, err := os.ReadFile("/home/adnan/hashirama/services/firefox-ext/web-ext-artifacts/kyubii-1.0.zip")
 	// if err != nil {
 	// 	fmt.Println("wtf man", err)
@@ -575,12 +619,12 @@ func setupRoutes(e *echo.Echo) {
 	e.GET("/api/chat", handleChat)
 
 	e.GET("/api/container", func (c echo.Context) error { return c.HTML(http.StatusOK, renderContainer()) } )
-	
+
 
 	e.GET("/api/download_kyubii", download_kyubii)
     e.POST("/beep", beep)
 
 
-	
+
 
 }
