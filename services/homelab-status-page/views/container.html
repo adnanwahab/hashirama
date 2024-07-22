@@ -13,130 +13,130 @@
         {{end}}
       </ul>
     </section>
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-4">Latest</h2>
-      <ul class="list-none pl-0 space-y-2">
-        {{range .LatestPosts}}
-        <li>
-          <a href="{{.URL}}" class="text-xl text-white hover:underline">
-            {{.Title}}
-          </a>
-        </li>
-        {{end}}
-      </ul>
-    </section>
+    <!-- <section class="mb-12">
+         <h2 class="text-3xl font-bold mb-4">Latest</h2>
+         <ul class="list-none pl-0 space-y-2">
+         {{range .LatestPosts}}
+         <li>
+         <a href="{{.URL}}" class="text-xl text-white hover:underline">
+         {{.Title}}
+         </a>
+         </li>
+         {{end}}
+         </ul>
+         </section>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-4">Best of</h2>
-      <ul class="list-none pl-0 space-y-2">
-        {{range .BestPosts}}
-        <li>
-          <a href="{{.URL}}" class="text-xl text-white hover:underline">
-            {{.Title}}
-          </a>
-        </li>
-        {{end}}
-      </ul>
-    </section>
+         <section class="mb-12">
+         <h2 class="text-3xl font-bold mb-4">Best of</h2>
+         <ul class="list-none pl-0 space-y-2">
+         {{range .BestPosts}}
+         <li>
+         <a href="{{.URL}}" class="text-xl text-white hover:underline">
+         {{.Title}}
+         </a>
+         </li>
+         {{end}}
+         </ul>
+         </section>
 
-    <section class="mb-12 py-6 border-t border-b border-gray-700">
-      <h2 class="text-3xl font-bold mb-4">Get new essays sent to you</h2>
-      <p class="text-xl text-gray-300 mb-4">
-        Subscribe to my new work on programming, security, and a few other
-        topics. Published a few times a month.
-      </p>
-      <form action="#" method="post" class="mb-4">
-        <input
-          type="email"
-          placeholder="Your email address"
-          class="w-full p-3 bg-gray-800 border border-gray-600 text-white mb-3"
-        />
-        <button
-          type="submit"
-          class="bg-green-500 text-white py-2 px-4 hover:bg-green-600"
-        >
-          Subscribe
-        </button>
-      </form>
-      <div class="space-x-4">
-        <a href="#" class="text-blue-400 hover:underline"
-          >Follow me on Twitter →</a
-        >
-        <a href="#" class="text-blue-400 hover:underline">RSS →</a>
-      </div>
-    </section>
+         <section class="mb-12 py-6 border-t border-b border-gray-700">
+         <h2 class="text-3xl font-bold mb-4">Get new essays sent to you</h2>
+         <p class="text-xl text-gray-300 mb-4">
+         Subscribe to my new work on programming, security, and a few other
+         topics. Published a few times a month.
+         </p>
+         <form action="#" method="post" class="mb-4">
+         <input
+         type="email"
+         placeholder="Your email address"
+         class="w-full p-3 bg-gray-800 border border-gray-600 text-white mb-3"
+         />
+         <button
+         type="submit"
+         class="bg-green-500 text-white py-2 px-4 hover:bg-green-600"
+         >
+         Subscribe
+         </button>
+         </form>
+         <div class="space-x-4">
+         <a href="#" class="text-blue-400 hover:underline"
+         >Follow me on Twitter →</a
+         >
+         <a href="#" class="text-blue-400 hover:underline">RSS →</a>
+         </div>
+         </section>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-4">robotics</h2>
-      <ul class="list-none pl-0 space-y-2">
-        {{range .Robotics}}
-        <li>
-          <a href="{{.URL}}" class="text-xl text-white hover:underline">
-            {{.Title}}
-          </a>
-        </li>
-        {{end}}
-      </ul>
-    </section>
+         <section class="mb-12">
+         <h2 class="text-3xl font-bold mb-4">robotics</h2>
+         <ul class="list-none pl-0 space-y-2">
+         {{range .Robotics}}
+         <li>
+         <a href="{{.URL}}" class="text-xl text-white hover:underline">
+         {{.Title}}
+         </a>
+         </li>
+         {{end}}
+         </ul>
+         </section>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-4">biotech</h2>
-      <ul class="list-none pl-0 space-y-2">
-        {{range .Biotech}}
-        <li>
-          <a href="{{.URL}}" class="text-xl text-white hover:underline">
-            {{.Title}}
-          </a>
-        </li>
-        {{end}}
-      </ul>
-    </section>
+         <section class="mb-12">
+         <h2 class="text-3xl font-bold mb-4">biotech</h2>
+         <ul class="list-none pl-0 space-y-2">
+         {{range .Biotech}}
+         <li>
+         <a href="{{.URL}}" class="text-xl text-white hover:underline">
+         {{.Title}}
+         </a>
+         </li>
+         {{end}}
+         </ul>
+         </section>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-4">medtech</h2>
-      <ul class="list-none pl-0 space-y-2">
-        {{range .Medtech}}
-        <li>
-          <a href="{{.URL}}" class="text-xl text-white hover:underline">
-            {{.Title}}
-          </a>
-        </li>
-        {{end}}
-      </ul>
-    </section>
+         <section class="mb-12">
+         <h2 class="text-3xl font-bold mb-4">medtech</h2>
+         <ul class="list-none pl-0 space-y-2">
+         {{range .Medtech}}
+         <li>
+         <a href="{{.URL}}" class="text-xl text-white hover:underline">
+         {{.Title}}
+         </a>
+         </li>
+         {{end}}
+         </ul>
+         </section>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-4">Creative AI</h2>
-      <ul class="list-none pl-0 space-y-2">
-        {{range .CreativeAI}}
-        <li>
-          <a href="{{.URL}}" class="text-xl text-white hover:underline">
-            {{.Title}}
-          </a>
-        </li>
-        {{end}}
-      </ul>
-    </section>
+         <section class="mb-12">
+         <h2 class="text-3xl font-bold mb-4">Creative AI</h2>
+         <ul class="list-none pl-0 space-y-2">
+         {{range .CreativeAI}}
+         <li>
+         <a href="{{.URL}}" class="text-xl text-white hover:underline">
+         {{.Title}}
+         </a>
+         </li>
+         {{end}}
+         </ul>
+         </section>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-4">gov</h2>
-      <ul class="list-none pl-0 space-y-2">
-        {{range .GovTech}}
-        <li>
-          <a href="{{.URL}}" class="text-xl text-white hover:underline">
-            {{.Title}}
-          </a>
-        </li>
-        {{end}}
-      </ul>
-    </section>
+         <section class="mb-12">
+         <h2 class="text-3xl font-bold mb-4">gov</h2>
+         <ul class="list-none pl-0 space-y-2">
+         {{range .GovTech}}
+         <li>
+         <a href="{{.URL}}" class="text-xl text-white hover:underline">
+         {{.Title}}
+         </a>
+         </li>
+         {{end}}
+         </ul>
+         </section>
 
-    <a
-      href="/archive"
-      class="border border-gray-600 py-2 px-4 text-gray-300 hover:bg-gray-800 inline-block"
-    >
-      View full archive
-    </a>
-  </div>
+         <a
+         href="/archive"
+         class="border border-gray-600 py-2 px-4 text-gray-300 hover:bg-gray-800 inline-block"
+         >
+         View full archive
+         </a>
+         </div> -->
 </div>
 <!-- end  -->

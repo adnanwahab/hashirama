@@ -2,11 +2,16 @@
 ## explicit; go 1.21
 github.com/a-h/templ
 github.com/a-h/templ/safehtml
+# github.com/beorn7/perks v1.0.1
+## explicit; go 1.11
+github.com/beorn7/perks/quantile
 # github.com/bitly/go-simplejson v0.5.1
 ## explicit; go 1.17
+# github.com/cespare/xxhash/v2 v2.3.0
+## explicit; go 1.11
+github.com/cespare/xxhash/v2
 # github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
 ## explicit
-github.com/davecgh/go-spew/spew
 # github.com/deckarep/golang-set/v2 v2.6.0
 ## explicit; go 1.18
 github.com/deckarep/golang-set/v2
@@ -24,6 +29,9 @@ github.com/go-jose/go-jose/v3/json
 # github.com/go-stack/stack v1.8.1
 ## explicit; go 1.17
 github.com/go-stack/stack
+# github.com/golang-jwt/jwt v3.2.2+incompatible
+## explicit
+github.com/golang-jwt/jwt
 # github.com/golang/mock v1.6.0
 ## explicit; go 1.11
 github.com/golang/mock/gomock
@@ -31,7 +39,6 @@ github.com/golang/mock/gomock
 ## explicit; go 1.19
 # github.com/google/uuid v1.3.1
 ## explicit
-github.com/google/uuid
 # github.com/gorilla/websocket v1.5.3
 ## explicit; go 1.12
 github.com/gorilla/websocket
@@ -41,11 +48,16 @@ github.com/gorilla/websocket
 ## explicit; go 1.16
 # github.com/kkdai/youtube/v2 v2.10.1
 ## explicit; go 1.21
+# github.com/labstack/echo-contrib v0.17.1
+## explicit; go 1.21
+github.com/labstack/echo-contrib/echoprometheus
 # github.com/labstack/echo/v4 v4.12.0
 ## explicit; go 1.18
 github.com/labstack/echo/v4
+github.com/labstack/echo/v4/middleware
 # github.com/labstack/gommon v0.4.2
 ## explicit; go 1.18
+github.com/labstack/gommon/bytes
 github.com/labstack/gommon/color
 github.com/labstack/gommon/log
 # github.com/mattn/go-colorable v0.1.13
@@ -58,99 +70,36 @@ github.com/mattn/go-isatty
 ## explicit; go 1.22.0
 # github.com/pion/datachannel v1.5.5
 ## explicit; go 1.13
-github.com/pion/datachannel
 # github.com/pion/dtls/v2 v2.2.7
 ## explicit; go 1.13
-github.com/pion/dtls/v2
-github.com/pion/dtls/v2/internal/ciphersuite
-github.com/pion/dtls/v2/internal/ciphersuite/types
-github.com/pion/dtls/v2/internal/closer
-github.com/pion/dtls/v2/internal/util
-github.com/pion/dtls/v2/pkg/crypto/ccm
-github.com/pion/dtls/v2/pkg/crypto/ciphersuite
-github.com/pion/dtls/v2/pkg/crypto/clientcertificate
-github.com/pion/dtls/v2/pkg/crypto/elliptic
-github.com/pion/dtls/v2/pkg/crypto/fingerprint
-github.com/pion/dtls/v2/pkg/crypto/hash
-github.com/pion/dtls/v2/pkg/crypto/prf
-github.com/pion/dtls/v2/pkg/crypto/signature
-github.com/pion/dtls/v2/pkg/crypto/signaturehash
-github.com/pion/dtls/v2/pkg/protocol
-github.com/pion/dtls/v2/pkg/protocol/alert
-github.com/pion/dtls/v2/pkg/protocol/extension
-github.com/pion/dtls/v2/pkg/protocol/handshake
-github.com/pion/dtls/v2/pkg/protocol/recordlayer
 # github.com/pion/ice/v2 v2.3.27
 ## explicit; go 1.13
-github.com/pion/ice/v2
-github.com/pion/ice/v2/internal/atomic
-github.com/pion/ice/v2/internal/fakenet
-github.com/pion/ice/v2/internal/stun
 # github.com/pion/interceptor v0.1.25
 ## explicit; go 1.15
-github.com/pion/interceptor
-github.com/pion/interceptor/internal/ntp
-github.com/pion/interceptor/internal/sequencenumber
-github.com/pion/interceptor/pkg/nack
-github.com/pion/interceptor/pkg/report
-github.com/pion/interceptor/pkg/twcc
 # github.com/pion/logging v0.2.2
 ## explicit; go 1.12
-github.com/pion/logging
 # github.com/pion/mdns v0.0.12
 ## explicit; go 1.19
-github.com/pion/mdns
 # github.com/pion/randutil v0.1.0
 ## explicit; go 1.14
-github.com/pion/randutil
 # github.com/pion/rtcp v1.2.12
 ## explicit; go 1.13
-github.com/pion/rtcp
 # github.com/pion/rtp v1.8.5
 ## explicit; go 1.19
-github.com/pion/rtp
-github.com/pion/rtp/codecs
-github.com/pion/rtp/codecs/av1/obu
 # github.com/pion/sctp v1.8.16
 ## explicit; go 1.19
-github.com/pion/sctp
 # github.com/pion/sdp/v3 v3.0.9
 ## explicit; go 1.13
-github.com/pion/sdp/v3
 # github.com/pion/srtp/v2 v2.0.18
 ## explicit; go 1.14
-github.com/pion/srtp/v2
 # github.com/pion/stun v0.6.1
 ## explicit; go 1.12
-github.com/pion/stun
-github.com/pion/stun/internal/hmac
 # github.com/pion/transport/v2 v2.2.4
 ## explicit; go 1.12
-github.com/pion/transport/v2
-github.com/pion/transport/v2/connctx
-github.com/pion/transport/v2/deadline
-github.com/pion/transport/v2/packetio
-github.com/pion/transport/v2/replaydetector
-github.com/pion/transport/v2/stdnet
-github.com/pion/transport/v2/udp
-github.com/pion/transport/v2/utils/xor
-github.com/pion/transport/v2/vnet
 # github.com/pion/turn/v2 v2.1.3
 ## explicit; go 1.13
-github.com/pion/turn/v2
-github.com/pion/turn/v2/internal/allocation
-github.com/pion/turn/v2/internal/client
-github.com/pion/turn/v2/internal/ipnet
-github.com/pion/turn/v2/internal/proto
-github.com/pion/turn/v2/internal/server
 # github.com/pion/webrtc/v3 v3.2.44
 ## explicit; go 1.17
-github.com/pion/webrtc/v3
-github.com/pion/webrtc/v3/internal/fmtp
-github.com/pion/webrtc/v3/internal/mux
-github.com/pion/webrtc/v3/internal/util
-github.com/pion/webrtc/v3/pkg/media
-github.com/pion/webrtc/v3/pkg/rtcerr
 # github.com/pkg/errors v0.9.1
 ## explicit
 github.com/pkg/errors
@@ -160,11 +109,26 @@ github.com/playwright-community/playwright-go
 github.com/playwright-community/playwright-go/internal/multierror
 # github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2
 ## explicit
-github.com/pmezard/go-difflib/difflib
+# github.com/prometheus/client_golang v1.19.0
+## explicit; go 1.20
+github.com/prometheus/client_golang/prometheus
+github.com/prometheus/client_golang/prometheus/internal
+github.com/prometheus/client_golang/prometheus/promhttp
+# github.com/prometheus/client_model v0.6.1
+## explicit; go 1.19
+github.com/prometheus/client_model/go
+# github.com/prometheus/common v0.53.0
+## explicit; go 1.20
+github.com/prometheus/common/expfmt
+github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg
+github.com/prometheus/common/model
+# github.com/prometheus/procfs v0.13.0
+## explicit; go 1.19
+github.com/prometheus/procfs
+github.com/prometheus/procfs/internal/fs
+github.com/prometheus/procfs/internal/util
 # github.com/stretchr/testify v1.9.0
 ## explicit; go 1.17
-github.com/stretchr/testify/assert
-github.com/stretchr/testify/require
 # github.com/twilio/twilio-go v1.21.0
 ## explicit; go 1.16
 github.com/twilio/twilio-go
@@ -225,32 +189,19 @@ go.uber.org/multierr
 ## explicit; go 1.18
 golang.org/x/crypto/acme
 golang.org/x/crypto/acme/autocert
-golang.org/x/crypto/cryptobyte
-golang.org/x/crypto/cryptobyte/asn1
-golang.org/x/crypto/curve25519
-golang.org/x/crypto/curve25519/internal/field
 # golang.org/x/exp v0.0.0-20240604190554-fc45aab8b7f8
 ## explicit; go 1.20
 golang.org/x/exp/constraints
 golang.org/x/exp/slices
 # golang.org/x/net v0.26.0
 ## explicit; go 1.18
-golang.org/x/net/bpf
-golang.org/x/net/dns/dnsmessage
 golang.org/x/net/http/httpguts
 golang.org/x/net/http2
 golang.org/x/net/http2/h2c
 golang.org/x/net/http2/hpack
 golang.org/x/net/idna
-golang.org/x/net/internal/iana
-golang.org/x/net/internal/socket
-golang.org/x/net/internal/socks
-golang.org/x/net/ipv4
-golang.org/x/net/ipv6
-golang.org/x/net/proxy
 # golang.org/x/sys v0.21.0
 ## explicit; go 1.18
-golang.org/x/sys/cpu
 golang.org/x/sys/unix
 golang.org/x/sys/windows
 # golang.org/x/text v0.16.0
@@ -259,6 +210,38 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
+# golang.org/x/time v0.5.0
+## explicit; go 1.18
+golang.org/x/time/rate
+# google.golang.org/protobuf v1.34.1
+## explicit; go 1.17
+google.golang.org/protobuf/encoding/protodelim
+google.golang.org/protobuf/encoding/prototext
+google.golang.org/protobuf/encoding/protowire
+google.golang.org/protobuf/internal/descfmt
+google.golang.org/protobuf/internal/descopts
+google.golang.org/protobuf/internal/detrand
+google.golang.org/protobuf/internal/editiondefaults
+google.golang.org/protobuf/internal/encoding/defval
+google.golang.org/protobuf/internal/encoding/messageset
+google.golang.org/protobuf/internal/encoding/tag
+google.golang.org/protobuf/internal/encoding/text
+google.golang.org/protobuf/internal/errors
+google.golang.org/protobuf/internal/filedesc
+google.golang.org/protobuf/internal/filetype
+google.golang.org/protobuf/internal/flags
+google.golang.org/protobuf/internal/genid
+google.golang.org/protobuf/internal/impl
+google.golang.org/protobuf/internal/order
+google.golang.org/protobuf/internal/pragma
+google.golang.org/protobuf/internal/set
+google.golang.org/protobuf/internal/strs
+google.golang.org/protobuf/internal/version
+google.golang.org/protobuf/proto
+google.golang.org/protobuf/reflect/protoreflect
+google.golang.org/protobuf/reflect/protoregistry
+google.golang.org/protobuf/runtime/protoiface
+google.golang.org/protobuf/runtime/protoimpl
+google.golang.org/protobuf/types/known/timestamppb
 # gopkg.in/yaml.v3 v3.0.1
 ## explicit
-gopkg.in/yaml.v3

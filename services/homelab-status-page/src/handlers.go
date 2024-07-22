@@ -1,3 +1,4 @@
+
 package main
 
 import (
@@ -22,6 +23,7 @@ import (
 	"github.com/gorilla/websocket"
 	///"github.com/pion/webrtc/v3"
 )
+var rootPath = os.ExpandEnv("$HOME/hashirama/services/homelab-status-page/views/")
 
 // func handle_webrtc() {
 // 	// Initialize ZED camera
@@ -246,7 +248,7 @@ func renderChat() string{
 
 
 
-	tmpl, shit := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/chat-sidebar.html")
+	tmpl, shit := os.ReadFile(rootPath + "chat-sidebar.html")
 	if shit != nil {
         return shit.Error()
     }
@@ -331,7 +333,6 @@ func renderContainer() string {
 //     Tools: []string{"agent-playground", "dating-photos", "robot-doctor"},
 // },
 // }
-
 	//na1.MTBYU0NTL21haWxAYWRuYW53YWhhYi5jb206RBSlfubYqsZSw6yPk9jBchqZBpVg/zGzrFUVGXejbXsu/JG0XBMZ
     // Populate the data
     // ML () , visualization, (networks, storage,
@@ -346,10 +347,24 @@ func renderContainer() string {
             {Title: "Concept Induction: Analyzing Unstructured Text with High-Level Concepts Using LLooM", URL: ""},
             {Title: "Visualizing Urban Accessibility: Investigating Multi-Stakeholder Perspectives through a Map-based Design Probe Study", URL: ""},
         },
-
         Projects: []BlogPost{
-            {Title: "Linux Intelligence", URL: ""},
-			{Title: "Robotics Command Center", URL: ""},
+			{Title: "1. apm.el", URL: "/tools/apm.el"},
+			{Title: "2. Linux Intelligence", URL: "/tools/linux-intelligence"},
+						{Title: "3. agent-playground", URL: "/tools/agent-playground"},
+						{Title: "4. Robotics Command Center", URL: "/tools/multiplayer-command-and-control"},
+									{Title: "5. admin", URL: "/tools/admin"},
+			//{Title: "robot-doctor", URL: "/tools/robot-doctor"},
+
+			//{Title: "kyubii", URL: "/tools/kyubii"},
+			//{Title: "dating-photos", URL: "/tools/dating-photos"},
+			//{Title: "simulation-pixel-streaming", URL: "/tools/simulation-pixel-streaming"},
+
+			//			{Title: "continuous-eval", URL: "/tools/linux-intelligence"},
+			//{Title: "blue-dots", URL: "/tools/blue-dots"},
+			//{Title: "git-visualizer", URL: "/tools/git-visualizer"},
+			//{Title: "auto-labeling", URL: "/tools/auto-labeling"},
+			//{Title: "resume-builder", URL: "/tools/resume-builder"},
+			//{Title: "personal-analytics", URL: "/tools/personal-analytics"},
         },
 
 		Robotics: []BlogPost{
@@ -372,7 +387,7 @@ func renderContainer() string {
     }
 
 
-		tmpl, shit := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/container.html")
+		tmpl, shit := os.ReadFile(rootPath + "container.html")
 	if shit != nil {
         return shit.Error()
     }
@@ -507,7 +522,7 @@ func renderTemplate(templateName string) echo.HandlerFunc {
 		if templateName == "/index" {
 			templateName = "index.temp"
 		}
-		rootPath := os.ExpandEnv("$HOME/hashirama/services/homelab-status-page/views/")
+
 		fmt.Printf("Received route on /%s\n", templateName)
 		name := path.Join(rootPath, templateName + ".html")
 		fmt.Printf("ROUTING TO %s\n", name)
@@ -564,9 +579,22 @@ func this_is_shit(e *echo.Echo, baseDirectory string, prefix string ) {
 
 func setupDynamicRoutes(e *echo.Echo) {
     // Implementation for setting up dynamic routes
-	this_is_shit(e, "$HOME/hashirama/services/homelab-status-page/views/*.html", "")
-	this_is_shit(e, "$HOME/hashirama/services/homelab-status-page/views/tools/*.html", "tools/")
-
+	this_is_shit(e, rootPath + "*.html", "")
+	//this_is_shit(e, rootPath + "/tol*.html", "tools/")
+	baseDirectory := rootPath + "tools/*.html"
+	prefix := "tools/"
+	expandMyPuss := os.ExpandEnv(baseDirectory)
+	allMyRoutes, err := filepath.Glob(expandMyPuss)
+	//fmt.Println("adding route for", allMyRoutes,  baseDirectory, expandMyPuss, len(allMyRoutes), trimMyDick(allMyRoutes[0]))
+	//e.GET("/tools", renderTemplate("form"))
+	if err != nil {return }
+	for i := 0; i < len(allMyRoutes); i++ {
+		filePath := string(allMyRoutes[i])
+		if filePath == "/" {continue}
+		trimmed := prefix + trimFilename(filePath)
+		fmt.Println("adding route for", trimmed)
+		e.GET(trimmed, renderTemplate(trimmed))
+    }
 }
 
 
@@ -603,7 +631,7 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 	}
 }
 func handleHero(c echo.Context) error {
-	tmpl, shit := os.ReadFile("/home/adnan/hashirama/services/homelab-status-page/views/shit-dont-need.html")
+	tmpl, shit := os.ReadFile(rootPath + "shit-dont-need.html")
 	if shit != nil {
         return shit
     }
@@ -650,6 +678,8 @@ func setupRoutes(e *echo.Echo) {
 
 	e.GET("/api/download_kyubii", download_kyubii)
     e.POST("/beep", beep)
+
+
 
 
 

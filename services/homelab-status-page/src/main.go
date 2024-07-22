@@ -6,8 +6,34 @@ import (
     "os"
 
     "github.com/labstack/echo/v4"
+    "github.com/labstack/echo-contrib/echoprometheus"
+    	"log"
+	"net/http"
+    	"errors"
+
+	"github.com/labstack/echo/v4/middleware"
+
 )
 
+func echoLogger(next echo.HandlerFunc) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		req := c.Request()
+		res := c.Response()
+
+		fmt.Println("--- New Request ---")
+		fmt.Printf("Method: %s\n", req.Method)
+		fmt.Printf("URL: %s\n", req.URL)
+		fmt.Printf("Headers: %v\n", req.Header)
+		fmt.Printf("RemoteAddr: %s\n", req.RemoteAddr)
+
+		err := next(c)
+
+		fmt.Printf("Status: %d\n", res.Status)
+		fmt.Println("--- End Request ---")
+
+		return err
+	}
+}
 func main() {
     binaryName := os.Args[0]
     fmt.Println("Binary name:", binaryName)
@@ -23,10 +49,21 @@ func main() {
 
     // Setup error handler
     e.HTTPErrorHandler = customHTTPErrorHandler
+    	e.Use(middleware.Logger())
+
+	e.Use(echoLogger)
 
 
 	// sudo pkill 1337 lol
     // Start server
-    e.Logger.Fatal(e.Start("0.0.0.0:1337"))
-}
+    //E.LOGGER.Fatal(e.Start("0.0.0.0:1337"))
+    	e.Use(echoprometheus.NewMiddleware("myapp")) // adds middleware to gather metrics
+	e.GET("/metrics", echoprometheus.NewHandler()) // adds route to serve gathered metrics
+e.GET("/hello", func(c echo.Context) error {
+		return c.String(http.StatusOK, "hello")
+	})
 
+    if err := e.Start(":1337"); err != nil && !errors.Is(err, http.ErrServerClosed) {
+		log.Fatal(err)
+	}
+}
