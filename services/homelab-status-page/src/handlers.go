@@ -1,4 +1,5 @@
 
+
 package main
 
 import (
@@ -21,12 +22,13 @@ import (
     //"github.com/kkdai/youtube/v2"
     "log"
 	"github.com/gorilla/websocket"
+	"unicode"
 	///"github.com/pion/webrtc/v3"
 )
 var rootPath = os.ExpandEnv("$HOME/hashirama/services/homelab-status-page/views/")
 
 // func handle_webrtc() {
-// 	// Initialize ZED camera
+// 	// Initialize ZED camer
 // 	camera, err := zed.Create(zed.ID_ZED2i)
 // 	if err != nil {
 // 		log.Fatal("Failed to create ZED camera:", err)
@@ -197,6 +199,7 @@ var themes = []Theme{
 
 
 // Keep the struct definitions as they are
+//
 type BlogPost struct {
     Title string
     URL   string
@@ -269,6 +272,15 @@ func renderChat() string{
     return result.String()
 }
 
+func titleCase(s string) string {
+	words := strings.Fields(s)
+	for i, word := range words {
+		runes := []rune(word)
+		runes[0] = unicode.ToUpper(runes[0])
+		words[i] = string(runes)
+	}
+	return strings.Join(words, " ")
+}
 
 func renderContainer() string {
 	type PageData struct {
@@ -337,7 +349,40 @@ func renderContainer() string {
     // Populate the data
     // ML () , visualization, (networks, storage,
     // https://arxivdigest.org/login)
+    //
+    //
+    dirPath := rootPath + "tools/"
+
+    files, err := os.ReadDir(dirPath)
+    if err != nil {
+        fmt.Printf("Error reading directory: %v\n", err)
+        return err.Error()
+    }
+
+    var fileInfos []BlogPost
+
+    for _, file := range files {
+        if !file.IsDir() {
+			filePath := file.Name()
+			filename := strings.TrimSuffix(filepath.Base(filePath), filepath.Ext(filePath))
+
+
+			url := filepath.Base(filename)
+			title := titleCase(strings.Replace(filepath.Base(filename), "-", " ", 1))
+            fileInfos = append(fileInfos, BlogPost{
+                Title: title,
+                URL:   "/tools/" + url,
+            })
+        }
+    }
+
+    fmt.Println("List of file objects:")
+    for _, info := range fileInfos {
+        fmt.Printf("{Title: %s, URL: %s}\n", info.Title, info.URL)
+    }
+
     data := PageData{
+	    Projects: fileInfos,
         LatestPosts: []BlogPost{
             {Title: "Tisane: Authoring Statistical Models via Formal Reasoning from Conceptual and Data Relationships", URL: "https://idl.uw.edu/", Date: ""},
             {Title: " Deep Neural Nets: 33 years ago and 33 years from now ", URL: "", Date: "http://karpathy.github.io/"},
@@ -347,12 +392,12 @@ func renderContainer() string {
             {Title: "Concept Induction: Analyzing Unstructured Text with High-Level Concepts Using LLooM", URL: ""},
             {Title: "Visualizing Urban Accessibility: Investigating Multi-Stakeholder Perspectives through a Map-based Design Probe Study", URL: ""},
         },
-        Projects: []BlogPost{
-			{Title: "1. apm.el", URL: "/tools/apm.el"},
-			{Title: "2. Linux Intelligence", URL: "/tools/linux-intelligence"},
-						{Title: "3. agent-playground", URL: "/tools/agent-playground"},
-						{Title: "4. Robotics Command Center", URL: "/tools/multiplayer-command-and-control"},
-									{Title: "5. admin", URL: "/tools/admin"},
+        // Projects: []BlogPost{
+		// 	{Title: "1. apm.el", URL: "/tools/apm.el"},
+		// 	{Title: "2. Linux Intelligence", URL: "/tools/linux-intelligence"},
+		// 				{Title: "3. agent-playground", URL: "/tools/agent-playground"},
+		// 				{Title: "4. Robotics Command Center", URL: "/tools/multiplayer-command-and-control"},
+		// 							{Title: "5. admin", URL: "/tools/admin"},
 			//{Title: "robot-doctor", URL: "/tools/robot-doctor"},
 
 			//{Title: "kyubii", URL: "/tools/kyubii"},
@@ -365,7 +410,7 @@ func renderContainer() string {
 			//{Title: "auto-labeling", URL: "/tools/auto-labeling"},
 			//{Title: "resume-builder", URL: "/tools/resume-builder"},
 			//{Title: "personal-analytics", URL: "/tools/personal-analytics"},
-        },
+        //},
 
 		Robotics: []BlogPost{
             {Title: "Palmer Luckey", URL: ""},
@@ -375,7 +420,7 @@ func renderContainer() string {
         },
 
 		Medtech: []BlogPost{
-            {Title: "Kapil Gupta", URL: ""},
+            {Title: "Kapil Gupta - Robotics", URL: ""},
         },
 
         GovTech: []BlogPost{

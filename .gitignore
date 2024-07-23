@@ -426,3 +426,6 @@ google-services.json
 
 **/.vagrant/
 *.zip
+
+
+config.json

@@ -1,0 +1,58 @@
+# Brad's Homelab
+
+Hi, I'm [Adnan](https://adnanwahab.com), @bradfitz [on Twitter](https://twitter.com/adnan_wahab), etc.
+
+This page describes my home server & networking setup.
+
+# Discussion
+
+* On Twitter: https://twitter.com/awahab/status/123
+* On Hacker News: https://news.ycombinator.com/item?id=
+
+Questions welcome!
+
+# Goals
+
+The primary goals of this project are...
+
+* to have a home robotic labratory  - https://www.labgopher.com/
+
+# Gear
+
+## Servers
+
+* 3 x [Supermicro SYS-5018D-FN8T](https://www.ebay.com/itm/126518011538?mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=5338163896&toolid=10050)
+  * boot/OS disk: 64 GB 
+  * SSD 1: 500GB
+  * SSD 2: 1TB
+  * SSD 3: 2TB 
+  * HDD: 20 TB 
+
+
+# Ops manual 
+
+
+````
+git clone *
+install nix
+nix run build
+./cool
+```
+
+
+
+#deploy targets
+
+adnan@adnan-desktop - nvidia jetson nano
+adnan@ubuntu - jetson orin nx 
+adnan@adnan-ThinkPad-X1-Carbon-Gen-11 - makeshift server
+adnan#shels-macbook-pro-1 - usual client
+
+
+* TODO not deployed
+*** 6x 4090 machine on prem
+*** 6x Radeon RX 7900 on prem 
+*** collabratory integration 
+*** 
+*** hertzner, digital ocean, 
+*** https://vast.ai/, lambdalabs, voltage park, modal-labs, spike usage 
