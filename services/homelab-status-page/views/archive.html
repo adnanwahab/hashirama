@@ -1,0 +1,241 @@
+<div class="hidden" hx-trigger="load" hx-get="/api/hero" hx-swap="innerHTML">
+    anus
+</div>
+
+<div class="body">
+    <div class="flex min-h-full bg-white dark:bg-slate-900">
+        <div class="flex w-full flex-col">
+
+            <div
+                class="relative mx-auto flex w-full max-w-8xl flex-auto justify-center sm:px-2 lg:px-8 xl:px-12"
+            >
+                <div
+                    class="oops"
+
+                    >
+                    <div class="hidden lg:relative lg:block lg:flex-none">
+                        <div
+                            class="absolute inset-y-0 right-0 w-[50vw] bg-slate-50 dark:hidden"
+                        ></div>
+                        <div
+                            class="absolute bottom-0 right-0 top-16 hidden h-12 w-px bg-gradient-to-t from-slate-800 dark:block"
+                        ></div>
+                        <div
+                            class="absolute bottom-0 right-0 top-28 hidden w-px bg-slate-800 dark:block"
+                        ></div>
+                        <div
+                            class="sticky top-[4.75rem] -ml-0.5 h-[calc(100vh-4.75rem)] w-64 overflow-y-auto overflow-x-hidden py-16 pl-0.5 pr-8 xl:w-72 xl:pr-16"
+                        >
+                            <nav class="text-base lg:text-sm">
+                                <ul role="list" class="space-y-9">
+                                    <li>
+                                        <h2 class="font-display font-medium text-slate-900 dark:text-white">
+                                            Leaf Studio
+                                        </h2>
+                                        <ul
+                                            role="list"
+                                            class="mt-2 space-y-2 border-l-2 border-slate-100 lg:mt-4 lg:space-y-4 lg:border-slate-200 dark:border-slate-800"
+                                        >
+                                            <li class="relative">
+                                                <a
+                                                    class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full font-semibold text-sky-500 before:bg-sky-500"
+                                                    href="/"
+                                                >Posts</a
+                                                      >
+                                            </li>
+                                            <li class="relative">
+                                                <a
+                                                    class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-600 hover:before:block dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300"
+                                                    href="/about"
+                                                >About</a
+                                                      >
+                                            </li>
+
+                                            <li class="relative">
+                                                <a
+                                                    class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-600 hover:before:block dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300"
+                                                    href="https://twitter.com/adnan_wahab_"
+                                                >Twitter</a
+                                                        >
+                                            </li>
+                                            <li class="relative">
+                                                <a
+                                                    class="block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-600 hover:before:block dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300"
+                                                    href="/subscribe"
+                                                >Subscribe</a
+                                                          >
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <!-- end left nave  -->
+                <!-- begin center content  -->
+                <div
+                    class="relative flex h-full max-w-full flex-1 flex-col overflow-hidden border border-pink-500"
+                    >
+                    <div class="bg-gray-900 text-white">
+
+                        <div class="container mx-auto px-4 py-8">
+                            <h2>Archive</h2>
+                            <!-- <h1 class="text-4xl font-bold mb-8">Blog Archive</div>h1> -->
+                            <section class="mb-12">
+                                <section class="mb-12 py-6 border-t border-b border-gray-700">
+                                <h2 class="text-3xl font-bold mb-4">Get new essays sent to you</h2>
+                                <p class="text-xl text-gray-300 mb-4">
+                                    Subscribe to my receive SOTA updates on GovTech, MedTech, and Robotics. Published twice weekly.
+
+                                    Published twice weekly.
+                                </p>
+                                <form action="#" method="post" class="mb-4">
+                                    <input
+                                        type="email"
+                                        placeholder="Your email address"
+                                        class="w-full p-3 bg-gray-800 border border-gray-600 text-white mb-3"
+                                    />
+                                    <button
+                                        type="submit"
+                                        class="bg-green-500 text-white py-2 px-4 hover:bg-green-600"
+                                    >
+                                        Subscribe
+                                    </button>
+                                </form>
+                                <div class="space-x-4">
+                                    <a href="#" class="text-blue-400 hover:underline"
+                                    >Follow me on Twitter →</a
+                                                           >
+                                    <a href="#" class="text-blue-400 hover:underline">RSS →</a>
+                                </div>
+                                </section>
+                                <h2 class="text-3xl font-bold mb-4">Archive</h2>
+                                <h2 >Projects</h2>
+                                <ul class="list-none pl-0 space-y-2" hx-boost>
+                                    {{range .Projects}}
+                                    <li>
+                                        <a hx-trigger="mouseenter" hx-target="#display" href="{{.URL}}" class="text-xl text-white hover:underline">
+                                            {{.Title}}
+                                        </a>
+                                    </li>
+                                    {{end}}
+                                </ul>
+                            </section>
+                            <!-- <section class="mb-12">
+                                 <h2 class="text-3xl font-bold mb-4">Latest</h2>
+                                 <ul class="list-none pl-0 space-y-2">
+                                 {{range .LatestPosts}}
+                                 <li>
+                                 <a href="{{.URL}}" class="text-xl text-white hover:underline">
+
+                                 <li>
+                                 <a href="{{.URL}}" class="text-xl text-white hover:underline">
+                                 {{.Title}}
+                                 </a>
+                                 </li>
+                                 {{end}}
+                                 </ul>
+                                 </section>
+                            -->
+
+                            <!-- <section class="mb-12">
+                                 <h2 class="text-3xl font-bold mb-4">robotics</h2>
+                                 <ul class="list-none pl-0 space-y-2">
+                                 {{range .Robotics}}
+                                 <li>
+                                 <a href="{{.URL}}" class="text-xl text-white hover:underline">
+                                 {{.Title}}
+                                 </a>
+                                 </li>
+                                 {{end}}
+                                 </ul>
+                                 </section>
+
+                                 <section class="mb-12">
+                                 <h2 class="text-3xl font-bold mb-4">biotech</h2>
+                                 <ul class="list-none pl-0 space-y-2">
+                                 {{range .Biotech}}
+                                 <li>
+                                 <a href="{{.URL}}" class="text-xl text-white hover:underline">
+                                 {{.Title}}
+                                 </a>
+                                 </li>
+                                 {{end}}
+                                 </ul>
+                                 </section> -->
+
+                            <section class="mb-12">
+                                <h2 class="text-3xl font-bold mb-4">MedTech</h2>
+                                <ul class="list-none pl-0 space-y-2">
+                                    {{range .Medtech}}
+                                    <li>
+                                        <a href="{{.URL}}" class="text-xl text-white hover:underline">
+                                            {{.Title}}
+                                        </a>
+                                    </li>
+                                    {{end}}
+                                </ul>
+                            </section>
+
+                            <!-- <section class="mb-12">
+                                 <h2 class="text-3xl font-bold mb-4">Creative AI</h2>
+                                 <ul class="list-none pl-0 space-y-2">
+                                 {{range .CreativeAI}}
+                                 <li>
+                                 <a href="{{.URL}}" class="text-xl text-white hover:underline">
+                                 {{.Title}}
+                                 </a>
+                                 </li>
+                                 {{end}}
+                                 </ul>
+                                 </section>
+                            -->
+                            <section class="mb-12">
+                                <h2 class="text-3xl font-bold mb-4">GovTech</h2>
+                                <ul class="list-none pl-0 space-y-2">
+                                    {{range .GovTech}}
+                                    <li>
+                                        <a href="{{.URL}}" class="text-xl text-white hover:underline">
+                                            {{.Title}}
+                                        </a>
+                                    </li>
+                                    {{end}}
+                                </ul>
+                            </section>
+
+
+
+
+                            <!-- <a
+                                 href="/archive"
+                                 class="border border-gray-600 py-2 px-4 text-gray-300 hover:bg-gray-800 inline-block"
+                                 >
+                                 View full archive
+                                 </a> -->
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="display"
+                    class="relative flex h-full max-w-full flex-1 flex-col overflow-hidden border border-pink-500"
+
+                ></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- end  -->

@@ -3,10 +3,10 @@
     <!-- <h1 class="text-4xl font-bold mb-8">Blog Archive</div>h1> -->
     <section class="mb-12">
       <h2 class="text-3xl font-bold mb-4">Projects</h2>
-      <ul class="list-none pl-0 space-y-2">
+      <ul class="list-none pl-0 space-y-2" hx-boost>
         {{range .Projects}}
         <li>
-          <a hx-trigger="mouseenter" hx-target="#display" hx-get="{{.URL}}" class="text-xl text-white hover:underline">
+          <a hx-trigger="mouseenter" hx-target="#display" href="{{.URL}}" class="text-xl text-white hover:underline">
             {{.Title}}
           </a>
         </li>
@@ -29,7 +29,6 @@
          </ul>
          </section>
     -->
-
 
     <!-- <section class="mb-12">
          <h2 class="text-3xl font-bold mb-4">robotics</h2>

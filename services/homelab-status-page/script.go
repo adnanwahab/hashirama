@@ -52,6 +52,8 @@ func saveToJSON(data map[int][]string, filename string) error {
 }
 
 func moveFiles(data map[int][]string, originalPath string) error {
+	missingFiles := []string{}
+
 	for key, values := range data {
 		dirPath := filepath.Join(originalPath, strconv.Itoa(key))
 		err := os.MkdirAll(dirPath, os.ModePerm)
@@ -63,13 +65,27 @@ func moveFiles(data map[int][]string, originalPath string) error {
 			srcPath := filepath.Join(originalPath, value)
 			destPath := filepath.Join(dirPath, value)
 
-			fmt.Println(srcPath, destPath)
+			// Check if the source file exists
+			if _, err := os.Stat(srcPath); os.IsNotExist(err) {
+				missingFiles = append(missingFiles, srcPath)
+				continue
+			}
+
 			err := os.Rename(srcPath, destPath)
 			if err != nil {
 				return err
 			}
+			fmt.Printf("Moved: %s -> %s\n", srcPath, destPath)
 		}
 	}
+
+	if len(missingFiles) > 0 {
+		fmt.Println("The following files were not found:")
+		for _, file := range missingFiles {
+			fmt.Println(file)
+		}
+	}
+
 	return nil
 }
 
@@ -80,7 +96,6 @@ func main() {
 		fmt.Printf("Error: %v\n", err)
 		return
 	}
-	//fmt.Printf("%+v\n", data)
 
 	outputFile := "output.json"
 	err = saveToJSON(data, outputFile)
@@ -96,5 +111,5 @@ func main() {
 		return
 	}
 
-	fmt.Printf("Successfully parsed input, saved JSON to %s, and moved files\n", outputFile)
+	fmt.Printf("Successfully parsed input, saved JSON to %s, and moved existing files\n", outputFile)
 }
