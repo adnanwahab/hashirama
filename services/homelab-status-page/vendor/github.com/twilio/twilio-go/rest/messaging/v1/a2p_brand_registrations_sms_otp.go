@@ -26,7 +26,9 @@ func (c *ApiService) CreateBrandRegistrationOtp(BrandRegistrationSid string) (*M
 	path = strings.Replace(path, "{"+"BrandRegistrationSid"+"}", BrandRegistrationSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Post(c.baseURL+path, data, headers)
 	if err != nil {

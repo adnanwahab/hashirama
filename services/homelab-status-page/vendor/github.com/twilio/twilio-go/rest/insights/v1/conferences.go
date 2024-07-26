@@ -29,7 +29,9 @@ func (c *ApiService) FetchConference(ConferenceSid string) (*InsightsV1Conferenc
 	path = strings.Replace(path, "{"+"ConferenceSid"+"}", ConferenceSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -128,7 +130,9 @@ func (c *ApiService) PageConference(params *ListConferenceParams, pageToken, pag
 	path := "/v1/Conferences"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.ConferenceSid != nil {
 		data.Set("ConferenceSid", *params.ConferenceSid)

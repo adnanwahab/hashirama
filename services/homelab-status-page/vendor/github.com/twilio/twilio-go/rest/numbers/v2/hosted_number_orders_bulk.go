@@ -81,7 +81,9 @@ func (c *ApiService) FetchBulkHostedNumberOrder(BulkHostingSid string, params *F
 	path = strings.Replace(path, "{"+"BulkHostingSid"+"}", BulkHostingSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.OrderStatus != nil {
 		data.Set("OrderStatus", *params.OrderStatus)

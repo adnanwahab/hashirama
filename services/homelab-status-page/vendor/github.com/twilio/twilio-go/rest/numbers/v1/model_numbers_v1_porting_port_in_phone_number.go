@@ -36,7 +36,7 @@ type NumbersV1PortingPortInPhoneNumber struct {
 	// The phone number is missing required fields.
 	MissingRequiredFields *bool `json:"missing_required_fields,omitempty"`
 	// The timestamp when the status was last updated.
-	StatusLastTimeUpdatedTimestamp *time.Time `json:"status_last_time_updated_timestamp,omitempty"`
+	LastUpdated *time.Time `json:"last_updated,omitempty"`
 	// The phone number.
 	PhoneNumber *string `json:"phone_number,omitempty"`
 	// The phone number is portable.
@@ -44,7 +44,13 @@ type NumbersV1PortingPortInPhoneNumber struct {
 	// The reason why the phone number is not portable.
 	NotPortabilityReason *string `json:"not_portability_reason,omitempty"`
 	// The code of the reason why the phone number is not portable.
-	NotPortabilityReasonCode *string `json:"not_portability_reason_code,omitempty"`
+	NotPortabilityReasonCode *int `json:"not_portability_reason_code,omitempty"`
 	// The status of the phone number in the port in request.
 	PortInPhoneNumberStatus *string `json:"port_in_phone_number_status,omitempty"`
+	// The pin required for the losing carrier to port out the phone number.
+	PortOutPin *int `json:"port_out_pin,omitempty"`
+	// The rejection reason returned by the vendor.
+	RejectionReason *string `json:"rejection_reason,omitempty"`
+	// The rejection reason code returned by the vendor.
+	RejectionReasonCode *int `json:"rejection_reason_code,omitempty"`
 }

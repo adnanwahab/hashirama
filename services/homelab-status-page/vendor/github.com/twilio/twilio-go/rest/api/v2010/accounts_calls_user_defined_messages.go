@@ -54,7 +54,9 @@ func (c *ApiService) CreateUserDefinedMessage(CallSid string, params *CreateUser
 	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Content != nil {
 		data.Set("Content", *params.Content)

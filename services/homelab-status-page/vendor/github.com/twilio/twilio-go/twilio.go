@@ -35,6 +35,7 @@ import (
 	IpMessagingV2 "github.com/twilio/twilio-go/rest/ip_messaging/v2"
 	LookupsV1 "github.com/twilio/twilio-go/rest/lookups/v1"
 	LookupsV2 "github.com/twilio/twilio-go/rest/lookups/v2"
+	MarketplaceV1 "github.com/twilio/twilio-go/rest/marketplace/v1"
 	MessagingV1 "github.com/twilio/twilio-go/rest/messaging/v1"
 	MicrovisorV1 "github.com/twilio/twilio-go/rest/microvisor/v1"
 	MonitorV1 "github.com/twilio/twilio-go/rest/monitor/v1"
@@ -82,6 +83,7 @@ type RestClient struct {
 	IpMessagingV2   *IpMessagingV2.ApiService
 	LookupsV1       *LookupsV1.ApiService
 	LookupsV2       *LookupsV2.ApiService
+	MarketplaceV1   *MarketplaceV1.ApiService
 	MessagingV1     *MessagingV1.ApiService
 	MicrovisorV1    *MicrovisorV1.ApiService
 	MonitorV1       *MonitorV1.ApiService
@@ -176,6 +178,7 @@ func NewRestClientWithParams(params ClientParams) *RestClient {
 	c.IpMessagingV2 = IpMessagingV2.NewApiService(c.RequestHandler)
 	c.LookupsV1 = LookupsV1.NewApiService(c.RequestHandler)
 	c.LookupsV2 = LookupsV2.NewApiService(c.RequestHandler)
+	c.MarketplaceV1 = MarketplaceV1.NewApiService(c.RequestHandler)
 	c.MessagingV1 = MessagingV1.NewApiService(c.RequestHandler)
 	c.MicrovisorV1 = MicrovisorV1.NewApiService(c.RequestHandler)
 	c.MonitorV1 = MonitorV1.NewApiService(c.RequestHandler)

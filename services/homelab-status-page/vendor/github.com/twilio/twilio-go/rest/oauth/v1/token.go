@@ -77,7 +77,9 @@ func (c *ApiService) CreateToken(params *CreateTokenParams) (*OauthV1Token, erro
 	path := "/v1/token"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.GrantType != nil {
 		data.Set("GrantType", *params.GrantType)

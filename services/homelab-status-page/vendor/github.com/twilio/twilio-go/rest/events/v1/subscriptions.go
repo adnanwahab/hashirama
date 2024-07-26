@@ -51,7 +51,9 @@ func (c *ApiService) CreateSubscription(params *CreateSubscriptionParams) (*Even
 	path := "/v1/Subscriptions"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Description != nil {
 		data.Set("Description", *params.Description)
@@ -92,7 +94,9 @@ func (c *ApiService) DeleteSubscription(Sid string) error {
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -110,7 +114,9 @@ func (c *ApiService) FetchSubscription(Sid string) (*EventsV1Subscription, error
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -155,7 +161,9 @@ func (c *ApiService) PageSubscription(params *ListSubscriptionParams, pageToken,
 	path := "/v1/Subscriptions"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.SinkSid != nil {
 		data.Set("SinkSid", *params.SinkSid)
@@ -295,7 +303,9 @@ func (c *ApiService) UpdateSubscription(Sid string, params *UpdateSubscriptionPa
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Description != nil {
 		data.Set("Description", *params.Description)

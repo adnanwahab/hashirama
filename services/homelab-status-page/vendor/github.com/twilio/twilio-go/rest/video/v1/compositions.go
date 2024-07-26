@@ -88,7 +88,9 @@ func (c *ApiService) CreateComposition(params *CreateCompositionParams) (*VideoV
 	path := "/v1/Compositions"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.RoomSid != nil {
 		data.Set("RoomSid", *params.RoomSid)
@@ -149,7 +151,9 @@ func (c *ApiService) DeleteComposition(Sid string) error {
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -167,7 +171,9 @@ func (c *ApiService) FetchComposition(Sid string) (*VideoV1Composition, error) {
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -230,7 +236,9 @@ func (c *ApiService) PageComposition(params *ListCompositionParams, pageToken, p
 	path := "/v1/Compositions"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Status != nil {
 		data.Set("Status", *params.Status)

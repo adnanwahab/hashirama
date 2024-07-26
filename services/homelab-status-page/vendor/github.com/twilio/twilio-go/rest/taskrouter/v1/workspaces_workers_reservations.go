@@ -31,7 +31,9 @@ func (c *ApiService) FetchWorkerReservation(WorkspaceSid string, WorkerSid strin
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -79,7 +81,9 @@ func (c *ApiService) PageWorkerReservation(WorkspaceSid string, WorkerSid string
 	path = strings.Replace(path, "{"+"WorkerSid"+"}", WorkerSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.ReservationStatus != nil {
 		data.Set("ReservationStatus", *params.ReservationStatus)
@@ -527,7 +531,9 @@ func (c *ApiService) UpdateWorkerReservation(WorkspaceSid string, WorkerSid stri
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.ReservationStatus != nil {
 		data.Set("ReservationStatus", *params.ReservationStatus)

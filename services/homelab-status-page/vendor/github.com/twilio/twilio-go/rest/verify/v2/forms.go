@@ -26,7 +26,9 @@ func (c *ApiService) FetchForm(FormType string) (*VerifyV2Form, error) {
 	path = strings.Replace(path, "{"+"FormType"+"}", FormType, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {

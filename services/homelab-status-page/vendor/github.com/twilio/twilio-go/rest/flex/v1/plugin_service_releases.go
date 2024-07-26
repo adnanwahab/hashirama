@@ -45,7 +45,9 @@ func (c *ApiService) CreatePluginRelease(params *CreatePluginReleaseParams) (*Fl
 	path := "/v1/PluginService/Releases"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.ConfigurationId != nil {
 		data.Set("ConfigurationId", *params.ConfigurationId)
@@ -86,7 +88,9 @@ func (c *ApiService) FetchPluginRelease(Sid string, params *FetchPluginReleasePa
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.FlexMetadata != nil {
 		headers["Flex-Metadata"] = *params.FlexMetadata
@@ -134,7 +138,9 @@ func (c *ApiService) PagePluginRelease(params *ListPluginReleaseParams, pageToke
 	path := "/v1/PluginService/Releases"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))

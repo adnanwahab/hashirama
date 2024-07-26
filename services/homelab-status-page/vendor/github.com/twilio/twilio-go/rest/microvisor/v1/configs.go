@@ -45,7 +45,9 @@ func (c *ApiService) CreateAccountConfig(params *CreateAccountConfigParams) (*Mi
 	path := "/v1/Configs"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Key != nil {
 		data.Set("Key", *params.Key)
@@ -75,7 +77,9 @@ func (c *ApiService) DeleteAccountConfig(Key string) error {
 	path = strings.Replace(path, "{"+"Key"+"}", Key, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -93,7 +97,9 @@ func (c *ApiService) FetchAccountConfig(Key string) (*MicrovisorV1AccountConfig,
 	path = strings.Replace(path, "{"+"Key"+"}", Key, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -132,7 +138,9 @@ func (c *ApiService) PageAccountConfig(params *ListAccountConfigParams, pageToke
 	path := "/v1/Configs"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))
@@ -263,7 +271,9 @@ func (c *ApiService) UpdateAccountConfig(Key string, params *UpdateAccountConfig
 	path = strings.Replace(path, "{"+"Key"+"}", Key, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Value != nil {
 		data.Set("Value", *params.Value)

@@ -29,7 +29,9 @@ func (c *ApiService) FetchEventType(Type string) (*EventsV1EventType, error) {
 	path = strings.Replace(path, "{"+"Type"+"}", Type, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -74,7 +76,9 @@ func (c *ApiService) PageEventType(params *ListEventTypeParams, pageToken, pageN
 	path := "/v1/Types"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.SchemaId != nil {
 		data.Set("SchemaId", *params.SchemaId)

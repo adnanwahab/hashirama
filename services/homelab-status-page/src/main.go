@@ -6,12 +6,13 @@ import (
     "os"
 
     "github.com/labstack/echo/v4"
-    "github.com/labstack/echo-contrib/echoprometheus"
+
     "log"
 	"net/http"
     "errors"
+	//"github.com/labstack/echo-contrib/echoprometheus"
+	//"github.com/labstack/echo/v4/middleware"
 
-	"github.com/labstack/echo/v4/middleware"
 
 )
 
@@ -49,16 +50,16 @@ func main() {
 
     // Setup error handler
     e.HTTPErrorHandler = customHTTPErrorHandler
-    	e.Use(middleware.Logger())
-
-	e.Use(echoLogger)
+    	// e.Use(middleware.Logger())
+    	// e.Use(echoprometheus.NewMiddleware("myapp")) // adds middleware to gather metrics
+	//e.GET("/metrics", echoprometheus.NewHandler())
+	//e.Use(echoLogger)
 
 
 	// sudo pkill 1337 lol
     // Start server
     //E.LOGGER.Fatal(e.Start("0.0.0.0:1337"))
-    	e.Use(echoprometheus.NewMiddleware("myapp")) // adds middleware to gather metrics
-	e.GET("/metrics", echoprometheus.NewHandler()) // adds route to serve gathered metrics
+ // adds route to serve gathered metrics
 e.GET("/hello", func(c echo.Context) error {
 		return c.String(http.StatusOK, "hello")
 	})

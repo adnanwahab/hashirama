@@ -31,10 +31,6 @@ type NumbersV1PortingPortability struct {
 	NumberType            *string `json:"number_type,omitempty"`
 	// Country the phone number belongs to.
 	Country *string `json:"country,omitempty"`
-	// Current messaging carrier of the phone number
-	MessagingCarrier *string `json:"messaging_carrier,omitempty"`
-	// Current voice carrier of the phone number
-	VoiceCarrier *string `json:"voice_carrier,omitempty"`
 	// This is the url of the request that you're trying to reach out to locate the resource.
 	Url *string `json:"url,omitempty"`
 }

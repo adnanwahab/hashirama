@@ -35,7 +35,9 @@ func (c *ApiService) FetchInsightsSettingsAnswersets(params *FetchInsightsSettin
 	path := "/v1/Insights/QualityManagement/Settings/AnswerSets"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Authorization != nil {
 		headers["Authorization"] = *params.Authorization

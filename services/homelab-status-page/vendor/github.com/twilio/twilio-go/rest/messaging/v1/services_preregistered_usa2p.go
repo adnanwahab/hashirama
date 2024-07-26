@@ -41,7 +41,9 @@ func (c *ApiService) CreateExternalCampaign(params *CreateExternalCampaignParams
 	path := "/v1/Services/PreregisteredUsa2p"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.CampaignId != nil {
 		data.Set("CampaignId", *params.CampaignId)

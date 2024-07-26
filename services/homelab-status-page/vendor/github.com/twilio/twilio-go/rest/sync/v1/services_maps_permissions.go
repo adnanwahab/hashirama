@@ -31,7 +31,9 @@ func (c *ApiService) DeleteSyncMapPermission(ServiceSid string, MapSid string, I
 	path = strings.Replace(path, "{"+"Identity"+"}", Identity, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -51,7 +53,9 @@ func (c *ApiService) FetchSyncMapPermission(ServiceSid string, MapSid string, Id
 	path = strings.Replace(path, "{"+"Identity"+"}", Identity, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -93,7 +97,9 @@ func (c *ApiService) PageSyncMapPermission(ServiceSid string, MapSid string, par
 	path = strings.Replace(path, "{"+"MapSid"+"}", MapSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))
@@ -238,7 +244,9 @@ func (c *ApiService) UpdateSyncMapPermission(ServiceSid string, MapSid string, I
 	path = strings.Replace(path, "{"+"Identity"+"}", Identity, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Read != nil {
 		data.Set("Read", fmt.Sprint(*params.Read))

@@ -26,7 +26,9 @@ func (c *ApiService) FetchVoiceNumber(Number string) (*PricingV1VoiceNumber, err
 	path = strings.Replace(path, "{"+"Number"+"}", Number, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {

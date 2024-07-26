@@ -40,7 +40,9 @@ func (c *ApiService) CreateNotification(ServiceSid string, Identity string, Chal
 	path = strings.Replace(path, "{"+"ChallengeSid"+"}", ChallengeSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Ttl != nil {
 		data.Set("Ttl", fmt.Sprint(*params.Ttl))

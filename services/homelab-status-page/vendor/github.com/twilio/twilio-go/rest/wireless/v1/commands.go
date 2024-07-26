@@ -75,7 +75,9 @@ func (c *ApiService) CreateCommand(params *CreateCommandParams) (*WirelessV1Comm
 	path := "/v1/Commands"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Command != nil {
 		data.Set("Command", *params.Command)
@@ -120,7 +122,9 @@ func (c *ApiService) DeleteCommand(Sid string) error {
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -138,7 +142,9 @@ func (c *ApiService) FetchCommand(Sid string) (*WirelessV1Command, error) {
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -201,7 +207,9 @@ func (c *ApiService) PageCommand(params *ListCommandParams, pageToken, pageNumbe
 	path := "/v1/Commands"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Sim != nil {
 		data.Set("Sim", *params.Sim)

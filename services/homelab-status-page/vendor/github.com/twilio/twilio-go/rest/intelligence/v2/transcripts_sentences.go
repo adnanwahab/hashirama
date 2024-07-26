@@ -53,7 +53,9 @@ func (c *ApiService) PageSentence(TranscriptSid string, params *ListSentencePara
 	path = strings.Replace(path, "{"+"TranscriptSid"+"}", TranscriptSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Redacted != nil {
 		data.Set("Redacted", fmt.Sprint(*params.Redacted))

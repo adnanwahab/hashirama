@@ -76,7 +76,9 @@ func (c *ApiService) CreatePluginVersion(PluginSid string, params *CreatePluginV
 	path = strings.Replace(path, "{"+"PluginSid"+"}", PluginSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Version != nil {
 		data.Set("Version", *params.Version)
@@ -133,7 +135,9 @@ func (c *ApiService) FetchPluginVersion(PluginSid string, Sid string, params *Fe
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.FlexMetadata != nil {
 		headers["Flex-Metadata"] = *params.FlexMetadata
@@ -183,7 +187,9 @@ func (c *ApiService) PagePluginVersion(PluginSid string, params *ListPluginVersi
 	path = strings.Replace(path, "{"+"PluginSid"+"}", PluginSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))

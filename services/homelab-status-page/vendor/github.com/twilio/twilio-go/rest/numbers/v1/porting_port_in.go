@@ -70,7 +70,9 @@ func (c *ApiService) DeletePortingPortIn(PortInRequestSid string) error {
 	path = strings.Replace(path, "{"+"PortInRequestSid"+"}", PortInRequestSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -88,7 +90,9 @@ func (c *ApiService) FetchPortingPortIn(PortInRequestSid string) (*NumbersV1Port
 	path = strings.Replace(path, "{"+"PortInRequestSid"+"}", PortInRequestSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {

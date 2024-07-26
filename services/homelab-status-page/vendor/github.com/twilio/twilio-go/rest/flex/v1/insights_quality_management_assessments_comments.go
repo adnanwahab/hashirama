@@ -74,7 +74,9 @@ func (c *ApiService) CreateInsightsAssessmentsComment(params *CreateInsightsAsse
 	path := "/v1/Insights/QualityManagement/Assessments/Comments"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.CategoryId != nil {
 		data.Set("CategoryId", *params.CategoryId)
@@ -153,7 +155,9 @@ func (c *ApiService) PageInsightsAssessmentsComment(params *ListInsightsAssessme
 	path := "/v1/Insights/QualityManagement/Assessments/Comments"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.SegmentId != nil {
 		data.Set("SegmentId", *params.SegmentId)

@@ -18,6 +18,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/url"
+	"time"
 
 	"github.com/twilio/twilio-go/client"
 )
@@ -26,12 +27,66 @@ import (
 type ListContentParams struct {
 	// How many resources to return in each list page. The default is 50, and the maximum is 1000.
 	PageSize *int `json:"PageSize,omitempty"`
+	// Whether to sort by ascending or descending date updated
+	SortByDate *string `json:"SortByDate,omitempty"`
+	// Whether to sort by ascending or descending content name
+	SortByContentName *string `json:"SortByContentName,omitempty"`
+	// Filter by >=[date-time]
+	DateCreatedAfter *time.Time `json:"DateCreatedAfter,omitempty"`
+	// Filter by <=[date-time]
+	DateCreatedBefore *time.Time `json:"DateCreatedBefore,omitempty"`
+	// Filter by Regex Pattern in content name
+	ContentName *string `json:"ContentName,omitempty"`
+	// Filter by Regex Pattern in template content
+	Content *string `json:"Content,omitempty"`
+	// Filter by array of valid language(s)
+	Language *[]string `json:"Language,omitempty"`
+	// Filter by array of contentType(s)
+	ContentType *[]string `json:"ContentType,omitempty"`
+	// Filter by array of ChannelEligibility(s), where ChannelEligibility=<channel>:<status>
+	ChannelEligibility *[]string `json:"ChannelEligibility,omitempty"`
 	// Max number of records to return.
 	Limit *int `json:"limit,omitempty"`
 }
 
 func (params *ListContentParams) SetPageSize(PageSize int) *ListContentParams {
 	params.PageSize = &PageSize
+	return params
+}
+func (params *ListContentParams) SetSortByDate(SortByDate string) *ListContentParams {
+	params.SortByDate = &SortByDate
+	return params
+}
+func (params *ListContentParams) SetSortByContentName(SortByContentName string) *ListContentParams {
+	params.SortByContentName = &SortByContentName
+	return params
+}
+func (params *ListContentParams) SetDateCreatedAfter(DateCreatedAfter time.Time) *ListContentParams {
+	params.DateCreatedAfter = &DateCreatedAfter
+	return params
+}
+func (params *ListContentParams) SetDateCreatedBefore(DateCreatedBefore time.Time) *ListContentParams {
+	params.DateCreatedBefore = &DateCreatedBefore
+	return params
+}
+func (params *ListContentParams) SetContentName(ContentName string) *ListContentParams {
+	params.ContentName = &ContentName
+	return params
+}
+func (params *ListContentParams) SetContent(Content string) *ListContentParams {
+	params.Content = &Content
+	return params
+}
+func (params *ListContentParams) SetLanguage(Language []string) *ListContentParams {
+	params.Language = &Language
+	return params
+}
+func (params *ListContentParams) SetContentType(ContentType []string) *ListContentParams {
+	params.ContentType = &ContentType
+	return params
+}
+func (params *ListContentParams) SetChannelEligibility(ChannelEligibility []string) *ListContentParams {
+	params.ChannelEligibility = &ChannelEligibility
 	return params
 }
 func (params *ListContentParams) SetLimit(Limit int) *ListContentParams {
@@ -44,10 +99,45 @@ func (c *ApiService) PageContent(params *ListContentParams, pageToken, pageNumbe
 	path := "/v2/Content"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))
+	}
+	if params != nil && params.SortByDate != nil {
+		data.Set("SortByDate", *params.SortByDate)
+	}
+	if params != nil && params.SortByContentName != nil {
+		data.Set("SortByContentName", *params.SortByContentName)
+	}
+	if params != nil && params.DateCreatedAfter != nil {
+		data.Set("DateCreatedAfter", fmt.Sprint((*params.DateCreatedAfter).Format(time.RFC3339)))
+	}
+	if params != nil && params.DateCreatedBefore != nil {
+		data.Set("DateCreatedBefore", fmt.Sprint((*params.DateCreatedBefore).Format(time.RFC3339)))
+	}
+	if params != nil && params.ContentName != nil {
+		data.Set("ContentName", *params.ContentName)
+	}
+	if params != nil && params.Content != nil {
+		data.Set("Content", *params.Content)
+	}
+	if params != nil && params.Language != nil {
+		for _, item := range *params.Language {
+			data.Add("Language", item)
+		}
+	}
+	if params != nil && params.ContentType != nil {
+		for _, item := range *params.ContentType {
+			data.Add("ContentType", item)
+		}
+	}
+	if params != nil && params.ChannelEligibility != nil {
+		for _, item := range *params.ChannelEligibility {
+			data.Add("ChannelEligibility", item)
+		}
 	}
 
 	if pageToken != "" {

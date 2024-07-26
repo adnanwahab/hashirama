@@ -26,7 +26,9 @@ func (c *ApiService) FetchSipDomain(SipDomain string) (*RoutesV2SipDomain, error
 	path = strings.Replace(path, "{"+"SipDomain"+"}", SipDomain, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -66,7 +68,9 @@ func (c *ApiService) UpdateSipDomain(SipDomain string, params *UpdateSipDomainPa
 	path = strings.Replace(path, "{"+"SipDomain"+"}", SipDomain, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.VoiceRegion != nil {
 		data.Set("VoiceRegion", *params.VoiceRegion)

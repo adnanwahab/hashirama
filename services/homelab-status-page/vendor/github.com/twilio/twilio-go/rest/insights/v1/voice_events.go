@@ -53,7 +53,9 @@ func (c *ApiService) PageEvent(CallSid string, params *ListEventParams, pageToke
 	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Edge != nil {
 		data.Set("Edge", *params.Edge)

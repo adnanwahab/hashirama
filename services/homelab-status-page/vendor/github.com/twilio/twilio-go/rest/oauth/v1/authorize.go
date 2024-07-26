@@ -59,7 +59,9 @@ func (c *ApiService) FetchAuthorize(params *FetchAuthorizeParams) (*OauthV1Autho
 	path := "/v1/authorize"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.ResponseType != nil {
 		data.Set("ResponseType", *params.ResponseType)

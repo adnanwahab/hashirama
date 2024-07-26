@@ -48,7 +48,9 @@ func (c *ApiService) CreateInteraction(params *CreateInteractionParams) (*FlexV1
 	path := "/v1/Interactions"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Channel != nil {
 		v, err := json.Marshal(params.Channel)
@@ -93,7 +95,9 @@ func (c *ApiService) FetchInteraction(Sid string) (*FlexV1Interaction, error) {
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {

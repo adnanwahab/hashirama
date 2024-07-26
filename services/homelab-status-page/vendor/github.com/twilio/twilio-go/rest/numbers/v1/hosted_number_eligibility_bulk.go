@@ -70,7 +70,9 @@ func (c *ApiService) FetchBulkEligibility(RequestId string) (*NumbersV1BulkEligi
 	path = strings.Replace(path, "{"+"RequestId"+"}", RequestId, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {

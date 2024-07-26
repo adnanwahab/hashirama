@@ -37,5 +37,6 @@ type NumbersV1PortingPortIn struct {
 	// The list of phone numbers to Port in. Phone numbers are in E.164 format (e.g. +16175551212).
 	PhoneNumbers *[]interface{} `json:"phone_numbers,omitempty"`
 	// The list of documents SID referencing a utility bills
-	Documents *[]string `json:"documents,omitempty"`
+	Documents   *[]string `json:"documents,omitempty"`
+	DateCreated *string   `json:"date_created,omitempty"`
 }

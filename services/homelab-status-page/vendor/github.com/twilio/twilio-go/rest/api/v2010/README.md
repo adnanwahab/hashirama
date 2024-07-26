@@ -77,6 +77,8 @@ Class | Method | HTTP request | Description
 *AccountsCallsSiprecApi* | [**UpdateSiprec**](docs/AccountsCallsSiprecApi.md#updatesiprec) | **Post** /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Siprec/{Sid}.json | 
 *AccountsCallsStreamsApi* | [**CreateStream**](docs/AccountsCallsStreamsApi.md#createstream) | **Post** /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Streams.json | 
 *AccountsCallsStreamsApi* | [**UpdateStream**](docs/AccountsCallsStreamsApi.md#updatestream) | **Post** /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Streams/{Sid}.json | 
+*AccountsCallsTranscriptionsApi* | [**CreateRealtimeTranscription**](docs/AccountsCallsTranscriptionsApi.md#createrealtimetranscription) | **Post** /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Transcriptions.json | 
+*AccountsCallsTranscriptionsApi* | [**UpdateRealtimeTranscription**](docs/AccountsCallsTranscriptionsApi.md#updaterealtimetranscription) | **Post** /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Transcriptions/{Sid}.json | 
 *AccountsCallsUserDefinedMessageSubscriptionsApi* | [**CreateUserDefinedMessageSubscription**](docs/AccountsCallsUserDefinedMessageSubscriptionsApi.md#createuserdefinedmessagesubscription) | **Post** /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/UserDefinedMessageSubscriptions.json | 
 *AccountsCallsUserDefinedMessageSubscriptionsApi* | [**DeleteUserDefinedMessageSubscription**](docs/AccountsCallsUserDefinedMessageSubscriptionsApi.md#deleteuserdefinedmessagesubscription) | **Delete** /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/UserDefinedMessageSubscriptions/{Sid}.json | 
 *AccountsCallsUserDefinedMessagesApi* | [**CreateUserDefinedMessage**](docs/AccountsCallsUserDefinedMessagesApi.md#createuserdefinedmessage) | **Post** /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/UserDefinedMessages.json | 
@@ -245,6 +247,7 @@ Class | Method | HTTP request | Description
  - [ApiV2010OutgoingCallerId](docs/ApiV2010OutgoingCallerId.md)
  - [ListParticipantResponse](docs/ListParticipantResponse.md)
  - [ListRecordingAddOnResultPayloadResponse](docs/ListRecordingAddOnResultPayloadResponse.md)
+ - [ApiV2010RealtimeTranscription](docs/ApiV2010RealtimeTranscription.md)
  - [ListConnectAppResponse](docs/ListConnectAppResponse.md)
  - [ApiV2010Siprec](docs/ApiV2010Siprec.md)
  - [ListUsageRecordYearlyResponse](docs/ListUsageRecordYearlyResponse.md)

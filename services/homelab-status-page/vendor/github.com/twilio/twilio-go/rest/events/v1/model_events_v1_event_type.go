@@ -30,6 +30,10 @@ type EventsV1EventType struct {
 	DateUpdated *time.Time `json:"date_updated,omitempty"`
 	// A human readable description for this Event Type.
 	Description *string `json:"description,omitempty"`
+	// A string that describes how this Event Type can be used. For example: `available`, `deprecated`, `restricted`, `discontinued`. When the status is `available`, the Event Type can be used normally.
+	Status *string `json:"status,omitempty"`
+	// The URL to the documentation or to the most relevant Twilio Changelog entry of this Event Type.
+	DocumentationUrl *string `json:"documentation_url,omitempty"`
 	// The URL of this resource.
 	Url   *string                 `json:"url,omitempty"`
 	Links *map[string]interface{} `json:"links,omitempty"`

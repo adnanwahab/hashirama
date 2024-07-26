@@ -37,7 +37,9 @@ func (c *ApiService) CreateSinkValidate(Sid string, params *CreateSinkValidatePa
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.TestId != nil {
 		data.Set("TestId", *params.TestId)

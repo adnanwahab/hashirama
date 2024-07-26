@@ -42,7 +42,9 @@ func (c *ApiService) CreateComplianceInquiry(params *CreateComplianceInquiryPara
 	path := "/v1/ComplianceInquiries/Customers/Initialize"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PrimaryProfileSid != nil {
 		data.Set("PrimaryProfileSid", *params.PrimaryProfileSid)
@@ -83,7 +85,9 @@ func (c *ApiService) UpdateComplianceInquiry(CustomerId string, params *UpdateCo
 	path = strings.Replace(path, "{"+"CustomerId"+"}", CustomerId, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PrimaryProfileSid != nil {
 		data.Set("PrimaryProfileSid", *params.PrimaryProfileSid)

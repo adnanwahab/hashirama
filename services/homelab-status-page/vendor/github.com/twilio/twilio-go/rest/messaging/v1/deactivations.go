@@ -36,7 +36,9 @@ func (c *ApiService) FetchDeactivation(params *FetchDeactivationParams) (*Messag
 	path := "/v1/Deactivations"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Date != nil {
 		data.Set("Date", fmt.Sprint(*params.Date))

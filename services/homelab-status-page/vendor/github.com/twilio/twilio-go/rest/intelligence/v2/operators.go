@@ -29,7 +29,9 @@ func (c *ApiService) FetchOperator(Sid string) (*IntelligenceV2Operator, error) 
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -80,7 +82,9 @@ func (c *ApiService) PageOperator(params *ListOperatorParams, pageToken, pageNum
 	path := "/v2/Operators"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Availability != nil {
 		data.Set("Availability", *params.Availability)

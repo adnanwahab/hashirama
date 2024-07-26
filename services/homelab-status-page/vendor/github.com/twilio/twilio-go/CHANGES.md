@@ -1,5 +1,73 @@
 twilio-go changelog
 ====================
+[2024-07-02] Version 1.22.3
+---------------------------
+**Intelligence**
+- Deprecate account flag api.twilio-intelligence.v2
+
+
+[2024-06-27] Version 1.22.2
+---------------------------
+**Library - Chore**
+- [PR #253](https://github.com/twilio/twilio-go/pull/253): updated changelog. Thanks to [@tiwarishubham635](https://github.com/tiwarishubham635)!
+- [PR #252](https://github.com/twilio/twilio-go/pull/252): retract v1.22.0 due to known bug. Thanks to [@tiwarishubham635](https://github.com/tiwarishubham635)!
+- [PR #249](https://github.com/twilio/twilio-go/pull/249): remove duplicate setting of header params. Thanks to [@tiwarishubham635](https://github.com/tiwarishubham635)!
+
+**Api**
+- Add `transcription` resource
+- Add beta feature request managed cert
+
+**Flex**
+- Changed mount name for flex_team v2 api
+
+**Intelligence**
+- Add `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Config` as Response Headers to Operator resources
+
+**Numbers**
+- Added include_constraints query parameter to the Regulations API
+
+**Twiml**
+- Add support for `<Transcription>` noun
+
+
+[2024-06-25] Version 1.22.1
+---------------------------
+**Library - Chore**
+- [PR #252](https://github.com/twilio/twilio-go/pull/252): retract v1.22.0 due to known bug. Thanks to [@tiwarishubham635](https://github.com/tiwarishubham635)!
+
+[2024-06-18] Version 1.22.0
+---------------------------
+**Events**
+- Add `status` and `documentation_url` to Event Types
+
+**Lookups**
+- Removed unused `fraud` lookups in V1 only to facilitate rest proxy migration
+
+**Numbers**
+- Add date_created field to the Get Port In Request API
+- Rename the `status_last_time_updated_timestamp` field to `last_updated` in the Get Port In Phone Number API **(breaking change)**
+- Add Rejection reason and rejection reason code to the Get Port In Phone Number API
+- Remove the carrier information from the Portability API
+
+**Proxy**
+- Change property `type` from enum to ienum
+
+**Trusthub**
+- Add skipMessagingUseCase field in compliance_tollfree_inquiry.
+
+
+[2024-06-06] Version 1.21.1
+---------------------------
+**Api**
+- Mark MaxPrice as obsolete
+
+**Lookups**
+- Update examples for `phone_number_quality_score`
+
+**Messaging**
+- List tollfree verifications on parent account and all sub-accounts
+
+
 [2024-05-24] Version 1.21.0
 ---------------------------
 **Library - Chore**

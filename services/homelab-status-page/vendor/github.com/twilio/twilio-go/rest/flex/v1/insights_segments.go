@@ -62,7 +62,9 @@ func (c *ApiService) PageInsightsSegments(params *ListInsightsSegmentsParams, pa
 	path := "/v1/Insights/Segments"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.SegmentId != nil {
 		data.Set("SegmentId", *params.SegmentId)

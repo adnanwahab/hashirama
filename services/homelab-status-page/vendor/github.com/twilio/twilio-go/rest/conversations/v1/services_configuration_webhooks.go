@@ -26,7 +26,9 @@ func (c *ApiService) FetchServiceWebhookConfiguration(ChatServiceSid string) (*C
 	path = strings.Replace(path, "{"+"ChatServiceSid"+"}", ChatServiceSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -78,7 +80,9 @@ func (c *ApiService) UpdateServiceWebhookConfiguration(ChatServiceSid string, pa
 	path = strings.Replace(path, "{"+"ChatServiceSid"+"}", ChatServiceSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PreWebhookUrl != nil {
 		data.Set("PreWebhookUrl", *params.PreWebhookUrl)

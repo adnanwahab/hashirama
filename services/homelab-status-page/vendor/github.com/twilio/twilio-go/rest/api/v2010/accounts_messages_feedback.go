@@ -48,7 +48,9 @@ func (c *ApiService) CreateMessageFeedback(MessageSid string, params *CreateMess
 	path = strings.Replace(path, "{"+"MessageSid"+"}", MessageSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Outcome != nil {
 		data.Set("Outcome", *params.Outcome)

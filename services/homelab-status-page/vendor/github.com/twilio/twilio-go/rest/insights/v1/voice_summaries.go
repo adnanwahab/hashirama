@@ -188,7 +188,9 @@ func (c *ApiService) PageCallSummaries(params *ListCallSummariesParams, pageToke
 	path := "/v1/Voice/Summaries"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.From != nil {
 		data.Set("From", *params.From)

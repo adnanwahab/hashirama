@@ -46,7 +46,9 @@ func (c *ApiService) DeleteRecording(Sid string, params *DeleteRecordingParams) 
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -86,7 +88,9 @@ func (c *ApiService) FetchRecording(Sid string, params *FetchRecordingParams) (*
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.IncludeSoftDeleted != nil {
 		data.Set("IncludeSoftDeleted", fmt.Sprint(*params.IncludeSoftDeleted))
@@ -177,7 +181,9 @@ func (c *ApiService) PageRecording(params *ListRecordingParams, pageToken, pageN
 	}
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.DateCreated != nil {
 		data.Set("DateCreated", fmt.Sprint((*params.DateCreated).Format(time.RFC3339)))

@@ -31,7 +31,9 @@ func (c *ApiService) DeleteDocumentPermission(ServiceSid string, DocumentSid str
 	path = strings.Replace(path, "{"+"Identity"+"}", Identity, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -51,7 +53,9 @@ func (c *ApiService) FetchDocumentPermission(ServiceSid string, DocumentSid stri
 	path = strings.Replace(path, "{"+"Identity"+"}", Identity, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -93,7 +97,9 @@ func (c *ApiService) PageDocumentPermission(ServiceSid string, DocumentSid strin
 	path = strings.Replace(path, "{"+"DocumentSid"+"}", DocumentSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))
@@ -238,7 +244,9 @@ func (c *ApiService) UpdateDocumentPermission(ServiceSid string, DocumentSid str
 	path = strings.Replace(path, "{"+"Identity"+"}", Identity, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Read != nil {
 		data.Set("Read", fmt.Sprint(*params.Read))

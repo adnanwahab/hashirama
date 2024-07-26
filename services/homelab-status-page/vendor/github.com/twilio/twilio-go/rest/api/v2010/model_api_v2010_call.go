@@ -43,7 +43,7 @@ type ApiV2010Call struct {
 	EndTime *string `json:"end_time,omitempty"`
 	// The length of the call in seconds. This value is empty for busy, failed, unanswered, or ongoing calls.
 	Duration *string `json:"duration,omitempty"`
-	// The charge for this call, in the currency associated with the account. Populated after the call is completed. May not be immediately available.
+	// The charge for this call, in the currency associated with the account. Populated after the call is completed. May not be immediately available. The price associated with a call only reflects the charge for connectivity.  Charges for other call-related features such as Answering Machine Detection, Text-To-Speech, and SIP REFER are not included in this value.
 	Price *string `json:"price,omitempty"`
 	// The currency in which `Price` is measured, in [ISO 4127](https://www.iso.org/iso/home/standards/currency_codes.htm) format (e.g., `USD`, `EUR`, `JPY`). Always capitalized for calls.
 	PriceUnit *string `json:"price_unit,omitempty"`

@@ -36,7 +36,9 @@ func (c *ApiService) FetchAccountSettings(params *FetchAccountSettingsParams) (*
 	path := "/v1/Voice/Settings"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.SubaccountSid != nil {
 		data.Set("SubaccountSid", *params.SubaccountSid)
@@ -85,7 +87,9 @@ func (c *ApiService) UpdateAccountSettings(params *UpdateAccountSettingsParams) 
 	path := "/v1/Voice/Settings"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.AdvancedFeatures != nil {
 		data.Set("AdvancedFeatures", fmt.Sprint(*params.AdvancedFeatures))

@@ -9,7 +9,7 @@ import (
 	"path"
 
 	"github.com/a-h/templ"
-
+	"github.com/playwright-community/playwright-go"
 
     "github.com/labstack/echo/v4"
 	"path/filepath"
@@ -194,6 +194,105 @@ var themes = []Theme{
         Tools: []string{"agent-playground", "dating-photos", "robot-doctor"},
     },
 }
+
+
+
+func scrapeTwitterBookmarks(username, password string) ([]string, error) {
+	pw, err := playwright.Run()
+	if err != nil {
+		return nil, fmt.Errorf("could not start playwright: %v", err)
+	}
+	defer pw.Stop()
+
+	browser, err := pw.Chromium.Launch()
+	if err != nil {
+		return nil, fmt.Errorf("could not launch browser: %v", err)
+	}
+	defer browser.Close()
+
+	page, err := browser.NewPage()
+	if err != nil {
+		return nil, fmt.Errorf("could not create page: %v", err)
+	}
+
+	// Navigate to Twitter login page
+	if _, err = page.Goto("https://x.com/login", playwright.PageGotoOptions{
+		WaitUntil: playwright.WaitUntilStateNetworkidle,
+	}); err != nil {
+		return nil, fmt.Errorf("could not go to login page: %v", err)
+	}
+
+	// Login
+	if err = page.Fill("input[name='text']", username); err != nil {
+		return nil, fmt.Errorf("could not fill username: %v", err)
+	}
+	if err = page.Click("span:has-text('Next')"); err != nil {
+		return nil, fmt.Errorf("could not click next: %v", err)
+	}
+	if err = page.Fill("input[name='password']", password); err != nil {
+		return nil, fmt.Errorf("could not fill password: %v", err)
+	}
+	if err = page.Click("span:has-text('Log in')"); err != nil {
+		return nil, fmt.Errorf("could not click login: %v", err)
+	}
+
+	// Navigate to bookmarks
+	if _, err = page.Goto("https://twitter.com/i/bookmarks", playwright.PageGotoOptions{
+		WaitUntil: playwright.WaitUntilStateNetworkidle,
+	}); err != nil {
+		return nil, fmt.Errorf("could not go to bookmarks: %v", err)
+	}
+
+	// Scroll and collect bookmarks
+	var bookmarks []string
+	for {
+		newBookmarks, err := page.Evaluate(`() => {
+			const tweets = document.querySelectorAll('article[data-testid="tweet"]');
+			return Array.from(tweets).map(tweet => tweet.innerText);
+		}`)
+		if err != nil {
+			return nil, fmt.Errorf("could not evaluate page: %v", err)
+		}
+		fmt.Println(newBookmarks)
+		//bookmarks = append(bookmarks, newBookmarks)
+
+		// Scroll to bottom
+		if _, err := page.Evaluate(`window.scrollTo(0, document.body.scrollHeight)`); err != nil {
+			return nil, fmt.Errorf("could not scroll: %v", err)
+		}
+
+		// Check if we've reached the end
+		isEnd, err := page.Evaluate(`() => {
+			return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+		}`)
+		if err != nil {
+			return nil, fmt.Errorf("could not check scroll position: %v", err)
+		}
+
+		if isEnd.(bool) {
+			break
+		}
+	}
+
+	return bookmarks, nil
+}
+
+
+func scrape_site(c echo.Context) error {
+	bookmarks, err := scrapeTwitterBookmarks("adnan_wahab_", "sicp.123")
+	if err != nil {
+		log.Fatalf("Error scraping bookmarks: %v", err)
+	}
+
+	fmt.Printf("Scraped %d bookmarks\n", len(bookmarks))
+	for i, bookmark := range bookmarks {
+		fmt.Printf("%d: %s\n", i+1, bookmark)
+	}
+	return c.JSON(http.StatusOK, bookmarks)
+}
+
+
+
 
 
 
@@ -726,7 +825,7 @@ func setupRoutes(e *echo.Echo) {
 
 
 
-
+	e.GET("/scrape", scrape_site)
 
 
 }

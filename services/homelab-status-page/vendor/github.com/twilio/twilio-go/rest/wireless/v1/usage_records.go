@@ -63,7 +63,9 @@ func (c *ApiService) PageAccountUsageRecord(params *ListAccountUsageRecordParams
 	path := "/v1/UsageRecords"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.End != nil {
 		data.Set("End", fmt.Sprint((*params.End).Format(time.RFC3339)))

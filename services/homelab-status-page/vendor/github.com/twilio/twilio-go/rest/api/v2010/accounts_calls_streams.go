@@ -1260,7 +1260,9 @@ func (c *ApiService) CreateStream(CallSid string, params *CreateStreamParams) (*
 	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Url != nil {
 		data.Set("Url", *params.Url)
@@ -1916,7 +1918,9 @@ func (c *ApiService) UpdateStream(CallSid string, Sid string, params *UpdateStre
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Status != nil {
 		data.Set("Status", *params.Status)

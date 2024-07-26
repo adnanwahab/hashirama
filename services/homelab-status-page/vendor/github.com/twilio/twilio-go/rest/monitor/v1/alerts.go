@@ -30,7 +30,9 @@ func (c *ApiService) FetchAlert(Sid string) (*MonitorV1AlertInstance, error) {
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -87,7 +89,9 @@ func (c *ApiService) PageAlert(params *ListAlertParams, pageToken, pageNumber st
 	path := "/v1/Alerts"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.LogLevel != nil {
 		data.Set("LogLevel", *params.LogLevel)

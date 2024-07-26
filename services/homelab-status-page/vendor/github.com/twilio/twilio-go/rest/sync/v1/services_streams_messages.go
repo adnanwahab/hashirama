@@ -38,7 +38,9 @@ func (c *ApiService) CreateStreamMessage(ServiceSid string, StreamSid string, pa
 	path = strings.Replace(path, "{"+"StreamSid"+"}", StreamSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Data != nil {
 		v, err := json.Marshal(params.Data)

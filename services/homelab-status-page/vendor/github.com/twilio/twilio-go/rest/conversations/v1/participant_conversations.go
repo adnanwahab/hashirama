@@ -56,7 +56,9 @@ func (c *ApiService) PageParticipantConversation(params *ListParticipantConversa
 	path := "/v1/ParticipantConversations"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Identity != nil {
 		data.Set("Identity", *params.Identity)

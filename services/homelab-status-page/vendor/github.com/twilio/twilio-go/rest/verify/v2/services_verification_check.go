@@ -61,7 +61,9 @@ func (c *ApiService) CreateVerificationCheck(ServiceSid string, params *CreateVe
 	path = strings.Replace(path, "{"+"ServiceSid"+"}", ServiceSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Code != nil {
 		data.Set("Code", *params.Code)

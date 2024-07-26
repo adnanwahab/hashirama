@@ -35,7 +35,9 @@ func (c *ApiService) FetchInsightsSettingsComment(params *FetchInsightsSettingsC
 	path := "/v1/Insights/QualityManagement/Settings/CommentTags"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Authorization != nil {
 		headers["Authorization"] = *params.Authorization

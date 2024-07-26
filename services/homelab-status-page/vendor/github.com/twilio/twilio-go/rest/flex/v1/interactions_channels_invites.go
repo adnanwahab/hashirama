@@ -41,7 +41,9 @@ func (c *ApiService) CreateInteractionChannelInvite(InteractionSid string, Chann
 	path = strings.Replace(path, "{"+"ChannelSid"+"}", ChannelSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Routing != nil {
 		v, err := json.Marshal(params.Routing)
@@ -93,7 +95,9 @@ func (c *ApiService) PageInteractionChannelInvite(InteractionSid string, Channel
 	path = strings.Replace(path, "{"+"ChannelSid"+"}", ChannelSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))

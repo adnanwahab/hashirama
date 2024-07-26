@@ -18,6 +18,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/url"
+	"time"
 
 	"github.com/twilio/twilio-go/client"
 )
@@ -26,12 +27,66 @@ import (
 type ListContentAndApprovalsParams struct {
 	// How many resources to return in each list page. The default is 50, and the maximum is 1000.
 	PageSize *int `json:"PageSize,omitempty"`
+	// Whether to sort by ascending or descending date updated
+	SortByDate *string `json:"SortByDate,omitempty"`
+	// Whether to sort by ascending or descending content name
+	SortByContentName *string `json:"SortByContentName,omitempty"`
+	// Filter by >=[date-time]
+	DateCreatedAfter *time.Time `json:"DateCreatedAfter,omitempty"`
+	// Filter by <=[date-time]
+	DateCreatedBefore *time.Time `json:"DateCreatedBefore,omitempty"`
+	// Filter by Regex Pattern in content name
+	ContentName *string `json:"ContentName,omitempty"`
+	// Filter by Regex Pattern in template content
+	Content *string `json:"Content,omitempty"`
+	// Filter by array of valid language(s)
+	Language *[]string `json:"Language,omitempty"`
+	// Filter by array of contentType(s)
+	ContentType *[]string `json:"ContentType,omitempty"`
+	// Filter by array of ChannelEligibility(s), where ChannelEligibility=<channel>:<status>
+	ChannelEligibility *[]string `json:"ChannelEligibility,omitempty"`
 	// Max number of records to return.
 	Limit *int `json:"limit,omitempty"`
 }
 
 func (params *ListContentAndApprovalsParams) SetPageSize(PageSize int) *ListContentAndApprovalsParams {
 	params.PageSize = &PageSize
+	return params
+}
+func (params *ListContentAndApprovalsParams) SetSortByDate(SortByDate string) *ListContentAndApprovalsParams {
+	params.SortByDate = &SortByDate
+	return params
+}
+func (params *ListContentAndApprovalsParams) SetSortByContentName(SortByContentName string) *ListContentAndApprovalsParams {
+	params.SortByContentName = &SortByContentName
+	return params
+}
+func (params *ListContentAndApprovalsParams) SetDateCreatedAfter(DateCreatedAfter time.Time) *ListContentAndApprovalsParams {
+	params.DateCreatedAfter = &DateCreatedAfter
+	return params
+}
+func (params *ListContentAndApprovalsParams) SetDateCreatedBefore(DateCreatedBefore time.Time) *ListContentAndApprovalsParams {
+	params.DateCreatedBefore = &DateCreatedBefore
+	return params
+}
+func (params *ListContentAndApprovalsParams) SetContentName(ContentName string) *ListContentAndApprovalsParams {
+	params.ContentName = &ContentName
+	return params
+}
+func (params *ListContentAndApprovalsParams) SetContent(Content string) *ListContentAndApprovalsParams {
+	params.Content = &Content
+	return params
+}
+func (params *ListContentAndApprovalsParams) SetLanguage(Language []string) *ListContentAndApprovalsParams {
+	params.Language = &Language
+	return params
+}
+func (params *ListContentAndApprovalsParams) SetContentType(ContentType []string) *ListContentAndApprovalsParams {
+	params.ContentType = &ContentType
+	return params
+}
+func (params *ListContentAndApprovalsParams) SetChannelEligibility(ChannelEligibility []string) *ListContentAndApprovalsParams {
+	params.ChannelEligibility = &ChannelEligibility
 	return params
 }
 func (params *ListContentAndApprovalsParams) SetLimit(Limit int) *ListContentAndApprovalsParams {
@@ -44,10 +99,45 @@ func (c *ApiService) PageContentAndApprovals(params *ListContentAndApprovalsPara
 	path := "/v2/ContentAndApprovals"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))
+	}
+	if params != nil && params.SortByDate != nil {
+		data.Set("SortByDate", *params.SortByDate)
+	}
+	if params != nil && params.SortByContentName != nil {
+		data.Set("SortByContentName", *params.SortByContentName)
+	}
+	if params != nil && params.DateCreatedAfter != nil {
+		data.Set("DateCreatedAfter", fmt.Sprint((*params.DateCreatedAfter).Format(time.RFC3339)))
+	}
+	if params != nil && params.DateCreatedBefore != nil {
+		data.Set("DateCreatedBefore", fmt.Sprint((*params.DateCreatedBefore).Format(time.RFC3339)))
+	}
+	if params != nil && params.ContentName != nil {
+		data.Set("ContentName", *params.ContentName)
+	}
+	if params != nil && params.Content != nil {
+		data.Set("Content", *params.Content)
+	}
+	if params != nil && params.Language != nil {
+		for _, item := range *params.Language {
+			data.Add("Language", item)
+		}
+	}
+	if params != nil && params.ContentType != nil {
+		for _, item := range *params.ContentType {
+			data.Add("ContentType", item)
+		}
+	}
+	if params != nil && params.ChannelEligibility != nil {
+		for _, item := range *params.ChannelEligibility {
+			data.Add("ChannelEligibility", item)
+		}
 	}
 
 	if pageToken != "" {

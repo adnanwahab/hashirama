@@ -31,7 +31,9 @@ func (c *ApiService) FetchAssetVersion(ServiceSid string, AssetSid string, Sid s
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -73,7 +75,9 @@ func (c *ApiService) PageAssetVersion(ServiceSid string, AssetSid string, params
 	path = strings.Replace(path, "{"+"AssetSid"+"}", AssetSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))

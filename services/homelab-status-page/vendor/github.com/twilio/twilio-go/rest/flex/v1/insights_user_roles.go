@@ -35,7 +35,9 @@ func (c *ApiService) FetchInsightsUserRoles(params *FetchInsightsUserRolesParams
 	path := "/v1/Insights/UserRoles"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Authorization != nil {
 		headers["Authorization"] = *params.Authorization

@@ -35,7 +35,9 @@ func (c *ApiService) FetchConfiguration(params *FetchConfigurationParams) (*Flex
 	path := "/v1/Configuration"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.UiVersion != nil {
 		data.Set("UiVersion", *params.UiVersion)

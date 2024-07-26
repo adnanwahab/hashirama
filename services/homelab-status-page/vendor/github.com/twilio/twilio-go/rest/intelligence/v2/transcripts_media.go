@@ -38,7 +38,9 @@ func (c *ApiService) FetchMedia(Sid string, params *FetchMediaParams) (*Intellig
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Redacted != nil {
 		data.Set("Redacted", fmt.Sprint(*params.Redacted))

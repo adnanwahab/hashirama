@@ -30,7 +30,9 @@ func (c *ApiService) FetchEvent(Sid string) (*MonitorV1Event, error) {
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -105,7 +107,9 @@ func (c *ApiService) PageEvent(params *ListEventParams, pageToken, pageNumber st
 	path := "/v1/Events"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.ActorSid != nil {
 		data.Set("ActorSid", *params.ActorSid)

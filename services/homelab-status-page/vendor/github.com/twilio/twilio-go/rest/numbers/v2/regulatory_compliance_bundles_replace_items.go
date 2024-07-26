@@ -37,7 +37,9 @@ func (c *ApiService) CreateReplaceItems(BundleSid string, params *CreateReplaceI
 	path = strings.Replace(path, "{"+"BundleSid"+"}", BundleSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.FromBundleSid != nil {
 		data.Set("FromBundleSid", *params.FromBundleSid)

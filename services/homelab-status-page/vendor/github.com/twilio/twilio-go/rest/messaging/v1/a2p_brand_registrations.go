@@ -63,7 +63,9 @@ func (c *ApiService) CreateBrandRegistrations(params *CreateBrandRegistrationsPa
 	path := "/v1/a2p/BrandRegistrations"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.CustomerProfileBundleSid != nil {
 		data.Set("CustomerProfileBundleSid", *params.CustomerProfileBundleSid)
@@ -102,7 +104,9 @@ func (c *ApiService) FetchBrandRegistrations(Sid string) (*MessagingV1BrandRegis
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -141,7 +145,9 @@ func (c *ApiService) PageBrandRegistrations(params *ListBrandRegistrationsParams
 	path := "/v1/a2p/BrandRegistrations"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))
@@ -261,7 +267,9 @@ func (c *ApiService) UpdateBrandRegistrations(Sid string) (*MessagingV1BrandRegi
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Post(c.baseURL+path, data, headers)
 	if err != nil {

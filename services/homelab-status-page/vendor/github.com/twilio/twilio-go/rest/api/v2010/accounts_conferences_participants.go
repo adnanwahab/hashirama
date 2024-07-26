@@ -333,7 +333,9 @@ func (c *ApiService) CreateParticipant(ConferenceSid string, params *CreateParti
 	path = strings.Replace(path, "{"+"ConferenceSid"+"}", ConferenceSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.From != nil {
 		data.Set("From", *params.From)
@@ -526,7 +528,9 @@ func (c *ApiService) DeleteParticipant(ConferenceSid string, CallSid string, par
 	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -561,7 +565,9 @@ func (c *ApiService) FetchParticipant(ConferenceSid string, CallSid string, para
 	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -631,7 +637,9 @@ func (c *ApiService) PageParticipant(ConferenceSid string, params *ListParticipa
 	path = strings.Replace(path, "{"+"ConferenceSid"+"}", ConferenceSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Muted != nil {
 		data.Set("Muted", fmt.Sprint(*params.Muted))
@@ -849,7 +857,9 @@ func (c *ApiService) UpdateParticipant(ConferenceSid string, CallSid string, par
 	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Muted != nil {
 		data.Set("Muted", fmt.Sprint(*params.Muted))

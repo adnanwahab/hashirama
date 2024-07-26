@@ -27,7 +27,9 @@ func (c *ApiService) FetchAnnotation(CallSid string) (*InsightsV1Annotation, err
 	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -97,7 +99,9 @@ func (c *ApiService) UpdateAnnotation(CallSid string, params *UpdateAnnotationPa
 	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.AnsweredBy != nil {
 		data.Set("AnsweredBy", *params.AnsweredBy)

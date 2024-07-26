@@ -45,7 +45,9 @@ func (c *ApiService) CreateInsightsQuestionnairesCategory(params *CreateInsights
 	path := "/v1/Insights/QualityManagement/Categories"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Name != nil {
 		data.Set("Name", *params.Name)
@@ -86,7 +88,9 @@ func (c *ApiService) DeleteInsightsQuestionnairesCategory(CategorySid string, pa
 	path = strings.Replace(path, "{"+"CategorySid"+"}", CategorySid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Authorization != nil {
 		headers["Authorization"] = *params.Authorization
@@ -129,7 +133,9 @@ func (c *ApiService) PageInsightsQuestionnairesCategory(params *ListInsightsQues
 	path := "/v1/Insights/QualityManagement/Categories"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.PageSize != nil {
 		data.Set("PageSize", fmt.Sprint(*params.PageSize))
@@ -266,7 +272,9 @@ func (c *ApiService) UpdateInsightsQuestionnairesCategory(CategorySid string, pa
 	path = strings.Replace(path, "{"+"CategorySid"+"}", CategorySid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Name != nil {
 		data.Set("Name", *params.Name)

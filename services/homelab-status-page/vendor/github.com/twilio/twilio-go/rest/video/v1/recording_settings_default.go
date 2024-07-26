@@ -66,7 +66,9 @@ func (c *ApiService) CreateRecordingSettings(params *CreateRecordingSettingsPara
 	path := "/v1/RecordingSettings/Default"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.FriendlyName != nil {
 		data.Set("FriendlyName", *params.FriendlyName)
@@ -107,7 +109,9 @@ func (c *ApiService) FetchRecordingSettings() (*VideoV1RecordingSettings, error)
 	path := "/v1/RecordingSettings/Default"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {

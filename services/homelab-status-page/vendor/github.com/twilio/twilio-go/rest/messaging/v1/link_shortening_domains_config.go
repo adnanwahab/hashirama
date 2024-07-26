@@ -27,7 +27,9 @@ func (c *ApiService) FetchDomainConfig(DomainSid string) (*MessagingV1DomainConf
 	path = strings.Replace(path, "{"+"DomainSid"+"}", DomainSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -79,7 +81,9 @@ func (c *ApiService) UpdateDomainConfig(DomainSid string, params *UpdateDomainCo
 	path = strings.Replace(path, "{"+"DomainSid"+"}", DomainSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.FallbackUrl != nil {
 		data.Set("FallbackUrl", *params.FallbackUrl)

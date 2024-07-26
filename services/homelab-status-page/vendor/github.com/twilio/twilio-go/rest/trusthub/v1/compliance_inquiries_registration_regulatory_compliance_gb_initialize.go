@@ -265,7 +265,9 @@ func (c *ApiService) CreateComplianceRegistration(params *CreateComplianceRegist
 	path := "/v1/ComplianceInquiries/Registration/RegulatoryCompliance/GB/Initialize"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.EndUserType != nil {
 		data.Set("EndUserType", *params.EndUserType)
@@ -423,7 +425,9 @@ func (c *ApiService) UpdateComplianceRegistration(RegistrationId string, params 
 	path = strings.Replace(path, "{"+"RegistrationId"+"}", RegistrationId, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.IsIsvEmbed != nil {
 		data.Set("IsIsvEmbed", fmt.Sprint(*params.IsIsvEmbed))

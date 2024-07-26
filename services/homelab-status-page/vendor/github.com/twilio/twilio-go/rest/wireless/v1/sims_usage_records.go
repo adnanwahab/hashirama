@@ -66,7 +66,9 @@ func (c *ApiService) PageUsageRecord(SimSid string, params *ListUsageRecordParam
 	path = strings.Replace(path, "{"+"SimSid"+"}", SimSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.End != nil {
 		data.Set("End", fmt.Sprint((*params.End).Format(time.RFC3339)))

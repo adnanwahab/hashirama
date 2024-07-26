@@ -43,11 +43,13 @@ Class | Method | HTTP request | Description
 *PortingPortInPhoneNumberApi* | [**DeletePortingPortInPhoneNumber**](docs/PortingPortInPhoneNumberApi.md#deleteportingportinphonenumber) | **Delete** /v1/Porting/PortIn/{PortInRequestSid}/PhoneNumber/{PhoneNumberSid} | 
 *PortingPortInPhoneNumberApi* | [**FetchPortingPortInPhoneNumber**](docs/PortingPortInPhoneNumberApi.md#fetchportingportinphonenumber) | **Get** /v1/Porting/PortIn/{PortInRequestSid}/PhoneNumber/{PhoneNumberSid} | 
 *PortingPortabilityPhoneNumberApi* | [**FetchPortingPortability**](docs/PortingPortabilityPhoneNumberApi.md#fetchportingportability) | **Get** /v1/Porting/Portability/PhoneNumber/{PhoneNumber} | 
+*SigningRequestConfigurationApi* | [**CreateSigningRequestConfiguration**](docs/SigningRequestConfigurationApi.md#createsigningrequestconfiguration) | **Post** /v1/SigningRequest/Configuration | 
 
 
 ## Documentation For Models
 
  - [NumbersV1PortingPortability](docs/NumbersV1PortingPortability.md)
+ - [NumbersV1SigningRequestConfiguration](docs/NumbersV1SigningRequestConfiguration.md)
  - [NumbersV1PortingWebhookConfiguration](docs/NumbersV1PortingWebhookConfiguration.md)
  - [NumbersV1BulkEligibility](docs/NumbersV1BulkEligibility.md)
  - [NumbersV1Eligibility](docs/NumbersV1Eligibility.md)

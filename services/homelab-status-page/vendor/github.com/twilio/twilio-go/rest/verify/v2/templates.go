@@ -50,7 +50,9 @@ func (c *ApiService) PageVerificationTemplate(params *ListVerificationTemplatePa
 	path := "/v2/Templates"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.FriendlyName != nil {
 		data.Set("FriendlyName", *params.FriendlyName)

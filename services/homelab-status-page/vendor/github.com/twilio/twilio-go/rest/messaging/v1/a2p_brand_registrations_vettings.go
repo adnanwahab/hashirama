@@ -46,7 +46,9 @@ func (c *ApiService) CreateBrandVetting(BrandSid string, params *CreateBrandVett
 	path = strings.Replace(path, "{"+"BrandSid"+"}", BrandSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.VettingProvider != nil {
 		data.Set("VettingProvider", *params.VettingProvider)
@@ -77,7 +79,9 @@ func (c *ApiService) FetchBrandVetting(BrandSid string, BrandVettingSid string) 
 	path = strings.Replace(path, "{"+"BrandVettingSid"+"}", BrandVettingSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -124,7 +128,9 @@ func (c *ApiService) PageBrandVetting(BrandSid string, params *ListBrandVettingP
 	path = strings.Replace(path, "{"+"BrandSid"+"}", BrandSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.VettingProvider != nil {
 		data.Set("VettingProvider", *params.VettingProvider)

@@ -41,7 +41,9 @@ func (c *ApiService) FetchOperatorResult(TranscriptSid string, OperatorSid strin
 	path = strings.Replace(path, "{"+"OperatorSid"+"}", OperatorSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Redacted != nil {
 		data.Set("Redacted", fmt.Sprint(*params.Redacted))
@@ -92,7 +94,9 @@ func (c *ApiService) PageOperatorResult(TranscriptSid string, params *ListOperat
 	path = strings.Replace(path, "{"+"TranscriptSid"+"}", TranscriptSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Redacted != nil {
 		data.Set("Redacted", fmt.Sprint(*params.Redacted))

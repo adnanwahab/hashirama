@@ -35,7 +35,9 @@ func (c *ApiService) CreateDialingPermissionsCountryBulkUpdate(params *CreateDia
 	path := "/v1/DialingPermissions/BulkCountryUpdates"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.UpdateRequest != nil {
 		data.Set("UpdateRequest", *params.UpdateRequest)

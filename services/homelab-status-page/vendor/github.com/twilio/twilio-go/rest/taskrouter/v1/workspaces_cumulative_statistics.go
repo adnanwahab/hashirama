@@ -63,7 +63,9 @@ func (c *ApiService) FetchWorkspaceCumulativeStatistics(WorkspaceSid string, par
 	path = strings.Replace(path, "{"+"WorkspaceSid"+"}", WorkspaceSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.EndDate != nil {
 		data.Set("EndDate", fmt.Sprint((*params.EndDate).Format(time.RFC3339)))

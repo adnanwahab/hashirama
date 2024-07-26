@@ -18,7 +18,7 @@ import (
 )
 
 const (
-	playwrightCliVersion = "1.44.0"
+	playwrightCliVersion = "1.45.1"
 )
 
 var (
@@ -284,6 +284,11 @@ func transformRunOptions(options []*RunOptions) *RunOptions {
 }
 
 func getNodeExecutable(driverDirectory string) string {
+	envPath := os.Getenv("PLAYWRIGHT_NODEJS_PATH")
+	if envPath != "" {
+		return envPath
+	}
+
 	node := "node"
 	if runtime.GOOS == "windows" {
 		node = "node.exe"

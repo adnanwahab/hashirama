@@ -69,7 +69,9 @@ func (c *ApiService) CreateIpCommand(params *CreateIpCommandParams) (*SupersimV1
 	path := "/v1/IpCommands"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Sim != nil {
 		data.Set("Sim", *params.Sim)
@@ -111,7 +113,9 @@ func (c *ApiService) FetchIpCommand(Sid string) (*SupersimV1IpCommand, error) {
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -174,7 +178,9 @@ func (c *ApiService) PageIpCommand(params *ListIpCommandParams, pageToken, pageN
 	path := "/v1/IpCommands"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Sim != nil {
 		data.Set("Sim", *params.Sim)

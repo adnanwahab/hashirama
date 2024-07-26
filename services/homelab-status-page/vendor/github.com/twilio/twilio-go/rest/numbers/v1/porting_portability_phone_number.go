@@ -37,7 +37,9 @@ func (c *ApiService) FetchPortingPortability(PhoneNumber string, params *FetchPo
 	path = strings.Replace(path, "{"+"PhoneNumber"+"}", PhoneNumber, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.TargetAccountSid != nil {
 		data.Set("TargetAccountSid", *params.TargetAccountSid)

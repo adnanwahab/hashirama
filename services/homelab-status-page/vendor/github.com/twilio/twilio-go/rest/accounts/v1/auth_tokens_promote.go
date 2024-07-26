@@ -24,7 +24,9 @@ func (c *ApiService) UpdateAuthTokenPromotion() (*AccountsV1AuthTokenPromotion, 
 	path := "/v1/AuthTokens/Promote"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Post(c.baseURL+path, data, headers)
 	if err != nil {

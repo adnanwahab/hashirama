@@ -64,7 +64,9 @@ func (c *ApiService) FetchWorkflowStatistics(WorkspaceSid string, WorkflowSid st
 	path = strings.Replace(path, "{"+"WorkflowSid"+"}", WorkflowSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Minutes != nil {
 		data.Set("Minutes", fmt.Sprint(*params.Minutes))

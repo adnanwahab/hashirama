@@ -67,7 +67,9 @@ func (c *ApiService) FetchVerificationAttemptsSummary(params *FetchVerificationA
 	path := "/v2/Attempts/Summary"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.VerifyServiceSid != nil {
 		data.Set("VerifyServiceSid", *params.VerifyServiceSid)

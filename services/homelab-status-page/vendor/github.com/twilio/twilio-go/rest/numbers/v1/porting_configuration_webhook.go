@@ -70,7 +70,9 @@ func (c *ApiService) DeletePortingWebhookConfigurationDelete(WebhookType string)
 	path = strings.Replace(path, "{"+"WebhookType"+"}", WebhookType, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -87,7 +89,9 @@ func (c *ApiService) FetchPortingWebhookConfigurationFetch() (*NumbersV1PortingW
 	path := "/v1/Porting/Configuration/Webhook"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {

@@ -24,7 +24,9 @@ func (c *ApiService) FetchConfigurationWebhook() (*ConversationsV1ConfigurationW
 	path := "/v1/Configuration/Webhooks"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -81,7 +83,9 @@ func (c *ApiService) UpdateConfigurationWebhook(params *UpdateConfigurationWebho
 	path := "/v1/Configuration/Webhooks"
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Method != nil {
 		data.Set("Method", *params.Method)

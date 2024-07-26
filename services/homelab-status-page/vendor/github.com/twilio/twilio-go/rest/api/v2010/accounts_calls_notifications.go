@@ -46,7 +46,9 @@ func (c *ApiService) FetchCallNotification(CallSid string, Sid string, params *F
 	path = strings.Replace(path, "{"+"Sid"+"}", Sid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
@@ -122,7 +124,9 @@ func (c *ApiService) PageCallNotification(CallSid string, params *ListCallNotifi
 	path = strings.Replace(path, "{"+"CallSid"+"}", CallSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	if params != nil && params.Log != nil {
 		data.Set("Log", fmt.Sprint(*params.Log))

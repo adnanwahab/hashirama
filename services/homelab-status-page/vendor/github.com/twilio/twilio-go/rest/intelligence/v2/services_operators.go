@@ -27,7 +27,9 @@ func (c *ApiService) CreateOperatorAttachment(ServiceSid string, OperatorSid str
 	path = strings.Replace(path, "{"+"OperatorSid"+"}", OperatorSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Post(c.baseURL+path, data, headers)
 	if err != nil {
@@ -51,7 +53,9 @@ func (c *ApiService) DeleteOperatorAttachment(ServiceSid string, OperatorSid str
 	path = strings.Replace(path, "{"+"OperatorSid"+"}", OperatorSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Delete(c.baseURL+path, data, headers)
 	if err != nil {
@@ -69,7 +73,9 @@ func (c *ApiService) FetchOperatorAttachments(ServiceSid string) (*IntelligenceV
 	path = strings.Replace(path, "{"+"ServiceSid"+"}", ServiceSid, -1)
 
 	data := url.Values{}
-	headers := make(map[string]interface{})
+	headers := map[string]interface{}{
+		"Content-Type": "application/x-www-form-urlencoded",
+	}
 
 	resp, err := c.requestHandler.Get(c.baseURL+path, data, headers)
 	if err != nil {
