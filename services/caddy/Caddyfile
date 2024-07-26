@@ -41,7 +41,22 @@
 
 
 renakaufman.com {
-    redir https://hashirama.blog/tools/arcanine permanent
+  tls {
+    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+  }
+
+
+  handle {
+    reverse_proxy 0.0.0.0:1337
+  }
+
+  handle_errors {
+    rewrite * /404.html
+    file_server
+  }
+
+  encode zstd gzip
+
 }
 
 
