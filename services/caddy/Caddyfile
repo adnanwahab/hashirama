@@ -1,45 +1,5 @@
 
 
-
-10.1.136.13 {
-  tls {
-    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
-  }
-
-
-  handle {
-    reverse_proxy 0.0.0.0:1337
-  }
-
-  handle_errors {
-    rewrite * /404.html
-    file_server
-  }
-
-  encode zstd gzip
-
-}
-
-4.17.224.160 {
-  tls {
-    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
-  }
-
-
-  handle {
-    reverse_proxy 0.0.0.0:1337
-  }
-
-  handle_errors {
-    rewrite * /404.html
-    file_server
-  }
-
-  encode zstd gzip
-
-}
-
-
 renakaufman.com {
   tls {
     dns cloudflare abca9b4e8e1368acdc7f165078db67d54346b
