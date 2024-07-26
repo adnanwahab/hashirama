@@ -1,0 +1,92 @@
+robot.hashirama.blog {
+tls {
+    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+}
+
+   root * /home/adnan/hashirama/services/bot-party/dist
+    file_server
+}
+
+photos.hashirama.blog {
+tls {
+    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+}
+
+
+  handle {
+	reverse_proxy 0.0.0.0:2283
+  }
+
+    encode zstd gzip
+}
+
+jellyfin.hashirama.blog {
+
+tls {
+    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+}
+
+
+  handle {
+	reverse_proxy 0.0.0.0:8096
+  }
+
+    encode zstd gzip
+}
+
+
+
+map.hashirama.blog {
+tls {
+    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+}
+
+
+  handle {
+	reverse_proxy 0.0.0.0:6000
+  }
+
+    encode zstd gzip
+
+}
+
+
+jupyter.hashirama.blog {
+tls {
+    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+}
+
+
+  handle {
+	reverse_proxy ubuntu:8888
+  }
+
+    encode zstd gzip
+
+}
+
+static.hashirama.blog {
+    root * /home/adnan/hashirama/services/static
+    file_server
+tls {
+    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+}
+
+
+}
+
+
+
+hashirama.blog {
+tls {
+dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+}
+
+
+handle {
+reverse_proxy 0.0.0.0:1337
+}
+
+encode zstd gzip
+
+}
