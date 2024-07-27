@@ -8,17 +8,18 @@ renakaufman.com {
 
   }
 
+  respond "Hello, World!"
 
-  handle {
-    reverse_proxy 0.0.0.0:1337
-  }
+  # handle {
+  #   reverse_proxy 0.0.0.0:1337
+  # }
 
-  handle_errors {
-    rewrite * /404.html
-    file_server
-  }
+  # handle_errors {
+  #   rewrite * /404.html
+  #   file_server
+  # }
 
-  encode zstd gzip
+  # encode zstd gzip
 
 }
 
