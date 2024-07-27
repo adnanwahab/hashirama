@@ -1,120 +1,47 @@
 
 
 
-renakaufman.com {
-   tls internal
-
-  respond "Hello, World!"
-
-  # handle {
-  #   reverse_proxy 0.0.0.0:1337
-  # }
-
-  # handle_errors {
-  #   rewrite * /404.html
-  #   file_server
-  # }
-
-  # encode zstd gzip
-
+{
+    acme_dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
+      acme_ca https://acme-v02.api.letsencrypt.org/directory
+    email adnan.f.wahab@gmail.com
 }
-
 
 robot.hashirama.blog {
-
-
-tls {
-    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
-}
-
-   root * /home/adnan/hashirama/services/bot-party/dist
+    root * /home/adnan/hashirama/services/bot-party/dist
     file_server
 }
 
 photos.hashirama.blog {
-tls {
-    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
-}
-
-
-  handle {
-	reverse_proxy 0.0.0.0:2283
-  }
-
+    reverse_proxy 0.0.0.0:2283
     encode zstd gzip
 }
 
 jellyfin.hashirama.blog {
-
-tls {
-    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
-}
-
-
-  handle {
-	reverse_proxy 0.0.0.0:8096
-  }
-
+    reverse_proxy 0.0.0.0:8096
     encode zstd gzip
 }
-
-
 
 map.hashirama.blog {
-tls {
-    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
-}
-
-
-  handle {
-	reverse_proxy 0.0.0.0:6000
-  }
-
+    reverse_proxy 0.0.0.0:6000
     encode zstd gzip
-
 }
-
 
 jupyter.hashirama.blog {
-tls {
-    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
-}
-
-
-  handle {
-	reverse_proxy ubuntu:8888
-  }
-
+    reverse_proxy ubuntu:8888
     encode zstd gzip
-
 }
 
 static.hashirama.blog {
     root * /home/adnan/hashirama/services/static
     file_server
-tls {
-    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
 }
-
-
-}
-
-
 
 hashirama.blog {
-  tls {
-    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
-  }
-
-
-  handle {
     reverse_proxy 0.0.0.0:1337
-  }
-
-  handle_errors {
-    rewrite * /404.html
-    file_server
-  }
-
-  encode zstd gzip
+    handle_errors {
+        rewrite * /404.html
+        file_server
+    }
+    encode zstd gzip
 }
