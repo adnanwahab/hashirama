@@ -1,47 +1,11 @@
-
-
-
 {
-    acme_dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
-      acme_ca https://acme-v02.api.letsencrypt.org/directory
     email adnan.f.wahab@gmail.com
+    acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
 }
 
-robot.hashirama.blog {
-    root * /home/adnan/hashirama/services/bot-party/dist
-    file_server
-}
-
-photos.hashirama.blog {
-    reverse_proxy 0.0.0.0:2283
-    encode zstd gzip
-}
-
-jellyfin.hashirama.blog {
-    reverse_proxy 0.0.0.0:8096
-    encode zstd gzip
-}
-
-map.hashirama.blog {
-    reverse_proxy 0.0.0.0:6000
-    encode zstd gzip
-}
-
-jupyter.hashirama.blog {
-    reverse_proxy ubuntu:8888
-    encode zstd gzip
-}
-
-static.hashirama.blog {
-    root * /home/adnan/hashirama/services/static
-    file_server
-}
-
-hashirama.blog {
-    reverse_proxy 0.0.0.0:1337
-    handle_errors {
-        rewrite * /404.html
-        file_server
+renakaufman.com, hashirama.blog {
+    tls {
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
     }
-    encode zstd gzip
+    reverse_proxy localhost:1337
 }
