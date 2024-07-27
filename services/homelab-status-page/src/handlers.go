@@ -799,6 +799,7 @@ func handleHero(c echo.Context) error {
 
 func setupRoutes(e *echo.Echo) {
 
+
 	http.HandleFunc("/ws", handleWebSocket)
 	fmt.Printf("wtf setup routes\n")
 	e.GET("/api/hero", handleHero)
@@ -811,7 +812,33 @@ func setupRoutes(e *echo.Echo) {
     setupDynamicRoutes(e)
 
     e.GET("/form", renderTemplate("form"))
-    e.GET("/", renderTemplate("index"))
+
+    e.GET("/tools/arcanine", func(c echo.Context) error {
+        return c.String(http.StatusOK, "Hello from Arcanine tool!")
+    })
+
+    e.GET("/", func (c echo.Context) error {
+
+		if c.Request().Host == "renakaufman.com" {
+		fmt.Println("FUCK", c.Request())
+			fmt.Println("FUCK", c.Request())
+			fmt.Println("FUCK", c.Request())
+			fmt.Println("FUCK", c.Request())
+			fmt.Println("FUCK", c.Request())
+			fmt.Println("FUCK", c.Request())
+			fmt.Println("FUCK", c.Request())
+			fmt.Println("FUCK", c.Request())
+			fmt.Println("FUCK", c.Request())
+			fmt.Println("FUCK", c.Request())
+			fmt.Println("FUCK", c.Request())
+			fuck := renderTemplate("tools/arcanine")
+			return fuck(c)
+		}
+		fuck := renderTemplate("index")
+		fmt.Println(c)
+		return fuck(c)
+	})
+
 
 
     e.GET("/api/themes", handleThemes)

@@ -11,15 +11,8 @@ import (
 	"net/http"
     "errors"
 	//"github.com/labstack/echo-contrib/echoprometheus"
-<<<<<<< HEAD
-	"github.com/labstack/echo/v4/middleware"
-=======
-	//"github.com/labstack/echo/v4/middleware"
-	//
-	//
-	
->>>>>>> 585f7c3 (col)
 
+	"github.com/labstack/echo/v4/middleware"
 
 )
 
@@ -57,7 +50,7 @@ func main() {
 
     // Setup error handler
     e.HTTPErrorHandler = customHTTPErrorHandler
-    	 e.Use(middleware.Logger())
+	e.Use(middleware.Logger())
     	// e.Use(echoprometheus.NewMiddleware("myapp")) // adds middleware to gather metrics
 	//e.GET("/metrics", echoprometheus.NewHandler())
 	//e.Use(echoLogger)
