@@ -1,8 +1,9 @@
 
 
+
 renakaufman.com {
   tls {
-    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
   }
 
 
@@ -24,7 +25,7 @@ robot.hashirama.blog {
 
 
 tls {
-    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
 }
 
    root * /home/adnan/hashirama/services/bot-party/dist
@@ -33,7 +34,7 @@ tls {
 
 photos.hashirama.blog {
 tls {
-    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
 }
 
 
@@ -47,7 +48,7 @@ tls {
 jellyfin.hashirama.blog {
 
 tls {
-    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
 }
 
 
@@ -62,7 +63,7 @@ tls {
 
 map.hashirama.blog {
 tls {
-    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
 }
 
 
@@ -77,7 +78,7 @@ tls {
 
 jupyter.hashirama.blog {
 tls {
-    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
 }
 
 
@@ -93,7 +94,7 @@ static.hashirama.blog {
     root * /home/adnan/hashirama/services/static
     file_server
 tls {
-    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
 }
 
 
@@ -103,7 +104,7 @@ tls {
 
 hashirama.blog {
   tls {
-    dns cloudflare eIz2PWhNvg-_STY3sWe0EWh2ZJDvacTNtKg4ru8Z
+    dns cloudflare h-0SHxu6H8uz1NshO1_JtEmDU0fBwCcKW532WGIH
   }
 
 
