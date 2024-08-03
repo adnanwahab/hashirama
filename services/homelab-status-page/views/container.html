@@ -1,19 +1,19 @@
 <div class="bg-gray-900 text-white">
   <div class="container mx-auto px-4 py-8">
     <!-- <h1 class="text-4xl font-bold mb-8">Blog Archive</div>h1> -->
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-4">Projects</h2>
-      <ul class="list-none pl-0 space-y-2" hx-boost>
-        {{range .Projects}}
-        <li>
-          <a hx-trigger="mouseenter" hx-target="#display" href="{{.URL}}" class="text-xl text-white hover:underline">
-            {{.Title}}
-          </a>
-        </li>
-        {{end}}
-      </ul>
-    </section>
     <!-- <section class="mb-12">
+         <h2 class="text-3xl font-bold mb-4">Projects</h2>
+         <ul class="list-none pl-0 space-y-2" hx-boost>
+         {{range .Projects}}
+         <li>
+         <a hx-trigger="mouseenter" hx-target="#display" href="{{.URL}}" class="text-xl text-white hover:underline">
+         {{.Title}}
+         </a>
+         </li>
+         {{end}}
+         </ul>
+         </section>
+         <!-- <section class="mb-12"> -->
          <h2 class="text-3xl font-bold mb-4">Latest</h2>
          <ul class="list-none pl-0 space-y-2">
          {{range .LatestPosts}}
@@ -28,33 +28,32 @@
          {{end}}
          </ul>
          </section>
-    -->
 
-    <!-- <section class="mb-12">
-         <h2 class="text-3xl font-bold mb-4">robotics</h2>
-         <ul class="list-none pl-0 space-y-2">
-         {{range .Robotics}}
-         <li>
-         <a href="{{.URL}}" class="text-xl text-white hover:underline">
-         {{.Title}}
-         </a>
-         </li>
-         {{end}}
-         </ul>
+         <section class="mb-12">
+           <h2 class="text-3xl font-bold mb-4">robotics</h2>
+           <ul class="list-none pl-0 space-y-2">
+             {{range .Robotics}}
+             <li>
+               <a href="{{.URL}}" class="text-xl text-white hover:underline">
+                 {{.Title}}
+               </a>
+             </li>
+             {{end}}
+           </ul>
          </section>
 
          <section class="mb-12">
-         <h2 class="text-3xl font-bold mb-4">biotech</h2>
-         <ul class="list-none pl-0 space-y-2">
-         {{range .Biotech}}
-         <li>
-         <a href="{{.URL}}" class="text-xl text-white hover:underline">
-         {{.Title}}
-         </a>
-         </li>
-         {{end}}
-         </ul>
-         </section> -->
+           <h2 class="text-3xl font-bold mb-4">biotech</h2>
+           <ul class="list-none pl-0 space-y-2">
+             {{range .Biotech}}
+             <li>
+               <a href="{{.URL}}" class="text-xl text-white hover:underline">
+                 {{.Title}}
+               </a>
+             </li>
+             {{end}}
+           </ul>
+         </section>
 
     <section class="mb-12">
       <h2 class="text-3xl font-bold mb-4">MedTech</h2>
@@ -100,8 +99,6 @@
       <h2 class="text-3xl font-bold mb-4">Get new essays sent to you</h2>
       <p class="text-xl text-gray-300 mb-4">
         Subscribe to my receive SOTA updates on GovTech, MedTech, and Robotics. Published twice weekly.
-
-        Published twice weekly.
       </p>
       <form action="#" method="post" class="mb-4">
         <input
@@ -116,7 +113,7 @@
           Subscribe
         </button>
       </form>
-      <div class="space-x-4">
+      <div class="space-x-4 hidden">
         <a href="#" class="text-blue-400 hover:underline"
         >Follow me on Twitter →</a
                                >

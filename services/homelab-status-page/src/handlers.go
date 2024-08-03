@@ -675,7 +675,7 @@ func renderTemplate(templateName string) echo.HandlerFunc {
 			fmt.Printf("oh shit dog %s\n", err)
 			return err
 		}
-		
+
 		c.Response().Header().Set("Content-Type", "text/html")
 
 		buf := templ.GetBuffer()
@@ -814,7 +814,18 @@ func setupRoutes(e *echo.Echo) {
     e.GET("/form", renderTemplate("form"))
 
     e.GET("/tools/arcanine", func(c echo.Context) error {
-        return c.String(http.StatusOK, "Hello from Arcanine tool!")
+
+
+		name := path.Join(rootPath  +  "tools/arcanine.html")
+		fmt.Printf("ROUTING TO %s\n", name)
+		b, err := os.ReadFile(name) // just pass the file name
+		if err != nil {
+			fmt.Printf("oh shit dog %s\n", err)
+			return err
+		}
+
+		c.Response().Header().Set("Content-Type", "text/html")
+		return c.HTML(http.StatusOK, string(b))
     })
 
     e.GET("/", func (c echo.Context) error {
