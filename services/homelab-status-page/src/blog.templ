@@ -12,6 +12,28 @@ templ headerComponent(body string, title string, description string) {
         <!-- Place favicon.ico in the root directory -->
         <!-- <link rel="stylesheet" href="/static/css/tailwind.css" /> -->
         <!-- <link href="/static/output.css" rel="stylesheet"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-links {
+    margin-top: 1rem;
+  }
+  .hero-section {
+    text-align: center;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
         <script>
          window['_fs_host'] = 'fullstory.com';
          window['_fs_script'] = 'edge.fullstory.com/s/fs.js';

@@ -5,15 +5,16 @@
 <div class="body">
   <div class="flex min-h-full bg-white dark:bg-slate-900">
     <div class="flex w-full flex-col">
-      <div
-        class="relative mx-auto flex w-full max-w-8xl flex-auto justify-center sm:px-2 lg:px-8 xl:px-12"
-      >
         <div
-          class="oops"
-          hx-trigger="load"
-          hx-get="/api/chat"
-          hx-swap="innerHTML"
-        ></div>
+            class="relative mx-auto flex w-full flex-auto justify-center "
+        >
+            <!-- max-w-8xl sm:px-2 lg:px-8 xl:px-12 -->
+            <div
+                class="oops"
+                hx-trigger="load"
+                hx-get="/api/chat"
+                hx-swap="innerHTML"
+            ></div>
         <div
             class="relative flex h-full max-w-full flex-1 flex-col overflow-hidden"
 
