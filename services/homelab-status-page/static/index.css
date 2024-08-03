@@ -2716,7 +2716,7 @@ pre>code {
   --tw-text-opacity:1;
   color:rgb(8 76 207/var(--tw-text-opacity))
 }
-@media (prefers-color-scheme:dark) {
+
   .dark\:divide-\[rgba\(255\2c 255\2c 255\2c 0\.03\)\]>:not([hidden])~:not([hidden]) {
     border-color:hsla(0,0%,100%,.03)
   }
@@ -2780,7 +2780,7 @@ pre>code {
     --tw-text-opacity:1;
     color:rgb(255 255 255/var(--tw-text-opacity))
   }
-}
+
 @media (min-width:640px) {
   .sm\:col-span-2 {
     grid-column:span 2/span 2
