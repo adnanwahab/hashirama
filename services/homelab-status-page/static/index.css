@@ -2710,6 +2710,7 @@ pre>code {
   border-color:rgb(8 76 207/var(--tw-border-opacity))
 }
 .data-\[state\=inactive\]\:border-transparent[data-state=inactive] {
+
   border-color:transparent
 }
 .data-\[state\=active\]\:text-accent-blue[data-state=active] {
