@@ -865,8 +865,10 @@ func setupRoutes(e *echo.Echo) {
     e.GET("/", func (c echo.Context) error {
 
 		if c.Request().Host == "renakaufman.com" {
-			fuck := renderTemplate("tools/arcanine")
-			return fuck(c)
+			//fuck := renderTemplate("tools/arcanine")
+			//return fuck(c)
+			c.HTML(http.StatusOK, "")
+			return nil
 		}
 		fuck := renderTemplate("index")
 		fmt.Println(c)
