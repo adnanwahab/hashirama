@@ -388,7 +388,7 @@ func renderContainer() string {
 
 		Projects   []BlogPost
 		Robotics []BlogPost
-		Biotech []BlogPost
+		MLInfra []BlogPost
 		Medtech  []BlogPost
 		GovTech  []BlogPost
 		CreativeAI  []BlogPost
@@ -483,13 +483,12 @@ func renderContainer() string {
     data := PageData{
 	    Projects: fileInfos,
         LatestPosts: []BlogPost{
-            {Title: "Tisane: Authoring Statistical Models via Formal Reasoning from Conceptual and Data Relationships", URL: "https://idl.uw.edu/", Date: ""},
-            {Title: " Deep Neural Nets: 33 years ago and 33 years from now ", URL: "", Date: "http://karpathy.github.io/"},
-            {Title: "harmony of dissonance", URL: "", Date: ""},
+            //{Title: "Tisane: Authoring Statistical Models via Formal Reasoning from Conceptual and Data Relationships", URL: "https://idl.uw.edu/", Date: ""},
+            //{Title: " Deep Neural Nets: 33 years ago and 33 years from now ", URL: "", Date: "http://karpathy.github.io/"},
         },
         BestPosts: []BlogPost{
-            {Title: "Concept Induction: Analyzing Unstructured Text with High-Level Concepts Using LLooM", URL: ""},
-            {Title: "Visualizing Urban Accessibility: Investigating Multi-Stakeholder Perspectives through a Map-based Design Probe Study", URL: ""},
+            //{Title: "Concept Induction: Analyzing Unstructured Text with High-Level Concepts Using LLooM", URL: ""},
+            //{Title: "Visualizing Urban Accessibility: Investigating Multi-Stakeholder Perspectives through a Map-based Design Probe Study", URL: ""},
         },
         // Projects: []BlogPost{
 		// 	{Title: "1. apm.el", URL: "/tools/apm.el"},
@@ -512,21 +511,23 @@ func renderContainer() string {
         //},
 
 		Robotics: []BlogPost{
-            {Title: "Palmer Luckey", URL: ""},
-        },
-		Biotech: []BlogPost{
-            {Title: "Robert Sapolsky", URL: ""},
+            //{Title: "Command and Control", URL: "/blog/Command-And-Control"},
         },
 
+
 		Medtech: []BlogPost{
-            {Title: "Kapil Gupta - Robotics", URL: ""},
+            //{Title: "Kapil Gupta - Robotics", URL: ""},
         },
 
         GovTech: []BlogPost{
-            {Title: "The beauty of the constitution", URL: ""},
+            //{Title: "The Beauty of the Constitution", URL: "/blog/The-Beauty-Of-The-Constitution"},
         },
         CreativeAI: []BlogPost{
-            {Title: "Bret Victor", URL: ""},
+            //{Title: "Bret Victor", URL: ""},
+        },
+		MLInfra: []BlogPost{
+					//{Title: "Robert Sapolsky", URL: "/blog/predetermined"},
+            //{Title: "Robert Sapolsky", URL: "/blog/predetermined"},
         },
     }
 
