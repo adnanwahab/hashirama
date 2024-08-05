@@ -24,6 +24,12 @@ import (
 	"github.com/gorilla/websocket"
 	"unicode"
 	///"github.com/pion/webrtc/v3"
+	"bytes"
+	"github.com/yuin/goldmark"
+    "github.com/yuin/goldmark/extension"
+    "github.com/yuin/goldmark/parser"
+    "github.com/yuin/goldmark/renderer/html"
+
 )
 var rootPath = os.ExpandEnv("$HOME/hashirama/services/homelab-status-page/views/")
 
@@ -798,8 +804,35 @@ func handleHero(c echo.Context) error {
 	return nil
 }
 
-func setupRoutes(e *echo.Echo) {
 
+
+func setupRoutes(e *echo.Echo) {
+	e.GET("/blog/*", func (c echo.Context) error {
+		md := goldmark.New(
+			goldmark.WithExtensions(extension.GFM),
+			goldmark.WithParserOptions(
+				parser.WithAutoHeadingID(),
+			),
+			goldmark.WithRendererOptions(
+				html.WithHardWraps(),
+				html.WithXHTML(),
+			),
+		)
+
+			source, shit := os.ReadFile(rootPath + "shit-dont-need.html")
+	if shit != nil {
+        return shit
+    }
+
+		var buf bytes.Buffer
+		if err := md.Convert(source, &buf); err != nil {
+			panic(err)
+		}
+
+		c.HTML(http.StatusOK, buf.String())
+
+		return nil
+	})
 
 	http.HandleFunc("/ws", handleWebSocket)
 	fmt.Printf("wtf setup routes\n")
