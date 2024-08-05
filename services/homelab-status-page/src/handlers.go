@@ -800,7 +800,7 @@ func handleHero(c echo.Context) error {
         return err
     }
 
-    c.HTML(http.StatusOK, result.String())
+    c.HTML(http.StatusOK, "")
 	return nil
 }
 
