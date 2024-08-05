@@ -800,7 +800,7 @@ func handleHero(c echo.Context) error {
         return err
     }
 
-    c.HTML(http.StatusOK, "")
+    c.HTML(http.StatusOK, result.String())
 	return nil
 }
 
@@ -865,17 +865,6 @@ func setupRoutes(e *echo.Echo) {
     e.GET("/", func (c echo.Context) error {
 
 		if c.Request().Host == "renakaufman.com" {
-		fmt.Println("FUCK", c.Request())
-			fmt.Println("FUCK", c.Request())
-			fmt.Println("FUCK", c.Request())
-			fmt.Println("FUCK", c.Request())
-			fmt.Println("FUCK", c.Request())
-			fmt.Println("FUCK", c.Request())
-			fmt.Println("FUCK", c.Request())
-			fmt.Println("FUCK", c.Request())
-			fmt.Println("FUCK", c.Request())
-			fmt.Println("FUCK", c.Request())
-			fmt.Println("FUCK", c.Request())
 			fuck := renderTemplate("tools/arcanine")
 			return fuck(c)
 		}
