@@ -1,0 +1,544 @@
+<div class="flex w-full">
+  <div class="fixed inset-0 flex justify-center sm:px-8">
+    <div class="flex w-full max-w-7xl lg:px-8">
+      <div class="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20"></div>
+    </div>
+  </div>
+  <div class="relative flex w-full flex-col">
+    <header class="pointer-events-none relative z-50 flex flex-none flex-col" style="height:var(--header-height);margin-bottom:var(--header-mb)">
+      <div class="top-0 z-10 h-16 pt-6" style="position:var(--header-position)">
+        <div class="sm:px-8 top-[var(--header-top,theme(spacing.6))] w-full" style="position:var(--header-inner-position)">
+          <div class="mx-auto w-full max-w-7xl lg:px-8">
+            <div class="relative px-4 sm:px-8 lg:px-12">
+              <div class="mx-auto max-w-2xl lg:max-w-5xl">
+                <div class="relative flex gap-4">
+                  <div class="flex flex-1">
+                    <div class="h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10">
+                      <a aria-label="Home" class="pointer-events-auto" href="/">
+                        <img alt="" fetchpriority="high" width="512" height="512" decoding="async" data-nimg="1" class="rounded-full bg-zinc-100 object-cover dark:bg-zinc-800 h-9 w-9" style="color:transparent" sizes="2.25rem" src="">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="flex flex-1 justify-end md:justify-center">
+                    <div class="pointer-events-auto md:hidden" data-headlessui-state="">
+                      <button class="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20" type="button" aria-expanded="false" data-headlessui-state="" id="headlessui-popover-button-:Rbmiqja:">
+                        Menu
+                        <svg viewBox="0 0 8 6" aria-hidden="true" class="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400">
+                          <path d="M1.75 1.75 4 4.25l2.25-2.5" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <nav class="pointer-events-auto hidden md:block">
+                      <ul class="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+                        <li><a class="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400" href="/about">About</a></li>
+                        <li><a class="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400" href="/articles">Articles</a></li>
+                        <li><a class="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400" href="/projects">Projects</a></li>
+                        <li><a class="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400" href="/speaking">Speaking</a></li>
+                        <li><a class="relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400" href="/uses">Uses</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="flex justify-end md:flex-1">
+                    <div class="pointer-events-auto">
+                      <button type="button" aria-label="Switch to light theme" class="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-teal-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-teal-600">
+                          <path d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z"></path>
+                          <path d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061" fill="none"></path>
+                        </svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-zinc-400 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500">
+                          <path d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47ZM12.75 7C17 7 17 2.75 17 2.75S17 7 21.25 7C17 7 17 11.25 17 11.25S17 7 12.75 7Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="flex-auto">
+      <div class="sm:px-8 mt-16 lg:mt-32">
+        <div class="mx-auto w-full max-w-7xl lg:px-8">
+          <div class="relative px-4 sm:px-8 lg:px-12">
+            <div class="mx-auto max-w-2xl lg:max-w-5xl">
+              <div class="xl:relative">
+                <div class="mx-auto max-w-2xl">
+                  <article>
+                    <header class="flex flex-col">
+                      <h1 class="mt-6 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">Crafting a design system for a multiplanetary future</h1>
+                      <time datetime="2022-09-05" class="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500">
+                        <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
+                        <span class="ml-3">September 5, 2022</span>
+                      </time>
+                    </header>
+                    <div class="mt-8 prose dark:prose-invert" data-mdx-content="true">
+                      <p>
+<!-- beging blog -->
+<div class="mb-4 text-xl font-bold text-gray-800 dark:text-gray-200">
+  Why you can't trust a chameleon who submits to anyone at the expense of herself.
+</div>
+
+<div class="mb-4 text-lg font-semibold text-gray-700 dark:text-gray-300">
+  Social Approval is the enemy of clear thinking - Just ask Socrates. Who died because he was misunderstood.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Certain people learn to navigate life by having no conviction.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  They don't believe in anything.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  They just follow whatever the person says who is in the same room.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  You can never trust someone like that. They aren't even a real person.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  They have no free will.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  They are like leaves in the wind. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  They will cooperate with you in the room.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  But they never say the truth to your face.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Because they are afraid of confrontation.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  They developed this trait as a means to survive in a environment that was chaotic and didn't make sense.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  When you have 12 siblings in a tiny new york house. You learn that the only way to stay chill, is to just let anything go and accept whatever people tell you to do.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  They submit to ANYONE. even their friend asking them to feed their cat (taylor).
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  that is just the shape of their soul. It isnt good or bad, its just who they are. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Rather than bringing up the truth with you, they'll brush it under the rug.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Only to tell other people your private business. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  "he texts me incessantly" - "thats weird bro" 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Maybe... just maybe, its not weird. its just different.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Maybe that person's mind cannot be contained by a phone.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Maybe he's the type of person who invented books, and math, and libraries, and cities, who built the world you live in.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  The guy who invented rome, was a half man half wolf. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Steve jobs never fucking showered. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  500 years ago, copernicus was NOT NORMAL. Isaac newton was fucking weird. He drank mercury. Da Vinci dissected corpses at the morgue. Van Gogh bit off his EAR. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  And maybe, people who just live in the world, adding nothing, Maybe thats weird to me.  
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Theres a billion starving in the world. How can a man rest or be chill??? lol, id rather die.
+</div>
+
+<div class="my-6 text-xl font-bold text-gray-800 dark:text-gray-200">
+  ---- Intermission ----
+</div>
+
+<div class="mb-4 text-lg font-semibold text-gray-700 dark:text-gray-300">
+  Here's a hot take.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Finance is for women. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Because finance is about optimization, and creating "liquidity", which are important. They make things better.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  But men are supposed to go to the MOON. They are supposed to cure cancer.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  They are supposed to solve the hard problems. Because they are Hard. Not because they are easy. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Women, are valuable from birth. You are a factory that produces new fucking beings. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Whereas men are expendable. They are disposable. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  And a man who makes nothing of himself, can never truly respect himself or be respected. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  A man isn't supposed to optimize other people systems. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  He's supposed to create new ones, that may start out worse. But someday, 10 years from now, will be INFINITELY BETTER. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Thats not my thought. It's abraham FUCKING LINCOLN man. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  A man should not follow in the footsteps of a predecessor. They should carve a new path going some place better. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  --
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  The truth doesnt exist within the confines of "normal"
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  The truth is that which has PREDICTIVE POWER.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  The truth, is the bedrock foundation of WHY something happens. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  It is the nucleus of the ATOM. It is the structure of DNA within the cell, which governs the behavior of the human in ways our greatest minds cannot even begin to scratch the surface of.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  There is not a single man who works in finance. They are all WOMEN. it is honorable work. And i respect it. The same way i respect peter thiel. The way i respect Patrick Collison. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Women don't need to strive for greatness. But men HAVE TO. or they are just apes. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Thats what i believe. Because the world is only as good as it is because other people sacrificed EVERYTHING to make it easier. But the problems are still IMMENSE. theres is much to be done. We may be done with creating a eutopia in 1000 years. But we are not there yet. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  By eutopia, i mean a society, that 100% of people say "this is better than anything i can imagine". I believe thats possible. I believe we will get to the beginnings of that by 2085. 
+</div>
+
+<div class="my-6 text-xl font-bold text-gray-800 dark:text-gray-200">
+  ---- Conclusion ----
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Anyway.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Where was I.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  A real fucking heroine, is someone who, when their friend or lover is challenged by someone who doesn't know them.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  A real heroine defends that cunt, and says "if you have a problem with him, bring it up with him", rather than just accepting it, because they are in the room, and you were trained to agree with anyone in the room to save energy, and time, and so on.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  The world needs a warrior princess, not a dumb bitch. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Sometimes, a small conflict can create a better peace. Like a small forest fire avoiding an inferno.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Your parents probably scape goated you. They probably said you are responsible for keeping peace. Thats who you had to be to gain the acceptance of mom and dad. And so, you are pathologically driven, to create peace, even at the cost of your self worth. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  do you know what anxiety really is? It's fear. Fear is the reward you get, for being a "good girl". Do you get that???
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Anxiety comes from the question "am i still good? did i do something bad? I cant know, unless i see someone else's approval"
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Thats why obedience and acceptance and submission is actually BULLSHIT.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  When i said "you seem dorky and submissive" i meant SEXUALLY only,  not in submit in mentally physically and spiritually to everyone random ass-clown you have known for more than a year. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Because guess what.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  The problem with leadership and following, 
+  is that it outsources decision making and judgement
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Thats why Everyone needs to learn how to LEAD THEM SELF. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  No one else can know the details of your life better than you do. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  And the truth is always in both the details and the big picture.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  You said, you liked to have "playful fights" but we never had any.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Above all, you need to learn to respect your self. And that means, you don't just accept the opinions of others as fact.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Because NONE OF THEM even fucking knows or looks for GENERALIZATION, which is the MOST POWERFUL FRAME WORK and RUBRIC upon which to judge any sentence. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  IS IT TRUTH? if they dont say " it depends on CONTEXT" or fucking the situation, then NO ITS NEVER FUCKIGN THE TRUTH!!!!!!!! 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Most people use a sample size of 2 or 3, to make sweeping generalities which have no function except to impede clear thought.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  500 FUCKING YEARS for COPERNICUS
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  and i still fucking see a copernicus DIE for saying what he thinks is true, like EVERY WEEK.
+  Aaron swart, alan turing, jullian assange, edward snowden, and on, and on, like CLOCK WORK.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  What the fuck is everyone doing?!?! NOTHING 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  anyway, the change im currently seeking. is to kill my emotions completely. to become ice cold. I will exchange passion, for lightness and softness. Every problem has a solution, but only when the mind is still.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  When the mind is still, light passes through to the bottom of the lake. And you can see the whole thing perfectly. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  Intelligence is just seeing the world in higher resolution. Sometimes that hurts. Like looking at the sun. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  The truth is, when you slander another person, and paint yourself as a victim. Even if it is mostly true, it makes fools of everyone. It doesn't address the root cause.
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  No human, can give any other human, any good advice. 
+</div>
+
+<div class="mb-3 text-gray-600 dark:text-gray-400">
+  It is so rare. The people at ycombinator give good advice at times because it is their job and they are the best at it in the world. And even for them it is hard. 
+
+You said, you liked to have "playful fights" but we never had any.
+
+Above all, you need to learn to respect your self. And that means, you don't just accept the opinions of others as fact.
+
+Because NONE OF THEM even fucking knows or looks for GENERALIZATION, which is the MOST POWERFUL FRAME WORK and RUBRIC upon which to judge any sentence. 
+
+IS IT TRUTH? if they dont say " it depends on CONTEXT" or fucking the situation, then NO ITS NEVER FUCKIGN THE TRUTH!!!!!!!! 
+
+Most people use a sample size of 2 or 3, to make sweeping generalities which have no function except to impede clear thought.
+
+500 FUCKING YEARS for COPERNICUS
+
+and i still fucking see a copernicus DIE for saying what he thinks is true, like EVERY WEEK.
+Aaron swart, alan turing, jullian assange, edward snowden, and on, and on, like CLOCK WORK.
+
+What the fuck is everyone doing?!?! NOTHING 
+
+anyway, the change im currently seeking. is to kill my emotions completely. to become ice cold. I will exchange passion, for lightness and softness. Every problem has a solution, but only when the mind is still.
+
+When the mind is still, light passes through to the bottom of the lake. And you can see the whole thing perfectly. 
+
+
+
+Intelligence is just seeing the world in higher resolution. Sometimes that hurts. Like looking at the sun. 
+
+
+The truth is, when you slander another person, and paint yourself as a victim. Even if it is mostly true, it makes fools of everyone. It doesn't address the root cause.
+
+No human, can give any other human, any good advice. 
+
+It is so rare. The people at ycombinator give good advice at times because it is their job and they are the best at it in the world. And even for them it is hard. 
+
+That is because no two situations are the same. No two objects are the same. Nature is organized by patterns, yes. But if patterns are all you all looking for, you will miss the outlier.
+
+You will never predict the future accurately. And so it will hit you like a car crash everytime. 
+
+Because your mind isn't seeking truth.
+
+Our cars have predictive models that infer intent of 200 people many seconds into the future, computed in a millisecond based on a few pictures. 
+
+How ? Because they use math, and math is closest to truth.
+
+
+
+so are you a chameleon? who has no real color? Whose soul is watery and flimsy like a vegetable souP??
+
+or are you a True Warrior. with the Color of the Supreme Conqueror, and the Color of Observation, without evaluation, the Color of Resilience and cCnviction.
+
+
+Without conviction, a human is nothing but a leaf in the wind. Waiting for luck.
+
+
+Why don't you make your own FUCKING LUCK... why dont you try bending probability rather than submitting to it. 
+
+
+A king may move a man
+a father may claim a son
+
+but that man can also move himself, 
+and only then does that man truly begin his own game. 
+
+
+Remember that howsoever you are played or by whom, 
+your soul is in your keeping alone, 
+even though those who presume to play you be kings or men of power. 
+
+When you stand before All-Creation, you cannot say, 
+
+"But I was told by others to do thus," or that Truth was not convenient at the time.
+ 
+This will not suffice. 
+
+Remember that.
+<!-- end blog -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      </p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="mt-32 flex-none">
+      <div class="sm:px-8">
+        <div class="mx-auto w-full max-w-7xl lg:px-8">
+          <div class="border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
+            <div class="relative px-4 sm:px-8 lg:px-12">
+              <div class="mx-auto max-w-2xl lg:max-w-5xl">
+                <div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
+                  <div class="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                    <a class="transition hover:text-teal-500 dark:hover:text-teal-400" href="/about">About</a>
+                    <a class="transition hover:text-teal-500 dark:hover:text-teal-400" href="/projects">Projects</a>
+                    <a class="transition hover:text-teal-500 dark:hover:text-teal-400" href="/speaking">Speaking</a>
+                    <a class="transition hover:text-teal-500 dark:hover:text-teal-400" href="/uses">Uses</a>
+                  </div>
+                  <p class="text-sm text-zinc-400 dark:text-zinc-500">© 2024 Spencer Sharp. All rights reserved.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
