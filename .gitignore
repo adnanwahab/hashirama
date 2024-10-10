@@ -4,7 +4,7 @@ data/
 
 
 data/alan_kay
-notebooks/2_perception/test_lotties
+notebooks/2_perception/test_lottiesrm
 notebooks/2_perception/lottie_2
 scripts/infra/uv_example
 notebooks/diffusion_
