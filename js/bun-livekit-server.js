@@ -1,34 +1,15 @@
-// import {
-//     AudioFrame,
-//     AudioSource,
-//     LocalAudioTrack,
-//     Room,
-//     TrackPublishOptions,
-//     TrackSource,
-//     dispose,
-//   } from '@livekit/rtc-node';
-  import { config } from 'dotenv';
-  import { AccessToken } from 'livekit-server-sdk';
-//   import { readFileSync } from 'node:fs';
-//   import { join } from 'node:path';
-
+import { config } from 'dotenv';
+import { AccessToken } from 'livekit-server-sdk';
 import { serve } from "bun";
-import { LocalParticipant } from 'livekit-client'; // Add import for LocalParticipant
-
-config();
-
-// create access token from API 
 const apiKey = 'APIXi25c9hddrpj'
 const apiSecret = '1HfgfXWoORWUUN5jM0SxUcLjiGa4HqXJPKZKcvyjkNi'
-//const wsUrl = "wss://omnissiah-university-kmuz0plz.livekit.cloud";
 const wsUrl = 'wss://omnissiah-university-kmuz0plz.livekit.cloud'
-
-
-
 const token = new AccessToken(apiKey, apiSecret, {
   identity: 'example-participant',
 });
-token.addGrant({
+
+config()
+;token.addGrant({
     room: 'example-room',
     roomJoin: true,
     canPublish: true,
@@ -403,6 +384,9 @@ serve({
 
     let templated = ``
     const container_start = `
+    <head>
+    <title>bunkit livekit server</title>
+    </head>
     <div class="bg-pink-500 min-h-screen flex items-center justify-center">
     </div>
     `
@@ -432,7 +416,7 @@ serve({
     </style>
     </div>
     `   
-    //consosle.log('IDK', idk405)
+
  
       if (idk) {
         templated += pages[order.indexOf(idk)]
@@ -448,4 +432,4 @@ serve({
   port: 3002, // You can change the port if needed
 });
 
-console.log("Bun server is running on http://localhost:3002");
+console.log("Bun server is running on http://localhost:" + port);

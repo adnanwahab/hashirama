@@ -1,37 +1,27 @@
-edtior 
-frist semseg / (choice of viewer)
-2nd = editor 
-bottom 3  (nerf, reconsuction , (queue - democracy mode  + buttons for altnerate views))
-
-{{define "tele-guidance-1"}} 
+edtior frist semseg / (choice of viewer) 2nd = editor bottom 3 (nerf,
+reconsuction , (queue - democracy mode + buttons for altnerate views)) {{define
+"tele-guidance-1"}}
 <!-- <img src="https://github.com/bmild/nerf/raw/master/imgs/pipeline.jpg" /> -->
 <!-- <img src="/static/_.gif" /> -->
-<iframe src="/demo?idk=diffusion-policy" class="h-80 w-96" style="width: 700px"></iframe>
-{{end}}
-
-{{define "tele-guidance-2"}} 
+<iframe
+  src="/demo?idk=diffusion-policy"
+  class="h-80 w-96"
+  style="width: 700px"
+></iframe>
+{{end}} {{define "tele-guidance-2"}}
 <iframe src="/demo?idk=democracy-mode" class="h-80 w-full"></iframe>
 
 <!-- <div class="text-white">
   <div tabindex="-1" class="cm-scroller"><div class="cm-gutters" aria-hidden="true" style="min-height: 66.7812px; position: sticky;"><div class="cm-gutter cm-lineNumbers"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;">9</div><div class="cm-gutterElement cm-activeLineGutter" style="height: 19.5938px; margin-top: 4px;">1</div><div class="cm-gutterElement" style="height: 19.5938px;">2</div><div class="cm-gutterElement" style="height: 19.5938px;">3</div></div><div class="cm-gutter cm-foldGutter"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;"><span title="Unfold line">›</span></div><div class="cm-gutterElement cm-activeLineGutter" style="height: 19.5938px; margin-top: 4px;"><span title="Fold line">⌄</span></div></div></div><div spellcheck="false" autocorrect="off" autocapitalize="off" translate="no" contenteditable="true" style="tab-size: 4;" class="cm-content" role="textbox" aria-multiline="true" data-language="javascript" aria-autocomplete="list"><div class="cm-activeLine cm-line"><span class="ͼb">function</span><span class="cm-selectionMatch"> </span><span class="ͼg">hello</span>(<span class="ͼg">who</span> =<span class="cm-selectionMatch"> </span><span class="ͼe">"world"</span>)<span class="cm-selectionMatch"> </span>{</div><div class="cm-line"><span class="cm-selectionMatch"> </span><span class="cm-selectionMatch"> </span>console.log(<span class="ͼf">`Hello,</span><span class="cm-selectionMatch"><span class="ͼf"> </span></span>${who}<span class="ͼf">!`</span>)</div><div class="cm-line">}</div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms; animation-name: cm-blink2;"><div class="cm-cursor cm-cursor-primary" style="left: 197.641px; top: 5px; height: 16px;"></div></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"><div class="cm-selectionBackground" style="left: 189.203px; top: 4.99px; width: 8.4375px; height: 16.01px;"></div></div></div>
 </div> -->
-{{end}}
-
-{{define "tele-guidance-3"}} 
-
-{{end}}
-
-{{define "tele-guidance-4"}}
+{{end}} {{define "tele-guidance-3"}} {{end}} {{define "tele-guidance-4"}}
 
 <iframe src="/demo?idk=how" class="h-80 w-full"></iframe>
 <!-- <img src="https://user-images.githubusercontent.com/32394882/229099549-63ca7832-b7a2-42eb-9971-c1635d205b0c.gif" /> -->
 
-{{end}}
-
-//https://3d-diffusion-policy.github.io/
-{{define "iframe_livekit"}}
+{{end}} //https://3d-diffusion-policy.github.io/ {{define "iframe_livekit"}}
 <!-- <iframe src="http://localhost:3004" class="h-80 w-full"></iframe> -->
-<img src="https://files.hashirama.blog/static/blog/5.png" class="h-80 w-full">
+<img src="https://files.hashirama.blog/static/blog/5.png" class="h-80 w-full" />
 {{end}}
 
 <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
@@ -48,14 +38,13 @@ bottom 3  (nerf, reconsuction , (queue - democracy mode  + buttons for altnerate
       <div
         class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem] w-full"
       >
-      <div id="livekit-container" class="h-80 w-full"> 
-        
-{{template "iframe_livekit" .}}      
-      </div>
+        <div id="livekit-container" class="h-80 w-full">
+          {{template "iframe_livekit" .}}
+        </div>
 
         <!-- <div class="p-10">
           <h3 class="text-sm/4 font-semibold text-gray-400">Releases</h3> -->
-          <!-- <p class="mt-2 text-lg/7 font-medium tracking-tight text-white">
+        <!-- <p class="mt-2 text-lg/7 font-medium tracking-tight text-white">
             Push to deploy
           </p>
           <p class="mt-2 max-w-lg text-sm/6 text-gray-400">
@@ -69,10 +58,10 @@ bottom 3  (nerf, reconsuction , (queue - democracy mode  + buttons for altnerate
       <div
         class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 lg:rounded-tr-[2rem]"
       >
-      {{template "tele-guidance-2" . }}
+        {{template "tele-guidance-2" . }}
         <!-- <div class="p-10"> -->
-          <!-- <h3 class="text-sm/4 font-semibold text-gray-400">Integrations</h3> -->
-          <!-- <p class="mt-2 text-lg/7 font-medium tracking-tight text-white">
+        <!-- <h3 class="text-sm/4 font-semibold text-gray-400">Integrations</h3> -->
+        <!-- <p class="mt-2 text-lg/7 font-medium tracking-tight text-white">
             Connect your favorite tools
           </p>
           <p class="mt-2 max-w-lg text-sm/6 text-gray-400">
@@ -86,7 +75,7 @@ bottom 3  (nerf, reconsuction , (queue - democracy mode  + buttons for altnerate
       <div
         class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 lg:rounded-bl-[2rem]"
       >
-      <iframe src="/demo?idk=meforgert" class="h-80 w-full"></iframe>
+        <iframe src="/demo?idk=meforgert" class="h-80 w-full"></iframe>
 
         <!-- <div class="p-10">
           <h3 class="text-sm/4 font-semibold text-gray-400">Security</h3>
@@ -100,16 +89,14 @@ bottom 3  (nerf, reconsuction , (queue - democracy mode  + buttons for altnerate
         </div> -->
       </div>
     </div>
-    {{end}} 
+    {{end}}
     <div class="flex p-px lg:col-span-4">
       <div
         class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
       >
-      {{template "tele-guidance-1" .}}
-      
+        {{template "tele-guidance-1" .}}
       </div>
     </div>
-
   </div>
 </div>
 <script src="js/livekit-viewer.js"></script>

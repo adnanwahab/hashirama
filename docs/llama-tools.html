@@ -277,22 +277,17 @@
   }
 </style>
 
-<pre>
-1. livekit voice  + whsiper  = send to llama-backendd
-1.5  = file-rewriter-helper
-2. cog/engine/paper-party-display5000-papers
-3. pull-request maker  - is this okay 
-4. obs-tools
-<li> buttons to change layout</li>
-5. add embeddings to llama
-</pre>
-
-
-
-
-
-
-
+<ul class="text-blue-500">
+<li class="label-1">livekit_audio</li>
+<li class="label-2">cognition_engine</li>
+<li class="label-3">logs_viewer</li>
+<li class="label-4">import_docs</li>
+<li class="label-5">script_reflect</li>
+<li class="label-6">script_obs</li>
+<li class="label-7">livekit_video</li>
+<li class="label-8">llama_search</li>
+</ul>
+//template "llama_label" .labelId
 
 
 
@@ -301,335 +296,93 @@
 
 <div class="bg-white">
   <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-    
+
     <div
       class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
     >
-      <div class="relative lg:col-span-3">
-        <div
-          class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]"
-        ></div>
-        <div
-          class="relative lg:col-span-6 lg:row-span-2 h-screen overflow-scroll"
-        >
-          
+      
+    
+<div class="relative lg:col-span-4">
+  <div class="absolute inset-px rounded-lg bg-white"></div>
+  <div
+    class="relative flex h-full flex-col overflow-hidden"
+  >
+    
 <div class="container-1"></div>
-<script type="module">
-  const scoping = `1`
-  const url = `/llama-backend/${scoping}`
-  console.log('fetching ', url)
-  const container = document.querySelector(`.container-${scoping}`)
-  
-  const bun_output = d3.select(container).append('div').attr('class', 'bun-output')
-  const observable_output = d3.select(container).append('div').attr('class', 'observable-output')
-  const deno_webgpu_output = d3.select(container).append('div').attr('class', 'deno-webgpu-output')
-  
-  const data = await d3.json(url)
-  console.log('data ', 'resposne sucede', data.both)
-  
-  if (data.type === 'both') {
-    console.log('both')
-    container.innerHTML = data.html
-    eval(data.js)
-  }else 
-  if (data.type === 'html') {
-    container.innerHTML = data.html
-  } else if (data.type === 'text') {
-    container.textContent = data.text
-  } else if (data.type === 'js') {
-    container.innerHTML = data.html
-  } else if (data.type === 'json') {
-    const style = document.createElement('style');
-    style.textContent = data.css;
-    document.head.appendChild(style);
-  }
+<iframe src="/llama-backend/1"></iframe>
 
 
-
-const jsonData = {
-  edited_content: 'blalbalhal',
-  fileContent: 'blalbalhal',
- 
-}
-
-
-</script>
-
-
-          <div class="p-10 pt-4">
-            
-voice to agent 
+    <div class="p-10 pt-4">
+    </div>
+  </div>
+  <div
+    class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+  ></div>
+</div>
 
     
-          </div>
-        </div>
-        <div
-          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]"
-        ></div>
-      </div>
-      <div class="relative lg:col-span-3">
-        <div
-          class="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]"
-        ></div>
-        <div
-          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]"
-        >
-          
+<div class="relative lg:col-span-4">
+  <div class="absolute inset-px rounded-lg bg-white"></div>
+  <div
+    class="relative flex h-full flex-col overflow-hidden"
+  >
+    
 <div class="container-2"></div>
-<script type="module">
-  const scoping = `2`
-  const url = `/llama-backend/${scoping}`
-  console.log('fetching ', url)
-  const container = document.querySelector(`.container-${scoping}`)
-  
-  const bun_output = d3.select(container).append('div').attr('class', 'bun-output')
-  const observable_output = d3.select(container).append('div').attr('class', 'observable-output')
-  const deno_webgpu_output = d3.select(container).append('div').attr('class', 'deno-webgpu-output')
-  
-  const data = await d3.json(url)
-  console.log('data ', 'resposne sucede', data.both)
-  
-  if (data.type === 'both') {
-    console.log('both')
-    container.innerHTML = data.html
-    eval(data.js)
-  }else 
-  if (data.type === 'html') {
-    container.innerHTML = data.html
-  } else if (data.type === 'text') {
-    container.textContent = data.text
-  } else if (data.type === 'js') {
-    container.innerHTML = data.html
-  } else if (data.type === 'json') {
-    const style = document.createElement('style');
-    style.textContent = data.css;
-    document.head.appendChild(style);
-  }
+<iframe src="/llama-backend/2"></iframe>
 
 
+    <div class="p-10 pt-4">
+    </div>
+  </div>
+  <div
+    class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+  ></div>
+</div>
 
-const jsonData = {
-  edited_content: 'blalbalhal',
-  fileContent: 'blalbalhal',
- 
-}
-
-
-</script>
-
-
-          <div class="p-10 pt-4">
-            
-https://www.youtube.com/watch?v=0dqYxpxegrk
-replay 
-
-            
-https://www.youtube.com/watch?v=0dqYxpxegrk
-replay 
-
-            
-https://www.youtube.com/watch?v=0dqYxpxegrk
-replay 
-
-          </div>
-        </div>
-        <div
-          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]"
-        ></div>
-      </div>
-      <div class="relative lg:col-span-2">
-        <div
-          class="absolute inset-px rounded-lg bg-white lg:rounded-bl-[2rem]"
-        ></div>
-        <div
-          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-bl-[calc(2rem+1px)]"
-        >
-          
+    
+<div class="relative lg:col-span-4">
+  <div class="absolute inset-px rounded-lg bg-white"></div>
+  <div
+    class="relative flex h-full flex-col overflow-hidden"
+  >
+    
 <div class="container-3"></div>
-<script type="module">
-  const scoping = `3`
-  const url = `/llama-backend/${scoping}`
-  console.log('fetching ', url)
-  const container = document.querySelector(`.container-${scoping}`)
-  
-  const bun_output = d3.select(container).append('div').attr('class', 'bun-output')
-  const observable_output = d3.select(container).append('div').attr('class', 'observable-output')
-  const deno_webgpu_output = d3.select(container).append('div').attr('class', 'deno-webgpu-output')
-  
-  const data = await d3.json(url)
-  console.log('data ', 'resposne sucede', data.both)
-  
-  if (data.type === 'both') {
-    console.log('both')
-    container.innerHTML = data.html
-    eval(data.js)
-  }else 
-  if (data.type === 'html') {
-    container.innerHTML = data.html
-  } else if (data.type === 'text') {
-    container.textContent = data.text
-  } else if (data.type === 'js') {
-    container.innerHTML = data.html
-  } else if (data.type === 'json') {
-    const style = document.createElement('style');
-    style.textContent = data.css;
-    document.head.appendChild(style);
-  }
+<iframe src="/llama-backend/3"></iframe>
 
 
+    <div class="p-10 pt-4">
+    </div>
+  </div>
+  <div
+    class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+  ></div>
+</div>
 
-const jsonData = {
-  edited_content: 'blalbalhal',
-  fileContent: 'blalbalhal',
- 
-}
-
-
-</script>
-
-
-          <div class="p-10 pt-4">
-            
-
-            
-
-            
-
-          </div>
-        </div>
-        <div
-          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-bl-[2rem]"
-        ></div>
-      </div>
-      <div class="relative lg:col-span-2">
-        <div class="absolute inset-px rounded-lg bg-white"></div>
-        <div
-          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]"
-        >
-          
+    
+<div class="relative lg:col-span-4">
+  <div class="absolute inset-px rounded-lg bg-white"></div>
+  <div
+    class="relative flex h-full flex-col overflow-hidden"
+  >
+    
 <div class="container-4"></div>
-<script type="module">
-  const scoping = `4`
-  const url = `/llama-backend/${scoping}`
-  console.log('fetching ', url)
-  const container = document.querySelector(`.container-${scoping}`)
-  
-  const bun_output = d3.select(container).append('div').attr('class', 'bun-output')
-  const observable_output = d3.select(container).append('div').attr('class', 'observable-output')
-  const deno_webgpu_output = d3.select(container).append('div').attr('class', 'deno-webgpu-output')
-  
-  const data = await d3.json(url)
-  console.log('data ', 'resposne sucede', data.both)
-  
-  if (data.type === 'both') {
-    console.log('both')
-    container.innerHTML = data.html
-    eval(data.js)
-  }else 
-  if (data.type === 'html') {
-    container.innerHTML = data.html
-  } else if (data.type === 'text') {
-    container.textContent = data.text
-  } else if (data.type === 'js') {
-    container.innerHTML = data.html
-  } else if (data.type === 'json') {
-    const style = document.createElement('style');
-    style.textContent = data.css;
-    document.head.appendChild(style);
-  }
+<iframe src="/llama-backend/4"></iframe>
+
+
+    <div class="p-10 pt-4">
+    </div>
+  </div>
+  <div
+    class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+  ></div>
+</div>
 
 
 
-const jsonData = {
-  edited_content: 'blalbalhal',
-  fileContent: 'blalbalhal',
- 
-}
-
-
-</script>
-
-
-          <div class="p-10 pt-4">
-            
-
-            
-
-            
-
-          </div>
-        </div>
-        <div
-          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
-        ></div>
-      </div>
-      <div class="relative lg:col-span-2">
-        <div
-          class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
-        ></div>
-        <div
-          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]"
-        >
-          
-<div class="container-5"></div>
-<script type="module">
-  const scoping = `5`
-  const url = `/llama-backend/${scoping}`
-  console.log('fetching ', url)
-  const container = document.querySelector(`.container-${scoping}`)
-  
-  const bun_output = d3.select(container).append('div').attr('class', 'bun-output')
-  const observable_output = d3.select(container).append('div').attr('class', 'observable-output')
-  const deno_webgpu_output = d3.select(container).append('div').attr('class', 'deno-webgpu-output')
-  
-  const data = await d3.json(url)
-  console.log('data ', 'resposne sucede', data.both)
-  
-  if (data.type === 'both') {
-    console.log('both')
-    container.innerHTML = data.html
-    eval(data.js)
-  }else 
-  if (data.type === 'html') {
-    container.innerHTML = data.html
-  } else if (data.type === 'text') {
-    container.textContent = data.text
-  } else if (data.type === 'js') {
-    container.innerHTML = data.html
-  } else if (data.type === 'json') {
-    const style = document.createElement('style');
-    style.textContent = data.css;
-    document.head.appendChild(style);
-  }
-
-
-
-const jsonData = {
-  edited_content: 'blalbalhal',
-  fileContent: 'blalbalhal',
- 
-}
-
-
-</script>
-
-
-          <div class="p-10 pt-4">
-              
-
-              
-
-              
-
-          </div>
-        </div>
-        <div
-          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
-        ></div>
-      </div>
     </div>
   </div>
 </div>
-    </div>
-  </div>
-</div>
+
+
+
+

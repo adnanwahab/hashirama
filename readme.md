@@ -51,3 +51,10 @@ Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a
 ![https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg](https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg)
 
 [] 133: 30 do ops - instant pushes to all devices
+
+port 7001 - air
+ports 7005 - go status-page
+port 3002 - bun livekit app
+port 3005 - llama backend
+port 3006 - cgi-backend (deno-webgpu)
+port 3007 - hardware-backend (helper)

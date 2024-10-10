@@ -149,6 +149,39 @@ func main() {
 	e.GET("/llama-tools", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "llama-tools.html", nil)
 	})
+	e.GET("/llama-backend/*", func(c echo.Context) error {
+		targetURL := "http://localhost:8900" + c.Request().URL.Path
+		fmt.Printf("Proxying request to: %s\n", targetURL)
+
+		//targetURL = strings.Replace(targetURL, "llama-backend/", "", 1)
+		fmt.Println(targetURL)
+
+		resp, err := http.Get(targetURL)
+		if err != nil {
+			fmt.Printf("Error proxying request: %v\n", err)
+			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error proxying request: %v", err))
+		}
+		defer resp.Body.Close()
+
+		fmt.Printf("Received response with status: %d\n", resp.StatusCode)
+
+		// Copy the response headers
+		for key, values := range resp.Header {
+			for _, value := range values {
+				c.Response().Header().Add(key, value)
+			}
+		}
+
+		// Set the status code and write the response body
+		c.Response().WriteHeader(resp.StatusCode)
+		_, err = io.Copy(c.Response().Writer, resp.Body)
+		if err != nil {
+			fmt.Printf("Error writing response: %v\n", err)
+			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error writing response: %v", err))
+		}
+
+		return nil
+	})
 
 	e.GET("/particles", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "particles.html", nil)
@@ -213,39 +246,7 @@ func main() {
 		return c.String(http.StatusOK, "<div>test</div>")
 	})
 	// games like metroid + paper mario - tool assisted -> generate a walk through.
-	e.GET("/llama-backend/*", func(c echo.Context) error {
-		targetURL := "http://localhost:8002" + c.Request().URL.Path
-		fmt.Printf("Proxying request to: %s\n", targetURL)
 
-		//targetURL = strings.Replace(targetURL, "llama-backend/", "", 1)
-		fmt.Println(targetURL)
-
-		resp, err := http.Get(targetURL)
-		if err != nil {
-			fmt.Printf("Error proxying request: %v\n", err)
-			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error proxying request: %v", err))
-		}
-		defer resp.Body.Close()
-
-		fmt.Printf("Received response with status: %d\n", resp.StatusCode)
-
-		// Copy the response headers
-		for key, values := range resp.Header {
-			for _, value := range values {
-				c.Response().Header().Add(key, value)
-			}
-		}
-
-		// Set the status code and write the response body
-		c.Response().WriteHeader(resp.StatusCode)
-		_, err = io.Copy(c.Response().Writer, resp.Body)
-		if err != nil {
-			fmt.Printf("Error writing response: %v\n", err)
-			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error writing response: %v", err))
-		}
-
-		return nil
-	})
 	e.GET("/demo", func(c echo.Context) error {
 		idk := c.Request().URL.Query().Get("idk")
 		fmt.Println(idk)

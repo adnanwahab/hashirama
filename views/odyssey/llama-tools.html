@@ -7,35 +7,69 @@
 </style>
 {{define "voice-to-agent-request" }}
 {{end}}
-<pre>
-1. livekit voice  + whsiper  = send to llama-backendd
-1.5  = file-rewriter-helper
-2. cog/engine/paper-party-display5000-papers
-3. pull-request maker  - is this okay 
-4. obs-tools
-<li> buttons to change layout</li>
-5. add embeddings to llama
-</pre>
+<ul class="text-blue-500">
+<li class="label-1">livekit_audio</li>
+<li class="label-2">cognition_engine</li>
+<li class="label-3">logs_viewer</li>
+<li class="label-4">import_docs</li>
+<li class="label-5">script_reflect</li>
+<li class="label-6">script_obs</li>
+<li class="label-7">livekit_video</li>
+<li class="label-8">llama_search</li>
+</ul>
+//template "llama_label" .labelId
 
-{{define "replay" }}
+{{define "llama-label"}}
+<div class="text-blue-500 component-label-{{.}}"></div>
+<script type="module">
+  //document.querySelector(`.label-{{.}}`).innerHTML = `<iframe src="/llama-backend/{{.}}"></iframe>`
+  const label = d3.select(`.label-{{.}}`);
+  const component_label = d3.select(`.component-label-{{.}}`)
+  component_label.text(label.text())
+</script>
 {{end}}
-{{define "llama-component-label-1"}}
-voice to agent 
+
+
+{{define "grid_cell"}}
+<div class="relative lg:col-span-4">
+  <div class="absolute inset-px rounded-lg bg-white"></div>
+  <div
+    class="relative flex h-full flex-col overflow-hidden"
+  >
+    {{template "llama_iframe" .}}
+    <div class="p-10 pt-4">
+    </div>
+  </div>
+  <div
+    class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+  ></div>
+</div>
 {{end}}
-{{define "llama-component-label-2"}}
-https://www.youtube.com/watch?v=0dqYxpxegrk
-replay 
-{{end}}
-{{define "llama-component-label-3"}}
-{{end}}
-{{define "llama-component-label-4"}}
-{{end}}
-{{define "llama-component-label-5"}}  
-{{end}}
+
+<div class="bg-white">
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+
+    <div
+      class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
+    >
+      
+    {{template "grid_cell" 1}}
+    {{template "grid_cell" 2}}
+    {{template "grid_cell" 3}}
+    {{template "grid_cell" 4}}
+
+
+    </div>
+  </div>
+</div>
+
+
+
 
 {{define "llama_iframe" }}
 <div class="container-{{.}}"></div>
-<script type="module">
+<iframe src="/llama-backend/{{.}}"></iframe>
+<!-- <script type="module">
   const scoping = `{{.}}`
   const url = `/llama-backend/${scoping}`
   console.log('fetching ', url)
@@ -65,123 +99,10 @@ replay
     document.head.appendChild(style);
   }
 
-//const jsonData = JSON.parse(data);
-//window.jsonData = jsonData;
 const jsonData = {
   edited_content: 'blalbalhal',
   fileContent: 'blalbalhal',
  
 }
-
-
-</script>
-
+</script> -->
 {{end}}
-
-
-
-
-<div class="bg-white">
-  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-    <!-- <h2 class="text-base/7 font-semibold text-indigo-600">CGI</h2>
-    <p
-      class="mt-2 max-w-lg text-pretty text-4xl font-medium tracking-tight text-gray-950 sm:text-5xl"
-    >
-      Everything you need to deploy your app.
-    </p> -->
-    <div
-      class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
-    >
-      <div class="relative lg:col-span-3">
-        <div
-          class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]"
-        ></div>
-        <div
-          class="relative lg:col-span-6 lg:row-span-2 h-screen overflow-scroll"
-        >
-          {{template "llama_iframe" "1"}}
-          <div class="p-10 pt-4">
-            {{template "llama-component-label-1"}}
-    
-          </div>
-        </div>
-        <div
-          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]"
-        ></div>
-      </div>
-      <div class="relative lg:col-span-3">
-        <div
-          class="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]"
-        ></div>
-        <div
-          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]"
-        >
-          {{template "llama_iframe" "2"}}
-          <div class="p-10 pt-4">
-            {{template "llama-component-label-2"}}
-            {{template "llama-component-label-2"}}
-            {{template "llama-component-label-2"}}
-          </div>
-        </div>
-        <div
-          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]"
-        ></div>
-      </div>
-      <div class="relative lg:col-span-2">
-        <div
-          class="absolute inset-px rounded-lg bg-white lg:rounded-bl-[2rem]"
-        ></div>
-        <div
-          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-bl-[calc(2rem+1px)]"
-        >
-          {{template "llama_iframe" "3"}}
-          <div class="p-10 pt-4">
-            {{template "llama-component-label-3"}}
-            {{template "llama-component-label-3"}}
-            {{template "llama-component-label-3"}}
-          </div>
-        </div>
-        <div
-          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-bl-[2rem]"
-        ></div>
-      </div>
-      <div class="relative lg:col-span-2">
-        <div class="absolute inset-px rounded-lg bg-white"></div>
-        <div
-          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]"
-        >
-          {{template "llama_iframe" "4"}}
-          <div class="p-10 pt-4">
-            {{template "llama-component-label-4"}}
-            {{template "llama-component-label-4"}}
-            {{template "llama-component-label-4"}}
-          </div>
-        </div>
-        <div
-          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
-        ></div>
-      </div>
-      <div class="relative lg:col-span-2">
-        <div
-          class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
-        ></div>
-        <div
-          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]"
-        >
-          {{template "llama_iframe" "5"}}
-          <div class="p-10 pt-4">
-            {{template "llama-component-label-5"}}
-            {{template "llama-component-label-5"}}
-            {{template "llama-component-label-5"}}
-          </div>
-        </div>
-        <div
-          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
-        ></div>
-      </div>
-    </div>
-  </div>
-</div>
-    </div>
-  </div>
-</div>
