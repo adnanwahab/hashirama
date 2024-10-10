@@ -1,0 +1,167 @@
+{{template "head.html" . }}
+
+<ol>
+  <!-- <li>nerf NVIDIA neural rendering</li> -->
+  <li>1. Voice reactive particles</li>
+  <li>2. Diffusion policy</li>
+  <li>3. stixels + voxels </li>
+  <li>4. git viusalizer</li>
+</ol>
+https://github.com/YanjieZe/3D-Diffusion-Policy
+https://github.com/nerfstudio-project/nerfstudio
+
+{{define "cgi-text-1" }}
+ENRF NVIDIA neural rendering
+{{end}}
+
+{{define "cgi-text-2" }}
+Voice reactive particles
+{{end}}
+
+{{define "cgi-text-3" }}
+Diffusion policy
+{{end}}
+
+{{define "cgi-text-4" }}
+Drone map or aquarobotics
+{{end}}
+
+{{define "cgi-text-5" }}
+Scene reconstruction + stixels
+{{end}}
+
+{{define "cgi-text-6" }}
+ENRF NVIDIA neural rendering
+{{end}}
+
+{{define "cgi-text-7" }}
+Voice reactive particles
+{{end}}
+
+{{define "cgi-text-8" }}
+Diffusion policy
+{{end}}
+
+{{define "cgi-text-9" }}
+Drone map or aquarobotics
+{{end}}
+
+{{define "cgi-text-10" }}
+Scene reconstruction + stixels
+{{end}}
+
+<!-- diffusion pilcity  -->
+<!-- nerf  -->
+<!-- scene reconstruction  -->
+ 
+<!-- stixels  -->
+<!-- aquarobotics  -->
+
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+    <!-- <h2 class="text-base/7 font-semibold text-indigo-600">CGI</h2> -->
+    <!-- <p
+      class="mt-2 max-w-lg text-pretty text-4xl font-medium tracking-tight text-gray-950 sm:text-5xl"
+    >
+      Everything you need to deploy your app.
+    </p> -->
+    <div
+      class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
+    >
+      <div class="relative lg:col-span-3">
+        <div
+          class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]"
+        ></div>
+        <div
+          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)] lg:rounded-tl-[calc(2rem+1px)]"
+        >
+          {{template "cgi-text-1"}}
+          <div class="p-10 pt-4">
+            <h3 class="text-sm/4 font-semibold text-indigo-600">Performance</h3>
+            {{template "cgi-text-2" .}}
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]"
+        ></div>
+      </div>
+      <div class="relative lg:col-span-3">
+        <div
+          class="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]"
+        ></div>
+        <div
+          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]"
+        >
+          {{template "cgi-text-3"}}
+          <div class="p-10 pt-4">
+            <h3 class="text-sm/4 font-semibold text-indigo-600">Releases</h3>
+            {{template "cgi-text-4" .}}
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]"
+        ></div>
+      </div>
+      <div class="relative lg:col-span-2">
+        <div
+          class="absolute inset-px rounded-lg bg-white lg:rounded-bl-[2rem]"
+        ></div>
+        <div
+          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-bl-[calc(2rem+1px)]"
+        >
+          {{template "cgi-text-5"}}
+          <div class="p-10 pt-4">
+            <h3 class="text-sm/4 font-semibold text-indigo-600">Speed</h3>
+            {{template "cgi-text-6" .}}
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-bl-[2rem]"
+        ></div>
+      </div>
+      <div class="relative lg:col-span-2">
+        <div class="absolute inset-px rounded-lg bg-white"></div>
+        <div
+          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]"
+        >
+          {{template "cgi-text-7"}}
+          <div class="p-10 pt-4">
+            <h3 class="text-sm/4 font-semibold text-indigo-600">
+              Integrations
+            </h3>
+            {{template "cgi-text-8" .}}
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+        ></div>
+      </div>
+      <div class="relative lg:col-span-2">
+        <div
+          class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
+        ></div>
+        <div
+          class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]"
+        >
+          {{template "cgi-text-9"}}
+          <div class="p-10 pt-4">
+            <h3 class="text-sm/4 font-semibold text-indigo-600">Network</h3>
+            {{template "cgi-text-10" .}}
+          </div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<pre>
+  https://youtu.be/EmlWBsU48cU?si=WhCwasDMhRoV08Wz
+https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/index.html
+https://youtu.be/DQEa3IeqcOk?si=oN3V8daexhDBINtM
+https://zed.dev/docs/extensions/developing-extensions
+</pre>

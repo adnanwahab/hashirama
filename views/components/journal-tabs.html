@@ -1,0 +1,113 @@
+<div class="tab absolute inset-0 flex flex-1 flex-col">
+  <div class="flex flex-1 flex-col electron:pt-5 capacitor:pt-5">
+    <div
+      class="space-y-3 border-b border-coolgray-100 py-4 pl-4 pr-7 dark:border-gray-900 lg:flex lg:items-center lg:justify-between lg:space-y-0 lg:pl-12"
+    >
+      <div class="min-w-0 flex-1">
+        <h2
+          class="border-none bg-transparent p-0 text-2sm font-semibold text-coolgray-700 placeholder-coolgray-700 outline-none focus:ring-0 dark:text-near-white dark:placeholder-white"
+        >
+          Notes
+        </h2>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="relative inline-block text-left" data-headlessui-state="">
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md bg-background px-3 py-1.5 text-2xs text-coolgray-400"
+            id="headlessui-menu-button-:rc:"
+            type="button"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            data-headlessui-state=""
+          >
+            <span>Selected (1)</span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+              class="-mr-1 ml-1 h-4 w-4"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="relative">
+          <div
+            class="relative z-0 inline-flex -space-x-px divide-x divide-coolgray-900/10 rounded-md border border-coolgray-900/16 shadow-app-input shadow-black/5 dark:divide-white/5 dark:border-white/10"
+          >
+            <button
+              class="relative inline-flex cursor-pointer items-center space-x-1.5 whitespace-nowrap px-4 py-1.5 text-2xs font-medium hover:bg-coolgray-50 dark:hover:bg-inherit text-primary dark:text-primary-dk rounded-l-md"
+            >
+              All</button
+            ><button
+              class="relative inline-flex cursor-pointer items-center space-x-1.5 whitespace-nowrap px-4 py-1.5 text-2xs font-medium hover:bg-coolgray-50 dark:hover:bg-inherit bg-white text-coolgray-600 dark:bg-white/5 dark:text-near-white dark:hover:text-white"
+            >
+              Books</button
+            ><button
+              class="relative inline-flex cursor-pointer items-center space-x-1.5 whitespace-nowrap px-4 py-1.5 text-2xs font-medium hover:bg-coolgray-50 dark:hover:bg-inherit bg-white text-coolgray-600 dark:bg-white/5 dark:text-near-white dark:hover:text-white"
+            >
+              Links</button
+            ><button
+              class="relative inline-flex cursor-pointer items-center space-x-1.5 whitespace-nowrap px-4 py-1.5 text-2xs font-medium hover:bg-coolgray-50 dark:hover:bg-inherit bg-white text-coolgray-600 dark:bg-white/5 dark:text-near-white dark:hover:text-white"
+            >
+              People</button
+            ><button
+              class="relative inline-flex cursor-pointer items-center space-x-1.5 whitespace-nowrap px-4 py-1.5 text-2xs font-medium hover:bg-coolgray-50 dark:hover:bg-inherit bg-white text-coolgray-600 dark:bg-white/5 dark:text-near-white dark:hover:text-white"
+            >
+              Trash</button
+            ><button
+              title="See all tags"
+              class="relative inline-flex cursor-pointer items-center space-x-1.5 whitespace-nowrap px-4 py-1.5 text-2xs font-medium hover:bg-coolgray-50 dark:hover:bg-inherit bg-white text-coolgray-600 dark:bg-white/5 dark:text-near-white dark:hover:text-white rounded-r-md"
+            >
+              Custom<svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+                class="ml-1 h-4 w-4"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div class="absolute right-0 z-10 mt-1"></div>
+        </div>
+        <button
+          class="inline-flex items-center space-x-2.5 rounded-md border border-coolgray-900/15 px-3 py-1.5 text-2xs font-semibold text-white transition-all duration-100 hover:brightness-110 active:brightness-95"
+          style="
+            background: linear-gradient(
+              rgb(99, 102, 241) 0%,
+              rgb(79, 70, 229) 71.35%
+            );
+            box-shadow:
+              rgba(17, 24, 39, 0.2) 0px 1px 2px,
+              rgba(255, 255, 255, 0.2) 0px 1px 1px inset;
+          "
+        >
+          <span class="whitespace-nowrap">New note</span
+          ><span
+            class="inline-flex items-center rounded bg-white/10 px-1 font-sans text-[10px] font-medium uppercase ring-[3px] ring-white/10"
+            ><div class="flex items-center justify-center uppercase">
+              <kbd class="block text-center font-shortcut -mx-0.5 min-w-[1lh]"
+                >⌃</kbd
+              ><kbd class="block text-center font-shortcut -mx-0.5 min-w-[1lh]"
+                >⌘</kbd
+              ><kbd class="block text-center font-shortcut -mx-0.5 min-w-[1lh]"
+                >n</kbd
+              >
+            </div></span
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

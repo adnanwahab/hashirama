@@ -1,0 +1,158 @@
+{{template "head.html" .}}
+
+<div
+  class="relative flex flex-1 flex-col overflow-hidden bg-slate-500 text-blue-100"
+>
+  <div
+    class="tab absolute inset-0 flex flex-1 flex-col pointer-events-none -translate-x-full -translate-y-full"
+    tabindex="-1"
+  ></div>
+  <!-- {{template "journal-tabs.html" .}} -->
+  <div class="relative flex flex-1 flex-col overflow-hidden">
+    <div class="flex flex-1 flex-col">
+      <div
+        class="flex flex-none gap-4 border-b border-coolgray-900/10 py-3 pl-12 pr-7 text-left text-2xs font-medium leading-none text-coolgray-500 shadow-sm dark:border-gray-900 dark:border-white/5 dark:text-near-white"
+        style="box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px"
+      >
+        <div class="w-60">Subject</div>
+        <div class="flex-1">Snippet</div>
+        <div class="text-right">Tags</div>
+        <div class="w-20 text-right">Updated</div>
+      </div>
+      <div class="flex-1">
+        <div
+          data-test-id="virtuoso-scroller"
+          data-virtuoso-scroller="true"
+          tabindex="0"
+          width="100%"
+          height="100%"
+          style="
+            height: 100%;
+            outline: none;
+            overflow-y: auto;
+            position: relative;
+          "
+        >
+          <div
+            data-viewport-type="element"
+            style="width: 100%; height: 100%; position: absolute; top: 0px"
+          >
+            <div
+              data-test-id="virtuoso-item-list"
+              style="
+                box-sizing: border-box;
+                padding-top: 0px;
+                padding-bottom: 42912px;
+                margin-top: 0px;
+              "
+            >
+              {{range .JournalEntries}}
+              <a href="{{.Snippet}}">
+                <div
+                  class="journal-entry"
+                  data-index="0"
+                  data-known-size="48"
+                  data-item-index="0"
+                  item="[object Object]"
+                  style="overflow-anchor: none"
+                >
+                  <div
+                    class="relative flex h-12 gap-4 py-3 pr-7 pl-12 text-2xs text-coolgray-500 shadow-border-b hover:bg-coolgray-50 dark:hover: /2"
+                  >
+                    <div
+                      class="group flex flex-none items-center justify-center absolute inset-y-0 left-0 w-12 opacity-0 hover:opacity-100"
+                    >
+                      <div
+                        class="h-2 w-2 rounded-full transition-transform duration-150 group-hover:scale-110 ring-1 ring-indigo-600"
+                      ></div>
+                    </div>
+                    <div
+                      class="flex w-60 flex-none cursor-pointer items-center font-medium text-coolgray-800 dark:text-near-white"
+                    >
+                      <span class="truncate">{{.Title}}</span>
+                    </div>
+                    <div class="flex flex-1 items-center overflow-hidden">
+                      <div class="truncate">{{.Snippet}}</div>
+                    </div>
+                    <div
+                      class="flex flex-shrink items-center justify-end text-right"
+                    ></div>
+                    <div
+                      class="flex w-20 flex-none items-center justify-end text-right"
+                    >
+                      {{.Updated}}
+                    </div>
+                  </div>
+                </div>
+              </a>
+              {{end }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div
+
+
+          class="pointer-events-none absolute top-0 bottom-0 z-split h-full bg-background-stark pl-[3px] transition-all hidden"
+          style="
+            width: 50%;
+            right: 0px;
+            transition: transform 250ms
+              cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            transform: translateX(100%);
+          "
+        >
+          <div
+            class="flex h-full flex-col pointer-events-auto"
+          ></div>
+          <div
+            class="pointer-events-auto absolute top-4 right-4 z-50 flex gap-2"
+          >
+            <button
+              class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-purple-50 text-purple-400 outline-none transition-all duration-50 hover:bg-purple-100 active:bg-purple-200 active:text-purple-500 dark:bg-purple-900/50"
+              tabindex="-1"
+              data-state="closed"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+                class="w-3"
+              >
+                <path
+                  d="M13.28 7.78l3.22-3.22v2.69a.75.75 0 001.5 0v-4.5a.75.75 0 00-.75-.75h-4.5a.75.75 0 000 1.5h2.69l-3.22 3.22a.75.75 0 001.06 1.06zM2 17.25v-4.5a.75.75 0 011.5 0v2.69l3.22-3.22a.75.75 0 011.06 1.06L4.56 16.5h2.69a.75.75 0 010 1.5h-4.5a.747.747 0 01-.75-.75zM12.22 13.28l3.22 3.22h-2.69a.75.75 0 000 1.5h4.5a.747.747 0 00.75-.75v-4.5a.75.75 0 00-1.5 0v2.69l-3.22-3.22a.75.75 0 10-1.06 1.06zM3.5 4.56l3.22 3.22a.75.75 0 001.06-1.06L4.56 3.5h2.69a.75.75 0 000-1.5h-4.5a.75.75 0 00-.75.75v4.5a.75.75 0 001.5 0V4.56z"
+                ></path>
+              </svg></button
+            ><button
+              class="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-purple-50 text-purple-400 outline-none transition-all duration-50 hover:bg-purple-100 active:bg-purple-200 active:text-purple-500 dark:bg-purple-900/50"
+              tabindex="-1"
+              data-state="closed"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+                class="w-4"
+              >
+                <path
+                  d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <div
+            class="pointer-events-none absolute top-0 -right-4 bottom-0 w-4 bg-background-stark"
+          ></div>
+        </div>
+      </div>
+    </div> -->
+    <div
+      tabindex="-1"
+      class="tab absolute inset-0 flex flex-1 flex-col pointer-events-none -translate-x-full -translate-y-full"
+    ></div>
+  </div>
+</div>

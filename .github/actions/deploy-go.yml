@@ -1,0 +1,51 @@
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy blog to hydrogen
+    if: github.ref == 'refs/heads/main'
+    env:
+      MACHINE: hydrogen
+    steps:
+      - name: Setup Go 1.17
+        id: go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "^1.17"
+      - name: Setup Tailscale
+        id: tailscale
+        uses: tailscale/github-action@main
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+          version: 1.7.359
+      - name: Add SSH key
+        id: ssh
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          MACHINE_IP="$(tailscale ip -6 $MACHINE)"
+          ssh-keyscan $MACHINE_IP >> ~/.ssh/known_hosts
+          printf "%s" "$SSH_KEY" > ~/.ssh/key
+          chmod 600 ~/.ssh/key
+      - name: Fetch code
+        id: fetch
+        uses: actions/checkout@v1
+
+      - name: Compile blog binary
+        id: compile
+        run: go build -o prose .
+
+      - name: Build tarball and ship it
+        id: tarball
+        run: |
+          TIME=$(date +%Y%m%d-%H%M%S)
+          FILENAME=prose-${TIME}.tar.gz
+          mkdir -p static/css
+          tar -czf $FILENAME prose static/ styles/ templates/ posts/
+          MACHINE_IP="$(tailscale ip -6 $MACHINE)"
+          echo $FILENAME "github@[$MACHINE_IP]:/home/github/"
+          scp -i ~/.ssh/key $FILENAME "github@[$MACHINE_IP]:/home/github/"
+          ssh -i ~/.ssh/key "github@$MACHINE_IP" "tar -C /var/www/blog -xzf ~/$FILENAME"
+          ssh -i ~/.ssh/key "github@$MACHINE_IP" "sudo systemctl restart prose"

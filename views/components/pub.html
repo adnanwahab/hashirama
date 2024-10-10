@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Webcam Stream</title>
+  </head>
+  <body>
+    <button id="startButton">Start Webcam and LiveKit</button>
+    <video id="localVideo" autoplay muted></video>
+    <script src="https://unpkg.com/@livekit/client@latest/dist/livekit-client.min.js"></script>
+
+    <script type="module">
+      import {
+        Room,
+        LocalVideoTrack,
+        LocalAudioTrack,
+        RoomEvent,
+      } from "https://unpkg.com/livekit-client@latest/dist/livekit-client.esm.mjs?module";
+
+      async function startWebcam() {
+        const videoElement = document.getElementById("localVideo");
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: { ideal: "environment" } },
+            audio: false,
+          });
+          videoElement.srcObject = stream;
+          console.log("Media stream created:", stream);
+          return stream;
+        } catch (err) {
+          console.error("Error accessing media devices.", err);
+          throw err; // Rethrow error to handle it in the calling function
+        }
+      }
+
+      async function startLiveKit() {
+        const url = "wss://omnissiah-university-kmuz0plz.livekit.cloud";
+        const response = await fetch("/getToken?role=publisher"); // Replace with your token API
+        const json = await response.json();
+        console.log(json);
+        let roomOptions = {};
+        let connectOptions = {};
+        let shouldPublish = true;
+
+        let roomParams = {
+          // url: string,
+          // string,
+          // roomOptions,
+          // connectOptions,
+          // shouldPublish,
+        };
+
+        const room = new Room();
+        await room.connect(url, json.token);
+
+        // Get the webcam stream
+        const stream = await startWebcam();
+        if (!stream) {
+          console.error("No stream available.");
+          return;
+        }
+
+        room
+          .on(RoomEvent.ParticipantConnected, (participant) => {
+            console.log(`Participant connected: ${participant.identity}`);
+          })
+          .on(RoomEvent.ParticipantDisconnected, (participant) => {
+            console.log(`Participant disconnected: ${participant.identity}`);
+          })
+          .on(RoomEvent.TrackPublished, (publication, participant) => {
+            console.log(
+              `Track published by ${participant.identity}: ${publication.trackSid}`,
+            );
+          })
+          .on(RoomEvent.TrackUnpublished, (publication, participant) => {
+            console.log(
+              `Track unpublished by ${participant.identity}: ${publication.trackSid}`,
+            );
+          })
+          .on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
+            console.log("Active speakers changed:", speakers);
+          })
+          .on(RoomEvent.RoomDisconnected, (reason) => {
+            console.log(`Room disconnected: ${reason}`);
+          })
+          .on(RoomEvent.TrackSubscribed, (track, publication, participant) => {
+            console.log(
+              `Track subscribed by ${participant.identity}: ${track.sid}`,
+            );
+          })
+          .on(
+            RoomEvent.TrackUnsubscribed,
+            (track, publication, participant) => {
+              console.log(
+                `Track unsubscribed by ${participant.identity}: ${track.sid}`,
+              );
+            },
+          )
+          .on(RoomEvent.DataReceived, (payload, participant) => {
+            console.log(
+              `Data received from ${participant.identity}: ${payload}`,
+            );
+          })
+          .on(RoomEvent.ConnectionQualityChanged, (quality, participant) => {
+            console.log(
+              `Connection quality changed for ${participant.identity}: ${quality}`,
+            );
+          });
+
+        const videoTrack = stream.getVideoTracks()[0];
+        //const audioTrack = stream.getAudioTracks()[0];
+
+        if (!videoTrack) {
+          console.error("Video or audio track not found in stream.");
+          return;
+        }
+
+        const localVideoTrack = new LocalVideoTrack(videoTrack);
+        //const localAudioTrack = new LocalAudioTrack(audioTrack);
+
+        // Publish both video and audio tracks
+        await room.localParticipant.publishTrack(localVideoTrack);
+        //await room.localParticipant.publishTrack(localAudioTrack);
+
+        console.log("Tracks published to the room");
+      }
+
+      // Attach event listener to the start button
+      const startButton = document.getElementById("startButton");
+      startButton.addEventListener("click", () => {
+        startLiveKit();
+      });
+    </script>
+  </body>
+</html>

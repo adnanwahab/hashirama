@@ -1,0 +1,43 @@
+{
+  "scripts": {
+    "style": "npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch",
+    "format": "npx prettier views/**/*.html --write",
+    "format-js": "standard 'static/**/*.js' --fix",
+    "format-js-gpt": "python paralel_LLM.py",
+    "beautify": "bunx js-beautify static/3_3_journey/https:/threejs-journey.com/bundles/public/HeroExperience-367a3eca.js > static/3_3_journey/https:/threejs-journey.com/bundles/public/HeroExperience-367a3eca.js-2.js",
+    "cog": "bun run js/cognition_engine_parser.js",
+    "dev": "bun run js/llama-server.js --hot",
+    "pprof": "go tool trace trace.out",
+    "hardware_helper": "bun run js/hardware/hardware-company-helper.js"
+  },
+  "devDependencies": {
+    "@egoist/tailwindcss-icons": "^1.7.4",
+    "@iconify-json/mdi": "^1.1.66",
+    "daisyui": "4.6.1",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "standard": "^17.1.2",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.4.3",
+    "vitepress": "^1.4.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.29.0",
+    "@iconify-json/ic": "^1.1.17",
+    "@octokit/rest": "^21.0.2",
+    "@tailwindcss/forms": "^0.5.9",
+    "dotenv": "^16.4.5",
+    "draco3d": "^1.5.7",
+    "fs": "^0.0.1-security",
+    "livekit-client": "^2.5.7",
+    "livekit-server-sdk": "^2.7.0",
+    "octokit": "^4.0.2",
+    "ollama": "^0.5.9",
+    "openai": "^4.67.3",
+    "playwright": "^1.47.2",
+    "playwright-crx": "^0.9.0",
+    "sqlite3": "^5.1.7",
+    "svgson": "^5.3.1",
+    "three": "^0.168.0"
+  }
+}

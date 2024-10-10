@@ -1,0 +1,204 @@
+.eggnog html,.eggnog body,.eggnog div,.eggnog span,.eggnog applet,.eggnog object,.eggnog iframe,.eggnog h1,.eggnog h2,.eggnog h3,.eggnog h4,.eggnog h5,.eggnog h6,.eggnog p,.eggnog blockquote,.eggnog pre,.eggnog a,.eggnog abbr,.eggnog acronym,.eggnog address,.eggnog big,.eggnog cite,.eggnog code,.eggnog del,.eggnog dfn,.eggnog em,.eggnog img,.eggnog ins,.eggnog kbd,.eggnog q,.eggnog s,.eggnog samp,.eggnog small,.eggnog strike,.eggnog strong,.eggnog sub,.eggnog sup,.eggnog tt,.eggnog var,.eggnog b,.eggnog u,.eggnog i,.eggnog center,.eggnog dl,.eggnog dt,.eggnog dd,.eggnog ol,.eggnog ul,.eggnog li,.eggnog fieldset,.eggnog form,.eggnog label,.eggnog legend,.eggnog table,.eggnog caption,.eggnog tbody,.eggnog tfoot,.eggnog thead,.eggnog tr,.eggnog th,.eggnog td,.eggnog article,.eggnog aside,.eggnog canvas,.eggnog details,.eggnog embed,.eggnog figure,.eggnog figcaption,.eggnog footer,.eggnog header,.eggnog hgroup,.eggnog menu,.eggnog nav,.eggnog output,.eggnog ruby,.eggnog section,.eggnog summary,.eggnog time,.eggnog mark,.eggnog audio,.eggnog video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline
+    }
+
+    .eggnog article,.eggnog aside,.eggnog details,.eggnog figcaption,.eggnog figure,.eggnog footer,.eggnog header,.eggnog hgroup,.eggnog menu,.eggnog nav,.eggnog section {
+        display: block
+    }
+
+    .eggnog body {
+        line-height: 1;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        text-size-adjust: 100%
+    }
+
+    .eggnog ol,.eggnog ul {
+        list-style: none
+    }
+
+    .eggnog blockquote,.eggnog q {
+        quotes: none
+    }
+
+    .eggnog blockquote:before,.eggnog blockquote:after,.eggnog q:before,.eggnog q:after {
+        content:"";
+        content: none
+    }
+
+    .eggnog table {
+        border-collapse: collapse;
+        border-spacing: 0
+    }
+
+    .eggnog table th {
+        text-align: left
+    }
+
+    .eggnog *,*.eggnog *:before,.eggnog *:after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+    .eggnog input,.eggnog button,.eggnog textarea,.eggnog select {
+        color: inherit;
+        font-size: inherit;
+        font-style: inherit;
+        font-family: inherit;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        -webkit-padding-start: 0;
+        align-items: flex-start;
+        text-index: 0;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        width: auto;
+        height: auto;
+        line-height: 1em
+    }
+
+    .eggnog input[type=text],.eggnog input[type=reset],.eggnog input[type=password],.eggnog input[type=search],.eggnog input[type=email],.eggnog input[type=tel],.eggnog input[type=url],.eggnog input[type=time],.eggnog input[type=week],.eggnog input[type=month],.eggnog input[type=date],.eggnog input[type=datetime],.eggnog input[type=datetime-local],.eggnog input[type=number],.eggnog input[type=submit],.eggnog input[type=color],.eggnog input[type=file],.eggnog button,.eggnog textarea,.eggnog select {
+        height: 1em;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none
+    }
+
+    .eggnog input[type=color] {
+        width: 1em
+    }
+
+    .eggnog input: :-ms-clear {
+        display:none
+    }
+
+    .eggnog details,.eggnog summary {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none
+    }
+
+    .eggnog mark {
+        background: none
+    }
+
+    .eggnog hr {
+        height: 1px;
+        margin: 0;
+        padding: 0
+    }
+
+    .eggnog u {
+```
+    .eggnog text-decoration: none
+    }
+
+    .eggnog a {
+        color: inherit;
+        outline: none
+    }
+
+    .eggnog @font-face {
+        font-family: Greycliff;
+        src: url(/assets/fonts/subset-GreycliffCF-Medium.woff2) format("woff2"),url(/assets/fonts/subset-GreycliffCF-Medium.woff) format("woff");
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap
+    }
+
+    .eggnog @font-face {
+        font-family: Greycliff;
+        src: url(/assets/fonts/subset-GreycliffCF-Bold.woff2) format("woff2"),url(/assets/fonts/subset-GreycliffCF-Bold.woff) format("woff");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap
+    }
+
+    .eggnog @font-face {
+        font-family: Greycliff;
+        src: url(/assets/fonts/subset-GreycliffCF-ExtraBold.woff2) format("woff2"),url(/assets/fonts/subset-GreycliffCF-ExtraBold.woff) format("woff");
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap
+    }
+
+    .eggnog :root {
+        --header-height: 80px;
+        --page-top-padding: 80px;
+        --page-horizontal-padding: 25px
+    }
+
+    .eggnog @media (max-width: 1300px) {
+        .eggnog :root {
+            --header-height: 70px;
+            --page-top-padding: 70px
+        }
+    }
+
+    .eggnog @media (max-width: 1080px) {
+        .eggnog :root {
+            --header-height: 60px;
+            --page-top-padding: 60px
+        }
+    }
+
+    .eggnog @media (max-width: 800px) {
+        .eggnog :root {
+            --header-height: 50px;
+            --page-top-padding: 50px;
+            --page-horizontal-padding: 20px
+        }
+    }
+
+    .eggnog @media (max-width: 600px) {
+        .eggnog :root {
+            --page-horizontal-padding: 15px
+        }
+    }
+
+    .eggnog @media (max-width: 400px) {
+        .eggnog :root {
+            --page-horizontal-padding: 10px
+        }
+    }
+
+    .eggnog .sizes-viewport-dummy {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100)
+    }
+
+    .eggnog html {
+        font-size: 16px;
+        overflow-x: clip;
+        background: #fff
+    }
+
+    .eggnog @media (max-width: 1600px) {
+        .eggnog html {
+            font-size:16px
+        }
+    }
+
+    .eggnog @media (max-width: 1300px) {
+        .eggnog html {
+            font-size:16px
+        }
+    }
+
+    .eggnog @media (max-width: 1080px) {
+        .eggnog html {
+            font-size:16px
+        }
+    }
+```
+
+This will ensure that the styles are applied only to elements within a parent element that has the class `.eggnog`
