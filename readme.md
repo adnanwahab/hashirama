@@ -58,3 +58,13 @@ port 3002 - bun livekit app
 port 3005 - llama backend
 port 3006 - cgi-backend (deno-webgpu)
 port 3007 - hardware-backend (helper)
+
+
+the whole worlds is video game - like owrld of warcraft
+when you beat wow - you basically jsut sit around in orgirammer, chat with guild mates - sometimes do raids
+real life = video game you deisng togeher tho be win/win which mean everyone wins - team-based cooperative- reality-creation MMO of your design
+and this repo just the LUA-based llm customzation layer for robotics - thats the new gme of 2025
+# 5pm new blog post - economics of llm paralllelization - used this to improve 20 rrepos - today - for jp
+# 5pm new blog post - gen course content in observable - 64 demos - explorable explanintions (take existing best in class demos - redblob, happydream, figma-guy , 3js journey - add sliders to any variable) - for arthur.botparty
+# 8pm - hardware notebook -> mom+dad
+# 10pm - blog - ask questions to a chatbot about your codebase
