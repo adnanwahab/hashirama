@@ -18,8 +18,6 @@ const routes = [
   // 'drone_map',
 ]
 
-
-
 // obs + jupyter right panel (remote desktop on jupyter)
 const path_maker = (route) => join(goodOnesDir, route + '.html')
 const goodOnesFiles = routes.map(path_maker)

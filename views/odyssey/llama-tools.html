@@ -30,7 +30,7 @@
 {{end}}
 
 
-{{define "grid_cell"}}
+{{define "llama-grid_cell"}}
 <div class="relative lg:col-span-4">
   <div class="absolute inset-px rounded-lg bg-white"></div>
   <div
@@ -53,10 +53,10 @@
       class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
     >
       
-    {{template "grid_cell" "livekit_audio"}}
-    {{template "grid_cell" "cognition_engine"}}
-    {{template "grid_cell" "logs_viewer"}}
-    {{template "grid_cell" "import_docs"}}
+    {{template "llama-grid_cell" "livekit_audio"}}
+    {{template "llama-grid_cell" "cognition_engine"}}
+    {{template "llama-grid_cell" "logs_viewer"}}
+    {{template "llama-grid_cell" "import_docs"}}
 
 
     </div>

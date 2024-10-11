@@ -65,7 +65,7 @@ const jsonData = {
 {{end}}
 
 
-{{define "grid_cell"}}
+{{define "cg_grid_cell"}}
 <div class="relative lg:col-span-4">
   <div class="absolute inset-px rounded-lg bg-white"></div>
   <div
@@ -88,8 +88,8 @@ const jsonData = {
       class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
     >
       
-  template "grid_cell" "figma_to_animation"
-    {{template "grid_cell" "voice_reactive_particles"}}
+    {{template "cg_grid_cell" "voice_reactive_particles"}}
+    {{template "cg_grid_cell" "flux_test"}}
 
 
     </div>

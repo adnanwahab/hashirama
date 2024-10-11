@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"html/template"
 	"io"
 	"log"
@@ -86,6 +87,7 @@ func SetupRendering(e *echo.Echo) {
 	funcMap := template.FuncMap{}
 	templates := template.New("").Funcs(funcMap)
 	parsedTemplates, err := templates.ParseGlob(filepath.Join("views/**/*.html"))
+	fmt.Println(parsedTemplates)
 	if err != nil {
 		log.Fatalf("Error parsing templates: %v", err)
 	}
@@ -93,12 +95,16 @@ func SetupRendering(e *echo.Echo) {
 		templates: parsedTemplates,
 	}
 
-	// Call setupDynamicRoutes to dynamically add routes
-	if err := setupDynamicRoutes(e); err != nil {
-		log.Fatalf("Error setting up dynamic routes: %v", err)
-	}
+	// // Call setupDynamicRoutes to dynamically add routes
+	// if err := setupDynamicRoutes(e); err != nil {
+	// 	log.Fatalf("Error setting up dynamic routes: %v", err)
+	// }
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "index.html", nil)
+	})
+	e.GET("/cgi-tools", func(c echo.Context) error {
+		fmt.Println("cgi page", "hi")
+		return c.Render(http.StatusOK, "cgi-tools.html", nil)
 	})
 }
 
