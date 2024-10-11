@@ -81,3 +81,9 @@ and this repo just the LUA-based llm customzation layer for robotics - thats the
 # oct 11
 - 3d diffusion - 4 hours
 - hardware module - 5 hours
+
+
+
+#
+
+https://dougengelbart.org/content/view/374/

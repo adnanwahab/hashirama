@@ -102,6 +102,9 @@ func SetupRendering(e *echo.Echo) {
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "index.html", nil)
 	})
+	e.GET("/robotics-odyssey", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "robotics-odyssey.html", nil)
+	})
 	e.GET("/cgi-tools", func(c echo.Context) error {
 		fmt.Println("cgi page", "hi")
 		return c.Render(http.StatusOK, "cgi-tools.html", nil)
