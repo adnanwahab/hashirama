@@ -78,5 +78,6 @@ and this repo just the LUA-based llm customzation layer for robotics - thats the
 # Thanks Bot-party
 //render the unviersity-footer
 
-//oct 11 - 3d diffusion - 6 hours
-//hardware module - 6 hours
+# oct 11
+- 3d diffusion - 4 hours
+- hardware module - 5 hours
