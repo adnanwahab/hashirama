@@ -8,7 +8,9 @@
     "cog": "bun run js/cognition_engine_parser.js",
     "dev": "bun run js/llama-server.js --hot",
     "pprof": "go tool trace trace.out",
-    "hardware_helper": "bun run js/hardware/hardware-company-helper.js"
+    "hardware_helper": "bun run js/hardware/hardware-company-helper.js",
+    "tailscale_server": "sudo tailscale serve 3000",
+    "download_notebooks": "python infra/scripts/download_notebooks.py"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.7.4",

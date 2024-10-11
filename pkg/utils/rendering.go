@@ -100,7 +100,7 @@ func SetupRendering(e *echo.Echo) {
 	// 	log.Fatalf("Error setting up dynamic routes: %v", err)
 	// }
 	e.GET("/", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "index.html", nil)
+		return c.Render(http.StatusOK, "robotics-odyssey.html", nil)
 	})
 	e.GET("/robotics-odyssey", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "robotics-odyssey.html", nil)
@@ -108,6 +108,10 @@ func SetupRendering(e *echo.Echo) {
 	e.GET("/cgi-tools", func(c echo.Context) error {
 		fmt.Println("cgi page", "hi")
 		return c.Render(http.StatusOK, "cgi-tools.html", nil)
+	})
+	e.GET("/office-hours", func(c echo.Context) error {
+		fmt.Println("cgi page", "hi")
+		return c.Render(http.StatusOK, "office-hours.html", nil)
 	})
 }
 

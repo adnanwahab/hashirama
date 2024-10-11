@@ -15,6 +15,7 @@ const routes = [
   'for_jp',
   "index",
   'api_docs',
+  //"rich_hickey" simplify - made easy - 
 ]
 
 const path_maker = (route) => join(llamatoolsir, route + '.html')

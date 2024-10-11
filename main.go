@@ -51,10 +51,15 @@ func main() {
 		c.Response().WriteHeader(resp.StatusCode)
 		_, err = io.Copy(c.Response().Writer, resp.Body)
 		return err
-	})
-	//}
 
+	})
 	if err := e.Start(":3000"); err != nil && !errors.Is(err, http.ErrServerClosed) {
 		log.Fatal(err)
 	}
 }
+
+// proxy /* to bun-ui-process
+// proxy /api/* to cgi-backend
+// proxy /observable/* to observablehq
+//keep this to 50 lines - all code basically
+//rich-hickey-endpoint (simplificaiton llama)

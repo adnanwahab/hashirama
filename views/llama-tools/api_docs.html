@@ -2,21 +2,57 @@
   <h1>API Documentation</h1>
   <p>Welcome to the API documentation for our application.</p>
   <h2>Endpoints</h2>
-  <ul classs="text-white">
+  <ul id="observable-links" class="text-white">
     <li><strong>GET /api/data</strong> - Retrieve data from the server.</li>
     <li><strong>POST /api/data</strong> - Send data to the server.</li>
+</ul>
+
+<div class="iframe-container">
 
 
+</div>
+
+<!-- <div id="observablehq-c7b4d5a7"></div>
 
 
-    _content_
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from ;
+new Runtime().module(define, Inspector.into("#observablehq-c7b4d5a7"));
+</script>
+"https://api.observablehq.com/@roboticsuniversity/alan_how.js"
+
+-->
+
+    <script>
+//<"https://observablehq.com/embed/@roboticsuniversity/alan_how?cell=*&banner=false"
+//get this links from robotics-university-backend
+const observable_links = {
+voxels: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*", 
+  dynamicland: "https://observablehq.com/embed/@roboticsuniversity/dynamicland?cell=*",
+  livekit: "https://observablehq.com/embed/@roboticsuniversity/livekit-robotics-tele-guidance?cell=*",
+  alan_how: "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*",
+  hardware: "https://observablehq.com/embed/@roboticsuniversity/1-hardware-design-repair?cell=*",
+  prediction: "https://observablehq.com/embed/@roboticsuniversity/3-planning-prediction?cell=*",
+  infra: "https://observablehq.com/embed/@roboticsuniversity/infrastructure-notebook@13?cell=*",
+    democracy: "https://observablehq.com/embed/@roboticsuniversity/collaborative-ui-twitch-plays-robot?cell=*",
+}
+const links_ul = document.querySelector("#observable-links");
 
 
+const toHTML  = Object.entries(observable_links).map(([name, link]) => {
+  const li = document.createElement("li");
+  li.innerHTML = `<div class="flex"><a href="${link}">${name}</a></div>`;
+return li
+});
+links_ul.innerHTML = toHTML.map(li => li.innerHTML).join("");
 
+const iframe = document.querySelector(".iframe-container");
 
-
-
-
+iframe.innerHTML = Object.entries(observable_links)
+.map(([name, link]) => `<h1>${name}</h1><iframe width="100%" height="500" frameborder="0" src="${link}"></iframe>` ).join('\n')
+    </script>
 
   </ul>
 </div>

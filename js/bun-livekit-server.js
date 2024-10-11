@@ -7,7 +7,7 @@ const wsUrl = 'wss://omnissiah-university-kmuz0plz.livekit.cloud'
 
 
 async function connect_to_livekit() {
-  //config()
+  console.log('happy landia')
   const token = new AccessToken(apiKey, apiSecret, {
     identity: 'example-participant',
   });
@@ -24,4 +24,5 @@ async function connect_to_livekit() {
 }
 
 export { connect_to_livekit }
-
+// observable is the mueseum the wizards talked about
+// see a canvas - add to it 
