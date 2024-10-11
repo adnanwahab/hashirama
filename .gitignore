@@ -396,10 +396,7 @@ CATKIN_IGNORE
 *.dylib
 *.dll
 
-# Fortran module files
-*.mod
-
-# Compiled Static libraries
+# Fortran module files # Compiled Static libraries
 *.lai
 *.la
 *.a
