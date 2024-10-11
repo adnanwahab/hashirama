@@ -115,7 +115,13 @@ func SetupRendering(e *echo.Echo) {
 	})
 	e.GET("/office-hours", func(c echo.Context) error {
 		fmt.Println("cgi page", "hi")
+		// headless ui
 		return c.Render(http.StatusOK, "office-hours.html", nil)
+	})
+
+	e.POST("/signup", func(c echo.Context) error {
+		fmt.Println("signup page", "hi")
+		return c.Render(http.StatusOK, "signup.html", nil)
 	})
 }
 

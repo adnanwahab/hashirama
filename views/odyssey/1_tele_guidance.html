@@ -1,8 +1,18 @@
 <!--  -->
 <!-- https://observablehq.com/@roboticsuniversity/collaborative-ui-twitch-plays-robot -->
  <!-- retool - study - them - anything dataregl  -->
+
+ <style>
+  .tele-guidance-livekit {
+    height: 800px;
+  }
+
+  .tele-guidance-voxels {
+    width: 600px;
+  }
+ </style>
  {{define "tele-guidance-frame"}}
- <iframe src="http://localhost:3003/{{.}}" class="h-80 w-full"></iframe>
+ <iframe src="http://localhost:3003/{{.}}" class="tele-guidance-{{.}} h-80 w-full"></iframe>
  {{end}}
 
 <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
@@ -20,7 +30,7 @@
       >
         <div id="livekit-container" class="h-80 w-full">
           <!-- <img src="https://files.hashirama.blog/static/blog/5.png" class="h-80 w-full" /> -->
-           {{template "tele-guidance-frame" "livekit"}}
+           {{template "tele-guidance-frame" "livekit_subscriber"}}
         </div>
 
       </div>
@@ -47,7 +57,7 @@
         class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
       >
         {{template "tele-guidance-frame" "voxels"}}
-        <iframe style="width: 600px; " class="iframe-container" src="https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*"></iframe>
+        <!-- <iframe style="width: 600px; " class="iframe-container" src="https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*"></iframe> -->
       </div>
     </div>
   </div>

@@ -7,7 +7,10 @@ const wsUrl = "wss://omnissiah-university-kmuz0plz.livekit.cloud";
 
 async function connect_to_livekit(options) {
   console.log("options", options);
-  if (!options.identity) throw new Error("requester must have an identity");
+  //if (!options.identity) throw new Error("requester must have an identity");
+  if (!options.identity) {
+    options.identity = 'anonymous' + Math.random().toString(36).substring(2, 15);
+  }
   const token = new AccessToken(apiKey, apiSecret, {
     identity: options.identity,
   });

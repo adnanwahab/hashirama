@@ -22,7 +22,9 @@ const observable_links = {
   //"worrydream": "https://observablehq.com/embed/@roboticsuniversity/worrydream?cell=*",
   //"dynamicland.org": "https://observablehq.com/embed/@roboticsuniversity/dynamicland.org?cell=*",
   dynamicland: "https://observablehq.com/embed/@roboticsuniversity/dynamicland?cell=*",
-  livekit: "https://observablehq.com/embed/@roboticsuniversity/livekit?cell=*",
+  "livekit_subscriber": "https://observablehq.com/embed/@roboticsuniversity/livekit?cell=*",
+//  "livekit_subscriber": "https://observablehq.com/embed/@roboticsuniversity/livekit-robotics-tele-guidance?cell=*",
+
   alan_how:
     "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*",
   hardware: "https://observablehq.com/embed/@roboticsuniversity/robotics-hardware?cell=*",
@@ -59,7 +61,9 @@ function stubObservable(name) {
 // learn react 
 
 function observable_template(name) {
-
+  if (name === 'livekit') {
+    return stubObservable(name)
+  }
  
   const _ = observable_links[name];
   if (!_) {
