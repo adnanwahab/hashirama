@@ -1,4 +1,15 @@
 <div class="bg-blue-500">
+  <div id="observablehq-0cbe9e04"></div>
+  <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/dynamicland">DynamicLand.org by roboticsuniversity</a></p>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  <script type="module">
+  import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+  import define from "https://api.observablehq.com/@roboticsuniversity/dynamicland.js?v=4";
+  new Runtime().module(define, Inspector.into("#observablehq-0cbe9e04"));
+  </script>
+
+
   <h1>API Documentation</h1>
   <p>Welcome to the API documentation for our application.</p>
   <h2>Endpoints</h2>
@@ -11,9 +22,22 @@
 
 
 </div>
+<!-- <div id="observablehq-staticDynamicland-8e24d645"></div>
+<p>Credit: <a href="https://observablehq.com/@roboticsuniversity/ode-to-dynamicland-org">DynamicLand.org by roboticsuniversity</a></p>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/@roboticsuniversity/ode-to-dynamicland-org.js?v=4";
+new Runtime().module(define, name => {
+  if (name === "staticDynamicland") return new Inspector(document.querySelector("#observablehq-staticDynamicland-8e24d645"));
+});
+</script> -->
+
+<!-- 
+<iframe width="100%" height="660" frameborder="0"
+  src="https://observablehq.com/embed/@roboticsuniversity/ode-to-dynamicland-org?cells=staticDynamicland"></iframe> -->
 <!-- <div id="observablehq-c7b4d5a7"></div>
-
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
@@ -29,20 +53,19 @@ new Runtime().module(define, Inspector.into("#observablehq-c7b4d5a7"));
   src="https://observablehq.com/embed/@roboticsuniversity/1-hardware-design-repair?cells=first_vis"></iframe> -->
 <script>
 const observable_links = {
-  twitch: function () {
-    //return TwitchPlaysPokemonPanel({})
-    return 'idk'
-  },
-//voxels: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*", 
-  // "dynamicland.org": "https://observablehq.com/embed/@roboticsuniversity/dynamicland.org?cell=*",
+  // twitch: function () {
+  //   //return TwitchPlaysPokemonPanel({})
+  //   return 'idk'
+  // },
+// voxels: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*", 
+   "dynamicland": "https://observablehq.com/embed/@roboticsuniversity/dynamicland?cell=*",
   // livekit: "https://observablehq.com/embed/@roboticsuniversity/livekit-robotics-tele-guidance?cell=*",
-  //alan_how: "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*",
+  // alan_how: "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*",
   
   // hardware: "https://observablehq.com/embed/@roboticsuniversity/robotics-hardware?cell=*",
-  //prediction: "https://observablehq.com/embed/@roboticsuniversity/3-planning-prediction?cell=*",
-  //infra: "https://observablehq.com/embed/@roboticsuniversity/infrastructure-notebook@13?cell=*",
-    //democracy: "https://observablehq.com/embed/@roboticsuniversity/collaborative-ui-twitch-plays-robot?cell=*",
-
+  // prediction: "https://observablehq.com/embed/@roboticsuniversity/3-planning-prediction?cell=*",
+  // infra: "https://observablehq.com/embed/@roboticsuniversity/infrastructure-notebook@13?cell=*",
+  //   democracy: "https://observablehq.com/embed/@roboticsuniversity/collaborative-ui-twitch-plays-robot?cell=*"
 }
 const links_ul = document.querySelector("#observable-links");
 
@@ -66,8 +89,31 @@ const render_pages = ([name, link]) => {
 }
 
 iframe.innerHTML = Object.entries(observable_links).map(render_pages)
-    </script>
+    </script> 
 
+<!--     
+<iframe width="100%" height="500" frameborder="0"
+src="https://observablehq.com/embed/@roboticsuniversity/ode-to-dynamicland-org@7?cell=*"></iframe>  -->
   </ul>
 </div>
 <!-- zoom in - rotate - transform -->
+<!-- wizards agree  that  observable = mueseum of art - fork the paintings - create new renditions - all creation is - combination of 2 things - 
+ 
+you cant create anything from nothing - you are electron soup - writing a pen? 
+creation is just deisng = design = anti-chaos - creating structures which persist across time 
+now everyone is a diesgner 
+everyone is an artist - 
+everyone has 100x more visual and spatial intellgience than scoiety currently harnesses - bc - text based - easiest thing to scale. 
+Yann LE Cunnn - - find something better than LLMs 
+cognition engine - changing text into 3d-video and phyiscal structureas. 
+
+video games are a treasure chest of good ideas. 
+-->
+
+<!-- what  does superficial mean? - what did kapil really mean?? what did paul graham mean? (what you cant decorate 5 per person - add the treasure - ) -->
+
+<!-- what can AI never do - idk ---- design - begings with human needs - 
+humor haha 
+LLM rendering on audience - 
+theiss: hardware innovations could create infinite prosperity in the next 7 years -- claude e shannon
+-->

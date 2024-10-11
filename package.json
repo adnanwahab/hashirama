@@ -26,7 +26,10 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.29.0",
     "@iconify-json/ic": "^1.1.17",
+    "@observablehq/runtime": "5",
     "@octokit/rest": "^21.0.2",
+    "@roboticsuniversity/dynamicland": "https://api.observablehq.com/@roboticsuniversity/dynamicland@9.tgz?v=3",
+    "@roboticsuniversity/ode-to-dynamicland-org": "https://api.observablehq.com/@roboticsuniversity/ode-to-dynamicland-org.tgz?v=3",
     "@tailwindcss/forms": "^0.5.9",
     "dotenv": "^16.4.5",
     "draco3d": "^1.5.7",

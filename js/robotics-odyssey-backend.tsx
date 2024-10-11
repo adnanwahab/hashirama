@@ -7,15 +7,22 @@ import path from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const staticDir = join(__dirname, 'static')
+
+import dynamicland from './DynamicLand.tsx'
 import React from 'react';
 
 import { renderToString } from 'react-dom/server';
 
 import TwitchPlaysPokemonPanel from './react-server.tsx'
+//rich hickey talks - all favorite blogs - find all devices - export history - script - tailscale - observable-server
   
 const observable_links = {
-  voxels: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*", 
-  "dynamicland.org": "https://observablehq.com/embed/@roboticsuniversity/dynamicland?cell=*",
+  voxels: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*",
+  
+  
+  //"worrydream": "https://observablehq.com/embed/@roboticsuniversity/worrydream?cell=*",
+  //"dynamicland.org": "https://observablehq.com/embed/@roboticsuniversity/dynamicland.org?cell=*",
+  dynamicland: dynamicland,
   livekit: "https://observablehq.com/embed/@roboticsuniversity/livekit?cell=*",
   alan_how: "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*",
   hardware: "https://observablehq.com/embed/@roboticsuniversity/1-hardware-design-repair?cell=*",
@@ -29,18 +36,17 @@ const observable_links = {
   research: "https://observablehq.com/embed/@roboticsuniversity/5000-research-papers?cell=*",
   //semseg: "https://observablehq.com/embed/@roboticsuniversity/semantic-segmentation-robot?cell=*",
 }
-function observable_template(name) { 
+function observable_template(name) {
+  return renderToString(React.createElement(dynamicland));
   const _ = observable_links[name]
   if (!_) {
     return new Error(`No notebook found for ${name}`)
   }
   if (typeof _ === 'function') {
-    const reactComponent = observable_links.twitch
-    const componentHtml = renderToString(React.createElement(reactComponent));
-    return componentHtml;
+    return renderToString(React.createElement(_));
   }
 
-  console.log('name', observable_links[name])
+  //console.log('name', observable_links[name])
   if (typeof observable_links[name] === 'function') {
     return observable_links[name]({})
   }
