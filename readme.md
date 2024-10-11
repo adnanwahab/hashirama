@@ -57,3 +57,5 @@ find the limiting reagnets - oct 12 - sapolsky
 self-teaching course - no instructor, every student every other - like thestudio.yoga
 sincerely,
   (olivander + faye valender)
+This course will receive daily updates for the next 25 years, on the frontier of robotics and humanist UI design.
+90% of proceeds will go to infrastructure for serving free compute, and hardware-discounts like 1 laptop per child.

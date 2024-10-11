@@ -34,9 +34,18 @@
 
       async function startLiveKit() {
         const url = "wss://omnissiah-university-kmuz0plz.livekit.cloud";
-        const response = await fetch("/livekit"); // Replace with your token API
-        const json = await response.json();
-        console.log(json);
+        const data = { identity: "happydream" + Math.random() };
+
+        d3.request("/livekit")
+          .header("Content-Type", "application/json")
+          .post(JSON.stringify(data), (error, response) => {
+            if (error) {
+              console.error("Error:", error); // Handle errors
+            } else {
+              console.log(JSON.parse(response.responseText)); // Handle the response data
+            }
+          });
+
         let roomOptions = {};
         let connectOptions = {};
         let shouldPublish = true;
