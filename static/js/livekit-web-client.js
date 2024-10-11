@@ -13,22 +13,25 @@ VideoPresets,
 } from 'https://unpkg.com/livekit-client@2.5.7/dist/livekit-client.esm.mjs?module'
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
+//joshua bloch - get a comment - re-organizer - llm
 async function connect() {
-    const {wsUrl, token} = await d3.json('connect')
+    const data = { identity: "worrydream" + Math.random() }
+    const post_data_options = {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+    }
+    const {wsUrl, token} = await d3.json('connect', post_data_options)
     if (wsUrl === '404') {
         console.log('404')
         throw new Error('404')
     }
     console.log(wsUrl, token)
 
-
-
-
-
-    
     return {wsUrl, token}
 }
-
 
 async function initializeRoom() {
     const connection = await connect();
@@ -39,15 +42,9 @@ async function initializeRoom() {
     await room.connect(connection.wsUrl, connection.token);
 
     const localParticipant = room.localParticipant;
-    console.log(localParticipant);
-
     // publish local camera and mic tracks
     await localParticipant.enableCameraAndMicrophone();
-
-    console.log(localParticipant);
-
     // ... existing event listeners and functions ...
-
     const tracks = await createLocalTracks({
         audio: true,
         video: true,

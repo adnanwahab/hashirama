@@ -34,7 +34,7 @@
 
       async function startLiveKit() {
         const url = "wss://omnissiah-university-kmuz0plz.livekit.cloud";
-        const response = await fetch("/getToken?role=publisher"); // Replace with your token API
+        const response = await fetch("/livekit"); // Replace with your token API
         const json = await response.json();
         console.log(json);
         let roomOptions = {};

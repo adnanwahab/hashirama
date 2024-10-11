@@ -1,57 +1,64 @@
-import { join } from 'path';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
+import { join } from "path";
+import fs from "fs";
+import { fileURLToPath } from "url";
 import { serve } from "bun";
-import path from 'path';
-//import { connect_to_livekit } from './bun-livekit-server.js'
+import path from "path";
+import { connect_to_livekit } from "./bun-livekit-server.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const staticDir = join(__dirname, 'static')
+const staticDir = join(__dirname, "static");
 
-import dynamicland from './DynamicLand.tsx'
-import React from 'react';
+import dynamicland from "./DynamicLand.tsx";
+import React from "react";
 
-import { renderToString } from 'react-dom/server';
+import { renderToString } from "react-dom/server";
 
-import TwitchPlaysPokemonPanel from './react-server.tsx'
+import TwitchPlaysPokemonPanel from "./react-server.tsx";
 //rich hickey talks - all favorite blogs - find all devices - export history - script - tailscale - observable-server
-  
+
 const observable_links = {
-  voxels: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*",
-  
-  
+  voxels:
+    "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*",
+
   //"worrydream": "https://observablehq.com/embed/@roboticsuniversity/worrydream?cell=*",
   //"dynamicland.org": "https://observablehq.com/embed/@roboticsuniversity/dynamicland.org?cell=*",
   dynamicland: dynamicland,
   livekit: "https://observablehq.com/embed/@roboticsuniversity/livekit?cell=*",
-  alan_how: "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*",
-  hardware: "https://observablehq.com/embed/@roboticsuniversity/1-hardware-design-repair?cell=*",
-  prediction: "https://observablehq.com/embed/@roboticsuniversity/3-planning-prediction?cell=*",
-  infra: "https://observablehq.com/embed/@roboticsuniversity/infrastructure-notebook@13?cell=*",
-  democracy: "https://observablehq.com/embed/@roboticsuniversity/collaborative-ui-twitch-plays-robot?cell=*",
+  alan_how:
+    "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*",
+  hardware:
+    "https://observablehq.com/embed/@roboticsuniversity/1-hardware-design-repair?cell=*",
+  prediction:
+    "https://observablehq.com/embed/@roboticsuniversity/3-planning-prediction?cell=*",
+  infra:
+    "https://observablehq.com/embed/@roboticsuniversity/infrastructure-notebook@13?cell=*",
+  democracy:
+    "https://observablehq.com/embed/@roboticsuniversity/collaborative-ui-twitch-plays-robot?cell=*",
   twitch: TwitchPlaysPokemonPanel,
 
   //twitch: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*",
 
-  research: "https://observablehq.com/embed/@roboticsuniversity/5000-research-papers?cell=*",
+  research:
+    "https://observablehq.com/embed/@roboticsuniversity/5000-research-papers?cell=*",
   //semseg: "https://observablehq.com/embed/@roboticsuniversity/semantic-segmentation-robot?cell=*",
-}
+};
 function observable_template(name) {
   return renderToString(React.createElement(dynamicland));
-  const _ = observable_links[name]
+  const _ = observable_links[name];
   if (!_) {
-    return new Error(`No notebook found for ${name}`)
+    return new Error(`No notebook found for ${name}`);
   }
-  if (typeof _ === 'function') {
+  if (typeof _ === "function") {
     return renderToString(React.createElement(_));
   }
 
   //console.log('name', observable_links[name])
-  if (typeof observable_links[name] === 'function') {
-    return observable_links[name]({})
+  if (typeof observable_links[name] === "function") {
+    return observable_links[name]({});
   }
-  const link = observable_links[name]
-  const regex = /https:\/\/observablehq\.com\/embed\/@roboticsuniversity\/collaborative-ui-twitch-plays-robot\?cell=\*/;
+  const link = observable_links[name];
+  const regex =
+    /https:\/\/observablehq\.com\/embed\/@roboticsuniversity\/collaborative-ui-twitch-plays-robot\?cell=\*/;
 
   const idMatch = link.match(/@roboticsuniversity\/([^?]+)/);
   const id = idMatch ? idMatch[1] : null;
@@ -59,54 +66,80 @@ function observable_template(name) {
     return new Error(`Invalid link format for ${name}`);
   }
 
-  const js_link = `https://api.observablehq.com/@roboticsuniversity/${id}.js`
+  const js_link = `https://api.observablehq.com/@roboticsuniversity/${id}.js`;
 
   return `
   <div>This is a bun component from robotics-odyssey-backend</div>
   <div class="observablehq-${id}"></div>
   <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/${id}">${name}</a></p>
-  
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
   <script type="module">
   import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
   import define from "${js_link}";
   new Runtime().module(define, Inspector.into(".observablehq-${id}"));
   </script>
-  `
+  `;
 }
 
-const port = 3003
+const port = 3003;
 
 const render_everything = async (req) => {
-  const url = req.url
-  console.log('url', url)
-  const notebook_name = new URL(req.url).pathname.slice(1);  //req.url.split("?idk=")[1];
-  let content = ''
+  const url = req.url;
+  console.log("url", url);
+  const notebook_name = new URL(req.url).pathname.slice(1); //req.url.split("?idk=")[1];
+  let content = "";
+  console.log('notebook_name', notebook_name)
 
-  if (url.startsWith("http://localhost:3003/static")) { // Remove .pathname
+  if (notebook_name === 'pub.html') {
+    content = fs.readFileSync(join(__dirname, '/pub.html'), 'utf8')
+    return new Response(content, {headers: { "Content-Type": "text/html"}})
+  }
+  console.log('url', notebook_name === "livekit")
+  // edit language to take safety and humane technolgoy more seriously - kapil
+  if (url.startsWith("http://localhost:3003/static")) {
     return Bun.file(join(staticDir, url.replace("/static", "")));
   }
+
+  if (req.method === "POST" && req.headers.get("content-type") === "application/json") {
+    const data = await req.json(); // Parses JSON body automatically
+    if () {
+      console.log('data', data)
+      connect_to_livekit(data);
+    }
+    return new Response(`Received JSON data: ${JSON.stringify(data)}`);
+  }
   if (url === "http://localhost:3003/") {
-     content = fs.readFileSync(join('/Users/shelbernstein/homelab_status_page/views/llama-tools/api_docs.html'), 'utf8')
+    content = fs.readFileSync(
+      join(
+        "/Users/shelbernstein/homelab_status_page/views/llama-tools/api_docs.html",
+      ),
+      "utf8",
+    );
   } else {
-    content = observable_template(notebook_name)
+    content = observable_template(notebook_name);
   }
 
-    return new Response(content, {
-      headers: {
-        "Content-Type": "text/html",
-      },
-    });
-}
+
+
+
+
+
+  return new Response(content, {
+    headers: {
+      "Content-Type": "text/html",
+    },
+  });
+};
 
 serve({
-   fetch(req) {
+  fetch(req) {
     return render_everything(req)
-    .then(res => res)
-    .catch(err => {
-      console.error(err)
-      return new Response("Error: " + err.message, { status: 500 })
-    })
+      .then((res) => res)
+      .catch((err) => {
+        console.error(err);
+        return new Response("Error: " + err.message, { status: 500 });
+      });
   },
   port: port, // You can change the port if needed
 });
@@ -114,14 +147,12 @@ serve({
 //console.log(typeof TwitchPlaysPokemonPanel())
 console.log("Bun server is running on http://localhost:" + port);
 
-
-//obseravble university 
-
+//obseravble university
 
 // uppload diff of notebook - download diff - render automatically - etc
 
 //Overriding cell values
-//bun run -- update-notebooks 
+//bun run -- update-notebooks
 //creates a jons - observable links
 // run bun script to parse pages and create links
 // all front end componets can use either react or native html/css/js
