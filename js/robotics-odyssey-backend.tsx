@@ -95,22 +95,32 @@ const render_everything = async (req) => {
     content = fs.readFileSync(join(__dirname, '/pub.html'), 'utf8')
     return new Response(content, {headers: { "Content-Type": "text/html"}})
   }
-  console.log('url', notebook_name === "livekit")
   // edit language to take safety and humane technolgoy more seriously - kapil
   if (url.startsWith("http://localhost:3003/static")) {
     return Bun.file(join(staticDir, url.replace("/static", "")));
   }
+  console.log('url', notebook_name === "livekit")
+  console.log('method', req.method)
+  // make this work for both post + jsonp
+  if (req.method === "GET") {
 
-  if (req.method === "POST") {
-    const data = await req.json(); // Parses JSON body automatically
-    if (notebook_name === "livekit") {
-      console.log('data', data)
-      const res = await connect_to_livekit(data);
-      console.log('res', res)
-      return new Response(JSON.stringify(res));
+
+    const queryParams = new URLSearchParams(new URL(req.url).search);
+    const params = {};
+    for (const [key, value] of queryParams.entries()) {
+      params[key] = value;
     }
-    return new Response(`Received JSON data: ${JSON.stringify(data)}`);
+    console.log('Query Parameters:', params);
+
+    if (notebook_name === "livekit") {
+      //console.log('data', params)
+      const json = await connect_to_livekit(params);
+      console.log('res', json)
+      return new Response(JSON.stringify(json));
+    }
   }
+
+
   if (url === "http://localhost:3003/") {
     content = fs.readFileSync(
       join(
