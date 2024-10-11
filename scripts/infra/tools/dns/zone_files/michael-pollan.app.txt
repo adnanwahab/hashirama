@@ -1,0 +1,38 @@
+;;
+;; Domain:     michael-pollan.app
+;; Exported:   2024-08-25 00:52:31
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.
+
+;; SOA Record
+michael-pollan.app.	3600	IN	SOA	bonnie.ns.cloudflare.com. dns.cloudflare.com. 2024082501 10000 2400 604800 3600
+
+;; NS Records
+michael-pollan.app.	86400	IN	NS	bonnie.ns.cloudflare.com.
+michael-pollan.app.	86400	IN	NS	everton.ns.cloudflare.com.
+
+;; MX Records for Google Workspace
+michael-pollan.app.	3600	IN	MX	1 aspmx.l.google.com.
+michael-pollan.app.	3600	IN	MX	5 alt1.aspmx.l.google.com.
+michael-pollan.app.	3600	IN	MX	5 alt2.aspmx.l.google.com.
+michael-pollan.app.	3600	IN	MX	10 alt3.aspmx.l.google.com.
+michael-pollan.app.	3600	IN	MX	10 alt4.aspmx.l.google.com.
+
+;; TXT Record for Google Workspace verification (replace with your actual verification code)
+michael-pollan.app.	3600	IN	TXT	"google-site-verification=your_verification_code_here"
+
+;; CNAME Records for Google Workspace services
+calendar	3600	IN	CNAME	ghs.googlehosted.com.
+drive		3600	IN	CNAME	ghs.googlehosted.com.
+mail		3600	IN	CNAME	ghs.googlehosted.com.
+groups		3600	IN	CNAME	ghs.googlehosted.com.
+
+;; A Record for your domain (replace with your actual IP if not using Cloudflare proxy)
+michael-pollan.app.	1	IN	A	192.0.2.1
+
+;; AAAA Record for IPv6 (if applicable)
+michael-pollan.app.	1	IN	AAAA	2001:db8::1
+
+;; Additional records as needed for your specific setup

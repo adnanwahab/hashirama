@@ -1,0 +1,8 @@
+baseURL = 'https://Hashirama.blog'
+languageCode = 'en-us'
+title = 'Hashirama Institute'
+[params]
+  subtitle = 'Frontier at the Intersection of BioTech, Robotics, GovTech, Math and Machine Learning Infrastructure'
+  [params.contact]
+    email = 'mail@adnanwahab.com'
+    phone = '+1 346 697-0747'

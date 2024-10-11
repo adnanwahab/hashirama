@@ -1,0 +1,124 @@
+{
+  "plugins": [
+    {
+      "link": "https://github.com/caddy-dns/cloudflare",
+      "name": "caddy-dns/cloudflare"
+    },
+    {
+      "link": "https://github.com/caddy-dns/route53",
+      "name": "caddy-dns/route53"
+    },
+    {
+      "link": "https://github.com/caddy-dns/duckdns",
+      "name": "caddy-dns/duckdns"
+    },
+    {
+      "link": "https://github.com/mholt/caddy-dynamicdns",
+      "name": "mholt/caddy-dynamicdns"
+    },
+    {
+      "link": "https://github.com/abiosoft/caddy-exec",
+      "name": "abiosoft/caddy-exec"
+    },
+    {
+      "link": "https://github.com/caddy-dns/digitalocean",
+      "name": "caddy-dns/digitalocean"
+    },
+    {
+      "link": "https://github.com/caddy-dns/alidns",
+      "name": "caddy-dns/alidns"
+    },
+    {
+      "link": "https://github.com/WeidiDeng/caddy-cloudflare-ip",
+      "name": "WeidiDeng/caddy-cloudflare-ip"
+    },
+    {
+      "link": "https://github.com/caddy-dns/hetzner",
+      "name": "caddy-dns/hetzner"
+    },
+    {
+      "link": "https://github.com/ueffel/caddy-brotli",
+      "name": "ueffel/caddy-brotli"
+    },
+    {
+      "link": "https://github.com/caddy-dns/godaddy",
+      "name": "caddy-dns/godaddy"
+    },
+    {
+      "link": "https://github.com/ss098/certmagic-s3",
+      "name": "ss098/certmagic-s3"
+    },
+    {
+      "link": "https://github.com/caddy-dns/googleclouddns",
+      "name": "caddy-dns/googleclouddns"
+    },
+    {
+      "link": "https://github.com/baldinof/caddy-supervisor",
+      "name": "baldinof/caddy-supervisor"
+    },
+    {
+      "link": "https://github.com/chukmunnlee/caddy-openapi",
+      "name": "chukmunnlee/caddy-openapi"
+    },
+    {
+      "link": "https://github.com/caddy-dns/azure",
+      "name": "caddy-dns/azure"
+    },
+    {
+      "link": "https://github.com/WingLim/caddy-webhook",
+      "name": "WingLim/caddy-webhook"
+    },
+    {
+      "link": "https://github.com/caddy-dns/vultr",
+      "name": "caddy-dns/vultr"
+    },
+    {
+      "link": "https://github.com/greenpau/caddy-git",
+      "name": "greenpau/caddy-git"
+    },
+    {
+      "link": "https://github.com/MagnaXSoftware/gopkg",
+      "name": "magnax.ca/caddy/gopkg"
+    },
+    {
+      "link": "https://github.com/caddy-dns/google-domains",
+      "name": "caddy-dns/google-domains"
+    },
+    {
+      "link": "https://github.com/caddy-dns/netlify",
+      "name": "caddy-dns/netlify"
+    },
+    {
+      "link": "https://github.com/pberkel/caddy-storage-redis",
+      "name": "pberkel/caddy-storage-redis"
+    },
+    {
+      "link": "https://github.com/tosie/caddy-dns-linode",
+      "name": "tosie/caddy-dns-linode"
+    },
+    {
+      "link": "https://github.com/caddy-dns/powerdns",
+      "name": "caddy-dns/powerdns"
+    },
+    {
+      "link": "https://github.com/sagikazarmark/caddy-fs-s3",
+      "name": "sagikazarmark/caddy-fs-s3"
+    },
+    {
+      "link": "https://github.com/anxuanzi/caddy-dns-ClouDNS",
+      "name": "anxuanzi/caddy-dns-ClouDNS"
+    },
+    {
+      "link": "https://github.com/caddy-dns/vercel",
+      "name": "caddy-dns/vercel"
+    },
+    {
+      "link": "https://github.com/enum-gg/caddy-discord",
+      "name": "enum-gg/caddy-discord"
+    },
+    {
+      "link": "https://github.com/mholt/caddy-hitcounter",
+      "name": "mholt/caddy-hitcounter"
+    }
+  ]
+}

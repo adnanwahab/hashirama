@@ -1,0 +1,88 @@
+	{
+	email adnan.f.wahab@gmail.com
+	log {
+		output file /var/log/caddy/caddy.log {
+			roll_size 10MiB
+			roll_keep 5
+			roll_gzip
+		}
+		level DEBUG
+	}
+    admin :2019 {
+        origins *
+    }
+}
+
+immich.hashirama.blog {
+	tls {
+		dns cloudflare zmb1iwA0eXhU4K_EWd229EHhcd6jfrklQ0loEvJx
+		resolvers 1.1.1.1
+	}
+	reverse_proxy localhost:2283
+}
+
+
+files.hashirama.blog {
+    root * /home/adnan/Videos
+    file_server browse
+    header Access-Control-Allow-Origin *
+    header Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    header Access-Control-Allow-Headers "Content-Type"
+}
+
+hashirama.com {
+  tls {
+                dns cloudflare zmb1iwA0eXhU4K_EWd229EHhcd6jfrklQ0loEvJx
+        }
+		respond "Hello, World!"
+
+	#reverse_proxy localhost:1337
+}
+hashirama.blog {
+	tls {
+		dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+
+		resolvers 1.1.1.1
+	}
+	reverse_proxy localhost:1337
+}
+#taiyongrobotics.com {}
+#michael-pollan.app{}
+#hashirama.info {}
+#hashirama.bio {}
+#leafstudio.design {}
+#leaf-front.com {}
+#hashirama.art {} - vercel
+
+
+
+# https://porkbun.com/api/json/v3/documentation
+# 5.  leaf -> caddy -> ???
+#
+# 1.
+# 2.
+# 3.
+# omnissiah-univeirsity
+#art, bio, tai-yong-robotics, leadstudio
+#cooperative-robotics
+#flirt-flow
+
+jupyter.hashirama.blog {
+header Content-Security-Policy "frame-ancestors 'self' https://hashirama.blog http://localhost:8000 http://localhost:8000g https://jupyter.hashirama.blog"
+    reverse_proxy localhost:8888 {
+        header_up X-Forwarded-Proto {scheme}
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up Cookie {http.request.header.cookie}
+    }
+}
+
+#hashirama.art, hashirama.bio,  hashirama.info, hashirama.lol, leafstudio.design, michael-pollan.app, taiyongrobotics.com, truth-about-ramonray.com {
+#  tls {
+#    dns cloudflare Sx4XBTXlCeXD5AJMW3f6MrqK6riL2Kj5wj5LhZn7
+#    resolvers 1.1.1.1
+#  }
+#  reverse_proxy localhost:8888
+#}
+
+#https://research.google/research-areas/machine-perception/
