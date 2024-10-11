@@ -1,31 +1,14 @@
-
 {{template "head.html" . }}
-https://github.com/nerfstudio-project/nerfstudio 
-https://github.com/YanjieZe/3D-Diffusion-Policy
-<!-- 9 posts - awahab.com - 172 blogs - siggrahp -->
-<ul class="text-blue-500">
-  <li>voice_reactive_particles</li>
-  <li>figma_to_animation</li>
-  <!-- <li>flux</li>
-  <li>git_viusalizer</li>
-  <li>stixels_voxels</li> -->
-</ul>
-{{define "cgi-label"}}
-<!-- <div class="text-blue-500 component-label-{{.}}"></div> -->
-<script type="module">
-  const label = d3.select(`.label-{{.}}`);
-  const component_label = d3.select(`.component-label-{{.}}`)
-  component_label.text(label.text())
-</script>
-{{end}}
 
 
 {{define "cgi_iframe" }}
 
-<div class="container-{{.}}"></div>
-<iframe class="h-full w-full" style="height:1000;" src="/cgi-backend/{{.}}"></iframe>
+<div class="container-{{.}}">
+  {{template "cgi_label" .}}
 
+<iframe class="h-full w-full" style="height:300;" src="/cgi-backend/{{.}}"></iframe>
 
+<!-- 
 <script type="module">
   const scoping = `{{.}}`
   const url = `/cgi-backend/`
@@ -61,12 +44,12 @@ const jsonData = {
   fileContent: 'blalbalhal',
  
 }
-</script>
+</script> -->
 {{end}}
 
 
 {{define "cg_grid_cell"}}
-<div class="relative lg:col-span-4">
+<div class="relative lg:col-span-4" style="height: 500px;">
   <div class="absolute inset-px rounded-lg bg-white"></div>
   <div
     class="relative flex h-full flex-col overflow-hidden"
@@ -87,20 +70,34 @@ const jsonData = {
     <div
       class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
     >
-      
-    {{template "cg_grid_cell" "voice_reactive_particles"}}
-    {{template "cg_grid_cell" "flux_test"}}
+    {{template "cg_grid_cell" "livekit_video"}}
+    {{if false }}{{template "cg_grid_cell" "flux_test"}}{{end}}
+    {{if false }} {{template "cg_grid_cell" "voice_reactive_particles"}}{{end}}
 
 
     </div>
   </div>
 </div>
 
-template "grid_cell" "replay_analyzer"
+<!-- template "grid_cell" "replay_analyzer" -->
 
-<pre>
+<!-- <pre>
   https://youtu.be/EmlWBsU48cU?si=WhCwasDMhRoV08Wz
 https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/index.html
 https://youtu.be/DQEa3IeqcOk?si=oN3V8daexhDBINtM
 https://zed.dev/docs/extensions/developing-extensions
-</pre>
+</pre> -->
+ 
+{{define "cgi_label"}}
+<div class="text-blue-500 component-label-{{.}}">{{.}}</div>
+<!-- <script type="module">
+  const label = d3.select(`.label-{{.}}`);
+  const component_label = d3.select(`.component-label-{{.}}`)
+  component_label.text(label.text())
+</script> -->
+{{end}}
+<!-- https://github.com/nerfstudio-project/nerfstudio  -->
+<!-- https://github.com/YanjieZe/3D-Diffusion-Policy -->
+<!-- 9 posts - awahab.com - 172 blogs - siggrahp -->
+<!-- render a lsit view of the routes from cig-backend -->
+

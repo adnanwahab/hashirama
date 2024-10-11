@@ -7,15 +7,16 @@ const fs = require('fs');
 import { connect_to_livekit } from './bun-livekit-server.js'
 
 const routes = [
-  'voice_reactive_particles',
-  'figma_to_animation', //flux
   'livekit_video',
+
+  'voice_reactive_particles',
+  'flux_test', //flux
   // 'git_viusalizer',
   // 'ig-generation-flux',
   // 'kill-math',
   // 'nerf',
   // 'scene_reconstruction',
-  // 'drone_map',
+  
 ]
 
 // obs + jupyter right panel (remote desktop on jupyter)
@@ -40,7 +41,7 @@ Bun.serve({
   port: port,
   async fetch(req) {
     let url = new URL(req.url).pathname;
-    //console.log('url', url);
+    console.log('url', url);
     if (url === '/') url = 'livekit_video';
     if (url === '/connect') { 
       const json = await connect_to_livekit()

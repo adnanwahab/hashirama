@@ -1,160 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/static/output.css" rel="stylesheet">
-
-</head>
-<body class="bg-slate-500" style="background-color: red;">
-    <h1>Welcome to the Bun ___ Server</h1>
-    <div id="livekit-token">${jwt}</div>
-    <div id="livekit-ws-url">${wsUrl}</div>
-
-
-    <p>This is a simple HTML page served by Bun.</p>
-    <script type="module">
-import {
-createLocalTracks,
-  Participant,
-  RemoteParticipant,
-  RemoteTrack,
-  RemoteTrackPublication,
-  RoomEvent,
-  VideoPresets,
-  Track,
-  LocalTrackPublication,
-  LocalParticipant,
-
-Room } from 'https://unpkg.com/livekit-client@2.5.7/dist/livekit-client.esm.mjs?module'
-
-const token = document.getElementById("livekit-token").textContent;
-const wsUrl = document.getElementById("livekit-ws-url").textContent;
-console.log(wsUrl);
-debugger
-if (false) connect()
-
-function connect() {
-const room = new Room();
-room.prepareConnection(wsUrl, token);
-await room.connect(wsUrl, token);
-
-// Add the following lines
-const localParticipant = room.localParticipant;
-console.log(localParticipant)
-
-
-// publish local camera and mic tracks
-await localParticipant.enableCameraAndMicrophone();
-
-console.log(localParticipant)
-
-
-
-
-room.on(RoomEvent.TrackPublished, (track, publication, participant) => {
-    console.log('Track Published:', track, publication, participant);
-});
-
-room.on(RoomEvent.TrackSubscribed, (track, publication, participant) => {
-    console.log('Track Subscribed:', track, publication, participant);
-});
-
-room.on(RoomEvent.TrackUnsubscribed, (track, publication, participant) => {
-    console.log('Track Unsubscribed:', track, publication, participant);
-});
-
-room.on(RoomEvent.ParticipantJoined, (participant) => {
-    console.log('Participant Joined:', participant);
-    participant.publishTrack(track, {
-        audio: true,
-        video: true,
-      });
-});
-
-room.on(RoomEvent.ParticipantLeft, (participant) => {
-    console.log('Participant Left:', participant);
-});
-
-room.on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
-    console.log('Active Speakers Changed:', speakers);
-});
-
-room.on(RoomEvent.Disconnected, () => {
-    console.log('Disconnected from room');
-});
-
-
-
-
-
-
-function handleTrackSubscribed(track, publication, participant) {
-  if (track.kind === 'video' || track.kind === 'audio') {
-    // attach it to a new HTMLVideoElement or HTMLAudioElement
-    const element = track.attach();
-    parentElement.appendChild(element);
-  }
-}
-
-function handleTrackUnsubscribed(track, publication, participant) {
-  // remove tracks from all attached elements
-  track.detach();
-}
-
-function handleLocalTrackUnpublished(publication, participant) {
-  // when local tracks are ended, update UI to remove them from rendering
-  publication.track.detach();
-}
-
-function handleActiveSpeakerChange(speakers) {
-  // show UI indicators when participant is speaking
-}
-
-function handleDisconnect() {
-  console.log('disconnected from room');
-}
-
-///const track = localParticipant.getTrackByName('camera')
-
-
-
-const tracks = await createLocalTracks({
-  audio: true,
-    facingMode: { exact: "environment" } // Use the environment (rear-facing) camera
-});
-
-
-  
-  // Render local camera track before publishing
-  const localVideoElement = document.createElement('video');
-  localVideoElement.autoplay = true;
-  localVideoElement.muted = true;
-  localVideoElement.srcObject = new MediaStream([tracks[1].mediaStreamTrack]); // Assuming video track is at index 1
-  document.body.appendChild(localVideoElement);
-
-  
-}
-
-    </script>
-</body>
-</html>
-
-
-<!-- 
 <!doctype html>
 <html lang="en">
   <head>
-    <title>three.js webgl - particles - waves</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
-    <link type="text/css" rel="stylesheet" href="main.css" />
+      <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/+esm",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+          }
+        }
+      </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/static/css/output.css" rel="stylesheet" />
+
   </head>
-  <body>
-    
+
+<div class="multiple-canvas">
+    <canvas class="one"></canvas>
+</div>
+
     <div id="info">
       <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a>
       - webgl particles waves example
@@ -162,45 +26,22 @@ const tracks = await createLocalTracks({
 
     <script type="x-shader/x-vertex" id="vertexshader">
 
-      attribute float scale;
 
-      void main() {
-
-      	vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
-
-      	gl_PointSize = scale * ( 300.0 / - mvPosition.z );
-
-      	gl_Position = projectionMatrix * mvPosition;
-
-      }
     </script>
 
     <script type="x-shader/x-fragment" id="fragmentshader">
 
-      uniform vec3 color;
-
-      void main() {
-
-      	if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;
-
-      	gl_FragColor = vec4( color, 1.0 );
-
-      }
+  
     </script>
 
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "../build/three.module.js",
-          "three/addons/": "./jsm/"
-        }
-      }
-    </script> 
 
-    <script type="module">
+
+    <script type="module" defer>
       import * as THREE from "three";
 
       import Stats from "three/addons/libs/stats.module.js";
+
+      const size = {width: innerWidth /2, height: innerHeight / 2}
 
       const SEPARATION = 100,
         AMOUNTX = 50,
@@ -215,8 +56,8 @@ const tracks = await createLocalTracks({
       let mouseX = 0,
         mouseY = 0;
 
-      let windowHalfX = window.innerWidth / 2;
-      let windowHalfY = window.innerHeight / 2;
+      let windowHalfX = size.width 
+      let windowHalfY = size.height 
 
       init();
 
@@ -264,12 +105,35 @@ const tracks = await createLocalTracks({
         );
         geometry.setAttribute("scale", new THREE.BufferAttribute(scales, 1));
 
+const fs = `    uniform vec3 color;
+
+      void main() {
+
+      	if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;
+
+      	gl_FragColor = vec4( color, 1.0 );
+
+      }`
+
+      const vs = ` attribute float scale;
+
+      void main() {
+
+      	vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+
+      	gl_PointSize = scale * ( 300.0 / - mvPosition.z );
+
+      	gl_Position = projectionMatrix * mvPosition;
+
+      }`
+
+
         const material = new THREE.ShaderMaterial({
           uniforms: {
             color: { value: new THREE.Color(0xffffff) },
           },
-          vertexShader: document.getElementById("vertexshader").textContent,
-          fragmentShader: document.getElementById("fragmentshader").textContent,
+          vertexShader: vs,
+          fragmentShader: fs,
         });
 
         //
@@ -279,11 +143,11 @@ const tracks = await createLocalTracks({
 
         //
 
-        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer = new THREE.WebGLRenderer({ antialias: true , canvas: document.querySelector('canvas.one')});
         renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        //renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setAnimationLoop(animate);
-        container.appendChild(renderer.domElement);
+        //container.appendChild(renderer.domElement);
 
         stats = new Stats();
         container.appendChild(stats.dom);
@@ -297,13 +161,13 @@ const tracks = await createLocalTracks({
       }
 
       function onWindowResize() {
-        windowHalfX = window.innerWidth / 2;
-        windowHalfY = window.innerHeight / 2;
+        windowHalfX = size.width ;
+        windowHalfY = size.height;
 
-        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.aspect = size.width  / window.innerHeight;
         camera.updateProjectionMatrix();
 
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(size.width , size.height);
       }
 
       //
@@ -356,8 +220,143 @@ const tracks = await createLocalTracks({
         count += 0.1;
       }
     </script>
+    <script type="module">
+      import {
+      createLocalTracks,
+        Participant,
+        RemoteParticipant,
+        RemoteTrack,
+        RemoteTrackPublication,
+        RoomEvent,
+        VideoPresets,
+        Track,
+        LocalTrackPublication,
+        LocalParticipant,
+
+      Room } from 'https://unpkg.com/livekit-client@2.5.7/dist/livekit-client.esm.mjs?module'
+
+
+      import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+async function connect() {
+    const {wsUrl, token} = await d3.json('/connect')
+    if (wsUrl === '404') {
+        console.log('404')
+        throw new Error('404')
+    }
+    console.log(wsUrl, token)
+        return {wsUrl, token}
+      }
+
+   
+      if (true) await run_liveKit()
+
+      async function run_liveKit() {
+        const {wsUrl, token} = await connect()
+        
+      const room = new Room();
+      room.prepareConnection(wsUrl, token);
+      await room.connect(wsUrl, token);
+
+      // Add the following lines
+      const localParticipant = room.localParticipant;
+      console.log(localParticipant)
+
+
+      // publish local camera and mic tracks
+      await localParticipant.enableCameraAndMicrophone();
+
+      console.log(localParticipant)
+
+
+
+
+      room.on(RoomEvent.TrackPublished, (track, publication, participant) => {
+          console.log('Track Published:', track, publication, participant);
+      });
+
+      room.on(RoomEvent.TrackSubscribed, (track, publication, participant) => {
+          console.log('Track Subscribed:', track, publication, participant);
+      });
+
+      room.on(RoomEvent.TrackUnsubscribed, (track, publication, participant) => {
+          console.log('Track Unsubscribed:', track, publication, participant);
+      });
+
+      room.on(RoomEvent.ParticipantJoined, (participant) => {
+          console.log('Participant Joined:', participant);
+          participant.publishTrack(track, {
+              audio: true,
+              video: true,
+            });
+      });
+
+      room.on(RoomEvent.ParticipantLeft, (participant) => {
+          console.log('Participant Left:', participant);
+      });
+
+      room.on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
+          console.log('Active Speakers Changed:', speakers);
+      });
+
+      room.on(RoomEvent.Disconnected, () => {
+          console.log('Disconnected from room');
+      });
+
+
+
+
+
+
+      function handleTrackSubscribed(track, publication, participant) {
+        if (track.kind === 'video' || track.kind === 'audio') {
+          // attach it to a new HTMLVideoElement or HTMLAudioElement
+          const element = track.attach();
+          parentElement.appendChild(element);
+        }
+      }
+
+      function handleTrackUnsubscribed(track, publication, participant) {
+        // remove tracks from all attached elements
+        track.detach();
+      }
+
+      function handleLocalTrackUnpublished(publication, participant) {
+        // when local tracks are ended, update UI to remove them from rendering
+        publication.track.detach();
+      }
+
+      function handleActiveSpeakerChange(speakers) {
+        // show UI indicators when participant is speaking
+      }
+
+      function handleDisconnect() {
+        console.log('disconnected from room');
+      }
+
+      ///const track = localParticipant.getTrackByName('camera')
+
+
+
+      const tracks = await createLocalTracks({
+        audio: true,
+          facingMode: { exact: "environment" } // Use the environment (rear-facing) camera
+      });
+
+
+
+        // Render local camera track before publishing
+        const localVideoElement = document.createElement('video');
+        localVideoElement.autoplay = true;
+        localVideoElement.muted = true;
+        localVideoElement.srcObject = new MediaStream([tracks[1].mediaStreamTrack]); // Assuming video track is at index 1
+        document.body.appendChild(localVideoElement);
+
+
+      }
+    </script>
   </body>
-</html> -->
+</html>
 <!-- fall asleep drawing comics  -->
 <!--  when you wakeup - different timeline -->
 <!-- particle times lines  -->
@@ -403,4 +402,3 @@ const tracks = await createLocalTracks({
 
 you propose update  to model to "know" which actions make sense in a different setting
 -->
-
