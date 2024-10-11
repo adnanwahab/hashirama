@@ -1,0 +1,173 @@
+{
+  "reasoning_and_seeing": {
+    "subcategories": {
+      "philosophy_of_mind": [
+        "Gödel, Escher, Bach: An Eternal Golden Braid by Douglas Hofstadter",
+        "The Conscious Mind: In Search of a Fundamental Theory by David Chalmers",
+        "Thinking, Fast and Slow by Daniel Kahneman",
+        "On Intelligence by Jeff Hawkins",
+        "The Society of Mind by Marvin Minsky"
+      ],
+      "cognitive_science": [
+        "Cognition: Exploring the Science of the Mind by Daniel Reisberg",
+        "The Mind’s I by Douglas Hofstadter and Daniel Dennett",
+        "The Origin of Consciousness in the Breakdown of the Bicameral Mind by Julian Jaynes"
+      ],
+      "visual_perception": [
+        "Vision Science: Photons to Phenomenology by Stephen E. Palmer",
+        "The Visual Brain in Action by David Milner and Melvyn Goodale",
+        "Seeing and Visualizing: It's Not What You Think by Zenon W. Pylyshyn"
+      ],
+      "neuroscience": [
+        "The Principles of Neural Science by Eric Kandel",
+        "Behave: The Biology of Humans at Our Best and Worst by Robert Sapolsky",
+        "Neuroplasticity by Moheb Costandi"
+      ]
+    }
+  },
+  "machine_learning_infrastructure": {
+    "subcategories": {
+      "deep_learning": [
+        "Deep Learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville",
+        "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow by Aurélien Géron",
+        "Neural Networks and Deep Learning by Michael Nielsen"
+      ],
+      "data_infrastructure": [
+        "Designing Data-Intensive Applications by Martin Kleppmann",
+        "Data Engineering on Azure by Vlad Riscutia",
+        "Streaming Systems by Tyler Akidau, Slava Chernyak, and Reuven Lax"
+      ],
+      "distributed_computing": [
+        "Distributed Systems: Principles and Paradigms by Andrew S. Tanenbaum and Maarten Van Steen",
+        "Designing Distributed Systems by Brendan Burns"
+      ],
+      "AI_ethics_and_governance": [
+        "Weapons of Math Destruction by Cathy O'Neil",
+        "Superintelligence by Nick Bostrom",
+        "Ethics of Artificial Intelligence by S. Matthew Liao"
+      ]
+    }
+  },
+  "mathematics_and_science": {
+    "subcategories": {
+      "mathematics_fundamentals": [
+        "The Princeton Companion to Mathematics by Timothy Gowers",
+        "Introduction to the Theory of Computation by Michael Sipser",
+        "Linear Algebra Done Right by Sheldon Axler"
+      ],
+      "physics": [
+        "The Feynman Lectures on Physics by Richard P. Feynman",
+        "A Brief History of Time by Stephen Hawking",
+        "The Elegant Universe by Brian Greene"
+      ],
+      "statistics_and_probabilities": [
+        "The Elements of Statistical Learning by Trevor Hastie, Robert Tibshirani, and Jerome Friedman",
+        "Statistical Rethinking by Richard McElreath",
+        "Bayesian Data Analysis by Andrew Gelman"
+      ],
+      "quantum_computing": [
+        "Quantum Computation and Quantum Information by Michael A. Nielsen and Isaac L. Chuang",
+        "Quantum Computing for Everyone by Chris Bernhardt"
+      ]
+    }
+  },
+  "strategy_and_execution": {
+    "subcategories": {
+      "business_strategy": [
+        "The Innovator's Dilemma by Clayton Christensen",
+        "Blue Ocean Strategy by W. Chan Kim and Renée Mauborgne",
+        "Good Strategy Bad Strategy by Richard Rumelt"
+      ],
+      "leadership": [
+        "Leaders Eat Last by Simon Sinek",
+        "The Lean Startup by Eric Ries",
+        "Extreme Ownership by Jocko Willink and Leif Babin"
+      ],
+      "operations_and_execution": [
+        "The Goal: A Process of Ongoing Improvement by Eliyahu M. Goldratt",
+        "Measure What Matters by John Doerr",
+        "The Four Disciplines of Execution by Chris McChesney, Sean Covey, and Jim Huling"
+      ]
+    }
+  },
+  "medtech": {
+    "subcategories": {
+      "biotechnology": [
+        "The Biotech Primer by BioTech Primer Inc.",
+        "The Gene: An Intimate History by Siddhartha Mukherjee",
+        "Biotechnology for Beginners by Reinhard Renneberg"
+      ],
+      "digital_health": [
+        "The Patient Will See You Now by Eric Topol",
+        "Deep Medicine by Eric Topol",
+        "The Digital Doctor by Robert Wachter"
+      ],
+      "medical_devices": [
+        "Medical Device Development by Jonathan S. Kahan",
+        "Design of Biomedical Devices and Systems by Paul H. King and Richard C. Fries"
+      ],
+      "genomics_and_personalized_medicine": [
+        "Genome by Matt Ridley",
+        "Cracking the Genome by Kevin Davies",
+        "The Language of Genes by Steve Jones"
+      ]
+    }
+  },
+  "govtech": {
+    "subcategories": {
+      "digital_governance": [
+        "Code: And Other Laws of Cyberspace by Lawrence Lessig",
+        "The Age of Surveillance Capitalism by Shoshana Zuboff",
+        "Smart Cities by Anthony Townsend"
+      ],
+      "policy_and_regulation": [
+        "The Regulation of International Trade by Michael Trebilcock and Robert Howse",
+        "The Future of Work: Robots, AI, and Automation by Darrell M. West"
+      ],
+      "cybersecurity_in_government": [
+        "Cybersecurity and Cyberwar by P.W. Singer and Allan Friedman",
+        "The Fifth Domain: Defending Our Country, Our Companies, and Ourselves in the Age of Cyber Threats by Richard A. Clarke and Robert K. Knake"
+      ]
+    }
+  },
+  "robotics": {
+    "subcategories": {
+      "robotics_fundamentals": [
+        "Introduction to Autonomous Robots by Nikolaus Correll, Bradley Hayes, and Adam Klivans",
+        "Probabilistic Robotics by Sebastian Thrun, Wolfram Burgard, and Dieter Fox",
+        "Robot Modeling and Control by Mark W. Spong"
+      ],
+      "robotics_hardware": [
+        "Robotics: Modelling, Planning and Control by Bruno Siciliano, Lorenzo Sciavicco, Luigi Villani, and Giuseppe Oriolo",
+        "Robotic Systems: Concepts and Control by Rajni V. Patel and A. P. Pandey"
+      ],
+      "robotic_vision": [
+        "Learning Robotic Vision by Peter Corke",
+        "Multiple View Geometry in Computer Vision by Richard Hartley and Andrew Zisserman"
+      ],
+      "swarm_robots": [
+        "Swarm Robotics by Sabine Hauert",
+        "Distributed Robotics: Volume 1 by Vijay Kumar"
+      ]
+    }
+  },
+
+  "art": {
+    "subcategories": {
+      "painting": [
+        "The Art of Painting by Leonardo da Vinci",
+        "The Painter's Manual by Johannes Itten",
+        "The Elements of Painting by John Ruskin"
+      ]
+    }
+  },
+  "biotech": {
+    "subcategories": {
+      "biotechnology": [
+        "The Biotech Primer by BioTech Primer Inc.",
+        "The Gene: An Intimate History by Siddhartha Mukherjee",
+        "Biotechnology for Beginners by Reinhard Renneberg"
+      ]
+    }
+  }
+}

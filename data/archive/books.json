@@ -1,0 +1,69 @@
+[
+
+                {
+                    "author": "Bret Victor",
+                    "theme": "Why Representations Matter",
+                    "summary_bio": "Bret Victor is a pioneer in the field of human-computer interaction and dynamic media. He is known for his innovative work on creating new representations and tools that enhance human understanding and creativity.",
+                    "main_ideas": [
+                        "A representation of thought captures some aspect of a concept or phenomenon in a human-understandable form, thereby enabling a person to perceive and think about it. For example, a piece of music can be represented as a verbal description or as a page of music notation (symbolic); a waveform plot or spectrograph (visual); an audio recording or click track (aural), the pattern of finger movements while playing the piano (tangible), or the experience of walking around an orchestra (spatial).",
+                        "Powerful new forms of representation affect everything, forever.",
+                        "Historical examples include Arabic numerals, algebraic notation, data plots, and the periodic table.",
+                        "Each new representation enabled subsequent scientific breakthroughs.",
+                        "The dynamic medium hosts artifacts that are computational, responsive, and connected.",
+                        "The focus is on human communication and understanding concepts, not just engineering systems.",
+                        "Before the 14th century, multiplication was considered a highly abstract concept, only for the mathematical elite. Once place-value Arabic numerals replaced Roman numerals, multiplication and division became mundane. It was this representation which made universal arithmetic literacy possible.",
+                         "The dynamic medium hosts artifacts that are computational (capable of simulation), responsive (stimuli determine behavior), and connected (can exchange information with other such artifacts). Dynamic material is the 'stuff' that an author creates in the dynamic medium, to communicate to a reader. Today, this might be called 'software', but the distinction between software, hardware, wetware, etc will break down soon. More importantly, the focus is on human communication — modeling and understanding a concept — not the engineering of a system."
+
+                      ]
+                },
+			  {
+				"name": "Alan Kay",
+				"theme": "Founder of YC-research which created OpenAI",
+				"summary_bio": "Alan Kay is a pioneer in the field of math and biology, known for his groundbreaking contributions to object-oriented thinking, the development of the graphical user interface (GUI), the Netowork, and his vision of personal computing. His work laid the foundation for many of the technologies we take for granted today, particularly his concept of the \"Dynabook,\" which was an early vision of what would become modern laptops and tablets.",
+				"main_ideas": [
+				  "Kay's philosophy extends beyond mere technology; he views computers as tools to enhance human thought and learning",
+				  "Kay's programming languages and educational environments, like Smalltalk, were designed to enable people to think more clearly and to develop a deep understanding of complex systems",
+				  "Kay has long advocated for systemic thinking and collaboration in addressing large-scale societal challenges"
+				]
+			  },
+			  {
+				"name": "Robert Sapolsky",
+				"theme": "Understanding stress and behavior",
+				"summary_bio": "Robert Sapolsky is a neuroendocrinologist and primatologist known for his work on stress, behavior, and neurobiology. His research primarily focuses on how chronic stress affects the brain and body, exploring the relationship between stress hormones and the long-term impacts on health.",
+				"main_ideas": [
+				  "Sapolsky explains that while stress is a natural and necessary response to immediate threats, chronic stress can lead to serious health problems",
+				  "His research delves into the biology of aggression, compassion, and empathy",
+				  "Sapolsky advocates for societal changes that reduce chronic stress, such as addressing inequality, improving social support systems, and fostering a more compassionate society"
+				]
+			  },
+			  {
+				"name": "Ray Dalio",
+				"theme": "A better understanding of decision-making and life principles",
+				"summary_bio": "Ray Dalio is the founder of Bridgewater Associates, one of the world's largest hedge funds, and the author of \"Principles: Life and Work,\" where he outlines the core principles that guided his life and business success. His approach to decision-making is based on radical transparency and meritocracy, where ideas are weighed based on their merit, not on hierarchy or emotion.",
+				"main_ideas": [
+				  "Dalio's principles emphasize learning from failure, embracing mistakes as opportunities for growth, and maintaining a mindset of continuous learning",
+				  "He advocates for systems thinking, where individuals and organizations are seen as machines that can be optimized over time",
+				  "Dalio encourages people to be deeply introspective, to align their values with their actions, and to build meaningful relationships based on trust and openness"
+				]
+			  },
+			  {
+				"name": "John Gottman",
+				"theme": "A better understanding of relationships",
+				"summary_bio": "John Gottman is a renowned psychologist known for his work on relationships and marriage stability. His research spans over four decades, where he conducted in-depth studies to predict the success or failure of marriages. Gottman is best known for identifying the \"Four Horsemen of the Apocalypse,\" which are behaviors—criticism, defensiveness, contempt, and stonewalling—that signal the breakdown of a relationship. His approach to relationship counseling is based on identifying these patterns early and promoting positive communication between partners.",
+				"main_ideas": [
+				  "Gottman's method emphasizes emotional attunement and the importance of building what he calls the 'Sound Relationship House'",
+				  "He advocates for couples to practice 'emotional bids' to connect with each other, fostering a positive atmosphere that helps prevent the Four Horsemen behaviors",
+				  "Gottman highlights the significance of small, everyday moments in maintaining relationship health"
+				]
+			  },
+			  {
+				"name": "Ram Dass",
+				"theme": "Spiritual teachings and mindfulness",
+				"summary_bio": "Ram Dass, born Richard Alpert, was an American spiritual teacher and author who played a central role in bringing Eastern spiritual traditions to the West. He is most famous for his book \"Be Here Now,\" which became a cornerstone of Western spirituality in the 1970s. Ram Dass's spiritual journey began after he traveled to India and met his guru, Neem Karoli Baba, who introduced him to the concepts of love, service, and meditation as paths to enlightenment.",
+				"main_ideas": [
+				  "Ram Dass emphasized the importance of mindfulness and living in the present moment",
+				  "His teachings blend Eastern philosophy, particularly Hinduism, with Western psychology",
+				  "Ram Dass focused on self-awareness, compassion, and service to others as key elements of spiritual growth"
+				]
+			  }
+			]

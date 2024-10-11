@@ -1,0 +1,46 @@
+{
+  "posts": [
+    {
+      "title": "Headless UI v2.1: Simplified transition API and improved multi-dialog support",
+      "excerpt": "We just released Headless UI v2.1 for React, which dramatically simplifies our transition APIs and adds support for rendering multiple dialogs as siblings.",
+      "date": "2024-06-21T15:00:00.000Z",
+      "formattedDate": "June 21, 2024",
+      "url": "/blog/2024-06-21-headless-ui-v2-1"
+    },
+    {
+      "title": "Automatically clean up whitespace and duplicate class names",
+      "excerpt": "We just released a new version of prettier-plugin-tailwindcss which adds support for removing unnecessary whitespace and duplicate classes when sorting.",
+      "date": "2024-05-31T16:30:00.000Z",
+      "formattedDate": "May 31, 2024",
+      "url": "/blog/2024-05-30-prettier-plugin-collapse-whitespace"
+    },
+    {
+      "title": "Catalyst: Application layouts, navigation menus, description lists, and more",
+      "excerpt": "We just published the first major update to Catalyst since releasing the development preview, with two new application layouts, navbar and sidebar components, description lists, and more.",
+      "date": "2024-05-24T20:00:00.000Z",
+      "formattedDate": "May 24, 2024",
+      "url": "/blog/2024-05-24-catalyst-application-layouts"
+    },
+    {
+      "title": "Headless UI v2.0 for React",
+      "excerpt": "Nothing beats actually building something real with your own tools when it comes to finding ways to make things better. As we've been working on Catalyst these last several months, we've been making dozens of improvements to Headless UI that let you write even less code, and make the developer experience even better.",
+      "date": "2024-05-07T16:00:00.000Z",
+      "formattedDate": "May 7, 2024",
+      "url": "/blog/headless-ui-v2"
+    },
+    {
+      "title": "We're hiring a Design Engineer + Staff Engineer",
+      "excerpt": "We're hiring a Design Engineer and Staff Software Engineer to work on some ambitious new projects with us. Both roles are fully remote, with a salary of $275,000 USD.",
+      "date": "2024-03-19T18:00:00.000Z",
+      "formattedDate": "March 19, 2024",
+      "url": "/blog/hiring-a-design-engineer-and-staff-engineer"
+    },
+    {
+      "title": "Open-sourcing our progress on Tailwind CSS v4.0",
+      "excerpt": "Last summer at Tailwind Connect I shared a preview of Oxide — a new high-performance engine for Tailwind CSS that we've been working on, designed to simplify the developer experience and take advantage of how the web platform has evolved since Tailwind was first released.",
+      "date": "2024-03-14T16:00:00.000Z",
+      "formattedDate": "March 14, 2024",
+      "url": "/blog/open-sourcing-tailwind-css-v4-progress"
+    }
+  ]
+}

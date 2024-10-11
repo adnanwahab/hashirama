@@ -1,7 +1,8 @@
-scripts/
-notebooks/
-data/
-
+data/alan_kay/images
+notebooks/robot_remote_control
+notebooks/deno-webgpu
+notebooks/2_perception
+notebooks/course-content-observable-data-app
 
 data/alan_kay
 notebooks/2_perception/test_lottiesrm

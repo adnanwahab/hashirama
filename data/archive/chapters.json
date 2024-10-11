@@ -1,0 +1,67 @@
+{"Hardware Design and Repair": [
+			"Circuit Design Fundamentals",
+			"Advanced PCB Prototyping",
+			"Microcontroller Programming",
+			"Sensor Integration and Testing",
+			"Mechanical Assembly Techniques",
+			"Signal Processing and Debugging",
+			"Power Management Systems",
+			"Fault Detection and Diagnosis",
+			"Hardware Maintenance and Lifecycle Management"
+],
+		"Command and Control: Human-Robotic Symbiosis": [
+			"Human-Robot Interaction Models",
+			"Gesture and Voice-Based Control Systems",
+			"Multi-Modal Interface Design",
+			"Cognitive Architectures for Collaboration",
+			"Augmented Reality in Command Interfaces",
+			"Teleoperation and Remote Control Systems",
+			"Adaptive Control Algorithms",
+			"Safety and Ethical Considerations",
+			"Future Trends in Human-Robot Synergy"
+        ],
+		"Planning and Prediction": [
+			"Path Planning Algorithms",
+			"Environment Mapping and Localization",
+			"Probabilistic Models in Prediction",
+			"Motion Planning in Dynamic Environments",
+			"Optimization Techniques for Planning",
+			"Long-term Prediction in Uncertain Environments",
+			"Decision-Making Under Uncertainty",
+			"Real-Time Plan Adjustment",
+			"AI-Driven Predictive Maintenance"
+        ],
+		"Perception": [
+			"Visual Perception in Robotics",
+			"Depth Sensing and 3D Reconstruction",
+			"Object Recognition and Classification",
+			"Scene Understanding and Semantic Mapping",
+			"Multisensory Data Fusion",
+			"Perception Algorithms for Dynamic Environments",
+			"Lidar, Radar, and Advanced Sensors",
+			"Robust Perception in Challenging Conditions",
+			"Perception for Autonomous Navigation"
+        ],
+		"Simulation": [
+			"Fundamentals of Robotic Simulation",
+			"Physics Engines and Dynamics Simulation",
+			"Simulation of Sensor Models",
+			"Testing Control Algorithms in Simulation",
+			"Real-time Simulation Techniques",
+			"Simulating Complex Environments",
+			"Validation of Simulation Results",
+			"Simulation in Development and Testing",
+			"Bridging Simulation to Real-World Deployment"
+        ],
+		"Real World Applications": [
+			"Robotics in Healthcare",
+			"Autonomous Vehicles and Transportation",
+			"Robotics in Agriculture",
+			"Manufacturing and Assembly Automation",
+			"Service Robots in Retail and Hospitality",
+			"Robots in Hazardous Environments",
+			"Search and Rescue Robotics",
+			"Collaborative Robots in Human Workspaces",
+			"Next-Gen Applications in Robotics"
+		]
+    }

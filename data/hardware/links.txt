@@ -1,0 +1,10 @@
+https://www.pololu.com/laserquote/new
+https://top3dshop.com/product/ufactory-lite-6-robotic-arm
+[ur 5 arm](https://github.com/real-stanford/diffusion_policy/issues/29)
+https://www.universal-robots.com/products/ur5-robot/?utm_source=Google&utm_medium=paid-search&utm_campaign=HQ_Direct_paid-search_Google_2024-1-29_NAM%20Always%20On&utm_content=Direct-Direct&utm_campaign_id=701P4000007MsaSIAS&gad_source=1&gclid=Cj0KCQjw05i4BhDiARIsAB_2wfDX9bGm8j4sAQLZtmx61jMwsRQRrLhf8-YATv1P1r7CDnSyWeAeg5oaAk7DEALw_wcB
+https://github.com/AlexanderKoch-Koch/low_cost_robot
+https://github.com/huggingface/lerobot/tree/c29e70e5a17d61f150e33779dab01e2d4f2e0534
+https://www.sparkfun.com
+https://www.adafruit.com
+https://www.hiwonder.com
+https://www.openrobotics.org

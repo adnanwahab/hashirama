@@ -1,0 +1,19 @@
+{
+  "projects": ["robotics-odyssey"],
+  "devops": [],
+  "robotics": [],
+  "machine-learning-infrastructure": [],
+  "Design": ["on-writing"],
+  "mathmagic-&-statistics": ["deep-dive-into-transfomers-and-vison"],
+  "medtech": [
+    "lagranian-mechanics",
+    "stabilizing-ci-and-simulation-infrastructure",
+    "safety-simulation-test",
+    "how-to-create-infinite-jobs-with-robotic-art",
+    "prototyping-a-robot-capable-of-general-medicine",
+    "every-research-paper-zoox-waymo-visualized",
+    "reconstructing-medicine-assisting-diagnosis-and-the-hospital-of-the-future",
+    "genetic-engineering-satori",
+    "visual prompt engineering for robotics"
+  ]
+}
