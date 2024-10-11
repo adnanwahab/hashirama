@@ -2,11 +2,7 @@
 <!-- https://observablehq.com/@roboticsuniversity/collaborative-ui-twitch-plays-robot -->
  <!-- retool - study - them - anything dataregl  -->
  {{define "tele-guidance-frame"}}
- <!-- <iframe src="http://localhost:3003/{{.}}" class="h-80 w-full"></iframe> -->
-
-
-
- 
+ <iframe src="http://localhost:3003/{{.}}" class="h-80 w-full"></iframe>
  {{end}}
 
 <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
@@ -33,7 +29,7 @@
       <div
         class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 lg:rounded-tr-[2rem]"
       >
-        {{template "tele-guidance-frame" "twitch_plays"}}
+        {{template "tele-guidance-frame" "twitch"}}
       </div>
     </div>
 
@@ -41,7 +37,7 @@
       <div
         class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 lg:rounded-bl-[2rem]"
       >
-      {{template "tele-guidance-frame" "research"}}
+      {{template "tele-guidance-frame" "hardware"}}
 
       </div>
     </div>
@@ -51,6 +47,7 @@
         class="overflow-hidden rounded-lg bg-gray-800 ring-1 ring-white/15 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]"
       >
         {{template "tele-guidance-frame" "voxels"}}
+        <iframe style="width: 600px; " class="iframe-container" src="https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*"></iframe>
       </div>
     </div>
   </div>

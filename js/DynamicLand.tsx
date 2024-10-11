@@ -1,6 +1,6 @@
-import React, {useRef, useEffect} from "react";
 import {Runtime, Inspector} from "@observablehq/runtime";
 import notebook from "@roboticsuniversity/dynamicland";
+import React, {useRef, useEffect} from "react";
 
 function Dynamicland() {
   const ref = useRef();
@@ -14,7 +14,7 @@ function Dynamicland() {
   return (
     <>
       <div ref={ref} />
-      <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/dynamicland@9">DynamicLand by roboticsuniversity</a></p>
+      <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/dynamicland">DynamicLand by roboticsuniversity</a></p>
     </>
   );
 }
