@@ -91,16 +91,23 @@ const render_everything = async (req) => {
   let content = "";
   console.log('notebook_name', notebook_name)
 
-  if (notebook_name === 'pub.html') {
-    content = fs.readFileSync(join(__dirname, '/pub.html'), 'utf8')
+  if (notebook_name === 'publisher.html') {
+    console.log('publisher.html')
+
+    content = fs.readFileSync(join(__dirname, '/publisher.html'), 'utf8')
+    return new Response(content, {headers: { "Content-Type": "text/html"}})
+  }
+  if (notebook_name === 'subscriber.html') {
+    console.log('subscriber.html')
+    content = fs.readFileSync(join(__dirname, '/subscriber.html'), 'utf8')
     return new Response(content, {headers: { "Content-Type": "text/html"}})
   }
   // edit language to take safety and humane technolgoy more seriously - kapil
   if (url.startsWith("http://localhost:3003/static")) {
     return Bun.file(join(staticDir, url.replace("/static", "")));
   }
-  console.log('url', notebook_name === "livekit")
-  console.log('method', req.method)
+  //console.log('url', notebook_name === "livekit")
+  //console.log('method', req.method)
   // make this work for both post + jsonp
   if (req.method === "GET") {
 
@@ -110,12 +117,12 @@ const render_everything = async (req) => {
     for (const [key, value] of queryParams.entries()) {
       params[key] = value;
     }
-    console.log('Query Parameters:', params);
+    //console.log('Query Parameters:', params);
 
     if (notebook_name === "livekit") {
       //console.log('data', params)
       const json = await connect_to_livekit(params);
-      console.log('res', json)
+      //console.log('res', json)
       return new Response(JSON.stringify(json));
     }
   }

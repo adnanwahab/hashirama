@@ -49,13 +49,5 @@ Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a
 
 
 ![https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg](https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg)
-train 1000 new {(web+ML30%) - 70% (hardware)} engineers because - only thing chatbot cannot do is glue together atoms and molecules.
-also create 1000 new jobs for people who like working with their hands - (robotic technician, repair, and maintenance = infinite opporunity)
 
-find the limiting reagnets - oct 12 - sapolsky
-
-self-teaching course - no instructor, every student every other - like thestudio.yoga
-sincerely,
-  (olivander + faye valender)
-This course will receive daily updates for the next 25 years, on the frontier of robotics and humanist UI design.
-90% of proceeds will go to infrastructure for serving free compute, and hardware-discounts like 1 laptop per child.
+show dont tell
