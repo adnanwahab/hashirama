@@ -27,16 +27,18 @@ func main() {
 	e.Static("/data", "data")
 	utils.SetupRendering(e)
 
-	//for backend, port := range serverPorts {
 	backend := "/robotics-odyssey-backend"
 	port := 3003
 	route_name := fmt.Sprintf("%s/*", backend)
-	fmt.Println(route_name, port)
-	e.GET(route_name, func(c echo.Context) error {
+	fmt.Println("Route Name:", route_name, "Port:", port)
 
+	e.GET(route_name, func(c echo.Context) error {
 		route_path := c.Request().URL.Path
+		fmt.Println("Received Path:", route_path)
+
 		targetURL := fmt.Sprintf("http://localhost:%d%s", port, route_path)
-		fmt.Println(targetURL)
+		fmt.Println("Target URL:", targetURL)
+
 		resp, err := http.Get(targetURL)
 		if err != nil {
 			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error proxying request: %v", err))

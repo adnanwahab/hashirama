@@ -1,37 +1,29 @@
 import { AccessToken } from 'livekit-server-sdk';
-
+import { join } from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
 import { serve } from "bun";
+import path from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const staticDir = join(__dirname, 'static')
 const {jwt, wsUrl} = connect_to_livekit()
 
-// const htmlContent = `
-// <html>
-//   <body>
-//     <h1>Welcome to the Bun LiveKit Server</h1>
-//     <div id="livekit-token">oafisndfoa sdfa</div>
-//     <div id="livekit-ws-url">asdlfkajslfkasjdlfaksjdflkajfalsdkfj</div>
-//   </body>
-// </html>
-// `;
-
-
-
-// serve({
-//   fetch(req) {
-//     return new Response(htmlContent, {
-//       headers: {
-//         "Content-Type": "text/html",
-//       },
-//     });
-//   },
-//   port: 3009, // You can change the port if needed
-// });
-
-// console.log("Bun server is running on http://localhost:3009");
-
+const order = [
+  "diffusion-policy",
+  "democracy-mode",
+  "idk",
+  "dynamicland.org",
+  "how",
+  "meforgert"
+]
 
 
 const diffusion_policy = () => `
   <div class="text-blue-200">
+    <script src="https://cdn.tailwindcss.com"></script>
+
   <link href="/static/output.css" rel="stylesheet">
   <div id="observablehq-e6b4d66b"></div>
 
@@ -398,69 +390,94 @@ how(),
 meforgert()
 ]
 
-const order = [
-  "diffusion-policy",
-  "democracy-mode",
-  "idk",
-  "dynamicland.org",
-  "how",
-  "meforgert"
-]
-
 const port = 3003
 
-serve({
-  fetch(req) {
-    console.log(req.url)
-    const idk = req.url.split("?idk=")[1];
-    console.log('idk',idk)
+const render_everything = async (req) => {
+  const url = req.url
+  const idk = req.url.split("?idk=")[1];
+  console.log('idk',idk)
 
-    let templated = ``
-    const container_start = `
-    <head>
-    <title>bunkit livekit server</title>
-    </head>
-    <div class="bg-pink-500 min-h-screen flex items-center justify-center">
-    </div>
-    `
-    const container_end = `
-    <style>
-        .rainbow-text {
-            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-            -webkit-background-clip: text;
-            color: transparent;
-            animation: rainbow-animation 5s infinite;
-        }
+  if (url.startsWith("http://localhost:3003/static")) { // Remove .pathname
+    return Bun.file(join(staticDir, url.replace("/static", "")));
+  }
 
-        @keyframes rainbow-animation {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
+  if (url === "http://localhost:3003/") {
+    const content = fs.readFileSync(join('/Users/shelbernstein/homelab_status_page/views/llama-tools/api_docs.html'), 'utf8')
+    .replace("__content__", `
+      
+      ${order.map(page => `<li><a href="/?idk=${page}">${page}</a></li>`).join("\n")}
 
-        .prof-style {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.2em;
-            margin: 10px;
-            padding: 10px;
-            border: 2px solid white;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-    </style>
-    </div>
-    `   
 
- 
-      if (idk) {
-        templated += pages[order.indexOf(idk)]
-      }
-    
-
-    return new Response(container_start + templated + container_end, {
+      ${order.map((page, i) => `<span class="prof-style">${order[i]}</span><iframe src="/?idk=${page}" width="100%" height="500px"></iframe>`).join("\n")}
+      `)
+    return new Response(content, {
       headers: {
         "Content-Type": "text/html",
       },
     });
+  }
+  //const default_content = pages.join("\n")
+  // filmstip
+  const default_content = pages[0]
+
+  let templated = default_content
+  const container_start = `
+  <head>
+  <title>bunkit livekit server</title>
+  <script src="/static/css/output.css"></script>
+  </head>
+  <div class="min-h-screen flex items-center justify-center bg-slate-500">
+
+  `
+  const container_end = `
+  <style>
+      .rainbow-text {
+          background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+          -webkit-background-clip: text;
+          color: transparent;
+          animation: rainbow-animation 5s infinite;
+      }
+
+      @keyframes rainbow-animation {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 100% 50%; }
+      }
+
+      .prof-style {
+          font-family: 'Arial', sans-serif;
+          font-size: 1.2em;
+          margin: 10px;
+          padding: 10px;
+          border: 2px solid white;
+          border-radius: 5px;
+          background-color: rgba(255, 255, 255, 0.1);
+      }
+  </style>
+  </div>
+  `   
+
+
+    if (idk) {
+      templated = pages[order.indexOf(idk)]
+    }
+  
+
+  return new Response(container_start + templated + container_end, {
+    headers: {
+      "Content-Type": "text/html",
+    },
+  });
+
+}
+
+serve({
+  fetch(req) {
+    return render_everything(req)
+    .then(res => res)
+    .catch(err => {
+      console.error(err)
+      return new Response("Error: " + err.message, { status: 500 })
+    })
   },
   port: port, // You can change the port if needed
 });
