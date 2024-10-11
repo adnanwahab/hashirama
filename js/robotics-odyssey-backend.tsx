@@ -101,11 +101,13 @@ const render_everything = async (req) => {
     return Bun.file(join(staticDir, url.replace("/static", "")));
   }
 
-  if (req.method === "POST" && req.headers.get("content-type") === "application/json") {
+  if (req.method === "POST") {
     const data = await req.json(); // Parses JSON body automatically
-    if () {
+    if (notebook_name === "livekit") {
       console.log('data', data)
-      connect_to_livekit(data);
+      const res = await connect_to_livekit(data);
+      console.log('res', res)
+      return new Response(JSON.stringify(res));
     }
     return new Response(`Received JSON data: ${JSON.stringify(data)}`);
   }

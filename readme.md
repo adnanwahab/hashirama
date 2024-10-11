@@ -55,3 +55,5 @@ also create 1000 new jobs for people who like working with their hands - (roboti
 find the limiting reagnets - oct 12 - sapolsky
 
 self-teaching course - no instructor, every student every other - like thestudio.yoga
+sincerely,
+  (olivander + faye valender)
