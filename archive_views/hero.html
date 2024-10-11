@@ -1,0 +1,415 @@
+<style>
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+
+<div
+  class="bg-[#0f172a] text-blue-400 border-t border-gray-700 border-2-t"
+  style="background-color: rgb(15 23 42)"
+>
+  <div class="">
+    <!-- <div class="overflow-hidden bg-slate-900 dark:-mb-32 dark:mt-[-4.5rem] dark:pb-32 dark:pt-[4.5rem] dark:lg:mt-[-4.75rem] dark:lg:pt-[4.75rem]"></div> -->
+    <div class="container mx-auto px-4 py-4 max-w-7xl">
+      <div
+        class="flex flex-col lg:flex-row justify-between items-start space-y-8 lg:space-y-0 lg:space-x-12"
+      >
+        <div class="lg:w-1/2">
+          <h1
+            style="color: rgba(255, 255, 255, 0.9)"
+            class="font-blue-900 evan-gradient inline bg-gradient-to-r from-teal-200 via-cyan-400 to-teal-200 bg-clip-text font-display text-5xl tracking-tight text-transparent"
+          >
+            Easy-to-use Robotics
+          </h1>
+          <p class="text-xl mb-8 mt-3 text-2xl tracking-tight text-slate-400">
+            Robotics is the ultimate complement to AI because the only thing a
+            chatbot cant do is clean your room.
+          </p>
+          <div class="space-x-4 lg:w-1/4">
+            {{if false}} {{template "cooperative-robotics.html" .}} {{end}}
+          </div>
+        </div>
+        <div class="relative">
+          <div
+            class="divide-y divide-slate-700 overflow-hidden rounded-lg shadow"
+          >
+            <div
+              class="rounded-tl-lg rounded-tr-lg group relative bg-slate-900 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500"
+            >
+              <div class="flex items-start">
+                <span
+                  class="bg-cyan-900 text-cyan-50 mr-4 inline-flex rounded-lg p-3 ring-4 ring-slate-800"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                    class="h-6 w-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
+                    ></path>
+                  </svg>
+                </span>
+                <div class="flex-1">
+                  <h3
+                    class="text-base font-semibold leading-6 text-white text-left"
+                  >
+                    <a
+                      href="/lessons/6_Real_World_Applications#cats"
+                      class="focus:outline-none"
+                      ><span class="absolute inset-0" aria-hidden="true"></span
+                      >Pet Care</a
+                    >
+                  </h3>
+                  <p class="mt-2 text-sm text-slate-400 text-left">
+                    Feed stray cat and dogs.
+                  </p>
+                </div>
+              </div>
+              <span
+                class="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400"
+                aria-hidden="true"
+                ><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"
+                  ></path></svg
+              ></span>
+            </div>
+            <div
+              class="group relative bg-slate-900 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500"
+            >
+              <div class="flex items-start">
+                <span
+                  class="bg-cyan-900 text-cyan-50 mr-4 inline-flex rounded-lg p-3 ring-4 ring-slate-800"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                    class="h-6 w-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                    ></path></svg
+                ></span>
+                <div class="flex-1">
+                  <h3
+                    class="text-base font-semibold leading-6 text-white text-left"
+                  >
+                    <a
+                      href="/lessons/4_command_control_ui#chores"
+                      class="focus:outline-none"
+                      ><span class="absolute inset-0" aria-hidden="true"></span
+                      >Automate Chores</a
+                    >
+                  </h3>
+                  <p class="mt-2 text-sm text-slate-400 text-left">
+                    Fold laundry + load dishes
+                  </p>
+                </div>
+              </div>
+              <span
+                class="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400"
+                aria-hidden="true"
+                ><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"
+                  ></path></svg
+              ></span>
+            </div>
+            <div
+              class="rounded-bl-lg rounded-br-lg group relative bg-slate-900 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-cyan-500"
+            >
+              <div class="flex items-start">
+                <span
+                  class="bg-cyan-900 text-cyan-50 mr-4 inline-flex rounded-lg p-3 ring-4 ring-slate-800"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                    class="h-6 w-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+                    ></path></svg
+                ></span>
+                <div class="flex-1">
+                  <h3
+                    class="text-base font-semibold leading-6 text-white text-left"
+                  >
+                    <a
+                      href="/lessons/3_planning_prediction#creative-ai"
+                      class="focus:outline-none"
+                      ><span class="absolute inset-0" aria-hidden="true"></span
+                      >Infinite Creation</a
+                    >
+                  </h3>
+                  <p class="mt-2 text-sm text-slate-400 text-left">
+                    Gardening, painting, etc.
+                  </p>
+                </div>
+              </div>
+              <span
+                class="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400"
+                aria-hidden="true"
+                ><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20 4h1a1 1 0 00-1-1v1zm-1 12a1 1 0 102 0h-2zM8 3a1 1 0 000 2V3zM3.293 19.293a1 1 0 101.414 1.414l-1.414-1.414zM19 4v12h2V4h-2zm1-1H8v2h12V3zm-.707.293l-16 16 1.414 1.414 16-16-1.414-1.414z"
+                  ></path></svg
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{if false}}
+      <section
+        id="testimonials"
+        aria-label="what our customrs are saying"
+        class="bg-slate-900 py-5"
+      >
+        <div class="overflow-hidden">
+          <div class="relative">
+            <div class="inset-0 overflow-hidden">
+              <div
+                class="relative w-auto"
+                style="
+                  display: flex;
+                  animation: 25s linear 0s infinite normal none running
+                    scroll-left;
+                "
+              >
+                {{range .Testimonials}}
+                <div class="mx-3">
+                  <div
+                    class="relative w-[400px] rounded-2xl border border-cyan-300/10 bg-[#121e30] p-6 shadow-xl shadow-slate-900/10"
+                  >
+                    <div class="flex items-center mb-4">
+                      <img
+                        src="{{.Avatar}}"
+                        alt="Daniel Whitenack"
+                        class="h-12 w-12 rounded-full mr-4"
+                      />
+                      <div>
+                        <div class="text-white font-semibold">{{.Name}}</div>
+                        <div class="text-gray-300">{{.Handle}}</div>
+                      </div>
+                    </div>
+                    <div class="text-white text-sm">{{.Review}}</div>
+                  </div>
+                </div>
+
+                {{end}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {{end}}
+      <!-- <div class="w-[100vw] hidden">
+        <div
+          class="flex flex-col items-start justify-center px-6 md:flex-row md:items-center md:px-0"
+        >
+          <div class="mb-10 flex flex-col md:mb-0">
+            <h3 class="text-xl font-semibold mb-6">
+              Leading Science teams choose Hashirama
+            </h3>
+            <div class="flex flex-wrap gap-8">
+              <img
+                src="/static/images/customers/1.png"
+                alt="Intel logo"
+                class="h-8"
+              />
+              <img
+                src="/static/images/customers/2.png"
+                alt="AWS logo"
+                class="h-8"
+              />
+              <img
+                src="/static/images/customers/3.svg"
+                alt="NASA logo"
+                class="h-8"
+              />
+            </div>
+          </div>
+          <div class="mb-10 flex flex-col md:mb-0">
+            <h3 class="text-xl font-semibold mb-6">
+              Trusted By Engineers From
+            </h3>
+            <div class="flex flex-wrap gap-8">
+              <img
+                src="/static/images/customers/4.svg"
+                alt="Microsoft logo"
+                class="h-8"
+              />
+              <img
+                src="/static/images/customers/5.svg"
+                alt="Pandora logo"
+                class="h-8"
+              />
+              <img
+                src="/static/images/customers/6.svg"
+                alt="OpenAI logo"
+                class="h-8"
+              />
+              <img
+                src="/static/images/customers/7.svg"
+                alt="Meta logo"
+                class="h-8"
+              />
+              <img
+                src="/static/images/customers/8.svg"
+                alt="NVIDIA logo"
+                class="h-8"
+              />
+            </div>
+          </div>
+        </div> -->
+      <!-- <div
+          class="prose prose-slate max-w-none dark:prose-invert text-slate-400 prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:font-normal lg:prose-headings:scroll-mt-[8.5rem] prose-lead:text-slate-500 dark:prose-lead:text-slate-400 prose-a:font-semibold dark:prose-a:text-cyan-400 prose-a:no-underline prose-a:shadow-[inset_0_-2px_0_0_var(--tw-prose-background,#fff),inset_0_calc(-1*(var(--tw-prose-underline-size,4px)+2px))_0_0_var(--tw-prose-underline,theme(colors.cyan.300))] hover:prose-a:[--tw-prose-underline-size:6px] dark:[--tw-prose-background:theme(colors.slate.900)] dark:prose-a:shadow-[inset_0_calc(-1*var(--tw-prose-underline-size,2px))_0_0_var(--tw-prose-underline,theme(colors.cyan.800))] dark:hover:prose-a:[--tw-prose-underline-size:6px] prose-pre:rounded-xl prose-pre:bg-slate-900 prose-pre:shadow-lg dark:prose-pre:bg-slate-800/60 dark:prose-pre:shadow-none dark:prose-pre:ring-1 dark:prose-pre:ring-slate-300/10 dark:prose-hr:border-slate-800"
+        >
+          <h2 id="welcome-to-robotics-university-dev text-slate-400">
+            Welcome to Robotics University
+          </h2>
+          <p>
+            Robotics University is a development platform that allows you to run
+            build, train, and deploy embodied ML models on the cloud.
+            Robotics-University allows you start small on a CPU instance and
+            effortlessly scale to larger GPU clusters for any workload.
+          </p>
+          <h2 id="why-should-i-use-robotics-university">
+            Why should I use Robotics University
+          </h2>
+          <ul>
+            <li>
+              <strong>Build for devs:</strong> Robotics-University is built for
+              developer by developers. We understand the challenges of building
+              and scaling ML projects and built Robotics-University to a
+              lightweight but powerful platform for any type of workload.
+            </li>
+            <li>
+              <strong>Cost-effective:</strong> Robotics-University aggregates
+              multiple cloud providers to find the right type of GPU for best
+              price possible.
+            </li>
+            <li>
+              <strong>Powerful:</strong> Robotics-University allows you to run
+              any code on your GPU instance. You can use Robotics-University to
+              train and deploy ML models on the cloud.
+            </li>
+          </ul>
+          <hr />
+          <h2 id="getting-help">Getting help</h2>
+          <p>
+            We want to create as many channels for help as possible; if you'd
+            like a new channel, please let us know!
+          </p>
+          <h3 id="join-the-community">Join the community</h3>
+          <p>
+            The best way to reach us is via our
+            <a href="https://discord.gg/NVDyv7TUgJ">Discord</a>! Go to the #help
+            channel and create a support ticket with /help command.
+          </p>
+          <h3 id="send-us-a-text-message">Send us a text message</h3>
+          <p>You can chat with us at (415) 237-2247.</p>
+          <h3 id="shared-slack-channel">Shared Slack channel</h3>
+          <p>
+            Paid users get a prioritized shared Slack channel with our team!
+          </p>
+          <h2 id="wanna-work-together">Wanna work together?</h2>
+          <p>
+            Shoot us an email at
+            <a href="mailto:partners@robotics-university.dev"
+              >partners@robotics-university.dev</a
+            >
+          </p>
+        </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- https://en.wikipedia.org/wiki/Arcology -->
+
+<!-- final fantasy - this is hopeless - video games cant be art fuck this -
+one last try - 7 -
+-->
+<!-- social media should be over - people tired of  the same shit on repeat for 10 years -
+    social media = real people connecting - thats cool (terrence tao has a mastodon)
+    video games = not real - but people connect - thats cool
+    jobs = real - people connect - have big goals together
+    1. sister of all demos
+    2. info-course (10,000 students over 10 years) - can you make learning as fun as a video game??? - funny as bill nye
+    3. ??? (ui component / sass ai / gap finder - dynamicland everywhere)
+-->
+
+<!--
+
+    puzzle piece - robots = banjo kazooie
+    powers present into future
+
+-->
+
+<!-- <iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/X43oW5wmqdg?si=5ydNTzgIRxg_plsE"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe> -->
+
+<!-- </div> -->
+<!-- email + phone - office hours -->
+<!-- make hashriama.com + hashirama.blog + adnanwahab.com - all about -(robotics.odyssey) -->
+
+<!-- https://dynamicland.org/ - this is different - and better -->
+<!-- robotics.odyssey - is now all about (dynamicLand+kay+robotics) - 20 year research -->
+
+<!--
+<div class="text-white bg-slate-800 p-6 rounded-lg shadow-lg">
+  <h2 class="text-xl font-bold mb-4">
+    What Robots Can Do That Humans Cannot
+  </h2>
+  <p class="mb-4">
+    Impossible structures and tasks that cannot be
+    accomplished by humans. Beyond automation and reducing
+    costs.
+  </p>
+  <ul class="list-disc list-inside space-y-2">
+    <li>
+      <a href="https://en.wikipedia.org/wiki/Arcology"
+        ><span class="font-semibold">Arcology:</span>
+        Pioneering new architectural wonders.</a
+      >
+    </li>
+    <li>
+      <span class="font-semibold"
+        >Dynamicland in Every Neighborhood:</span
+      >
+      Creating interactive communal spaces.
+    </li>
+    <li>
+      <span class="font-semibold">More to Come...</span>
+    </li>
+  </ul>
+</div> -->

@@ -1,0 +1,173 @@
+{{template "head.html" .}}
+<iframe src="http://localhost:3000" width="500px" height="500px"></iframe>
+<!-- notebook -> depends on runtime -> runtime depends on stdlib -->
+<!-- stdlib -->
+<!-- services/Breakout_Jeremy_Ashkenas/observable-runtime/stdlib/src/generators/worker.js -->
+<!--  -->
+<div class="bg-slate-400 text-white hidden">
+  <pre>
+
+observable - next - point to repo
+https://reflect.app/g/awahab/ad7c5dccf6cd4aeabb159017b145a701
+https://caniuse.com/
+
+tailwind - dropdowns w/ tailwind - iframes -
+
+
+best part of js = webrtc + sockets + filesystem
+
+# networking +++
+<!-- https://docs.tinygrad.org/showcase/ -->
+<!-- https://runkit.com/docs/endpoint -->
+<!-- https://github.com/tolmasky/demokit?tab=readme-ov-file -->
+<!-- https://github.com/firecracker-microvm/firecracker -->
+<!-- https://observablehq.com/@observablehq/stdlib#additionalLibrariesSection -->
+<!-- https://www.summarize.tech/www.youtube.com/watch?v=Y2F8yisiS6E&t=5789s -->
+https://chatgpt.com/share/66fc41c2-7ce0-8013-a12d-674d692a318c
+
+# fs +++ (50pb data pipeline ) - cant access this from client-side
+(limit on client-side only is about 1gb from experience on 3d-annotaiton.zoox.com) - takes 5 min to load - on fs its instant
+
+# GPUS
+server-side can access gpus first class soon
+theres no reason pytorch cant be converrted to js
+gpus are slated to get 1 million times faster in the 20 years.
+
+gpus are the platform of the future
+
+#IOT+EdgeAI
+These fields are booming. They could be JS-first.
+There's no reason why they couldnt have an observable dashboard on nvidia-jetson
+https://ai.google.dev/edge/mediapipe/solutions/guide
+
+# Robotics
+Observable can make js a robotics-first platform if it can execute bun
+why? robotics is async -
+
+# MLIR
+Mojo python uses mlir to speed up python by sometimes 1,000 times.
+MLIR - may be able to hook into jsm / wasm and basically create cross-platform bindings to torch and so on.
+I may be wrong about this, just a theory.
+
+# async
+js will always better than python at async
+GPUs, robotics, Filesystems, and networking are all async first.
+it is quite possible the future will be for async platforms.
+Thats why go is cool, and python kind of needs help.
+
+https://github.com/MylesBorins/node-osc
+https://www.tensorflow.org/js
+https://news.ycombinator.com/item?id=20184181
+# htmx
+htmx shows that js may be amamzing to script borwsers
+but maybe 30% of engineers think that servers should just output html
+and render that
+
+
+bun is javascript done right - because it's like go's standard library
+go's standard library is so good that you dont need imports at all almost for 95% of code
+
+why is go's standard lbirary so good? it was made by the creators of unix + plan9
+bun basically copied go's std
+
+
+if observable had OS-integration
+brwosers could be used to auto-mate os - like proxmox
+
+if observable had bun integration
+it could make UIs for hairy, messy problems like DNS easy by
+
+it could also do the same for robotics hardware - which is what im experimenting with on robotics-university.com
+
+my plan =
+use english to gen python code for "AI"
+use JS to gen js code for os/infra/connectivity
+also gen go-code for networking, but use js as a driver
+
+because then students could use js to debug and thats easier than go.
+
+the 5 pillars of robotics are
+
+1. connectivity - webrtc+starlink+tailscale == good enough for 99% of cases for rosie from jetson in every home
+2.
+
+https://news.ycombinator.com/item?id=16883567
+each email =
+1. give value - demonstrate visually something an expert didnt know - that they could use for improving their work
+2. call to action -
+3. humor - for likabiltiy
+
+
+
+
+
+  my experience at zoox is we love observable-framework for dashboards - way
+  better than grafana. The average robot generates about 1 terabyte of data per
+  second Most of it can be read through an https network endpoint, but much of
+  it is difficult to do os. And Gpus are going to get faster. the average model
+  is at least 1-10gigabytes. Most likely, they will grow to 100gigabytes. We
+  have a data pipeline with about 50 petabytes of data. And right now, its hard
+  to use observable to ingest lots of it. But there's not reason why it cant
+  interface with the hardware directly. If observable was bunjs or deno-first,
+  then it would open up a whole new universe that was unexplored previously.
+  Problems like DNS, and filesystems, and so on, could all have a observable
+  dashboard, that was exploratory, not just for 10 years ago i experimented with
+  GPUs for paralell query procsssing. But my coworkers told me that server-side
+  filtering was superior. That may be true, but it was still a fun idea. WebGPU
+  is an amzing runtime, and someday it might competitive with metal/vulkan,
+  There's no reason, why Observable can't be used to script games and
+  simulations in unreal, unity, and NVIDIA ISaac roos. I promise, it would be an
+  order of magnitute simpler than using Python, C++ or go for that. Python may
+  probably always be the machine learning run time, especially with mojo. But
+  there's no reason why JS is not the 2nd and does many other things better than
+  python. I love python, it was my first language, second was scheme and lisp to
+  read SICP. GPT makes Code as data seem amazing - Observable could easily have
+  cursor-level auto-complete - which is amazing to behold. ZeD is amazing but
+  cursor still has nice touches like tab-completel and i still swtich between
+  them both. But i still love emacs too. > ms note > L1 cache reference 0.5 ns >
+  Branch mispredict 5 ns > L2 cache reference 7 ns 14x L1 cache > Mutex
+  lock/unlock 25 ns > Main memory reference 100 ns 20x L2 cache, 200x L1 cache >
+  Compress 1K bytes with Zippy 3,000 ns 3 µs > Send 1K bytes over 1 Gbps network
+  10,000 ns 10 µs > Read 4K randomly from SSD* 150,000 ns 150 µs ~1GB/sec SSD >
+  Read 1 MB sequentially from memory 250,000 ns 250 µs > Round trip within same
+  datacenter 500,000 ns 500 µs > Read 1 MB sequentially from SSD* 1,000,000 ns
+  1,000 µs 1 ms ~1GB/sec SSD, 4X memory > Disk seek 10,000,000 ns 10,000 µs 10
+  ms 20x datacenter roundtrip > Read 1 MB sequentially from disk 20,000,000 ns
+  20,000 µs 20 ms 80x memory, 20X SSD > Send packet CA -> Netherlands -> CA
+  150,000,000 ns 150,000 µs 150 ms
+
+  <img
+    src="https://camo.githubusercontent.com/b425440f6447aded36e9e2dc9fcfd2e97dfaf9811b518d71fa92a5f3d94f9e07/687474703a2f2f692e696d6775722e636f6d2f6b307431652e706e67"
+  />
+
+  https://pbs.twimg.com/media/FePAd3QUUAA2Oq7.jpg:large networks + filesystem =
+  huge worlds gpus = possible for js too - imagine a read-only observability
+  process which is open source and runs on every AI machine - all logs in the
+  wrolds visualized and made -semi-public in a green yello red nyc open-data
+  office
+
+  <img
+    src="https://stereobooster.github.io/assets/posts/latency-numbers-every-programmer-should-know/cpu-operations.png"
+  />
+  https://www.brendangregg.com/dtrace.html it's about 1 million times faster to
+  read data from ram vs network - even locally its like 100k what is throughput
+  of filesytem -> fuck cloud - on-prem/native first hybrid clouds are the future
+  because - on/prem is about 1000 times cheaper - rent a gpu for $2 an hour - or
+  buy one for $700-1500 4090 = premium but 4070x2 is cheaper, 2xfaster, and
+  almost as much vram. Basically the same for 95% of gpu problems. 4070s might
+  suffice or most things. And AMD might suffice for most things. Not sure yet.
+  https://github.com/orgs/replit/repositories?type=all
+  https://github.com/runkitdev
+
+
+
+  Notes
+
+  1. Back in 2021 - it appreads obbsrvable used iframes - to modularize and render notebooks - might be wrong - archive -> do what alan kay - find the history - to predict the future
+
+  </pre>
+</div>
+
+observable uses 1 frame to render all the content to avoid it eating obseravble
+if you view that src - it doesnt render - it depends ont he inspector/runtime to
+render -

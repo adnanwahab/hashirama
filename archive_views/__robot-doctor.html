@@ -1,0 +1,122 @@
+<!-- hi - only possible because samasource, botparty, zoox, swarmbotics
+
+
+     farhad said briliant
+     even valdman replied
+
+     just go
+     did i waste last 3 months since april??? - ultimate question
+     next 6 months - run experiments daily
+     50 iterations
+     12 hours a day for 6 months?
+-->
+
+<div class="min-h-screen bg-gray-100 text-gray-900">
+  <header class="bg-blue-600 text-white p-4">
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="text-2xl font-bold flex items-center">
+        <i class="fas fa-robot mr-2"></i>
+        RoboDoc
+      </div>
+      <ul class="flex space-x-4">
+        <li>For Clinicians</li>
+        <li>For Administrators</li>
+        <li>
+          <button class="bg-white text-blue-600 px-4 py-2 rounded">
+            Request a Demo
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container mx-auto mt-8 px-4">
+    <section class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">Be the provider of the future.</h1>
+      <p class="text-xl mb-6">
+        We automate clinical tasks so you can focus on what matters most: taking
+        care of your patients.
+      </p>
+      <button
+        class="bg-blue-600 text-white px-6 py-3 rounded-full text-lg flex items-center mx-auto"
+        hx-post="/request-demo"
+        hx-target="#demo-response"
+      >
+        Request a Demo <i class="fas fa-chevron-right ml-2"></i>
+      </button>
+      <div id="demo-response" class="mt-4"></div>
+    </section>
+
+    <section class="grid md:grid-cols-3 gap-8 mb-12">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <i class="fas fa-code text-blue-600 text-4xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">Make your EHR work for you</h3>
+        <p>
+          Embedded within the EHR, RoboDoc scans the entire patient record and
+          makes sense of that data so you can better diagnose and treat your
+          patients.
+        </p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <i class="fas fa-database text-blue-600 text-4xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">
+          Drive value for the entire health system
+        </h3>
+        <p>
+          RoboDoc is proven to dramatically improve hospital finances, patient
+          safety, and physician happiness.
+        </p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <i class="fas fa-clock text-blue-600 text-4xl mb-4"></i>
+        <h3 class="text-xl font-semibold mb-2">
+          Reduce the things you need to do
+        </h3>
+        <p>
+          RoboDoc reduces coding queries, insurance denials, and time spent
+          reviewing the chart.
+        </p>
+      </div>
+    </section>
+
+    <section class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">A more powerful way to practice</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <p class="text-4xl font-bold text-blue-600">20%</p>
+          <p>Time Savings</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-blue-600">56%</p>
+          <p>Reduction in Burnout</p>
+        </div>
+        <div>
+          <p class="text-4xl font-bold text-blue-600">14%</p>
+          <p>Improvement in CC/MCC Capture</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-200 p-8 rounded-lg mb-12">
+      <blockquote class="text-xl italic">
+        "It's like having a high quality medical intern in my pocket."
+      </blockquote>
+      <p class="mt-4 font-semibold">Dr. Tasneem Bholat, Hospitalist</p>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <p class="text-center">&copy; 2024 RoboDoc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    htmx.on("htmx:afterRequest", function (evt) {
+      if (evt.detail.elt.id === "demo-response") {
+        evt.detail.elt.innerHTML =
+          "Thank you for your interest! We'll be in touch soon.";
+      }
+    });
+  </script>
+</div>

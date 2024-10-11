@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/output.css" rel="stylesheet">
+
+</head>
+<body class="bg-slate-500" style="background-color: red;">
+    <h1>Welcome to the Bun ___ Server</h1>
+    <div id="livekit-token">${jwt}</div>
+    <div id="livekit-ws-url">${wsUrl}</div>
+
+
+    <p>This is a simple HTML page served by Bun.</p>
+    <script type="module">
+import {
+createLocalTracks,
+  Participant,
+  RemoteParticipant,
+  RemoteTrack,
+  RemoteTrackPublication,
+  RoomEvent,
+  VideoPresets,
+  Track,
+  LocalTrackPublication,
+  LocalParticipant,
+
+Room } from 'https://unpkg.com/livekit-client@2.5.7/dist/livekit-client.esm.mjs?module'
+
+const token = document.getElementById("livekit-token").textContent;
+const wsUrl = document.getElementById("livekit-ws-url").textContent;
+console.log(wsUrl);
+debugger
+if (false) connect()
+
+function connect() {
+const room = new Room();
+room.prepareConnection(wsUrl, token);
+await room.connect(wsUrl, token);
+
+// Add the following lines
+const localParticipant = room.localParticipant;
+console.log(localParticipant)
+
+
+// publish local camera and mic tracks
+await localParticipant.enableCameraAndMicrophone();
+
+console.log(localParticipant)
+
+
+
+
+room.on(RoomEvent.TrackPublished, (track, publication, participant) => {
+    console.log('Track Published:', track, publication, participant);
+});
+
+room.on(RoomEvent.TrackSubscribed, (track, publication, participant) => {
+    console.log('Track Subscribed:', track, publication, participant);
+});
+
+room.on(RoomEvent.TrackUnsubscribed, (track, publication, participant) => {
+    console.log('Track Unsubscribed:', track, publication, participant);
+});
+
+room.on(RoomEvent.ParticipantJoined, (participant) => {
+    console.log('Participant Joined:', participant);
+    participant.publishTrack(track, {
+        audio: true,
+        video: true,
+      });
+});
+
+room.on(RoomEvent.ParticipantLeft, (participant) => {
+    console.log('Participant Left:', participant);
+});
+
+room.on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
+    console.log('Active Speakers Changed:', speakers);
+});
+
+room.on(RoomEvent.Disconnected, () => {
+    console.log('Disconnected from room');
+});
+
+
+
+
+
+
+function handleTrackSubscribed(track, publication, participant) {
+  if (track.kind === 'video' || track.kind === 'audio') {
+    // attach it to a new HTMLVideoElement or HTMLAudioElement
+    const element = track.attach();
+    parentElement.appendChild(element);
+  }
+}
+
+function handleTrackUnsubscribed(track, publication, participant) {
+  // remove tracks from all attached elements
+  track.detach();
+}
+
+function handleLocalTrackUnpublished(publication, participant) {
+  // when local tracks are ended, update UI to remove them from rendering
+  publication.track.detach();
+}
+
+function handleActiveSpeakerChange(speakers) {
+  // show UI indicators when participant is speaking
+}
+
+function handleDisconnect() {
+  console.log('disconnected from room');
+}
+
+///const track = localParticipant.getTrackByName('camera')
+
+
+
+const tracks = await createLocalTracks({
+  audio: true,
+    facingMode: { exact: "environment" } // Use the environment (rear-facing) camera
+});
+
+
+  
+  // Render local camera track before publishing
+  const localVideoElement = document.createElement('video');
+  localVideoElement.autoplay = true;
+  localVideoElement.muted = true;
+  localVideoElement.srcObject = new MediaStream([tracks[1].mediaStreamTrack]); // Assuming video track is at index 1
+  document.body.appendChild(localVideoElement);
+
+  
+}
+
+    </script>
+</body>
+</html>
+
+
+<!-- 
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>three.js webgl - particles - waves</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link type="text/css" rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    
+    <div id="info">
+      <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a>
+      - webgl particles waves example
+    </div>
+
+    <script type="x-shader/x-vertex" id="vertexshader">
+
+      attribute float scale;
+
+      void main() {
+
+      	vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+
+      	gl_PointSize = scale * ( 300.0 / - mvPosition.z );
+
+      	gl_Position = projectionMatrix * mvPosition;
+
+      }
+    </script>
+
+    <script type="x-shader/x-fragment" id="fragmentshader">
+
+      uniform vec3 color;
+
+      void main() {
+
+      	if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;
+
+      	gl_FragColor = vec4( color, 1.0 );
+
+      }
+    </script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "../build/three.module.js",
+          "three/addons/": "./jsm/"
+        }
+      }
+    </script> 
+
+    <script type="module">
+      import * as THREE from "three";
+
+      import Stats from "three/addons/libs/stats.module.js";
+
+      const SEPARATION = 100,
+        AMOUNTX = 50,
+        AMOUNTY = 50;
+
+      let container, stats;
+      let camera, scene, renderer;
+
+      let particles,
+        count = 0;
+
+      let mouseX = 0,
+        mouseY = 0;
+
+      let windowHalfX = window.innerWidth / 2;
+      let windowHalfY = window.innerHeight / 2;
+
+      init();
+
+      function init() {
+        container = document.createElement("div");
+        document.body.appendChild(container);
+
+        camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          1,
+          10000,
+        );
+        camera.position.z = 1000;
+
+        scene = new THREE.Scene();
+
+        //
+
+        const numParticles = AMOUNTX * AMOUNTY;
+
+        const positions = new Float32Array(numParticles * 3);
+        const scales = new Float32Array(numParticles);
+
+        let i = 0,
+          j = 0;
+
+        for (let ix = 0; ix < AMOUNTX; ix++) {
+          for (let iy = 0; iy < AMOUNTY; iy++) {
+            positions[i] = ix * SEPARATION - (AMOUNTX * SEPARATION) / 2; // x
+            positions[i + 1] = 0; // y
+            positions[i + 2] = iy * SEPARATION - (AMOUNTY * SEPARATION) / 2; // z
+
+            scales[j] = 1;
+
+            i += 3;
+            j++;
+          }
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute(
+          "position",
+          new THREE.BufferAttribute(positions, 3),
+        );
+        geometry.setAttribute("scale", new THREE.BufferAttribute(scales, 1));
+
+        const material = new THREE.ShaderMaterial({
+          uniforms: {
+            color: { value: new THREE.Color(0xffffff) },
+          },
+          vertexShader: document.getElementById("vertexshader").textContent,
+          fragmentShader: document.getElementById("fragmentshader").textContent,
+        });
+
+        //
+
+        particles = new THREE.Points(geometry, material);
+        scene.add(particles);
+
+        //
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setAnimationLoop(animate);
+        container.appendChild(renderer.domElement);
+
+        stats = new Stats();
+        container.appendChild(stats.dom);
+
+        container.style.touchAction = "none";
+        container.addEventListener("pointermove", onPointerMove);
+
+        //
+
+        window.addEventListener("resize", onWindowResize);
+      }
+
+      function onWindowResize() {
+        windowHalfX = window.innerWidth / 2;
+        windowHalfY = window.innerHeight / 2;
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+
+      //
+
+      function onPointerMove(event) {
+        if (event.isPrimary === false) return;
+
+        mouseX = event.clientX - windowHalfX;
+        mouseY = event.clientY - windowHalfY;
+      }
+
+      //
+
+      function animate() {
+        render();
+        stats.update();
+      }
+
+      function render() {
+        camera.position.x += (mouseX - camera.position.x) * 0.05;
+        camera.position.y += (-mouseY - camera.position.y) * 0.05;
+        camera.lookAt(scene.position);
+
+        const positions = particles.geometry.attributes.position.array;
+        const scales = particles.geometry.attributes.scale.array;
+
+        let i = 0,
+          j = 0;
+
+        for (let ix = 0; ix < AMOUNTX; ix++) {
+          for (let iy = 0; iy < AMOUNTY; iy++) {
+            positions[i + 1] =
+              Math.sin((ix + count) * 0.3) * 50 +
+              Math.sin((iy + count) * 0.5) * 50;
+
+            scales[j] =
+              (Math.sin((ix + count) * 0.3) + 1) * 20 +
+              (Math.sin((iy + count) * 0.5) + 1) * 20;
+
+            i += 3;
+            j++;
+          }
+        }
+
+        particles.geometry.attributes.position.needsUpdate = true;
+        particles.geometry.attributes.scale.needsUpdate = true;
+
+        renderer.render(scene, camera);
+
+        count += 0.1;
+      }
+    </script>
+  </body>
+</html> -->
+<!-- fall asleep drawing comics  -->
+<!--  when you wakeup - different timeline -->
+<!-- particle times lines  -->
+<!-- the arrow of time is aboslute -->
+<!-- its the rarest thing to see  a particle or snapshot flowbawards from one stream to another-->
+<!--  coolest things cant say in words-->
+<!-- be silent protagonist - make your house so everyone in the world could walk in and be like this seems fine and no real like wtfs  -->
+
+<!-- the coolest protagonist in my opinion are the 50% calvin+hobbies + bill watersons  -->
+
+<!-- do it for gilly + sister -->
+
+<!-- what chomsky said is true - even more so possbily for stable diffusion -->
+
+<!-- should artists be mad and sue openai?  -->
+<!--  i think their skill should become one of the most powerful specs of the future-->
+<!-- magic-ink .5 -->
+<!-- peter thiel - "only racism and humor wont be replaced" -->
+<!-- alan kay - flower vs intelligence  -->
+<!-- you have to be a gpu + cognition maximilaist -  -->
+<!-- theres no end to human cognition - gpus will eventually hit physics limitations in 10-20 years -->
+
+<!-- 1. artist -->
+<!-- 2. artist -->
+<!-- 3.  -->
+<!-- 4.  physican / nurses / responsiblity + physically-->
+<!-- 5.  people who work with their hands - fingers are probably the most difficult thing to do in robotics - probably the last apenage we can digitize and mechanize-->
+<!-- 6. bob or sally the builder -->
+<!-- 7.  therapist / mystic -->
+
+<!-- -- 1 thing i learned in 5 years - our brains are so much more powerful than society or science udnerstands -thers some divine magic there  -->
+
+<!-- 8 billion people start to generate new ideas -  -->
+<!-- will we use up creativity? is it a finite space? -->
+
+<!-- how would wikipedia in 1000 years?  - patrick collisn -->
+<!-- how would tvtropes in 1000 years? -->
+
+<!-- classification -->
+<!-- we are not even ,1% of how long the dinosaurs lived  -->
+
+<!-- lanagueg = pointer - model -> simulation of reality -> benefit is
+
+you propose update  to model to "know" which actions make sense in a different setting
+-->
+

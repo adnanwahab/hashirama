@@ -13,12 +13,13 @@ client = OpenAI(
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Process html files with OpenAI.')
 
-    parser.add_argument('--query', type=str, required=True, help='Query to send to the LLM.')
+   # parser.add_argument('--query', type=str, required=True, help='Query to send to the LLM.')
 
     return parser.parse_args()
 
 args = parse_arguments()
-query = args.query
+query = "gen a html compoentn using tailwindcss that works "#args.query
+output_dir = 'views/components/cgi'
 
 def append_to_file(chunk, index, output_dir):
     with open(f"{output_dir}/parallel_chunk_{index}.txt", 'w') as output_file:
@@ -80,7 +81,6 @@ def process_all_files_in_directory(directory_path):
     file_contents = [open(file_path, 'r').read() for file_path in files] 
     file_dict = {file_path: content for file_path, content in zip(files, file_contents)}
     start_time = time.time()
-    output_dir = 'views/components/good_ones'
     with ThreadPoolExecutor(max_workers=10) as executor:
         futures = []
         for index, (filename, content) in enumerate(file_dict.items()):

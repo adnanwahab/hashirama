@@ -1,0 +1,181 @@
+{{template "head.html" .}}
+<!-- <div> 4 jp <input type="text" id="jp" /> add link here -(yt, twitter, anything -> should work)</div> -->
+<body>
+  <div>
+    <div class="result">
+      <img src="/static/jp/downloaded_image.gif" alt="manga" />
+    </div>
+    <div class="links"></div>
+    <div>https://mathstodon.xyz/@tao</div>
+    <div>https://x.com/Rainmaker1973/status/1718525501227082107</div>
+    <div>https://x.com/cmzw_/status/1718634235664445866</div>
+    <div>https://x.com/nu_phases/status/1702353399583498568</div>
+    <div>https://x.com/TatsuyaBot/status/1655788131902435332</div>
+    <div>https://x.com/jsonkim117/status/1835874721801646119</div>
+    <div>
+      https://pbs.twimg.com/media/FHVHS0eUcBkc1ER?format=jpg&name=medium
+    </div>
+    <div>https://x.com/etiennejcb/status/1439309996471341059</div>
+
+    <div>https://www.youtube.com/watch?v=bq0t2ro7gA0</div>
+    <div>https://www.youtube.com/watch?v=elQyIv7f74U</div>
+  </div>
+  <!-- <div>https://www.youtube.com/feed/playlists</div> -->
+
+  <div>click a link -> view original + see edited to gif/lottie/canvas</div>
+  <div class="w-full overflow-x-scroll">
+    <div class="flex space-x-4 caro"></div>
+  </div>
+
+  <div class="original"></div>
+  <div class="edits"></div>
+
+  <!-- alsdkfas to eits + add more shit  -->
+  <!-- <img id="mangaImage" src="https://files.hashirama.blog/youtube/apply_vfx/ouran_light_bulb/frame_0001.jpg" alt="manga1"> -->
+  <!-- https://domoai.app/?gad_source=1&gclid=CjwKCAjwx4O4BhAnEiwA42SbVM2CLfr1uO7DGcEsVfSFUCLevdcBFbYDo4QuUdzdbBKDKEzZ3DFu5hoCRSUQAvD_BwE -->
+
+  <!-- <div class="caro"></div> -->
+  <div id="mangaList"></div>
+  <!-- image serach  -->
+  <!-- get list of buckets -->
+  <!-- exec python on -> get animation (gif, mp4, canvas) -->
+  <!-- finish jp 2 hours - 8 -->
+  <!-- finish obs server by noon -->
+  <!-- finish university ontent ch 1 by 5pm -->
+  <script>
+    d3.selectAll(".links div").on("click", function () {
+      const link = d3.select(this).text();
+      fetch("/save-image-original", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ href: link }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          d3.select("#mangaList")
+            .append("img")
+            .attr("src", data.href)
+            .attr("alt", "Image from link");
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
+    // console.log(d3)
+    const filePath =
+      "https://files.hashirama.blog/youtube/apply_vfx/ouran_light_bulb/";
+
+    d3.html(
+      "https://files.hashirama.blog/youtube/apply_vfx/ouran_light_bulb/",
+    ).then((data) => {
+      data = data.querySelectorAll("a");
+      console.log(data);
+      data = Array.from(data)
+        .filter((d) => d.href.endsWith(".jpg"))
+        .filter((d, i) => i % 1000 === 0)
+        .map((d) => ({
+          href: d.href.split("/").pop(),
+          text: d.text,
+        }));
+
+      data.reverse();
+
+      d3.select(".caro")
+        .selectAll("img") //.data(data.slice(0, 100)).enter()
+        .data(data.slice(0, 100))
+        .enter()
+        .append("img")
+        .attr("src", (d) => filePath + d.href);
+
+      //d3.select("#mangaList").selectAll("a").data(data).enter().append("a").text(d => d.text).attr("href", d => d.href).on('mouseover', function(event, d) {})
+    });
+
+    let i = 0;
+    const imageUrl = (i) =>
+      `https://files.hashirama.blog/youtube/apply_vfx/ouran_light_bulb/frame_0${i}.jpg`;
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowRight") {
+        i += 100;
+        const always_three_digits = function (num) {
+          return num.toString().padStart(3, "0");
+        };
+        //const formatted_image =
+        i++;
+        document.getElementById("mangaImage").src = imageUrl(
+          always_three_digits(i),
+        );
+      }
+    });
+  </script>
+
+  <!-- <div id="dropzone">Drag & Drop Image Here or Click to Upload</div>-->
+
+  <script type="module">
+    const response = await fetch("/vit");
+    const text = await response.text();
+    console.log(text);
+
+    const dropzone = document.getElementById("dropzone");
+
+    dropzone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropzone.classList.add("hover");
+    });
+
+    dropzone.addEventListener("dragleave", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropzone.classList.remove("hover");
+    });
+
+    dropzone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropzone.classList.remove("hover");
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        uploadFile(files[0]);
+      }
+    });
+
+    dropzone.addEventListener("click", () => {
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = "image/*";
+      input.click();
+
+      input.addEventListener("change", () => {
+        if (input.files.length > 0) {
+          uploadFile(input.files[0]);
+        }
+      });
+    });
+
+    function uploadFile(file) {
+      const formData = new FormData();
+      formData.append("image", file);
+
+      fetch("/vit", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            console.log("yay it worked");
+            //alert("Image uploaded successfully!");
+          } else {
+            //alert("Image upload failed!");
+          }
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+          //alert("Image upload failed!");
+        });
+    }
+  </script>
+</body>

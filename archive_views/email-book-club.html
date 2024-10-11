@@ -1,0 +1,118 @@
+<div class="">
+  <!-- <h1 class="text-green-100">
+      Books & Authors Rena & Adnan discussed at length in their Book Club
+    </h1> -->
+  <!-- <h1 class="text-green-100">
+      The visual display of quantitiative information can elucidate concepts for a
+      wider audience and deeper understanding
+    </h1>
+    <h1 class="text-green-100">
+      50% of our brain is visual processing, so by leveraging it we gain a memory
+      boost to conceptual understanding
+    </h1> -->
+
+  <div class="mt-8 mb-8 prose dark:prose-invert" data-mdx-content="true">
+    <!-- <figure class="max-w-screen-md">
+<blockquote>
+<p class="text-2xl font-semibold text-blue-100">“It is not wise to judge others based on your own prejudice, their apperances, hearsay or gossip.”</p>
+</blockquote>
+<figcaption class="flex items-center mt-6 space-x-3 rtl:space-x-reverse">
+
+   <img class="w-6 h-6 rounded-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png" alt="profile picture"> 
+<<div class="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-300 dark:divide-gray-700">
+<a href="https://en.wikipedia.org/wiki/Benjamin_Netanyahu"><cite class="pe-3 font-medium text-gray-900 dark:text-blue-100">Benjamin Netanyhu</cite> <cite class="ps-3 text-sm text-gray-500 dark:text-gray-400">Israel Prime Minister</cite></a>
+</div> 
+</figcaption>
+</figure>
+-->
+    <!-- <hr class="mt-24" /> -->
+    <!-- <h1 class="text-green-100">If someone blocks another person who they have never met... Theres only one possible reason: Gossip and untruth.</h1><img alt="Optimized" loading="lazy" width="1310" height="872" decoding="async" data-nimg="1" src="https://github.com/adnanwahab/hashirama/blob/main/services/homelab-status-page/static/images/blog/Optimized.gif?raw=true" style="color: transparent;">
+<hr>  -->
+
+    <!-- <figure class="border-l border-indigo-600 pl-8 text-gray-300">
+<blockquote class="text-xl font-semibold leading-8 tracking-tight text-gray-100">
+<p>"What happened during June 5 2020 is without a doubt one of the most terrying humans rights violations that has happend since the holocaust by rena's friends</p>
+</blockquote>
+<figcaption class="mt-8 flex gap-x-4">
+<img src="https://pbs.twimg.com/profile_images/1629542682338148352/iGWnf2lB_400x400.jpg" alt="iGWnf2lB_400x400" class="mt-1 h-10 w-10 flex-none rounded-full bg-gray-50">
+<div class="text-sm leading-6">
+<div class="font-semibold text-gray-100">
+Dr. Nicole LePera
+</div>
+<div class="text-gray-100">
+@Theholisticpsyc
+</div>
+</div>
+</figcaption>
+</figure> -->
+    <!-- <h1>Edward Tufte</h1>
+<h1>John Gottman</h1>
+<h1>Robert Sapolsky</h1>
+<h1>Ram Dass</h1>
+<h1>Ray Dalio's 'principles</h1>
+<h1>Bret Victor and Alan Kay</h1>
+<h1>Paul Graham  <div class="text-blue-200 text-green-100">be good</div>      </h1>
+<h1>Katonah Yoga & Taoism and Chinese Medicine</h1>
+<h1>Jiddu Krishnamurti</h1> -->
+    <!-- <div class="text-blue-200 text-green-100">
+      <h1 class="text-green-100">
+        Books & Authors Rena & Adnan discussed at length in their Book Club
+      </h1>
+    </div> -->
+    <div>
+      {{range .Authors}}
+      <h1 class="text-green-100">{{.Name}}</h1>
+      {{end}}
+    </div>
+    <div class="tags">
+      <ul>
+        <li>1. Reasoning and Seeing (design like apple from the future)</li>
+        <li>2. Machine Learning Infrastructure (Nvidia form the future)</li>
+        <li>3. Mathematics and Science (Von Neumann, Alan Kay, and so on)</li>
+        <li>
+          4. Strategy and Exectuion like (Microsfot, Oracle, and Napoleon)
+        </li>
+      </ul>
+    </div>
+    <div class="">
+      {{range .Authors}} {{template "email-book-club-entry.html" . }} {{end}}
+    </div>
+  </div>
+  <hr />
+
+  <hr class="my-5" />
+  <div class="hidden">
+    <h1 class="relative isolate overflow-hidden text-green-100">
+      Adnan and Rena's biggest hero Was Bret Victor
+    </h1>
+    <img src="https://i.imgur.com/iPt6yhD.png" alt="iPt6yhD" />
+    <a
+      href="https://web.archive.org/web/20140717005644/https://visfest.com/d3unconf/"
+      >adnan met him at this confrence when he was 21</a
+    >
+    https://medium.com/@enjalot/d3-unconf-2014-e1377d6d72a7
+    <a
+      href="https://web.archive.org/web/20150223120237/https://github.com/adnan-wahab/pathgl"
+    ></a>
+    <div class="text-green-100">
+      Bret was very quiet. he just listened to everyone. He dressed simply, in a
+      green shirt.
+    </div>
+    That's the day adnan became his disciple and his student
+
+    <a
+      href="https://web.archive.org/web/20150223120237/https://github.com/adnan-wahab/pathgl"
+      >Here's what I gave a talk on at the time</a
+    >
+    <h1 class="relative isolate overflow-hidden text-green-100">
+      Bret was different from other tech-nerds, he was more humanist, and even
+      more against things like war, disease, poverty, and wasted human
+      potetnial.
+    </h1>
+    <div class="hidden text-green-100">
+      its not about me, its about how society look down on nerds when nerds have
+      been building your house, your food, your car, your fucking
+      contraceptives. for the last 5000 years.
+    </div>
+  </div>
+</div>

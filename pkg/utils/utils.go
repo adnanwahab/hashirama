@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"html/template"
 	"io"
 	"io/ioutil"
 	"log"
@@ -11,6 +12,8 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
+	"time"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/labstack/echo"
@@ -252,3 +255,156 @@ func GetTableData(tableName string) ([][]string, []string, error) {
 
 	return data, columns, nil
 }
+
+func ResverseProxy(port int) echo.HandlerFunc {
+	// parlay "dynamciagaly - "to 8 buns ?
+	return func(c echo.Context) error {
+		targetURL := "http://localhost:8009" + c.Request().URL.Path
+		targetURL = strings.Replace(targetURL, "llama-backend/", "", 1) // Replace "llama-backend/" with ""
+
+		fmt.Printf("Proxying request to: %s\n", targetURL)
+
+		resp, err := http.Get(targetURL)
+		if err != nil {
+			fmt.Printf("Error proxying request: %v\n", err)
+			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error proxying request: %v", err))
+		}
+		defer resp.Body.Close()
+
+		fmt.Printf("Received response with status: %d\n", resp.StatusCode)
+
+		// Copy the response headers
+		for key, values := range resp.Header {
+			for _, value := range values {
+				c.Response().Header().Add(key, value)
+			}
+		}
+
+		// Set the status code and write the response body
+		c.Response().WriteHeader(resp.StatusCode)
+		_, err = io.Copy(c.Response().Writer, resp.Body)
+		if err != nil {
+			fmt.Printf("Error writing response: %v\n", err)
+			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error writing response: %v", err))
+		}
+
+		return nil
+	}
+}
+
+func PreRender(route string, parsedTemplates *template.Template) {
+	outputFile, err := os.Create("docs/" + route)
+	if err != nil {
+		log.Fatalf("Error creating output file: %v", err)
+	}
+	defer outputFile.Close()
+
+	// Render the homepage template
+	err = parsedTemplates.ExecuteTemplate(outputFile, route, nil)
+	if err != nil {
+		log.Fatalf("Error rendering template: %v", err)
+	}
+}
+
+func RenderMarkdown(filePath string) (string, error) {
+	//send a request to llama-server.js
+	return "", nil
+}
+
+func SetupRoutes() echo.HandlerFunc {
+	rootPath := "./views/"
+	baseDirectory := rootPath + "**/*.html"
+	expandMyPuss := os.ExpandEnv(baseDirectory)
+	allMyRoutes, err := filepath.Glob(expandMyPuss)
+	fmt.Println("allMyRoutes", allMyRoutes)
+
+	if err != nil {
+		return nil
+	}
+	setupdynamic := func(c echo.Context) error {
+		for i := 0; i < len(allMyRoutes); i++ {
+			filePath := string(allMyRoutes[i])
+			if filePath == "/" {
+				continue
+			}
+			//fmt.Println("filePath", filePath)
+			if c.Request().URL.Path == "/"+filePath {
+				trimmed := filePath
+				return c.Render(http.StatusOK, trimmed+".html", nil)
+			}
+			//fmt.Println("adding route for", trimmed)
+			//c.GET(trimmed, renderTemplate(trimmed))
+		}
+
+		baseDirectory = rootPath + "**/*.md"
+		expandMyPuss = os.ExpandEnv(baseDirectory)
+		allMyRoutes, err = filepath.Glob(expandMyPuss)
+		if err != nil {
+			return err
+		}
+		for i := 0; i < len(allMyRoutes); i++ {
+			filePath := string(allMyRoutes[i])
+			if filePath == "/" {
+				continue
+			}
+			trimmed := strings.ToLower(strings.TrimSuffix(filepath.Base(filePath), filepath.Ext(filePath)))
+			//fmt.Println("trimmed", trimmed)
+			requested_route := strings.ToLower(c.Request().URL.Path)
+			if requested_route == "/"+trimmed {
+				html, err := RenderMarkdown(filePath)
+				if err != nil {
+					if os.IsNotExist(err) {
+						return c.String(http.StatusNotFound, fmt.Sprintf("Blog post not found: %s", c.Param("*")))
+					}
+					errMsg := fmt.Sprintf("Error reading or rendering blog post: %v", err)
+					fmt.Println(errMsg)
+					return c.String(http.StatusInternalServerError, errMsg)
+				}
+
+				fmt.Println("Rendering blog post! !! !  ", trimmed)
+				return c.Render(http.StatusOK, "blog-container.html", map[string]interface{}{"html": html})
+			}
+		}
+		errorResponse := PrintError(c)
+
+		return c.JSON(http.StatusNotFound, errorResponse)
+	}
+	return setupdynamic
+}
+
+func PrintError(c echo.Context) map[string]interface{} {
+	//take an error as agurment
+	//llm-rendering
+	// llama on whole repo
+	// If we've reached this point, no route was found
+	errorResponse := map[string]interface{}{
+		"error":   "Not Found",
+		"message": "The requested resource could not be found",
+		"details": map[string]interface{}{
+			"requestedPath": c.Request().URL.Path,
+			"method":        c.Request().Method,
+			"timestamp":     time.Now().Format(time.RFC3339),
+			"userAgent":     c.Request().UserAgent(),
+			"remoteIP":      c.RealIP(),
+			"possibleReasons": []string{
+				"The page or resource doesn't exist",
+				"The URL might be misspelled",
+				"The resource might have been moved or deleted",
+			},
+			"suggestedActions": []string{
+				"Check the URL for typos",
+				"Try navigating to the homepage",
+				"Use the search function if available",
+				"Contact support if you believe this is an error",
+			},
+		},
+	}
+	return errorResponse
+}
+
+// A simple utility function
+func PrintHello() {
+	fmt.Println("Hello from utils!")
+}
+
+// utils = infinite - gen them + call from 50 line scripts - helper pattern

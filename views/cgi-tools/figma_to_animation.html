@@ -1,0 +1,350 @@
+<head>
+    <style>
+      #memory-updated {
+        font-size: 20px;
+        font-weight: bold;
+        color: silver;
+        /* background: linear-gradient(45deg, silver, #ccc, silver);
+      background-size: 200% 200%;
+      animation: rotateGradient 5s linear infinite;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out; */
+      }
+  
+      @keyframes rotateGradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+  
+      #memory-updated:hover {
+        animation:
+          rainbow 3s infinite,
+          fadeInOut 3s forwards;
+      }
+  
+      @keyframes rainbow {
+        0% {
+          color: red;
+        }
+        16% {
+          color: orange;
+        }
+        33% {
+          color: yellow;
+        }
+        50% {
+          color: green;
+        }
+        66% {
+          color: blue;
+        }
+        83% {
+          color: indigo;
+        }
+        100% {
+          color: violet;
+        }
+      }
+  
+      @keyframes fadeInOut {
+        0% {
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+    <style type="text/css">
+      [vaul-drawer] {
+        touch-action: none;
+        will-change: transform;
+        transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+      }
+      [vaul-drawer][vaul-drawer-direction="bottom"] {
+        transform: translate3d(0, 100%, 0);
+      }
+      [vaul-drawer][vaul-drawer-direction="top"] {
+        transform: translate3d(0, -100%, 0);
+      }
+      [vaul-drawer][vaul-drawer-direction="left"] {
+        transform: translate3d(-100%, 0, 0);
+      }
+      [vaul-drawer][vaul-drawer-direction="right"] {
+        transform: translate3d(100%, 0, 0);
+      }
+      .vaul-dragging .vaul-scrollable [vault-drawer-direction="top"] {
+        overflow-y: hidden !important;
+      }
+      .vaul-dragging .vaul-scrollable [vault-drawer-direction="bottom"] {
+        overflow-y: hidden !important;
+      }
+      .vaul-dragging .vaul-scrollable [vault-drawer-direction="left"] {
+        overflow-x: hidden !important;
+      }
+      .vaul-dragging .vaul-scrollable [vault-drawer-direction="right"] {
+        overflow-x: hidden !important;
+      }
+      [vaul-drawer][vaul-drawer-visible="true"][vaul-drawer-direction="top"] {
+        transform: translate3d(0, var(--snap-point-height, 0), 0);
+      }
+      [vaul-drawer][vaul-drawer-visible="true"][vaul-drawer-direction="bottom"] {
+        transform: translate3d(0, var(--snap-point-height, 0), 0);
+      }
+      [vaul-drawer][vaul-drawer-visible="true"][vaul-drawer-direction="left"] {
+        transform: translate3d(var(--snap-point-height, 0), 0, 0);
+      }
+      [vaul-drawer][vaul-drawer-visible="true"][vaul-drawer-direction="right"] {
+        transform: translate3d(var(--snap-point-height, 0), 0, 0);
+      }
+      [vaul-overlay] {
+        opacity: 0;
+        transition: opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+      }
+      [vaul-overlay][vaul-drawer-visible="true"] {
+        opacity: 1;
+      }
+      [vaul-drawer]::after {
+        content: "";
+        position: absolute;
+        background: inherit;
+        background-color: inherit;
+      }
+      [vaul-drawer][vaul-drawer-direction="top"]::after {
+        top: initial;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        height: 200%;
+      }
+      [vaul-drawer][vaul-drawer-direction="bottom"]::after {
+        top: 100%;
+        bottom: initial;
+        left: 0;
+        right: 0;
+        height: 200%;
+      }
+      [vaul-drawer][vaul-drawer-direction="left"]::after {
+        left: initial;
+        right: 100%;
+        top: 0;
+        bottom: 0;
+        width: 200%;
+      }
+      [vaul-drawer][vaul-drawer-direction="right"]::after {
+        left: 100%;
+        right: initial;
+        top: 0;
+        bottom: 0;
+        width: 200%;
+      }
+      [vaul-handle] {
+        display: block;
+        position: relative;
+        opacity: 0.8;
+        margin-left: auto;
+        margin-right: auto;
+        height: 5px;
+        width: 56px;
+        border-radius: 1rem;
+        touch-action: pan-y;
+        cursor: grab;
+      }
+      [vaul-handle]:active,
+      [vaul-handle]:hover {
+        opacity: 1;
+      }
+      [vaul-handle]:active {
+        cursor: grabbing;
+      }
+      [vaul-handle-hitarea] {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: max(100%, 2.75rem);
+        height: max(100%, 2.75rem);
+        touch-action: inherit;
+      }
+      [vaul-overlay][vaul-snap-points="true"]:not(
+          [vaul-snap-points-overlay="true"]
+        ):not([data-state="closed"]) {
+        opacity: 0;
+      }
+      [vaul-overlay][vaul-snap-points-overlay="true"]:not(
+          [vaul-drawer-visible="false"]
+        ) {
+        opacity: 1;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        [vaul-drawer] {
+          user-select: none;
+        }
+      }
+    </style>
+    <!-- Required Meta Tags -->
+    <!-- bret victor + alan kay + robots = 4 god things in zeld botw + majora - you = hero of time -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://threejs.org/build/three.webgpu.js",
+          "three/tsl": "https://threejs.org/build/three.webgpu.js",
+          "three/addons/": "https://threejs.org/examples/jsm/"
+        }
+      }
+    </script>
+    <!-- figure out how to not use import maps for threejs  bc dhh doesnt -->
+    <meta
+      property="og:title"
+      content="Robotics Odyssey - Reimagining Robotics: Merging Systems Thinking and Dynamic Media"
+    />
+    <meta
+      property="og:description"
+      content="Explore a new approach to robotics that transcends conventional thinking, inspired by the principles of Alan Kay and Bret Victor. Discover how interconnected systems, dynamic media, and human-centric design can tackle the immense challenges of our time."
+    />
+    <meta property="og:url" content="https://robtics-odyssey.com" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://hashirama.blog/static/images/blog/sicp.png"
+    />
+    <!-- less association  -->
+    <!-- Optional Meta Tags -->
+    <link rel="canonical" href="https://robtics-odyssey.com" />
+  
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Robotics-Odyssey" />
+    <meta itemprop="url" content="https://robtics-odyssey.com" />
+    <meta name="twitter:title" content="Robotics-Odyssey" />
+    <meta name="twitter:url" content="https://robtics-odyssey.com" />
+    <meta
+      name="twitter:card"
+      content="Reimagining Robotics: Merging Systems Thinking and Dynamic Media"
+    />
+    <meta
+      name="description"
+      content="Explore a new approach to robotics that transcends conventional thinking, inspired by the principles of Alan Kay and Bret Victor. Discover how interconnected systems, dynamic media, and human-centric design can tackle the immense challenges of our time."
+    />
+    <!--   <script type="text/javascript">
+            (function(c,l,a,r,i,t,y){
+                c[a] = c[a] || function(){ (c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "YOUR_PROJECT_ID");
+        </script> -->
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Robotics Odyssey</title>
+    <!-- <meta name="description" content="Inventing future of robotics UI" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- https://threejs-journey.com/assets/favicons/apple-touch-icon.png -->
+    <!-- konoha + robot + sicp + alan + wory -->
+    <link rel="icon" href="/static/images/blog/favicon.svg" />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      title="Sitemap"
+      href="/sitemap.xml"
+    />
+    <meta name="description" content="ass" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="language" content="English" />
+    <link href="/static/css/output.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <!-- combine all these in one js file  -->
+  
+    <!-- <script src="/static/js/htmx.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+    <!-- import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+   -->
+    <!-- improt frontend - einfra  -->
+
+  
+    <style>
+        canvas {
+            border: 1px solid black;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+    <div>figma whitebaord</div>
+    <canvas id="whiteboard" width="800" height="600"></canvas>
+
+    <!-- <canvas id="flux" width="800" height="600"></canvas> -->
+    <div id="flux" width="800" height="600"></div> 
+    <script type="module">
+        import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+console.log(d3)
+        const flux = document.querySelector('#flux');
+
+        
+        const json = await d3.json('/figma_to_flux', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "prompt": "a photo of a brightly colored turtle",
+                "image": "https://replicate.delivery/pbxt/IYQLHLFDraqCrjDUoiwpM9xBhQM1eQVHbxBiNxcbwctUamzb/user_1.png"
+            })
+
+        })
+        console.log('json', json)
+    </script>
+
+    <script>
+        const canvas = document.getElementById('whiteboard');
+        const ctx = canvas.getContext('2d');
+        let drawing = false;
+
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mousemove', draw);
+
+        function startDrawing(e) {
+            drawing = true;
+            draw(e); // Start drawing immediately
+        }
+
+        function stopDrawing() {
+            drawing = false;
+            ctx.beginPath(); // Reset the path
+        }
+
+        function draw(e) {
+            if (!drawing) return;
+
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = 'black';
+
+            ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+        }
+    </script>
+</body>
+</html>

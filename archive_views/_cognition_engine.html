@@ -1,0 +1,209 @@
+<html>
+  <head>
+    <title>hi</title>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"
+    ></script>
+  </head>
+  <body>
+    <div>https://linebender.org/vello/</div>
+
+    <input type="text" placeholder="youtube to make animation" />
+
+    <input
+      type="text"
+      id="coolInput"
+      class="cool-input"
+      placeholder=" "
+      required
+    />
+
+    <button
+      class="rainbow-button animate-rainbow text-white font-bold py-2 px-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none"
+      hx-on:click="createAnimation()"
+    >
+      Click me to create animation
+    </button>
+
+    <button
+      class="rainbow-button animate-rainbow text-white font-bold py-2 px-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none"
+      hx-on:click="createAnimation()"
+    >
+      Click me to create lightbulb
+    </button>
+
+    <button
+      class="rainbow-button animate-rainbow text-white font-bold py-2 px-4 rounded-full transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none"
+      hx-on:click="createAnimation()"
+    >
+      Click me to create lightbulb
+    </button>
+
+    <div id="lottie"></div>
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+      type="module"
+    ></script>
+
+    paper mario -> css animation nagatos friend infilll w/ flux
+    <dotlottie-player
+      src="https://lottie.host/9cf85eef-cc89-4af6-913a-55f0e9fc6ffb/yPwIZLprBK.json"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px"
+      loop
+      autoplay
+    ></dotlottie-player>
+    <!-- https://airbnb.io/lottie/#/web -->
+    <!-- https://observablehq.com/@chitacan/hello-lottie-web
+    -->
+    <!-- https://github.com/scaleapi/pandaset-devkit/blob/master/python/pandaset/annotations.py -->
+
+    <!-- https://observablehq.com/d/1bd1b959dd3f0514 -->
+    <dotlottie-player
+      src="https://lottie.host/9cf85eef-cc89-4af6-913a-55f0e9fc6ffb/yPwIZLprBK.json"
+      background="transparent"
+      speed="1"
+      style="width: 300px; height: 300px"
+      loop
+      autoplay
+    ></dotlottie-player>
+    <script>
+      console.log(123);
+
+      async function _() {
+        const url =
+          "https://raw.githubusercontent.com/adnanwahab/hashirama/refs/heads/main/animation.json";
+        console.log("hi");
+        const req = await fetch(url);
+        const data = await req.json();
+        console.log(data, document.getElementById("lottie"));
+
+        var animation = bodymovin.loadAnimation({
+          container: document.getElementById("lottie"), // Required
+          path: "/static/images/blog/first_lottie.json",
+          //path: url, // Required
+          renderer: "html", // Required
+          loop: true, // Optional
+          autoplay: true, // Optional
+          name: "Hello World", // Name for future reference. Optional.
+        });
+
+        window.animation = animation;
+      }
+
+      window.onload = () => {
+        setTimeout(_, 1000);
+      };
+    </script>
+  </body>
+</html>
+
+<!-- <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"
+></script> -->
+<!-- >
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_canvas.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_canvas_worker.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_html.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_light.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_light_canvas.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_light_html.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_svg.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_worker.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/cjs/lottie.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/cjs/lottie_canvas.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/cjs/lottie_html.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/cjs/lottie_light.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/cjs/lottie_light_canvas.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/cjs/lottie_light_html.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/cjs/lottie_svg.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/esm/lottie.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/esm/lottie_canvas.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/esm/lottie_html.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/esm/lottie_light.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/esm/lottie_light_canvas.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/esm/lottie_light_html.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/esm/lottie_svg.min.js"
+  ></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie_svg.min.js"></script> -->
+
+<div class="cool-input-container">
+  <input
+    type="text"
+    id="coolInput"
+    class="cool-input"
+    placeholder=" "
+    required
+  />
+  <label for="coolInput" class="cool-label">Enter something cool</label>
+  <div class="cool-border"></div>
+</div>

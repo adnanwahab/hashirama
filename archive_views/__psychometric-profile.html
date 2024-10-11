@@ -1,0 +1,65 @@
+{{template "head.html" .}}
+
+<body>
+  <input
+    type="text"
+    id="person-to-search"
+    value="hello"
+    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+  />
+  <button
+    class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+    hx-post="/parse"
+    hx-trigger="click"
+    hx-target="#results"
+    hx-include="#person-to-search"
+  >
+    Search
+  </button>
+  <div id="results"></div>
+  <script>
+    //document.querySelector('button').click()
+    console.log(1231);
+    setTimeout(() => {
+      const searchButton = document.querySelector("button");
+      const personInput = document.getElementById("person-to-search");
+      const resultsDiv = document.getElementById("results");
+
+      //searchButton.addEventListener('click', function(e) {
+      //e.preventDefault();
+      const personName = personInput.value.trim();
+      console.log(personName, "yay");
+      if (true) {
+        fetch("/parse", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "HX-Request": "true",
+          },
+          body: `person-to-search=${encodeURIComponent(personName)}`,
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            resultsDiv.innerHTML = data;
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            resultsDiv.innerHTML = "An error occurred while fetching results.";
+          });
+      } else {
+        resultsDiv.innerHTML = "Please enter a name to search.";
+      }
+      //});
+    }, 1000);
+  </script>
+
+  <ul>
+    <!-- <li>big 5 personality</li> -->
+    <li>get all research paper</li>
+    <li>
+      first agent = send to playwrgiht get results from search, get papers -
+      filter(arxiv/gscholar)
+    </li>
+    <li>get 1000 from robotics companies</li>
+  </ul>
+</body>

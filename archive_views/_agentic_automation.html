@@ -1,0 +1,130 @@
+{{if .IsStoryBook}} {{template "head.html" .}} {{ end }}
+<div class="container mx-auto px-4 py-8">
+  <ul class="list-disc list-inside">
+    <li class="text-lg text-gray-700">Outliers</li>
+    <li class="text-lg text-gray-700">Flitlflorw</li>
+    <li class="text-lg text-gray-700">Applications</li>
+  </ul>
+</div>
+<div>
+  <!-- screenshot to git visualiztion show 50 iterations - branches -->
+  <ul class="list-disc list-inside">
+    <li class="text-lg text-gray-700">screenshots</li>
+    <li class="text-lg text-gray-700">label image</li>
+    <li class="text-lg text-gray-700">exec agent on text</li>
+    <li class="text-lg text-gray-700">-----</li>
+
+    <li class="text-lg text-gray-700">
+      inject slice from agent into yank tree
+    </li>
+  </ul>
+</div>
+<!-- app for flirtflow + robot-university(remote-control) +  refelect-->
+<div>{{template "_vision-transformer.html" . }}</div>
+<div>{{template "_chat-bot.html" . }}</div>
+
+{{if false}}
+<div class="bg-gray-100">
+  <div class="container mx-auto px-4 py-8">{! content} OK LOL</div>
+  <div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold text-center mb-6">
+      AI Dating Photo Generator
+    </h1>
+
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-4">1. Upload Your Selfies</h2>
+      <form
+        hx-encoding="multipart/form-data"
+        hx-post="/upload"
+        hx-target="#upload-status"
+      >
+        <div class="flex items-center justify-center w-full">
+          <label
+            class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
+          >
+            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+              <svg
+                class="w-10 h-10 mb-3 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                ></path>
+              </svg>
+              <p class="mb-2 text-sm text-gray-500">
+                <span class="font-semibold">Click to upload</span> or drag and
+                drop
+              </p>
+              <p class="text-xs text-gray-500">
+                SVG, PNG, JPG or GIF (MAX. 800x400px)
+              </p>
+            </div>
+            <input type="file" name="selfies" class="hidden" multiple />
+          </label>
+        </div>
+        <button
+          type="submit"
+          class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors"
+        >
+          Upload Selfies
+        </button>
+      </form>
+      <div id="upload-status"></div>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-4">2. Choose a Photo Pack</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- for _, pack := range photoPacks { -->
+        <button
+          class="p-4 border rounded-lg text-center transition-colors bg-white hover:bg-gray-100"
+          hx-post="{fmt.Sprintf('/select-pack/%s', pack.ID)}"
+          hx-target="#selected-pack"
+        >
+          LOL
+        </button>
+        <!-- } -->
+      </div>
+      <div id="selected-pack" class="mt-4 text-center text-gray-600"></div>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-4">3. Generate Photos</h2>
+      <button
+        class="w-full bg-green-500 text-white py-3 rounded-lg flex items-center justify-center space-x-2 hover:bg-green-600 transition-colors"
+        hx-post="/generate"
+        hx-target="#generated-photos"
+      >
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 10V3L4 14h7v7l9-11h-7z"
+          ></path>
+        </svg>
+        <span>Generate Dating Photos</span>
+      </button>
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold mb-4">Your Generated Photos</h2>
+      <div id="generated-photos" class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        Generated photos will be inserted here
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}

@@ -1,0 +1,27 @@
+<h3>wow coool</h3>
+<input
+  type="text"
+  placeholder="github repo"
+  hx-on:keyup="fetch_and_render_baby(event)"
+/>
+
+<button>king tut had a butt</button>
+
+<button hx-on:click="alert('Clicked!')">
+  https://github.com/adnanwahab/hashirama
+</button>
+
+<script>
+  function fetch_and_render_baby(e) {
+    console.log(e.target.value);
+    const shit = `rgba(${Math.random() * 255},${Math.random() * 255}, ${Math.random() * 255}, 1)`;
+    console.log(shit);
+    document.body.style.background = shit;
+  }
+
+  function alert() {
+    console.log("alert fired ");
+    document.querySelector("input").value =
+      "https://github.com/adnanwahab/hashirama";
+  }
+</script>

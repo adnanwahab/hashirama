@@ -1,0 +1,76 @@
+<body class="container mx-auto p-4 bg-gray-900 min-h-screen flex flex-col">
+  <header class="text-center mb-6 bg-black p-4 rounded-lg glow-effect">
+    <h1 class="text-4xl font-bold text-cyan-400 tracking-wider">
+      NEXUS TELEOPERATION SYSTEM
+    </h1>
+    <p class="text-cyan-200 mt-2">Advanced Remote Control Interface</p>
+  </header>
+
+  <div class="flex justify-center space-x-4 mb-6">
+    <button
+      hx-get="/drive"
+      class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 shadow-lg"
+    >
+      <span class="mr-2">🚀</span>Drive
+    </button>
+    <button
+      hx-get="/brake"
+      class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 shadow-lg"
+    >
+      <span class="mr-2">🛑</span>Brake
+    </button>
+    <button
+      hx-get="/joystick"
+      class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 shadow-lg"
+    >
+      <span class="mr-2">🕹️</span>Joystick
+    </button>
+    <button
+      hx-post="/beep"
+      class="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-full transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 shadow-lg"
+    >
+      <span class="mr-2">📢</span>Beep
+    </button>
+  </div>
+
+  <div
+    class="flex-grow flex items-center justify-center bg-gray-800 rounded-lg overflow-hidden shadow-2xl"
+  >
+    <video width="100%" height="auto" controls class="rounded-lg">
+      <source src="/static/sample.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <footer class="mt-6 text-center text-cyan-200">
+    <p>&copy; 2024 Nexus Teleoperation Systems. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.classList.add("animate-pulse");
+        setTimeout(() => button.classList.remove("animate-pulse"), 500);
+      });
+    });
+  </script>
+</body>
+
+<!-- add Self Healing Maps
+     live stream!
+     rts, rpg,
+
+     LIKE MARIO PARTY BUT WITH ROBOT
+     https://www.nytimes.com/wirecutter/reviews/best-point-and-shoot-camera/
+     https://www.nytimes.com/wirecutter/reviews/best-tv-wall-mount/
+     https://www.nytimes.com/wirecutter/reviews/best-oled-tv/
+
+     BEST RESERACH ON HANDS
+     https://www.nytimes.com/wirecutter/reviews/best-4k-tv/
+     https://www.nytimes.com/wirecutter/reviews/best-lcd-led-tv/
+     https://www.nytimes.com/wirecutter/reviews/best-chromebook/
+     https://www.nytimes.com/wirecutter/reviews/best-all-in-one-computer/
+     https://www.nytimes.com/wirecutter/reviews/best-mini-desktop-pcs/
+     https://www.nytimes.com/wirecutter/reviews/best-android-phone/
+     RTIGS I LOVE YES
+     3 -->

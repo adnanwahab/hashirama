@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webcam Capture and Upload</title>
+  </head>
+  <body>
+    <h1>Capture Webcam Image and Upload as Base64</h1>
+    <video id="video" autoplay playsinline width="640" height="480"></video>
+    <canvas id="canvas" width="640" height="480" style="display: none"></canvas>
+    <button id="captureButton">Capture and Upload Image</button>
+
+    <script>
+      const video = document.getElementById("video");
+      const canvas = document.getElementById("canvas");
+      const captureButton = document.getElementById("captureButton");
+      const context = canvas.getContext("2d");
+
+      // Access the webcam and start the video stream
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then((stream) => {
+          video.srcObject = stream;
+          video.play();
+        })
+        .catch((err) => {
+          console.error("Error accessing the webcam: ", err);
+        });
+
+      // Capture the image and send it as a base64-encoded string to the backend
+      captureButton.addEventListener("click", () => {
+        // Draw the current frame of the video onto the canvas
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // Convert the canvas to a base64-encoded image (JPEG format)
+        const base64Image = canvas.toDataURL("image/jpeg");
+
+        // Remove the data URL prefix ("data:image/jpeg;base64,") for clean base64 data
+        const strippedBase64 = base64Image.replace(
+          /^data:image\/jpeg;base64,/,
+          "",
+        );
+
+        // Send the base64-encoded image to the backend
+        fetch("http://localhost:8080/upload", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ image: strippedBase64 }),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log("Image saved:", data))
+          .catch((error) => console.error("Error uploading the image:", error));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<!-- spec = eat food - see nutrition data via obs  -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag and Drop Image Upload</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      #dropzone {
+        width: 400px;
+        height: 300px;
+        border: 2px dashed #cccccc;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        text-align: center;
+        cursor: pointer;
+      }
+      #dropzone.hover {
+        border-color: #666666;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dropzone">Drag & Drop Image Here or Click to Upload</div>
+
+    <script type="module">
+      const response = await fetch("/vit");
+      const text = await response.text();
+      console.log(text);
+
+      const dropzone = document.getElementById("dropzone");
+
+      dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.add("hover");
+      });
+
+      dropzone.addEventListener("dragleave", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove("hover");
+      });
+
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove("hover");
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+          uploadFile(files[0]);
+        }
+      });
+
+      dropzone.addEventListener("click", () => {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "image/*";
+        input.click();
+
+        input.addEventListener("change", () => {
+          if (input.files.length > 0) {
+            uploadFile(input.files[0]);
+          }
+        });
+      });
+
+      function uploadFile(file) {
+        const formData = new FormData();
+        formData.append("image", file);
+
+        fetch("/vit", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              console.log("yay it worked");
+              //alert("Image uploaded successfully!");
+            } else {
+              //alert("Image upload failed!");
+            }
+          })
+          .catch((err) => {
+            console.error("Error:", err);
+            //alert("Image upload failed!");
+          });
+      }
+    </script>
+  </body>
+</html>

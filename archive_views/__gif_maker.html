@@ -1,0 +1,11 @@
+{{template "head.html" .}}
+<body>
+  <h2>Database Tables</h2>
+
+  <button hx-get="/make_gif" hx-target="#gif-container" hx-swap="innerHTML">
+    Generate GIF
+  </button>
+  <div id="gif-container">
+    <!-- The GIF will be displayed here -->
+  </div>
+</body>
