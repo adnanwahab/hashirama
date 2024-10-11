@@ -1,0 +1,12 @@
+version = 1
+requires-python = ">=3.11"
+
+[manifest]
+members = [
+    "example",
+]
+
+[[package]]
+name = "example"
+version = "0.1.0"
+source = { virtual = "example" }

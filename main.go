@@ -85,7 +85,7 @@ func PreRender(route string, parsedTemplates *template.Template) {
 //hardware-tools 8003
 //flirt-flow-backend 8004
 //odyssey port - 7999,8000 - air
-//not getting married till - 32, 47 - 2024- 2039 = 15 years .
+////not getting married till - 32, 47 - 2024- 2039 = 15 years - find nicole + 6 years
 
 func main() {
 	e := echo.New()
