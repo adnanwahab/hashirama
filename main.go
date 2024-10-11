@@ -80,13 +80,6 @@ func PreRender(route string, parsedTemplates *template.Template) {
 	}
 }
 
-//cgi-backend 8001
-//llama-backend 8002
-//hardware-tools 8003
-//flirt-flow-backend 8004
-//odyssey port - 7999,8000 - air
-////not getting married till - 32, 47 - 2024- 2039 = 15 years - find nicole + 6 years
-
 func main() {
 	e := echo.New()
 	e.Debug = true
@@ -112,38 +105,14 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "index.html", nil)
 	})
+	e.GET("/*", func(c echo.Context) error {
+		route := c.Request().URL.Path
+		if route == "/" {
+			route = "index"
+		}
 
-	// fileChangeChan := make(chan string)
-	// go utils.WatchFiles(".")
-
-	// e.GET("/event-source", func(c echo.Context) error {
-	// 	c.Response().Header().Set("Content-Type", "text/event-stream")
-	// 	c.Response().Header().Set("Cache-Control", "no-cache")
-	// 	c.Response().Header().Set("Connection", "keep-alive")
-
-	// 	utils.WatchFiles(".")
-
-	// 	for {
-	// 		select {
-	// 		case changedFile := <-fileChangeChan:
-	// 			data, _ := json.Marshal(map[string]string{"file": changedFile})
-	// 			_, err := fmt.Fprintf(c.Response().Writer, "data: %s\n\n", data)
-	// 			if err != nil {
-	// 				log.Printf("Error sending event: %v", err)
-	// 				return err
-	// 			}
-	// 		case <-time.After(30 * time.Second):
-	// 			// Send a heartbeat to keep the connection alive
-	// 			_, err := fmt.Fprintf(c.Response().Writer, "data: heartbeat\n\n")
-	// 			if err != nil {
-	// 				log.Printf("Error sending heartbeat: %v", err)
-	// 				return err
-	// 			}
-	// 		}
-	// 		c.Response().Flush()
-	// 	}
-	// })
-	//e.GET("/bun", reverse_proxy())
+		return c.Render(http.StatusOK, route+".html", nil)
+	})
 
 	e.GET("/cgi", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "cgi.html", nil)
@@ -155,6 +124,20 @@ func main() {
 	e.GET("/llama-tools", func(c echo.Context) error {
 		return c.Render(http.StatusOK, "llama-tools.html", nil)
 	})
+	e.GET("/hardware-tools", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "hardware-tools.html", nil)
+	})
+
+	//cgi-backend 8001
+	//llama-backend 8002
+	//hardware-tools 8003
+	//flirt-flow-backend 8004
+	//odyssey port - 7999,8000 - air
+
+	e.GET("/hardware-backend", reverse_proxy(8003))
+	e.GET("/llama-backend", reverse_proxy(8003))
+	e.GET("/cgi-backend", reverse_proxy(8003))
+
 	e.GET("/llama-backend/*", func(c echo.Context) error {
 		targetURL := "http://localhost:8900" + c.Request().URL.Path
 		targetURL = strings.Replace(targetURL, "llama-backend/", "", 1) // Replace "llama-backend/" with ""

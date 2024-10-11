@@ -41,6 +41,9 @@ Bun.serve({
     let url = new URL(req.url).pathname;
     console.log('url', url);
     if (url === '/') url = 'index';
+    if (url.startsWith("/static")) { // Remove .pathname
+      return Bun.file(join(staticDir, url.replace("/static", "")));
+    }
     return new Response(render_page(url), { headers: { "Content-Type": "text/html" } });
   },
 });
