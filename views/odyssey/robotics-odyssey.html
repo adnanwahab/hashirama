@@ -23,7 +23,7 @@
 
   <body class="text-gray-950 antialiased bg-slate-900">
     <div class="overflow-hidden">
-      <main>
+    <main>
         <div class="">
           <div>{{if true}} {{ template "1_tele_guidance.html" . }}{{end}}</div>
 
@@ -38,31 +38,6 @@
         {{if true}}{{template "footer.html" .}} {{end}}
       </main>
     </div>
-    <script async defer type="module">
-      function updateCountdown() {
-        const countdownElement = document.querySelector(".countdown-clock");
-        const now = new Date();
-        const targetDate = new Date(now.getFullYear(), 10, 1); // November is month 10 (0-based index)
-
-        if (now > targetDate) {
-          targetDate.setFullYear(targetDate.getFullYear() + 1);
-        }
-
-        const timeLeft = targetDate - now;
-
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-        );
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-        countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-      }
-
-      // updateCountdown();
-      // setInterval(updateCountdown, 1000);
-    </script>
   </body>
 </html>
 

@@ -13,11 +13,12 @@ const {jwt, wsUrl} = connect_to_livekit()
 const order = [
   "diffusion-policy",
   "democracy-mode",
-  "idk",
+  "hardware_notebook",
   "dynamicland.org",
   "how",
   "meforgert"
 ]
+const meforgert = () => "meforgert"
 
 
 const diffusion_policy = () => `
@@ -172,12 +173,16 @@ const democracy_mode = () => `
 
 `;
 
-const idk = () => `
+// abve 2 are good 
+
+const hardware_notebook = () => `
   <div>
       <h1 style="color: white;">diffusion !?!?!  Mode</h1>
   </div>
 `;
 
+
+//below 2 are good 
 const dynamicland_org = () => `
   <div class="text-blue-200">
   <link href="/static/output.css" rel="stylesheet">
@@ -363,7 +368,7 @@ const tracks = await createLocalTracks({
 </html>
 `;
 
-function meforgert() {
+function hello() {
 return `
   <div>
   <div id="observablehq-1d886192"></div>
@@ -384,10 +389,9 @@ new Runtime().module(define, Inspector.into("#observablehq-1d886192"));
 const pages = [
    diffusion_policy(),
 democracy_mode(),
- idk(),
+ hardware_notebook(),
  dynamicland_org(),
 how(),
-meforgert()
 ]
 
 const port = 3003

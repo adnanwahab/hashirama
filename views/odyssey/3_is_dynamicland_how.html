@@ -1,14 +1,3 @@
-{{define "road-2"}}
-<img src="/static/_.gif" />
-{{end}} {{define "road-3"}}
-<img src="/static/_.gif" />
-{{end}} {{define "road-1"}}
-<!-- <div tabindex="-1" class="cm-scroller"><div class="cm-gutters" aria-hidden="true" style="min-height: 66.7812px; position: sticky;"><div class="cm-gutter cm-lineNumbers"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;">9</div><div class="cm-gutterElement cm-activeLineGutter" style="height: 19.5938px; margin-top: 4px;">1</div><div class="cm-gutterElement" style="height: 19.5938px;">2</div><div class="cm-gutterElement" style="height: 19.5938px;">3</div></div><div class="cm-gutter cm-foldGutter"><div class="cm-gutterElement" style="height: 0px; visibility: hidden; pointer-events: none;"><span title="Unfold line">›</span></div><div class="cm-gutterElement cm-activeLineGutter" style="height: 19.5938px; margin-top: 4px;"><span title="Fold line">⌄</span></div></div></div><div spellcheck="false" autocorrect="off" autocapitalize="off" translate="no" contenteditable="true" style="tab-size: 4;" class="cm-content" role="textbox" aria-multiline="true" data-language="javascript" aria-autocomplete="list"><div class="cm-activeLine cm-line"><span class="ͼb">function</span><span class="cm-selectionMatch"> </span><span class="ͼg">hello</span>(<span class="ͼg">who</span> =<span class="cm-selectionMatch"> </span><span class="ͼe">"world"</span>)<span class="cm-selectionMatch"> </span>{</div><div class="cm-line"><span class="cm-selectionMatch"> </span><span class="cm-selectionMatch"> </span>console.log(<span class="ͼf">`Hello,</span><span class="cm-selectionMatch"><span class="ͼf"> </span></span>${who}<span class="ͼf">!`</span>)</div><div class="cm-line">}</div></div><div class="cm-layer cm-layer-above cm-cursorLayer" aria-hidden="true" style="z-index: 150; animation-duration: 1200ms; animation-name: cm-blink2;"><div class="cm-cursor cm-cursor-primary" style="left: 197.641px; top: 5px; height: 16px;"></div></div><div class="cm-layer cm-selectionLayer" aria-hidden="true" style="z-index: -2;"><div class="cm-selectionBackground" style="left: 189.203px; top: 4.99px; width: 8.4375px; height: 16.01px;"></div></div></div> -->
-{{end}}
-
-<!-- alal nkay how -->
-
-<!-- hardware research -> whats actually needed  -->
 
 <div class="">
   <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
@@ -32,11 +21,9 @@
           class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)] lg:rounded-tl-[calc(2rem+1px)]"
         >
           <a href="https://threejs-journey.com">
-            <iframe
-              src="/demo?idk=dynamicland.org"
-              style="pointer-events: none"
-              class="h-80 w-full"
-            ></iframe>
+            {{template "tele-guidance-frame" "dynamicland.org"}}
+
+       
           </a>
         </div>
         <div
@@ -50,8 +37,9 @@
         <div
           class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]"
         >
+          {{template "tele-guidance-frame" "how"}}
           <!-- <a href="https://dynamicland.org"> -->
-          <iframe src="/demo?idk=how" class="h-80 w-full"></iframe>
+          <!-- <iframe src="/demo?idk=how" class="h-80 w-full"></iframe> -->
 
           <!-- </a> -->
 
