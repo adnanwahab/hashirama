@@ -3,7 +3,7 @@ import { join } from 'node:path';
 const fs = require('fs');
 const path = require('path');
 
-const goodOnesDir = join('views', 'good_ones');
+const llamatoolsir = join('views', 'llama-tools');
 
 const routes = [
   'livekit_audio',
@@ -17,7 +17,7 @@ const routes = [
   'api_docs',
 ]
 
-const path_maker = (route) => join(goodOnesDir, route + '.html')
+const path_maker = (route) => join(llamatoolsir, route + '.html')
 const goodOnesFiles = routes.map(path_maker)
 
 const compile_time_file_checker = file => { 
