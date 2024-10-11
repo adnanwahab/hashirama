@@ -1,3 +1,4 @@
+scripts/infra/
 data/alan_kay/images
 notebooks/robot_remote_control
 notebooks/deno-webgpu
@@ -24,7 +25,7 @@ notebooks/3lang-notebook/
 notebooks/3_planning-prediction/
 notebooks/2_perception/pixels2svg/
 notebooks/2_perception/
-scripts/infra/
+
 alan_kay
 static/pdfs
 .venv
