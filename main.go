@@ -30,42 +30,41 @@ func (t *TemplateHandler) Render(w io.Writer, name string, data interface{}, c e
 	return t.templates.ExecuteTemplate(w, name, data)
 }
 
-func reverse_proxy() echo.HandlerFunc {
-	// parlay "dynamciagaly - "to 8 buns ?
-	return func(c echo.Context) error {
-		targetURL := "http://localhost:8009" + c.Request().URL.Path
-		fmt.Printf("Proxying request to: %s\n", targetURL)
+// func reverse_proxy() echo.HandlerFunc {
+// 	// parlay "dynamciagaly - "to 8 buns ?
+// 	return func(c echo.Context) error {
+// 		targetURL := "http://localhost:8009" + c.Request().URL.Path
+// 		targetURL = strings.Replace(targetURL, "llama-backend/", "", 1) // Replace "llama-backend/" with ""
 
-		//targetURL = strings.Replace(targetURL, "llama-backend/", "", 1)
-		fmt.Println(targetURL)
+// 		fmt.Printf("Proxying request to: %s\n", targetURL)
 
-		resp, err := http.Get(targetURL)
-		if err != nil {
-			fmt.Printf("Error proxying request: %v\n", err)
-			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error proxying request: %v", err))
-		}
-		defer resp.Body.Close()
+// 		resp, err := http.Get(targetURL)
+// 		if err != nil {
+// 			fmt.Printf("Error proxying request: %v\n", err)
+// 			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error proxying request: %v", err))
+// 		}
+// 		defer resp.Body.Close()
 
-		fmt.Printf("Received response with status: %d\n", resp.StatusCode)
+// 		fmt.Printf("Received response with status: %d\n", resp.StatusCode)
 
-		// Copy the response headers
-		for key, values := range resp.Header {
-			for _, value := range values {
-				c.Response().Header().Add(key, value)
-			}
-		}
+// 		// Copy the response headers
+// 		for key, values := range resp.Header {
+// 			for _, value := range values {
+// 				c.Response().Header().Add(key, value)
+// 			}
+// 		}
 
-		// Set the status code and write the response body
-		c.Response().WriteHeader(resp.StatusCode)
-		_, err = io.Copy(c.Response().Writer, resp.Body)
-		if err != nil {
-			fmt.Printf("Error writing response: %v\n", err)
-			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error writing response: %v", err))
-		}
+// 		// Set the status code and write the response body
+// 		c.Response().WriteHeader(resp.StatusCode)
+// 		_, err = io.Copy(c.Response().Writer, resp.Body)
+// 		if err != nil {
+// 			fmt.Printf("Error writing response: %v\n", err)
+// 			return c.String(http.StatusInternalServerError, fmt.Sprintf("Error writing response: %v", err))
+// 		}
 
-		return nil
-	}
-}
+// 		return nil
+// 	}
+// }
 
 func PreRender(route string, parsedTemplates *template.Template) {
 	outputFile, err := os.Create("docs/" + route)
@@ -80,6 +79,13 @@ func PreRender(route string, parsedTemplates *template.Template) {
 		log.Fatalf("Error rendering template: %v", err)
 	}
 }
+
+//cgi-backend 8001
+//llama-backend 8002
+//hardware-tools 8003
+//flirt-flow-backend 8004
+//odyssey port - 7999,8000 - air
+//not getting married till - 32, 47 - 2024- 2039 = 15 years .
 
 func main() {
 	e := echo.New()
@@ -151,7 +157,7 @@ func main() {
 	})
 	e.GET("/llama-backend/*", func(c echo.Context) error {
 		targetURL := "http://localhost:8900" + c.Request().URL.Path
-		fmt.Printf("Proxying request to: %s\n", targetURL)
+		targetURL = strings.Replace(targetURL, "llama-backend/", "", 1) // Replace "llama-backend/" with ""
 
 		//targetURL = strings.Replace(targetURL, "llama-backend/", "", 1)
 		fmt.Println(targetURL)
