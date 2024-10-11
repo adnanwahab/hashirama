@@ -77,4 +77,3 @@ and this repo just the LUA-based llm customzation layer for robotics - thats the
 
 # Thanks Bot-party
 //render the unviersity-footer
-https://go.dev/doc/
