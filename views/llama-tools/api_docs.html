@@ -24,19 +24,25 @@ new Runtime().module(define, Inspector.into("#observablehq-c7b4d5a7"));
 "https://api.observablehq.com/@roboticsuniversity/alan_how.js"
 
 -->
-
-    <script>
-//<"https://observablehq.com/embed/@roboticsuniversity/alan_how?cell=*&banner=false"
-//get this links from robotics-university-backend
+<!-- import json vite - any static asset - front end tooling well -  -  -->
+<!-- <iframe width="100%" height="105.390625" frameborder="0"
+  src="https://observablehq.com/embed/@roboticsuniversity/1-hardware-design-repair?cells=first_vis"></iframe> -->
+<script>
 const observable_links = {
-voxels: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*", 
-  dynamicland: "https://observablehq.com/embed/@roboticsuniversity/dynamicland?cell=*",
-  livekit: "https://observablehq.com/embed/@roboticsuniversity/livekit-robotics-tele-guidance?cell=*",
-  alan_how: "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*",
-  hardware: "https://observablehq.com/embed/@roboticsuniversity/1-hardware-design-repair?cell=*",
-  prediction: "https://observablehq.com/embed/@roboticsuniversity/3-planning-prediction?cell=*",
-  infra: "https://observablehq.com/embed/@roboticsuniversity/infrastructure-notebook@13?cell=*",
-    democracy: "https://observablehq.com/embed/@roboticsuniversity/collaborative-ui-twitch-plays-robot?cell=*",
+  twitch: function () {
+    //return TwitchPlaysPokemonPanel({})
+    return 'idk'
+  },
+//voxels: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*", 
+  // "dynamicland.org": "https://observablehq.com/embed/@roboticsuniversity/dynamicland.org?cell=*",
+  // livekit: "https://observablehq.com/embed/@roboticsuniversity/livekit-robotics-tele-guidance?cell=*",
+  //alan_how: "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*",
+  
+  // hardware: "https://observablehq.com/embed/@roboticsuniversity/robotics-hardware?cell=*",
+  //prediction: "https://observablehq.com/embed/@roboticsuniversity/3-planning-prediction?cell=*",
+  //infra: "https://observablehq.com/embed/@roboticsuniversity/infrastructure-notebook@13?cell=*",
+    //democracy: "https://observablehq.com/embed/@roboticsuniversity/collaborative-ui-twitch-plays-robot?cell=*",
+
 }
 const links_ul = document.querySelector("#observable-links");
 
@@ -50,8 +56,16 @@ links_ul.innerHTML = toHTML.map(li => li.innerHTML).join("");
 
 const iframe = document.querySelector(".iframe-container");
 
-iframe.innerHTML = Object.entries(observable_links)
-.map(([name, link]) => `<h1>${name}</h1><iframe width="100%" height="500" frameborder="0" src="${link}"></iframe>` ).join('\n')
+const render_pages = ([name, link]) => { 
+  if (typeof link === 'function') {
+    console.log(link)
+    return link()
+  } else { 
+    return `<h1>${name}</h1><iframe width="100%" height="500" frameborder="0" src="${link}"></iframe>` 
+  }
+}
+
+iframe.innerHTML = Object.entries(observable_links).map(render_pages)
     </script>
 
   </ul>

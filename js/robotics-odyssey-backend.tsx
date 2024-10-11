@@ -7,22 +7,42 @@ import path from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const staticDir = join(__dirname, 'static')
+import React from 'react';
 
+import { renderToString } from 'react-dom/server';
+
+import TwitchPlaysPokemonPanel from './react-server.tsx'
+  
 const observable_links = {
   voxels: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*", 
-  dynamicland: "https://observablehq.com/embed/@roboticsuniversity/dynamicland?cell=*",
-  livekit: "https://observablehq.com/embed/@roboticsuniversity/livekit-robotics-tele-guidance?cell=*",
+  "dynamicland.org": "https://observablehq.com/embed/@roboticsuniversity/dynamicland?cell=*",
+  livekit: "https://observablehq.com/embed/@roboticsuniversity/livekit?cell=*",
   alan_how: "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*",
   hardware: "https://observablehq.com/embed/@roboticsuniversity/1-hardware-design-repair?cell=*",
   prediction: "https://observablehq.com/embed/@roboticsuniversity/3-planning-prediction?cell=*",
   infra: "https://observablehq.com/embed/@roboticsuniversity/infrastructure-notebook@13?cell=*",
   democracy: "https://observablehq.com/embed/@roboticsuniversity/collaborative-ui-twitch-plays-robot?cell=*",
+  twitch: TwitchPlaysPokemonPanel,
+
+  //twitch: "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*",
+
   research: "https://observablehq.com/embed/@roboticsuniversity/5000-research-papers?cell=*",
   //semseg: "https://observablehq.com/embed/@roboticsuniversity/semantic-segmentation-robot?cell=*",
 }
 function observable_template(name) { 
-  if (!observable_links[name]) {
+  const _ = observable_links[name]
+  if (!_) {
     return new Error(`No notebook found for ${name}`)
+  }
+  if (typeof _ === 'function') {
+    const reactComponent = observable_links.twitch
+    const componentHtml = renderToString(React.createElement(reactComponent));
+    return componentHtml;
+  }
+
+  console.log('name', observable_links[name])
+  if (typeof observable_links[name] === 'function') {
+    return observable_links[name]({})
   }
   const link = observable_links[name]
   const regex = /https:\/\/observablehq\.com\/embed\/@roboticsuniversity\/collaborative-ui-twitch-plays-robot\?cell=\*/;
@@ -53,7 +73,8 @@ const port = 3003
 
 const render_everything = async (req) => {
   const url = req.url
-  const notebook_name = req.url.split("?idk=")[1];
+  console.log('url', url)
+  const notebook_name = new URL(req.url).pathname.slice(1);  //req.url.split("?idk=")[1];
   let content = ''
 
   if (url.startsWith("http://localhost:3003/static")) { // Remove .pathname
@@ -64,7 +85,7 @@ const render_everything = async (req) => {
   } else {
     content = observable_template(notebook_name)
   }
-  
+
     return new Response(content, {
       headers: {
         "Content-Type": "text/html",
@@ -74,7 +95,6 @@ const render_everything = async (req) => {
 
 serve({
    fetch(req) {
-    //console.log('req', req)
     return render_everything(req)
     .then(res => res)
     .catch(err => {
@@ -85,6 +105,7 @@ serve({
   port: port, // You can change the port if needed
 });
 
+//console.log(typeof TwitchPlaysPokemonPanel())
 console.log("Bun server is running on http://localhost:" + port);
 
 
