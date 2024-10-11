@@ -8,9 +8,7 @@
 		}
 		level DEBUG
 	}
-    admin :2019 {
-        origins *
-    }
+
 }
 
 immich.hashirama.blog {
