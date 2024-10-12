@@ -41,12 +41,13 @@ install_dynamixel_sdk() {
 }
 
 install_bun() {
-    if ! command_exists bun; then
-        echo "Installing Bun..."
-        curl -fsSL https://bun.sh/install | bash
-    else
-        echo "Bun already installed."
-    fi
+    # if ! command_exists bun; then
+    #     echo "Installing Bun..."
+    #     curl -fsSL https://bun.sh/install | bash
+    # else
+    #     echo "Bun already installed."
+    # fi
+     echo "already installed Bun..."
 }
 
 install_golang() {
