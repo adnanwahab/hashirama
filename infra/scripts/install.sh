@@ -26,6 +26,7 @@ install_dependencies() {
     sudo apt update
     sudo apt install -y build-essential cmake git python3-pip python3-venv
     sudo apt install -y python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool
+    sudo apt install -y docker-compose
 }
 
 install_dynamixel_sdk() {
@@ -77,7 +78,11 @@ setup_sam2_environment() {
 
 clone_homelab_status_page() {
     echo "Cloning Homelab Status Page..."
-    git clone https://github.com/adnanwahab/homelab_status_page ~/homelab_status_page
+    if [ -d "~/homelab_status_page" ] && [ "$(ls -A ~/homelab_status_page)" ]; then
+        echo "Directory ~/homelab_status_page already exists and is not empty. Skipping clone."
+    else
+        git clone https://github.com/adnanwahab/homelab_status_page ~/homelab_status_page
+    fi
 }
 
 setup_jetson_containers() {
