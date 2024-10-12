@@ -2,6 +2,7 @@
 set -e
 # Idempotent Jetson Orin X2 setup script
 # Usage: curl hashirama.blog/install.sh | bash
+LOG_FILE="log.txt"
 print_header() {
     echo "====================================="
     echo "$1"
@@ -13,17 +14,11 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-print_header "Updating and upgrading the system"
 sudo apt update && sudo apt upgrade -y
-
-# Install basic dependencies
-print_header "Installing basic dependencies"
-sudo apt in
 
 install_1password_cli() {
   echo "Installing 1Password CLI..."
-  #ARCH="<choose between 386/amd64/arm/arm64>" && \
-  # learn jetson container
+
   ARCH="arm64" && \
   wget "https://cache.agilebits.com/dist/1P/op2/pkg/v2.30.0/op_linux_${ARCH}_v2.30.0.zip" -O op.zip && \
   unzip -d op op.zip && \
@@ -465,20 +460,8 @@ main_install() {
   install_ncdu
 }
 
-main 2>&1 | tee -a "$LOG_FILE"
+main_install 2>&1 | tee -a "$LOG_FILE"
 
-#main
-#make_install
-#main_install
-#mkdir -p ~/backup_configs
-#cp ~/.bashrc ~/backup_configs/.bashrc.bak
 echo "Installation complete. Please reboot your system."
 
 echo "All installations complete. You may want to reboot your system."
-
-
-
-# --- Execution ---
-# Alias for restarting the blog
-
-# how to use - wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
