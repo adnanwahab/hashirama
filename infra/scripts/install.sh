@@ -6,7 +6,7 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-sudo apt update && sudo apt upgrade -y
+#sudo apt update && sudo apt upgrade -y
 
 install_1password_cli() {
     echo "Installing 1Password CLI..."
@@ -22,8 +22,8 @@ install_1password_cli() {
 }
 
 install_zig() {
-    sudo apt update
-    sudo apt install -y zig
+    #sudo apt update
+    #sudo apt install -y zig
 }
 
 install_ros() {
