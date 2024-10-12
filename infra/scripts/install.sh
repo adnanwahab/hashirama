@@ -1,4 +1,17 @@
 
+set -e
+
+# Function to print section headers
+print_header() {
+    echo "====================================="
+    echo "$1"
+    echo "====================================="
+}
+
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}#!/bin/bash
 
 install_1password_cli() {
   echo "Installing 1Password CLI..."
@@ -73,6 +86,8 @@ install_micromamba() {
 setup_sam2_environment() {
   echo "Setting up SAM2 environment..."
   # Add commands to create and configure the 'homelab' environment
+  echo "Setting up SAM2 environmentTDOD"
+
 }
 
 # Function to clone homelab_status_page
@@ -89,24 +104,12 @@ setup_jetson_containers() {
   # Add commands to install dependencies for whisper_trt, ollama, 3D Diffusion Policy, ZED, JupyterLab
 }
  
-#!/bin/bash
+
 
 # Jetson Robotics Setup Script for Ubuntu 24.04
 # This script installs various tools and libraries for robotics development on Jetson devices
 
-set -e
 
-# Function to print section headers
-print_header() {
-    echo "====================================="
-    echo "$1"
-    echo "====================================="
-}
-
-# Function to check if a command exists
-command_exists() {
-    command -v "$1" >/dev/null 2>&1
-}
 
 # Update and upgrade the system
 print_header "Updating and upgrading the system"
@@ -137,8 +140,6 @@ install_rust_desk() {
     sudo apt install -y ./rustdesk-1.1.9.deb
     rm rustdesk-1.1.9.deb
 }
-
-
 
 # Install Bun
 install_bun() {
@@ -587,7 +588,7 @@ alias restart_blog="go run main.go"
 
 alias restart_blog="go run main.go"
 
-#curl -fsSL https://ollama.com/install.sh | sh
+
 install_zig() {
   sudo add-apt-repository ppa:george-edison55/zig
   sudo apt update

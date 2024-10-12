@@ -130,6 +130,8 @@ func SetupRendering(e *echo.Echo) {
 	})
 }
 
+//slurm + voltage park
+// dont render in go - renderin observable - supervisor
 // func getFilePaths(pattern string) ([]string, error) {
 // 	expandedPath := os.ExpandEnv(pattern)
 // 	return filepath.Glob(expandedPath)
