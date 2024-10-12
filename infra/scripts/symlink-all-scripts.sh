@@ -8,11 +8,21 @@ TARGET_DIR="/usr/local/bin"
 
 # Iterate over each .sh file in the script directory
 for script in "$SCRIPT_DIR"/*.sh; do
+    # Ensure the script is executable
+    chmod +x "$script"
+    
     # Get the base name of the script
     script_name=$(basename "$script")
     
     # Create a symlink in the target directory
     ln -sf "$script" "$TARGET_DIR/$script_name"
+
+        # Create a symlink in the target directory
+    if ln -sf "$script" "$TARGET_DIR/$script_name"; then
+        echo "Symlink created for $script_name"
+    else
+        echo "Failed to create symlink for $script_name" >&2
+    fi
 done
 
 echo "Symlinks created for all scripts in $SCRIPT_DIR to $TARGET_DIR"
