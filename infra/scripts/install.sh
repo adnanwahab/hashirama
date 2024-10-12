@@ -1,4 +1,3 @@
-
 alias restart_blog="go run main.go"
 
 install_1password_cli() {
@@ -362,6 +361,144 @@ install_ncdu
 
 
 
+#!/bin/bash
+
+# Idempotent Jetson Orin X2 setup script
+# Usage: wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
+
+# --- Helper Functions ---
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# --- Installation Functions ---
+
+# 1. Install RustDesk (Remote desktop tool)
+install_rustdesk() {
+    if ! command_exists rustdesk; then
+        echo "Installing RustDesk..."
+        wget https://github.com/rustdesk/rustdesk/releases/download/1.1.9/rustdesk-1.1.9-x86_64.deb
+        sudo dpkg -i rustdesk-1.1.9-x86_64.deb
+        sudo apt --fix-broken install -y
+        rm rustdesk-1.1.9-x86_64.deb
+    else
+        echo "RustDesk already installed."
+    fi
+}
+
+# 2. Install Tailscale (VPN tool)
+install_tailscale() {
+    if ! command_exists tailscale; then
+        echo "Installing Tailscale..."
+        curl -fsSL https://tailscale.com/install.sh | sh
+    else
+        echo "Tailscale already installed."
+    fi
+}
+
+# 3. Install Bun (JavaScript runtime)
+install_bun() {
+    if ! command_exists bun; then
+        echo "Installing Bun..."
+        curl -fsSL https://bun.sh/install | bash
+    else
+        echo "Bun already installed."
+    fi
+}
+
+# 4. Install latest GoLang
+install_golang() {
+    if ! command_exists go; then
+        echo "Installing GoLang..."
+        wget https://go.dev/dl/go1.20.5.linux-arm64.tar.gz
+        sudo tar -C /usr/local -xzf go1.20.5.linux-arm64.tar.gz
+        rm go1.20.5.linux-arm64.tar.gz
+        echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
+        source ~/.bashrc
+    else
+        echo "GoLang already installed."
+    fi
+}
+
+# 5. Install Micromamba (lightweight conda alternative)
+install_micromamba() {
+    if ! command_exists micromamba; then
+        echo "Installing Micromamba..."
+        curl micro.mamba.pm/install.sh | bash
+    else
+        echo "Micromamba already installed."
+    fi
+}
+
+# 6. Install SAM2 from Facebook Research
+install_sam2() {
+    echo "Cloning SAM2 repository and setting up environment..."
+    git clone https://github.com/facebookresearch/sam2.git ~/sam2
+    cd ~/sam2
+    micromamba create -n homelab python=3.8
+    micromamba activate homelab
+    pip install -r requirements.txt
+}
+
+# 7. Clone Homelab Status Page (no additional setup)
+clone_homelab_status_page() {
+    echo "Cloning Homelab Status Page..."
+    git clone https://github.com/adnanwahab/homelab_status_page ~/homelab_status_page
+}
+
+# 8. Clone and set up Jetson Containers
+setup_jetson_containers() {
+    echo "Setting up Jetson Containers..."
+    git clone https://github.com/dusty-nv/jetson-containers.git ~/jetson-containers
+    cd ~/jetson-containers
+    sudo docker-compose up -d whisper_trt ollama 3d_diffusion_policy zed jupyterlab
+}
+
+# 9. Install ROS (Robot Operating System) Noetic
+install_ros() {
+    if ! command_exists roscore; then
+        echo "Installing ROS Noetic..."
+        sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+        sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+        sudo apt update
+        sudo apt install -y ros-noetic-desktop-full
+        echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+        source ~/.bashrc
+    else
+        echo "ROS Noetic already installed."
+    fi
+}
+
+# 10. Install ncdu (Disk usage analyzer)
+install_ncdu() {
+    if ! command_exists ncdu; then
+        echo "Installing ncdu..."
+        sudo apt install -y ncdu
+    else
+        echo "ncdu already installed."
+    fi
+}
+
+# --- Execution ---
+
+# Install everything
+install_1password_cli
+install_rustdesk
+install_tailscale
+install_bun
+install_golang
+install_micromamba
+install_sam2
+clone_homelab_status_page
+setup_jetson_containers
+install_ros
+install_ncdu
+
+# Run the main installation process
+
+
+
     
     # Run installation functions
  
@@ -443,4 +580,4 @@ install_zig() {
   sudo apt install zig
 }
 
-#dhh, primagen, iaso, mitchellh, 
+#dhh, primagen, iaso, mitchellh, catonmat, 
