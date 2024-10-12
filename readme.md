@@ -55,3 +55,5 @@ Thats why he uses pictures to construct reality that was previously impossible.
 
 
 observable framework is the payprus for bret vicgtor's magic ink
+
+thanks to kaprpathy and roon - you are the that paints with magic ink too - (scienfitic art robotic discovery) 

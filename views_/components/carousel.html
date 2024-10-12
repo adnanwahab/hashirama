@@ -1,0 +1,48 @@
+<div class="">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="flex space-x-5 overflow-auto">
+      <div class="flex-none flex flex-row space-x-5 md:space-x-0 md:space-y-5">
+        {{range .Tools}}
+        <div class="text-white">{{.}}</div>
+        {{if false}}
+        <article
+          class="w-32 h-32 relative justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80 border border-gray-800"
+        >
+          <img
+            class="absolute inset-0 h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
+            alt=""
+          />
+          <div
+            class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"
+          ></div>
+          <div
+            class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"
+          ></div>
+
+          <div
+            class="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300"
+          >
+            <div class="-ml-4 flex items-center gap-x-4">
+              <svg
+                viewBox="0 0 2 2"
+                class="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50"
+              >
+                <circle cx="1" cy="1" r="1" />
+              </svg>
+            </div>
+          </div>
+          <h3
+            class="mt-3 text-sm font-semibold leading-6 text-white absolute top-0 left-0"
+          >
+            <a href="{{.}}">
+              <span class="absolute inset-0"></span>
+              {{.}}
+            </a>
+          </h3>
+        </article>
+        {{end}} {{end}}
+      </div>
+    </div>
+  </div>
+</div>

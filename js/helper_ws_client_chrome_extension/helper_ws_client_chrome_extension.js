@@ -26,6 +26,9 @@ function handleMessageOnObservable(event) {
   }
 
  else  if (data.command === 'dumpContent') {
+
+
+  
   } else {
     socket.send(JSON.stringify({ data: 'opps, method missing' }));
   }

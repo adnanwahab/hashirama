@@ -1,0 +1,124 @@
+{{template "head.html" . }}
+<!-- convert this to jsx -> using llama  3.2 before 3.3 -->
+<!-- just use bun - figure out  -->
+<a href="/cgi-tools/rustkit"> rustkit </a>
+<a href="/cgi-tools/bun-docs"> bun-docs </a>
+<a href="/cgi-tools/chrome-extension"> get-data - bs4 </a>
+<a href="/cgi-tools/frame-splitter"> run on desktop  </a> 
+
+
+<li class="tool-list"> 
+  <!-- so either dev on desktop mainly using ssh - or  -->
+ <!--     -->
+</li>
+<script>
+  const data = await d3.json('/cgi-backend/tools.json');
+
+  const tools = d3.selectAll('.tool-list').selectAll('a')
+  .enter().append('a').attr('href', function(d){
+    return d
+  })
+
+
+</script>
+
+{{define "cgi_iframe" }}
+
+<div class="container-{{.}}">
+  {{template "cgi_label" .}}
+
+<iframe class="h-full w-full" style="height:300;" src="/cgi-backend/{{.}}"></iframe>
+
+<!-- 
+<script type="module">
+  const scoping = `{{.}}`
+  const url = `/cgi-backend/`
+  console.log('fetching ', url)
+  const container = document.querySelector(`.container-${scoping}`)
+  
+  const bun_output = d3.select(container).append('div').attr('class', 'bun-output')
+  const observable_output = d3.select(container).append('div').attr('class', 'observable-output')
+  const deno_webgpu_output = d3.select(container).append('div').attr('class', 'deno-webgpu-output')
+  
+  const data = await d3.json(url)
+  console.log('data ', 'resposne sucede', data.both)
+  //window.data = data
+  if (data.type === 'both') {
+    console.log('both')
+    container.innerHTML = data.html
+    eval(data.js)
+  }else 
+  if (data.type === 'html') {
+    container.innerHTML = data.html
+  } else if (data.type === 'text') {
+    container.textContent = data.text
+  } else if (data.type === 'js') {
+    container.innerHTML = data.html
+  } else if (data.type === 'json') {
+    const style = document.createElement('style');
+    style.textContent = data.css;
+    document.head.appendChild(style);
+  }
+
+const jsonData = {
+  edited_content: 'blalbalhal',
+  fileContent: 'blalbalhal',
+ 
+}
+</script> -->
+{{end}}
+
+
+{{define "cg_grid_cell"}}
+<div class="relative lg:col-span-4" style="height: 500px;">
+  <div class="absolute inset-px rounded-lg bg-white"></div>
+  <div
+    class="relative flex h-full flex-col overflow-hidden"
+  >
+    {{template "cgi_iframe" .}}
+    <div class="p-10 pt-4">
+    </div>
+  </div>
+  <div
+    class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+  ></div>
+</div>
+{{end}}
+
+<div class="bg-white">
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+
+    <div
+      class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
+    >
+    {{template "cg_grid_cell" "livekit_video"}}
+    {{if false }}{{template "cg_grid_cell" "flux_test"}}{{end}}
+    {{if false }} {{template "cg_grid_cell" "voice_reactive_particles"}}{{end}}
+
+
+    </div>
+  </div>
+</div>
+
+<!-- template "grid_cell" "replay_analyzer" -->
+
+<!-- <pre>
+  https://youtu.be/EmlWBsU48cU?si=WhCwasDMhRoV08Wz
+https://mitp-content-server.mit.edu/books/content/sectbyfn/books_pres_0/6515/sicp.zip/index.html
+https://youtu.be/DQEa3IeqcOk?si=oN3V8daexhDBINtM
+https://zed.dev/docs/extensions/developing-extensions
+</pre> -->
+ 
+{{define "cgi_label"}}
+<div class="text-blue-500 component-label-{{.}}">{{.}}</div>
+<!-- <script type="module">
+  const label = d3.select(`.label-{{.}}`);
+  const component_label = d3.select(`.component-label-{{.}}`)
+  component_label.text(label.text())
+</script> -->
+{{end}}
+<!-- https://github.com/nerfstudio-project/nerfstudio  -->
+<!-- https://github.com/YanjieZe/3D-Diffusion-Policy -->
+<!-- 9 posts - awahab.com - 172 blogs - siggrahp -->
+<!-- render a lsit view of the routes from cig-backend -->
+

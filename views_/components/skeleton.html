@@ -1,0 +1,35 @@
+<html class="h-full">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>{ title }</title>
+    <meta name="description" content="shit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" href="/static/favicon.ico" />
+    <!-- <link rel="stylesheet" href="/static/css/tailwind.css" /> -->
+    <link href="/static/output.css" rel="stylesheet" />
+    <link href="/static/tailwind.css" rel="stylesheet" />
+    <link href="/static/index.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <script src="/static/index.js"></script>
+    <!-- <meta http-equiv="refresh" content=".1" /> -->
+  </head>
+  <body>
+    <!-- begin body-->
+    <!-- begin body<div class="top-left slider-controls"></div>-->
+    <div class="body">{}</div>
+    <div class="footer">
+      <div class="info">
+        <div class="title">@templ.Raw(title)</div>
+        <div class="description">@templ.Raw(description)</div>
+      </div>
+      <div class="menu">
+        <button class="button preve">prev</button>
+        <button class="button home">Home</button>
+        <button class="button next">next</button>
+      </div>
+    </div>
+    <!-- end body-->
+  </body>
+</html>

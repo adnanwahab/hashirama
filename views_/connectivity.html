@@ -1,0 +1,602 @@
+<div class="grid grid-cols-2 gap-4">
+  {{if true}} {{template "con.html" .}} {{end}}
+  <video
+    class=""
+    style="width: 350px; height: 500px"
+    id="remoteVideo"
+    autoplay
+    loop
+    controls
+    muted
+  >
+    <source src="/static/images/blog/day1.mp4" type="video/mp4" />
+  </video>
+  <script src="https://unpkg.com/@livekit/client@latest/dist/livekit-client.min.js"></script>
+
+  <script type="module">
+    import {
+      Room,
+      RoomEvent,
+    } from "https://unpkg.com/livekit-client@latest/dist/livekit-client.esm.mjs?module";
+
+    async function startClient() {
+      const url = "wss://omnissiah-university-kmuz0plz.livekit.cloud";
+
+      const serverUrl = url;
+      console.log("hi");
+      const response = await fetch("/getToken?role=subscriber");
+      const json = await response.json();
+      console.log("hi", json);
+
+      const room = new Room();
+      room.on(RoomEvent.RoomDisconnected, async (reason) => {
+        console.log(`Room disconnected: ${reason}`);
+        // Optionally, try to reconnect
+        try {
+          await reconnectRoom(serverUrl, json.token);
+        } catch (error) {
+          console.error("Reconnection failed:", error);
+        }
+      });
+      registerRoomEvents(room);
+      try {
+        await room.connect(serverUrl, json.token);
+        console.log("Connected to room");
+        setTimeout(() => handleExistingParticipants(room), 100);
+      } catch (error) {
+        console.error("Error connecting to room:", error);
+      }
+    }
+
+    // Function to handle existing participants and their tracks
+    function handleExistingParticipants(room) {
+      console.log(room.remoteParticipants);
+      let participant = room.remoteParticipants.get("publisher");
+      if (!participant) return console.log("no other particpants");
+      let publications = participant.trackPublications;
+
+      console.log(publications);
+
+      const firstPublication = Array.from(publications.values())[0];
+      if (firstPublication && firstPublication.track) {
+        firstPublication.track.attach(document.getElementById("remoteVideo"));
+      }
+      //publications.values[1].track.attach
+
+      //console.log(room);
+      //const participants = room.participants; // Get all participants
+      // if (!room.particpants) return console.log("please connect before ");
+      // console.log("Existing participants", participants);
+      // // Iterate through each participant
+      // participants.forEach((participant) => {
+      //   console.log(`Participant: ${participant.identity}`);
+      //   // Iterate through each track publication of the participant
+      //   participant.tracks.forEach((publication) => {
+      //     if (publication.isSubscribed && publication.track) {
+      //       handleTrackSubscribed(publication.track, publication, participant);
+      //     }
+      //   });
+      // });
+
+      // Handle tracks published by the local participant (if any)
+      // const localParticipant = room.localParticipant;
+      // localParticipant.tracks.forEach((publication) => {
+      //   if (publication.isSubscribed && publication.track) {
+      //     handleTrackSubscribed(publication.track, publication, localParticipant);
+      //   }
+      // });
+    }
+    function registerRoomEvents(room) {
+      room
+        .on(RoomEvent.ParticipantConnected, (participant) => {
+          console.log(`Participant connected: ${participant.identity}`);
+        })
+        .on(RoomEvent.ParticipantDisconnected, (participant) => {
+          console.log(`Participant disconnected: ${participant.identity}`);
+          //Participant disconnected: publisher
+          //window.location.reload();
+        })
+        .on(RoomEvent.TrackPublished, (publication, participant) => {
+          console.log(
+            `Track published by ${participant.identity}: ${publication.trackSid}`,
+          );
+          HandleTrackPublished(publication, participant);
+        })
+        .on(RoomEvent.TrackUnpublished, (publication, participant) => {
+          console.log(
+            `Track unpublished by ${participant.identity}: ${publication.trackSid}`,
+          );
+        })
+        .on(RoomEvent.ActiveSpeakersChanged, (speakers) => {
+          console.log("Active speakers changed:", speakers);
+        })
+        .on(RoomEvent.RoomDisconnected, (reason) => {
+          console.log(`Room disconnected: ${reason}`);
+          //window.reload
+        })
+        .on(RoomEvent.TrackSubscribed, (track, publication, participant) => {
+          console.log(
+            `Track subscribed by ${participant.identity}: ${track.sid}`,
+          );
+        })
+        .on(RoomEvent.TrackUnsubscribed, (track, publication, participant) => {
+          console.log(
+            `Track unsubscribed by ${participant.identity}: ${track.sid}`,
+          );
+        })
+        .on(RoomEvent.DataReceived, (payload, participant) => {
+          console.log(`Data received from ${participant.identity}: ${payload}`);
+        })
+        .on(RoomEvent.ConnectionQualityChanged, (quality, participant) => {
+          console.log(
+            `Connection quality changed for ${participant.identity}: ${quality}`,
+          );
+        });
+    }
+
+    const HandleTrackPublished = (publication, participant) => {
+      console.log("Track published", publication, participant);
+      const remoteVideoElement = document.getElementById("remoteVideo");
+
+      // Listen for when the track is subscribed and available
+      publication.on("subscribed", (track) => {
+        console.log("Track subscribed", track);
+        track.attach(remoteVideoElement);
+        console.log("Track attached to video element");
+      });
+
+      // If the track is already subscribed, attach it directly
+      if (publication.track) {
+        console.log("Track already subscribed");
+        publication.track.attach(remoteVideoElement);
+        console.log("Track attached to video element");
+      }
+    };
+
+    async function reconnectRoom(serverUrl, token) {
+      console.log("Attempting to reconnect...");
+      if (room) {
+        try {
+          await room.connect(serverUrl, token);
+          console.log("Reconnected to room");
+          registerRoomEvents(room); // Re-register event handlers after reconnection
+        } catch (error) {
+          console.error("Reconnection failed:", error);
+          throw error; // Throw error to be handled by the caller
+        }
+      }
+    }
+
+    startClient();
+  </script>
+
+  <!-- <canvas style="width: 700px; height: 500px" class="one"></canvas> -->
+  <canvas style="width: 700px; height: 500px" class="two"></canvas>
+</div>
+
+<!-- <script type="module">
+  import * as THREE from "three";
+
+
+  let camera, scene, renderer, composer;
+
+  let effectSobel;
+
+  const params = {
+    enable: true,
+  };
+
+  init();
+
+  function init() {
+    //
+
+    scene = new THREE.Scene();
+
+    camera = new THREE.PerspectiveCamera(
+      70,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      100,
+    );
+    camera.position.set(0, 1, 3);
+    camera.lookAt(scene.position);
+
+    //
+
+    const geometry = new THREE.TorusKnotGeometry(1, 0.3, 256, 32);
+    const material = new THREE.MeshPhongMaterial({ color: 0xffff00 });
+
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    //
+
+    const ambientLight = new THREE.AmbientLight(0xe7e7e7);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 20);
+    camera.add(pointLight);
+    scene.add(camera);
+
+    //
+
+    renderer = new THREE.WebGLRenderer();
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setAnimationLoop(animate);
+    document.body.appendChild(renderer.domElement);
+
+    // postprocessing
+
+    composer = new EffectComposer(renderer);
+    const renderPass = new RenderPass(scene, camera);
+    composer.addPass(renderPass);
+
+    // color to grayscale conversion
+
+    const effectGrayScale = new ShaderPass(LuminosityShader);
+    composer.addPass(effectGrayScale);
+
+    // you might want to use a gaussian blur filter before
+    // the next pass to improve the result of the Sobel operator
+
+    // Sobel operator
+
+    effectSobel = new ShaderPass(SobelOperatorShader);
+    effectSobel.uniforms["resolution"].value.x =
+      window.innerWidth * window.devicePixelRatio;
+    effectSobel.uniforms["resolution"].value.y =
+      window.innerHeight * window.devicePixelRatio;
+    composer.addPass(effectSobel);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableZoom = false;
+
+    //
+
+    const gui = new GUI();
+
+    gui.add(params, "enable");
+    gui.open();
+
+    //
+
+    window.addEventListener("resize", onWindowResize);
+  }
+
+  function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    composer.setSize(window.innerWidth, window.innerHeight);
+
+    effectSobel.uniforms["resolution"].value.x =
+      window.innerWidth * window.devicePixelRatio;
+    effectSobel.uniforms["resolution"].value.y =
+      window.innerHeight * window.devicePixelRatio;
+  }
+  function animate() {
+    if (params.enable === true) {
+      composer.render();
+    } else {
+      renderer.render(scene, camera);
+    }
+  }
+</script> -->
+<script type="module">
+  import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.126.0/build/three.module.js";
+  import { EffectComposer } from "https://cdn.jsdelivr.net/npm/three@0.126.0/examples/jsm/postprocessing/EffectComposer.js";
+  import { ShaderPass } from "https://cdn.jsdelivr.net/npm/three@0.126.0/examples/jsm/postprocessing/ShaderPass.js";
+  import { RenderPass } from "https://cdn.jsdelivr.net/npm/three@0.126.0/examples/jsm/postprocessing/RenderPass.js";
+  import { LuminosityShader } from "https://cdn.jsdelivr.net/npm/three@0.126.0/examples/jsm/shaders/LuminosityShader.js";
+  import { SobelOperatorShader } from "https://cdn.jsdelivr.net/npm/three@0.126.0/examples/jsm/shaders/SobelOperatorShader.js";
+  ///import { GUI } from "https://cdn.jsdelivr.net/npm/three@0.126.0/examples/libs/lil-gui.module.min.js";
+  import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.126.0/examples/jsm/controls/OrbitControls.js";
+  //render_shit(document.querySelector(".one"));
+  render_shit(document.querySelector(".two"), true);
+  // tools explosion - at&t walker with cambrain explosion of knowledge, progress and happy ideas
+  //render_shit(document.querySelector(".three"));
+  //render_shit(document.querySelector(".four"), true);
+  function render_shit(canvas, pp) {
+    const width = innerWidth / 2,
+      height = innerHeight / 2;
+
+    const params = {
+      enable: true,
+    };
+    let composer;
+    let camera, scene, renderer;
+    let isUserInteracting = false,
+      lon = 0,
+      lat = 0,
+      phi = 0,
+      theta = 0,
+      onPointerDownPointerX = 0,
+      onPointerDownPointerY = 0,
+      onPointerDownLon = 0,
+      onPointerDownLat = 0;
+    const distance = 0.5;
+    const video = document.getElementById("remoteVideo");
+    const texture = new THREE.VideoTexture(video);
+    init();
+    //setTimeout(init, 5000)
+    function init() {
+      //use container - exectute before - on save - if error - fix bug - befroe save - tab
+      const container = document.getElementById("container");
+      camera = new THREE.PerspectiveCamera(75, width / height, 0.25, 10);
+      scene = new THREE.Scene();
+      const geometry = new THREE.SphereGeometry(5, 60, 40);
+      geometry.scale(-1, 1, 1);
+      // id="remoteVideo"
+
+      texture.colorSpace = THREE.SRGBColorSpace;
+      const material = new THREE.MeshBasicMaterial({ map: texture });
+
+      const mesh = new THREE.Mesh(geometry, material);
+      scene.add(mesh);
+
+      renderer = new THREE.WebGLRenderer({
+        canvas,
+      });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(width, height);
+
+      // Setup EffectComposer and passes
+      composer = new EffectComposer(renderer);
+      const renderPass = new RenderPass(scene, camera);
+      composer.addPass(renderPass);
+
+      // Grayscale conversion
+      const effectGrayScale = new ShaderPass(LuminosityShader);
+      composer.addPass(effectGrayScale);
+
+      // Sobel operator
+      const effectSobel = new ShaderPass(SobelOperatorShader);
+      effectSobel.uniforms["resolution"].value.x =
+        width * window.devicePixelRatio;
+      effectSobel.uniforms["resolution"].value.y =
+        height * window.devicePixelRatio;
+      composer.addPass(effectSobel);
+
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableZoom = false;
+
+      document.addEventListener("pointerdown", onPointerDown);
+      document.addEventListener("pointermove", onPointerMove);
+      document.addEventListener("pointerup", onPointerUp);
+
+      window.addEventListener("resize", onWindowResize);
+
+      renderer.setAnimationLoop(animate);
+    }
+
+    function onWindowResize() {
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(width, height);
+      composer.setSize(width, height); // Update composer size as well
+    }
+
+    function onPointerDown(event) {
+      isUserInteracting = true;
+
+      onPointerDownPointerX = event.clientX;
+      onPointerDownPointerY = event.clientY;
+
+      onPointerDownLon = lon;
+      onPointerDownLat = lat;
+    }
+
+    function onPointerMove(event) {
+      if (isUserInteracting === true) {
+        lon = (onPointerDownPointerX - event.clientX) * 0.1 + onPointerDownLon;
+        lat = (onPointerDownPointerY - event.clientY) * 0.1 + onPointerDownLat;
+      }
+    }
+
+    function onPointerUp() {
+      isUserInteracting = false;
+    }
+
+    function animate() {
+      if (video.readyState >= 2) {
+        // Check if the video is ready
+        texture.needsUpdate = true; // Update the texture with the current video frame
+      }
+      composer.render(); // Use composer to render the scene with post-processing
+      //render.render(scene, camera)
+      //renderer
+    }
+  }
+</script>
+
+<!-- <script>
+  const videoElement = document.querySelector("video");
+  const canvas = document.querySelector(".two");
+  const gl =
+    canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+
+  // Check for WebGL support
+  if (!gl) {
+    console.error("WebGL not supported.");
+  }
+
+  // Set the canvas size to match the video size
+  videoElement.addEventListener("loadedmetadata", () => {
+    canvas.width = videoElement.videoWidth;
+    canvas.height = videoElement.videoHeight;
+    gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+  });
+
+  // Create a texture to hold the video frame
+  const videoTexture = gl.createTexture();
+  gl.bindTexture(gl.TEXTURE_2D, videoTexture);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+
+  // Define shaders (basic vertex and fragment shader for video rendering)
+  const vertexShaderSrc = `
+    attribute vec2 a_position;
+    attribute vec2 a_texCoord;
+    varying vec2 v_texCoord;
+    void main() {
+        gl_Position = vec4(a_position, 0.0, 1.0);
+        v_texCoord = a_texCoord;
+    }
+`;
+
+  const fragmentShaderSrc = `
+    precision mediump float;
+    varying vec2 v_texCoord;
+    uniform sampler2D u_texture;
+    void main() {
+        gl_FragColor = texture2D(u_texture, v_texCoord);
+    }
+`;
+
+  // Utility function to compile shader
+  function compileShader(gl, shaderSource, shaderType) {
+    const shader = gl.createShader(shaderType);
+    gl.shaderSource(shader, shaderSource);
+    gl.compileShader(shader);
+
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      console.error(
+        `Shader compilation failed: ${gl.getShaderInfoLog(shader)}`,
+      );
+      gl.deleteShader(shader);
+      return null;
+    }
+
+    return shader;
+  }
+
+  // Compile shaders
+  const vertexShader = compileShader(gl, vertexShaderSrc, gl.VERTEX_SHADER);
+  const fragmentShader = compileShader(
+    gl,
+    fragmentShaderSrc,
+    gl.FRAGMENT_SHADER,
+  );
+
+  // Create and link program
+  const program = gl.createProgram();
+  gl.attachShader(program, vertexShader);
+  gl.attachShader(program, fragmentShader);
+  gl.linkProgram(program);
+
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+    console.error(`Program linking failed: ${gl.getProgramInfoLog(program)}`);
+  }
+
+  gl.useProgram(program);
+
+  // Set up vertices and texture coordinates
+  const positionBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  const positions = [-1, -1, 1, -1, -1, 1, 1, 1];
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+  const texCoordBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
+  const texCoords = [0, 0, 1, 0, 0, 1, 1, 1];
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(texCoords), gl.STATIC_DRAW);
+
+  // Get attribute locations
+  const positionLocation = gl.getAttribLocation(program, "a_position");
+  const texCoordLocation = gl.getAttribLocation(program, "a_texCoord");
+
+  // Enable and set attributes
+  gl.enableVertexAttribArray(positionLocation);
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+
+  gl.enableVertexAttribArray(texCoordLocation);
+  gl.bindBuffer(gl.ARRAY_BUFFER, texCoordBuffer);
+  gl.vertexAttribPointer(texCoordLocation, 2, gl.FLOAT, false, 0, 0);
+
+  // Get uniform location
+  const textureLocation = gl.getUniformLocation(program, "u_texture");
+
+  // Function to update the texture and render the frame
+  function renderFrame() {
+    // Update the texture with the current video frame
+    gl.bindTexture(gl.TEXTURE_2D, videoTexture);
+    gl.texImage2D(
+      gl.TEXTURE_2D,
+      0,
+      gl.RGBA,
+      gl.RGBA,
+      gl.UNSIGNED_BYTE,
+      videoElement,
+    );
+
+    // Draw the rectangle
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform1i(textureLocation, 0);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+    // Request the next frame
+    requestAnimationFrame(renderFrame);
+  }
+
+  // Start rendering when video starts playing
+  videoElement.addEventListener("play", () => {
+    requestAnimationFrame(renderFrame);
+  });
+</script> -->
+<!-- video stream of phone  -->
+<!-- postprocessing -->
+<!-- on scroll - adjust opacity/rotate/call diff function -->
+<style>
+  video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .two {
+    border: 1px solid green;
+    background: blue;
+  }
+
+  video.two {
+    filter: hue-rotate(90deg);
+  }
+</style>
+<!-- <script type="module" src="/static/js/connectivity.js"></script> -->
+<!-- it can be hard to let go of solutions to our child hood problems -->
+<!-- no self - just create -->
+<!-- visualize all connections between ai systems like how bostock viusalizes module graph -->
+
+<!-- inspo - reddit.com/r/ places
+
+
+twitch plays pokemon
+
+
+pokemon go
+
+
+mario kart / galaxy
+
+make ai girl for social proof
+
+more robots = more bitches
+
+-->
+<!-- <script src="https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.umd.min.js"></script> -->
+<!-- <h1>{{.PageTitle}}</h1> -->
+
+<!--       //"three/tsl": "https://threejs.org/build/three.webgpu.js", -->
+<!-- <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.168.0/build/three.module.js",
+    }
+  }
+</script> -->
