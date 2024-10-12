@@ -1,7 +1,10 @@
 
 alias restart_blog="go run main.go"
 
-
+install_1password_cli() {
+  echo "Installing 1Password CLI..."
+  sudo apt install -y 1password-cli
+}
 
 install_ros() {
   echo "Installing ROS Noetic..."
@@ -430,3 +433,14 @@ alias restart_blog="go run main.go"
 
 #https://github.com/anduril/jetpack-nixos
 #https://github.com/anduril/mcap-rs
+
+alias restart_blog="go run main.go"
+
+#curl -fsSL https://ollama.com/install.sh | sh
+install_zig() {
+  sudo add-apt-repository ppa:george-edison55/zig
+  sudo apt update
+  sudo apt install zig
+}
+
+#dhh, primagen, iaso, mitchellh, 

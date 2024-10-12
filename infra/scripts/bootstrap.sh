@@ -24,16 +24,6 @@ sudo ln -s /home/adnan/hashirama/infra/caddy/Caddyfile /etc/caddy/Caddyfile
 
 
 # bootstraps a server like tailscale, ollama, etc
-#
-#
-#
-
-
-
-curl -fsSL https://ollama.com/install.sh | sh
-
-curl -fsSL https://tailscale.com/install.sh | sh
-
 
 # docker pull ollama/ollama
 # docker run -it --gpus all ollama/ollama
