@@ -84,7 +84,7 @@ def process_chunk(filename, content, index):
 
 # add in dict types from fastapi - 
 def process_all_files_in_directory(directory_path):
-    files = [os.path.join(directory_path, filename) for filename in os.listdir(directory_path) if filename.endswith('.html')]
+    files = [os.path.join(directory_path, filename) for filename in os.listdir(directory_path) if filename.endswith('.md')]
     file_contents = [open(file_path, 'r').read() for file_path in files] 
     file_dict = {file_path: content for file_path, content in zip(files, file_contents)}
     start_time = time.time()
@@ -99,7 +99,7 @@ def process_all_files_in_directory(directory_path):
     end_time = time.time()
     print("processing all files in directory took", end_time - start_time, "seconds")
 
-process_all_files_in_directory(prompt, input_dir, output_dir)
+process_all_files_in_directory(input_dir, output_dir)
 #augmne this file to pass in 1tb of embeeddings to llama / anthroipic / openia
 
 
