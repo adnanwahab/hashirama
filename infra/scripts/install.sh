@@ -7,6 +7,7 @@ command_exists() {
 }
 
 #sudo apt update && sudo apt upgrade -y
+echo "Script version: 1.0.0"
 
 install_1password_cli() {
     echo "Installing 1Password CLI..."
