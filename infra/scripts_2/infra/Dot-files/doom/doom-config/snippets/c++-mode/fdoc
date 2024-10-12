@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: fdoc
+# key: fdoc
+# condition: t
+# --
+/**
+ * @brief $0
+ *
+ * @param:
+ *  */

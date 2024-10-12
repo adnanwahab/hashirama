@@ -1,0 +1,6 @@
+#name : Gist HTML
+#contributor: zhouting@umich.edu
+#key : gistHTML
+# --
+<script src="//gist.github.com/ztlevi/$1.js"></script>
+$0

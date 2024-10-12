@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: #+BEGIN_SRC :results output
+# key: eval
+# condition: t               
+# --
+#+BEGIN_SRC $1 :results output
+`%`$0
+#+END_SRC

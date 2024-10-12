@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Test Describe
+# key: tdesc
+# group: react
+# --
+describe('$1', () => {
+  $0
+})

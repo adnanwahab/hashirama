@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: comment doc
+# key: doc
+# condition: t
+# --
+#######################################
+# $1
+# Globals:
+#   $2
+# Arguments:
+#   $3
+# Outputs:
+#   $4
+# Returns:
+#   $5
+#######################################

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Reveal.js single slide background
+# key: rvb
+# --
+*** Single Image Background
+    :PROPERTIES:
+    :reveal_background: ${1:./images/whale.jpg or #123456}
+    :END:
+$0

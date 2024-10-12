@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: Bazel filegroup
+# key: filegroup
+# condition: t
+# --
+filegroup(
+    name = "",
+    srcs = ["$1"],
+    visibility = ["$2"],
+)

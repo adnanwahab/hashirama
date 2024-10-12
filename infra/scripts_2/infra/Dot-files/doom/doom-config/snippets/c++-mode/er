@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: end region
+# key: er
+# condition: t
+# --
+#pragma endregion $0

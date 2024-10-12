@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: hdoc
+# key: hdoc
+# --
+"""
+$1
+"""
+
+__all__ = [$2]
+
+__author__ = 'Ting Zhou <zhouting@umich.edu>'

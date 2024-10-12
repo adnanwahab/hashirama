@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: React#setProps
+# key: sp
+# group: react
+# --
+this.setProps({$0})

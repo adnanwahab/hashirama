@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Bazel py_library
+# key: pylib
+# condition: t
+# --
+py_library(
+    name = "$1",
+    srcs = [],
+    tags = [],
+    visibility = [${2:"//detection:__subpackages__"}],
+    deps = [],
+)
+

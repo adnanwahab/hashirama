@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Bazel py_test
+# key: pytest
+# condition: t
+# --
+py_test(
+    name = "$1",
+    srcs = [],
+    deps = [],
+)
+

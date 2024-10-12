@@ -1,6 +1,15 @@
 
 set -e
 
+
+
+#!/bin/bash
+
+# Idempotent Jetson Orin X2 setup script
+# Usage: wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
+
+# --- Helper Functions ---
+# Function to check if a command exists
 # Function to print section headers
 print_header() {
     echo "====================================="
@@ -12,6 +21,14 @@ print_header() {
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }#!/bin/bash
+
+ Update and upgrade the system
+print_header "Updating and upgrading the system"
+sudo apt update && sudo apt upgrade -y
+
+# Install basic dependencies
+print_header "Installing basic dependencies"
+sudo apt in
 
 install_1password_cli() {
   echo "Installing 1Password CLI..."
@@ -110,13 +127,7 @@ setup_jetson_containers() {
 }
  
 
-# Update and upgrade the system
-print_header "Updating and upgrading the system"
-sudo apt update && sudo apt upgrade -y
-
-# Install basic dependencies
-print_header "Installing basic dependencies"
-sudo apt install -y build-essential cmake git python3-pip python3-venv curl wget
+#stall -y build-essential cmake git python3-pip python3-venv curl wget
 
 # Install ROS Noetic
 install_ros() {
@@ -218,15 +229,6 @@ main() {
     echo "Please reboot your system to ensure all changes take effect."
 }
 
-
-
-#!/bin/bash
-
-# Idempotent Jetson Orin X2 setup script
-# Usage: wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
-
-# --- Helper Functions ---
-# Function to check if a command exists
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
@@ -338,26 +340,7 @@ install_ncdu() {
         echo "ncdu already installed."
     fi
 }
-
-# --- Execution ---
-
-# Install everything
-install_1password_cli
-install_rustdesk
-install_tailscale
-install_bun
-install_golang
-install_micromamba
-install_sam2
-clone_homelab_status_page
-setup_jetson_containers
-install_ros
-install_ncdu
-
 # Run the main installation process
-
-
-
 #!/bin/bash
 
 # Idempotent Jetson Orin X2 setup script
@@ -477,6 +460,23 @@ install_ncdu() {
     fi
 }
 
+
+install_main_adnan() {
+  # --- Execution ---
+
+  # Install everything
+  install_1password_cli
+  install_rustdesk
+  install_tailscale
+  install_bun
+  install_golang
+  install_micromamba
+  install_sam2
+  clone_homelab_status_page
+  setup_jetson_containers
+  install_ros
+  install_ncdu
+}
 
 
 
@@ -529,6 +529,8 @@ main_install() {
   install_sam2
 }
 
+main 2>&1 | tee -a "$LOG_FILE"
+
 #main
 #make_install
 #main_install
@@ -536,24 +538,15 @@ main_install() {
 #cp ~/.bashrc ~/backup_configs/.bashrc.bak
 echo "Installation complete. Please reboot your system."
 
-
-
-
-# --- Execution ---
-#main 2>&1 | tee -a "$LOG_FILE"
-
-
-
-
 echo "All installations complete. You may want to reboot your system."
 
 
 
+# --- Execution ---
+
 # Alias for restarting the blog
 alias restart_blog="go run main.go"
 # how to use - wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
-
-
 alias restart_blog="go run main.go"
 
 

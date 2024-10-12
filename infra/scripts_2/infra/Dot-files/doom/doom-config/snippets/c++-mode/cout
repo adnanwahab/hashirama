@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: cout
+# key: cout
+# condition: t
+# --
+std::cout << $0 << std::endl;

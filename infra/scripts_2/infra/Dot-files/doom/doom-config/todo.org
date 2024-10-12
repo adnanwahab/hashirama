@@ -1,0 +1,5 @@
+#+TITLE: Todo
+* https://github.com/org-roam/org-roam-ui
+* Code Review evil https://github.com/wandersoncferreira/code-review/issues/28
+* lsp-ltex https://github.com/emacs-languagetool/lsp-ltex
+* dirvish https://github.com/alexluigit/dirvish

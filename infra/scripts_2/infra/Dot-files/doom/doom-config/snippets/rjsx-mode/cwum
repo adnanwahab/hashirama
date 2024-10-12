@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: React#componentWillUnmount
+# key: cwum
+# group: react
+# --
+componentWillUnmount() {
+  $0
+}

@@ -1,0 +1,8 @@
+#name : Details for collapsing section
+#contributor: zhouting@umich.edu
+#key : details
+# --
+<details>
+<summary>$1</summary>
+$0
+</details>

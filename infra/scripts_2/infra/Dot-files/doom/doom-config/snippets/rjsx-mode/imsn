@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Import Styled-Component Native
+# key: imsn
+# group: react
+# --
+import styled from 'styled-components/native'
+$0

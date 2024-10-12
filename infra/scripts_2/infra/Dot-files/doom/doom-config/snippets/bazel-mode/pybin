@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Bazel py_binary
+# key: pybin
+# condition: t
+# --
+py_binary(
+    name = "$1",
+    srcs = [],
+    main = "$2",
+    visibility = [${3:"//detection:__subpackages__"}],
+    deps = [],
+)

@@ -130,6 +130,8 @@ func SetupRendering(e *echo.Echo) {
 	})
 }
 
+// SSR with a golang supervisor -
+// serve the HTML but dont use GOLANG templates much -
 //slurm + voltage park
 // dont render in go - renderin observable - supervisor
 // func getFilePaths(pattern string) ([]string, error) {
@@ -215,3 +217,8 @@ func SetupRendering(e *echo.Echo) {
 // }
 
 //gamify robots - like mario - non pedantic like fake achivements -
+
+//connect research to industry
+
+// name 10 companies that had phd founders
+//llms let anyone get a phd -self taught - poke into the knowledge

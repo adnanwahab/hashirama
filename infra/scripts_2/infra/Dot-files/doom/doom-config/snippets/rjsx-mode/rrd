@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Redux Reducer
+# key: rrd
+# group: react
+# --
+export default (state = $1, action) => {
+  switch (action.type) {
+    case $2:
+      $0
+    default:
+      return state
+  }
+}

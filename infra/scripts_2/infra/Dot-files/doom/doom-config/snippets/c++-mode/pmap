@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: print map
+# key: pmap
+# condition: t
+# --
+for (auto &map_item : $0){
+  std::cout << map_item.first << ":" << map_item.second << std::endl;
+}

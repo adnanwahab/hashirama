@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Reveal.js header
+# key: rvh
+# --
+#+REVEAL_THEME: white
+#+REVEAL_MAX_SCALE: 0.8
+#+REVEAL_TITLE_SLIDE_BACKGROUND: ${1:./images/whale.jpg or #123456}
+$0

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Import react component
+# key: imrc
+# group: react
+# --
+import React, { Component } from 'react'
+$0

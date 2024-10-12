@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: componentDidUpdate
+# key: cdu
+# group: react
+# --
+componentDidUpdate(${1:prevProps}, ${2:prevState}, ${3:rootNode}) {
+  $0
+}

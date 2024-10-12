@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Up | Home Links
+# key: up_home
+# --
+#+BEGIN_EXPORT html
+<div id="org-div-home-and-up" style="text-align:right">
+  <a accesskey="h" href="../"> UP </a>
+ |
+  <a accesskey="H" href="./"> HOME </a>
+</div>
+#+END_EXPORT

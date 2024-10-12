@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Component Class
+# key: ccs
+# group: react
+# --
+it('should $1', $2($3) => {
+  $0
+})

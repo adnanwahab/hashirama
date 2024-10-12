@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: Redux Pure Function Const
+# key: rpc
+# group: react
+# --
+export const $1 = '$1'
+
+export const $2 = $3 => ({
+  type: $1,
+  $0
+})

@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: Export default Component Class
+# key: edccs
+# group: react
+# --
+export default class $1 extends Component {
+  state = { $2 }
+  render() {
+    return (
+      $0
+    )
+  }
+}

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: img
+# key: img
+# --
+#+HTML: <img src="${1:src}" alt="${2:alt}" title="image title" width="100%" </img>
