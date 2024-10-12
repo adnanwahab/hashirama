@@ -127,12 +127,12 @@ install_ncdu() {
 
 
 install_tailscale
-install_bun
-install_golang
-install_micromamba
+#install_bun
+#install_golang
+#install_micromamba
 #setup_sam2_environment
-clone_homelab_status_page
-setup_jetson_containers
+#clone_homelab_status_page
+#setup_jetson_containers
 install_ncdu
 install_dynamixel_sdk
 echo "Installation complete. Please reboot your system."
