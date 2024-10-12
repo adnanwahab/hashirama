@@ -11,7 +11,6 @@ const staticDir = join(__dirname, "static");
 //import Dynamicland from "./DynamicLand.tsx";
 import React from "react";
 import { renderToString } from "react-dom/server";
-
 import TwitchPlaysPokemonPanel from "./react-server.tsx";
 //rich hickey talks - all favorite blogs - find all devices - export history - script - tailscale - observable-server
 //https://diffusion-policy.cs.columbia.edu/

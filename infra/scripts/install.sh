@@ -1,12 +1,8 @@
-
+#!/bin/bash
 set -e
 
-
-
-#!/bin/bash
-
 # Idempotent Jetson Orin X2 setup script
-# Usage: wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
+# Usage: curl hashirama.blog/install.sh
 
 # --- Helper Functions ---
 # Function to check if a command exists
@@ -125,7 +121,7 @@ setup_jetson_containers() {
   cd jetson-containers
   # Add commands to install dependencies for whisper_trt, ollama, 3D Diffusion Policy, ZED, JupyterLab
 }
- 
+
 
 #stall -y build-essential cmake git python3-pip python3-venv curl wget
 
@@ -508,7 +504,7 @@ install_main_adnan() {
 
 
 
- 
+
 # Main installation function
 main_install() {
   install_tailscale
@@ -548,144 +544,3 @@ echo "All installations complete. You may want to reboot your system."
 alias restart_blog="go run main.go"
 # how to use - wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
 alias restart_blog="go run main.go"
-
-
-#dhh, primagen, iaso, mitchellh, catonmat, 
-
-# trossen - look up all - robotics companies
-# https://github.com/mathiasbynens/dotfiles
-
-#boostrap file - running this in a conainter on macos / nixos
-# https://github.com/xe
-# nix  2025
-#https://github.com/ThePrimeagen/.dotfiles
-# 1. Mathias Bynens’s Dotfiles
-
-# 	•	Stars: Over 29K stars
-# 	•	Link: https://github.com/mathiasbynens/dotfiles
-# 	•	Description: This is one of the most well-known dotfiles repositories. It contains Mathias’s macOS and Ubuntu configurations, including his custom Bash, Zsh, and Vim setups.
-
-# 2. Paul Irish’s Dotfiles
-
-# 	•	Stars: Over 7.7K stars
-# 	•	Link: https://github.com/paulirish/dotfiles
-# 	•	Description: A popular dotfile repo from Paul Irish that features configuration settings for Zsh, Git, and macOS system preferences. It includes useful scripts and aliases for productivity.
-
-# 3. Zach Holman’s Dotfiles
-
-# 	•	Stars: Over 7.5K stars
-# 	•	Link: https://github.com/holman/dotfiles
-# 	•	Description: This repo offers Zach Holman’s streamlined setup for managing shell environments, including custom configurations for Zsh, Ruby, Git, and macOS settings.
-
-# 4. YADR - Yet Another Dotfile Repo
-
-# 	•	Stars: Over 8K stars
-# 	•	Link: https://github.com/skwp/dotfiles
-# 	•	Description: A well-packaged dotfile repository featuring an extensive Vim configuration, support for Zsh, tmux, and more. It’s highly customizable and optimized for developers.
-
-# 5. Dries Vints’s Dotfiles
-
-# 	•	Stars: Over 7.6K stars
-# 	•	Link: https://github.com/driesvints/dotfiles
-# 	•	Description: A simple but effective set of dotfiles used by Dries Vints. The repository focuses on setting up a macOS-based development environment with applications like Homebrew and Zsh.
-
-# 6. Janus - Vim Distribution
-
-# 	•	Stars: Over 7K stars
-# 	•	Link: https://github.com/carlhuda/janus
-# 	•	Description: A distribution of Vim configurations and plugins aimed at improving usability for both beginner and advanced users. It’s highly popular in the Vim community.
-
-# 7. Nick Nisi’s Dotfiles
-
-# 	•	Stars: Over 3.4K stars
-# 	•	Link: https://github.com/nicknisi/dotfiles
-# 	•	Description: Nick Nisi’s highly customized setup for Zsh, Vim, tmux, and Git. It includes advanced features like powerline integration, syntax highlighting, and more.
-
-# 8. Cowboy’s Dotfiles
-
-# 	•	Stars: Over 3.9K stars
-# 	•	Link: https://github.com/cowboy/dotfiles
-# 	•	Description: A robust set of dotfiles for macOS and Linux with an emphasis on cross-platform compatibility. It includes shell, Git, and Vim customizations.
-
-# 9. thoughtbot Dotfiles
-
-# 	•	Stars: Over 7.2K stars
-# 	•	Link: https://github.com/thoughtbot/dotfiles
-# 	•	Description: A collection of dotfiles used by the thoughtbot development team, featuring configurations for Vim, Zsh, tmux, and macOS productivity scripts.
-
-# 10. Jessie Frazelle’s Dotfiles
-
-# 	•	Stars: Over 6.7K stars
-# 	•	Link: https://github.com/jessfraz/dotfiles
-# 	•	Description: Jessie Frazelle’s dotfiles are focused on a secure, minimal setup for Bash, Vim, tmux, and Docker, among other tools. It’s designed for developers who value simplicity and efficiency.
-
-
-
-#yt
-#soundcloud 
-# history visualizaiton - ask chatGPT how to aadd this 
-# https://macwright.com/
-
-#idnex 100,000 startups -- yc,benchmark, pioneer.app etc - find ones that didnt work - and see if they make sense today.
-
-# https://gregbrockman.com/
-# https://www.youtube.com/watch?v=4qQrwoMTPNM
-# observable - (firecracker + nix + criu ) (python, js, zig)
-# replit---
-
-# he top 5 competitors to Replit, a popular online coding platform, include:
-
-# GitHub Codespaces
-
-# Glitch:
-
-# CodeSandbox: 
-
-# StackBlitz
-
-
-
-
-
-
-
-
-# idempottent install.script
-# dependencies 
-# 1. rust desk
-# 2. tailscale
-# 3. rust desk
-# 4. bun.sh
-# 5. latest golang
-# 6. micromamba - deps
-# 7. https://github.com/facebookresearch/sam2 - install deps using a custom environment called - homelab that mirrors their deps
-# 8. git clone github.com/adnanwahab/homelab_status_page - clone and do nothing
-# 9. https://github.com/dusty-nv/jetson-containers - git clone and install deps for jetson-containers/(whisper\_trt, ollama, 3D Diffusion Policy, ZED, JupyterLab)
-# 10. to install jetson - 5 min - run install script
-# sudo apt install ncdu
-# 10 good tools from 10
-# zig - repl - misc tools - 1000
-
-# good exmaples - 
-# https://brew.sh/
-# https://github.com/nvm-sh/nvm
-# Script: https://get.docker.com/
-# Miniconda
-# Oh My Zsh
-# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-# nix - use that manage - hashicorp mitchelH - gen images + virtualization
-# dhh + primagen
-# deno.land 2.0
-# 1pw cli
-
-#https://github.com/dusty-nv/jetson-containers
-
-#https://github.com/anduril/jetpack-nixos
-#https://github.com/anduril/mcap-rs
-
-
-
-# Jetson Robotics Setup Script for Ubuntu 24.04
-# This script installs various tools and libraries for robotics development on Jetson devices
-
-#catonmat + browserify

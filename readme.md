@@ -49,5 +49,9 @@ Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a
 
 
 ![https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg](https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg)
-3 products
-robotics-odyssey - an advanced's beginners info course for robotics+AI+HardWare(MechE+EE)
+
+1. robotics-odyssey - an advanced's beginners info course for robotics+AI+HardWare(MechE+EE)
+best offline graph based visualziers
+# ideas for 2025
+#webgpu lines + regl - dj patil graph vis
+emacs / note-capture cmd-T send to json

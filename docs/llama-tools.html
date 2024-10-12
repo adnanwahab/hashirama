@@ -4,7 +4,6 @@
       font-size: 20px;
       font-weight: bold;
       color: silver;
-       
     }
 
     @keyframes rotateGradient {
@@ -188,8 +187,7 @@
       }
     }
   </style>
-  
-  
+
   <script type="importmap">
     {
       "imports": {
@@ -199,7 +197,7 @@
       }
     }
   </script>
-  
+
   <meta
     property="og:title"
     content="Robotics Odyssey - Reimagining Robotics: Merging Systems Thinking and Dynamic Media"
@@ -214,8 +212,7 @@
     property="og:image"
     content="https://hashirama.blog/static/images/blog/sicp.png"
   />
-  
-  
+
   <link rel="canonical" href="https://robtics-odyssey.com" />
 
   <meta property="og:image:width" content="1200" />
@@ -232,15 +229,14 @@
     name="description"
     content="Explore a new approach to robotics that transcends conventional thinking, inspired by the principles of Alan Kay and Bret Victor. Discover how interconnected systems, dynamic media, and human-centric design can tackle the immense challenges of our time."
   />
-  
+
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Robotics Odyssey</title>
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  
-  
+
   <link rel="icon" href="/static/images/blog/favicon.svg" />
   <link
     rel="sitemap"
@@ -254,8 +250,6 @@
   <link href="/static/css/output.css" rel="stylesheet" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  
-
   <script src="/static/js/htmx.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
@@ -265,124 +259,84 @@
     href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css"
   />
   <script src="https://cdn.tailwindcss.com"></script>
-
-  
-  
 </head>
-
 
 <style>
   .container-1 {
-  overflow: scroll;
+    overflow: scroll;
   }
 </style>
 
 <ul class="text-blue-500">
-<li class="label-1">livekit_audio</li>
-<li class="label-2">cognition_engine</li>
-<li class="label-3">logs_viewer</li>
-<li class="label-4">import_docs</li>
-<li class="label-5">script_reflect</li>
-<li class="label-6">script_obs</li>
-<li class="label-7">livekit_video</li>
-<li class="label-8">llama_search</li>
+  <li class="label-1">livekit_audio</li>
+  <li class="label-2">cognition_engine</li>
+  <li class="label-3">logs_viewer</li>
+  <li class="label-4">import_docs</li>
+  <li class="label-5">script_reflect</li>
+  <li class="label-6">script_obs</li>
+  <li class="label-7">livekit_video</li>
+  <li class="label-8">llama_search</li>
+
+  <li class="label-1">flirt-flow-self-hosted</li>
 </ul>
 //template "llama_label" .labelId
 
-
-
-
-
-
 <div class="bg-white">
   <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-
     <div
       class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
     >
-      
-    
-<div class="relative lg:col-span-4">
-  <div class="absolute inset-px rounded-lg bg-white"></div>
-  <div
-    class="relative flex h-full flex-col overflow-hidden"
-  >
-    
-<div class="container-livekit_audio"></div>
-<iframe src="/llama-backend/livekit_audio"></iframe>
+      <div class="relative lg:col-span-4">
+        <div class="absolute inset-px rounded-lg bg-white"></div>
+        <div class="relative flex h-full flex-col overflow-hidden">
+          <div class="container-livekit_audio"></div>
+          <iframe src="/llama-backend/livekit_audio"></iframe>
 
+          <div class="p-10 pt-4"></div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+        ></div>
+      </div>
 
-    <div class="p-10 pt-4">
-    </div>
-  </div>
-  <div
-    class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
-  ></div>
-</div>
+      <div class="relative lg:col-span-4">
+        <div class="absolute inset-px rounded-lg bg-white"></div>
+        <div class="relative flex h-full flex-col overflow-hidden">
+          <div class="container-cognition_engine"></div>
+          <iframe src="/llama-backend/cognition_engine"></iframe>
 
-    
-<div class="relative lg:col-span-4">
-  <div class="absolute inset-px rounded-lg bg-white"></div>
-  <div
-    class="relative flex h-full flex-col overflow-hidden"
-  >
-    
-<div class="container-cognition_engine"></div>
-<iframe src="/llama-backend/cognition_engine"></iframe>
+          <div class="p-10 pt-4"></div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+        ></div>
+      </div>
 
+      <div class="relative lg:col-span-4">
+        <div class="absolute inset-px rounded-lg bg-white"></div>
+        <div class="relative flex h-full flex-col overflow-hidden">
+          <div class="container-logs_viewer"></div>
+          <iframe src="/llama-backend/logs_viewer"></iframe>
 
-    <div class="p-10 pt-4">
-    </div>
-  </div>
-  <div
-    class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
-  ></div>
-</div>
+          <div class="p-10 pt-4"></div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+        ></div>
+      </div>
 
-    
-<div class="relative lg:col-span-4">
-  <div class="absolute inset-px rounded-lg bg-white"></div>
-  <div
-    class="relative flex h-full flex-col overflow-hidden"
-  >
-    
-<div class="container-logs_viewer"></div>
-<iframe src="/llama-backend/logs_viewer"></iframe>
+      <div class="relative lg:col-span-4">
+        <div class="absolute inset-px rounded-lg bg-white"></div>
+        <div class="relative flex h-full flex-col overflow-hidden">
+          <div class="container-import_docs"></div>
+          <iframe src="/llama-backend/import_docs"></iframe>
 
-
-    <div class="p-10 pt-4">
-    </div>
-  </div>
-  <div
-    class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
-  ></div>
-</div>
-
-    
-<div class="relative lg:col-span-4">
-  <div class="absolute inset-px rounded-lg bg-white"></div>
-  <div
-    class="relative flex h-full flex-col overflow-hidden"
-  >
-    
-<div class="container-import_docs"></div>
-<iframe src="/llama-backend/import_docs"></iframe>
-
-
-    <div class="p-10 pt-4">
-    </div>
-  </div>
-  <div
-    class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
-  ></div>
-</div>
-
-
-
+          <div class="p-10 pt-4"></div>
+        </div>
+        <div
+          class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
+        ></div>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-

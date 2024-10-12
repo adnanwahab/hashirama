@@ -2,43 +2,49 @@
 
 <style>
   .container-1 {
-  overflow: scroll;
+    overflow: scroll;
   }
 </style>
-{{define "voice-to-agent-request" }}
-{{end}}
+{{define "voice-to-agent-request" }} {{end}}
 <ul class="text-blue-500">
-<li class="label-1">livekit_audio</li>
-<li class="label-2">cognition_engine</li>
-<li class="label-3">logs_viewer</li>
-<li class="label-4">import_docs</li>
-<li class="label-5">script_reflect</li>
-<li class="label-6">script_obs</li>
-<li class="label-7">livekit_video</li>
-<li class="label-8">llama_search</li>
-</ul>
-//template "llama_label" .labelId
+  <li class="label-1">livekit_audio</li>
+  <li class="label-2">cognition_engine</li>
+  <li class="label-3">logs_viewer</li>
+  <li class="label-4">import_docs</li>
+  <li class="label-5">script_reflect</li>
+  <li class="label-6">script_obs</li>
+  <li class="label-7">livekit_video</li>
+  <li class="label-8">llama_search</li>
 
-{{define "llama-label"}}
+  <li class="label-8">reflect_organizer - parallel llm</li>
+  <li class="label-8">
+    consolidate-files+note+history - graph-viz - parallel llm
+  </li>
+  <li class="label-8">
+    labeling tool - for anything - explorable explanations - outleir.ai
+  </li>
+
+  <li class="label-8">humor analyisses</li>
+  <li class="label-8">hAI_SEINFElD for any cartoon DOMO</li>
+  <li class="label-8">hAI_SEINFElD for any cartoon DOMO</li>
+  <li class="label-8">
+    convert rendering to JSX - compliant with html/template obs landing page
+  </li>
+</ul>
+//template "llama_label" .labelId {{define "llama-label"}}
 <div class="text-blue-500 component-label-{{.}}"></div>
 <script type="module">
   //document.querySelector(`.label-{{.}}`).innerHTML = `<iframe src="/llama-backend/{{.}}"></iframe>`
   const label = d3.select(`.label-{{.}}`);
-  const component_label = d3.select(`.component-label-{{.}}`)
-  component_label.text(label.text())
+  const component_label = d3.select(`.component-label-{{.}}`);
+  component_label.text(label.text());
 </script>
-{{end}}
-
-
-{{define "llama-grid_cell"}}
+{{end}} {{define "llama-grid_cell"}}
 <div class="relative lg:col-span-4">
   <div class="absolute inset-px rounded-lg bg-white"></div>
-  <div
-    class="relative flex h-full flex-col overflow-hidden"
-  >
+  <div class="relative flex h-full flex-col overflow-hidden">
     {{template "llama_iframe" .}}
-    <div class="p-10 pt-4">
-    </div>
+    <div class="p-10 pt-4"></div>
   </div>
   <div
     class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"
@@ -48,23 +54,15 @@
 
 <div class="bg-white">
   <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-
     <div
       class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
     >
-      
-    {{template "llama-grid_cell" "livekit_audio"}}
-    {{template "llama-grid_cell" "cognition_engine"}}
-    {{template "llama-grid_cell" "logs_viewer"}}
-    {{template "llama-grid_cell" "import_docs"}}
-
-
+      {{template "llama-grid_cell" "livekit_audio"}} {{template
+      "llama-grid_cell" "cognition_engine"}} {{template "llama-grid_cell"
+      "logs_viewer"}} {{template "llama-grid_cell" "import_docs"}}
     </div>
   </div>
 </div>
-
-
-
 
 {{define "llama_iframe" }}
 <div class="container-{{.}}"></div>
@@ -74,11 +72,11 @@
   const url = `/llama-backend/${scoping}`
   console.log('fetching ', url)
   const container = document.querySelector(`.container-${scoping}`)
-  
+
   const bun_output = d3.select(container).append('div').attr('class', 'bun-output')
   const observable_output = d3.select(container).append('div').attr('class', 'observable-output')
   const deno_webgpu_output = d3.select(container).append('div').attr('class', 'deno-webgpu-output')
-  
+
   const data = await d3.json(url)
   console.log('data ', 'resposne sucede', data.both)
   //window.data = data
@@ -86,7 +84,7 @@
     console.log('both')
     container.innerHTML = data.html
     eval(data.js)
-  }else 
+  }else
   if (data.type === 'html') {
     container.innerHTML = data.html
   } else if (data.type === 'text') {
@@ -102,7 +100,7 @@
 const jsonData = {
   edited_content: 'blalbalhal',
   fileContent: 'blalbalhal',
- 
+
 }
 </script> -->
 {{end}}
