@@ -1,6 +1,6 @@
 # Robotics-Odyssey.com
 
-# goal - Build many dynamicland.org
+## goal - Build many dynamicland.org
 
 ## Why? Because dynamicland.org is the coolest thing ever invented
 
@@ -8,7 +8,7 @@
 
 ## we can put a dynamicland in every home by 2030
 
-## Modules
+# Modules for info-course
 
 ## 1. Hardware Design + Repair
 
@@ -21,8 +21,7 @@
 [![Watch the video](https://img.youtube.com/vi/NNzMjrJQKsc/maxresdefault.jpg)](https://youtu.be/NNzMjrJQKsc)
 [![Watch the video](https://img.youtube.com/vi/_gXiVOmaVSo/maxresdefault.jpg)](https://youtu.be/_gXiVOmaVSo)
 [![Watch the video](https://img.youtube.com/vi/mwMUJg2mfII/maxresdefault.jpg)](https://youtu.be/mwMUJg2mfII)
->  "we understand our mental procceses as much as fish understand water"
-> _John Mccarthy_ - Mathematics of Com
+
 https://internetat50.com/references/Kay_How.pdf
 https://www.youtube.com/watch?v=yJDv-zdhzMY&ab_channel=Marcel
 ![https://www.ssbwiki.com/File:R.O.B._Famicom.jpg](https://www.ssbwiki.com/images/f/fd/R.O.B._Famicom.jpg)
@@ -30,9 +29,7 @@ Alan Kay met with openai around 2016
 Alan Kay talked about one other individual [Bret Victor](https://worrydream.com).
 4. Bret's work has won the Apple Design Award twice.
 5. Bret victor basically said, everything he did before  2014 was past even i thought it was futuristic.
-7. But Bret Victor's newest creation - DynamicLand - is better than anything the world has seen. - Computers are a prison for our minds... compared to the DynamicLand.
-8. DynamicLand = really cool
-9. Build  many Dynamiclands = good idea.
+7. But Bret Victor's newest creation - DynamicLand - is better than anything the world has seen
 
 Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a>.
 ---
@@ -47,11 +44,11 @@ Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a
 
 > "design theory wizard, at the cutting edge of interface designs for seeing, reasoning"
 
-
 ![https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg](https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg)
 
-1. robotics-odyssey - an advanced's beginners info course for robotics+AI+HardWare(MechE+EE)
-best offline graph based visualziers
-# ideas for 2025
-#webgpu lines + regl - dj patil graph vis
-emacs / note-capture cmd-T send to json
+
+>  "we understand our mental procceses as much as fish understand water"
+> _John Mccarthy_ - Mathematics of Common Sense
+
+Bret Victor said text based language is not a proper medium of thought. its fun, and easy, but not sustainable.
+Thats why he uses pictures to construct reality that was previously impossible.
