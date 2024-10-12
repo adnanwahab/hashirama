@@ -674,3 +674,22 @@ install_zig() {
 
 # https://gregbrockman.com/
 # https://www.youtube.com/watch?v=4qQrwoMTPNM
+# observable - (firecracker + nix + criu ) (python, js, zig)
+# replit---
+
+# he top 5 competitors to Replit, a popular online coding platform, include:
+
+# GitHub Codespaces
+
+# Glitch:
+
+# CodeSandbox: 
+
+# StackBlitz
+
+
+
+
+
+
+

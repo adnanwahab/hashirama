@@ -124,9 +124,9 @@ func SetupRendering(e *echo.Echo) {
 		return c.Render(http.StatusOK, "signup.html", nil)
 	})
 
-	e.POST("/llama-tools", func(c echo.Context) error {
+	e.GET("/llama-tools", func(c echo.Context) error {
 		fmt.Println("signup page", "hi")
-		return c.Render(http.StatusOK, "llama-tools", nil)
+		return c.Render(http.StatusOK, "llama-tools.html", nil)
 	})
 }
 
