@@ -26,11 +26,14 @@ func main() {
 	e.Static("/static", "static")
 	e.Static("/data", "data")
 	utils.SetupRendering(e)
+	utils.PrintHello()
 
 	backend := "/robotics-odyssey-backend"
 	port := 3003
 	route_name := fmt.Sprintf("%s/*", backend)
 	fmt.Println("Route Name:", route_name, "Port:", port)
+
+	utils.PreRender("robotics-odyssey.html")
 
 	e.GET(route_name, func(c echo.Context) error {
 		route_path := c.Request().URL.Path

@@ -202,19 +202,27 @@ func SetupRendering(e *echo.Echo) {
 // 	return c.JSON(http.StatusOK, response)
 // }
 
-// func PreRender(route string, parsedTemplates *template.Template) {
-// 	outputFile, err := os.Create("docs/" + route)
-// 	if err != nil {
-// 		log.Fatalf("Error creating output file: %v", err)
-// 	}
-// 	defer outputFile.Close()
+func PreRender(route string) {
+	funcMap := template.FuncMap{}
+	templates := template.New("").Funcs(funcMap)
+	parsedTemplates, err := templates.ParseGlob(filepath.Join("views/**/*.html"))
+	if err != nil {
+		log.Fatalf("Error parsing templates: %v", err)
+	}
 
-// 	// Render the homepage template
-// 	err = parsedTemplates.ExecuteTemplate(outputFile, route, nil)
-// 	if err != nil {
-// 		log.Fatalf("Error rendering template: %v", err)
-// 	}
-// }
+	outputFile, err := os.Create("docs/" + route)
+	if err != nil {
+		log.Fatalf("Error creating output file: %v", err)
+	}
+	defer outputFile.Close()
+
+	// Render the homepage template
+	err = parsedTemplates.ExecuteTemplate(outputFile, route, nil)
+	if err != nil {
+		log.Fatalf("Error rendering template: %v", err)
+	}
+	fmt.Println("PreRendered", route)
+}
 
 //gamify robots - like mario - non pedantic like fake achivements -
 
