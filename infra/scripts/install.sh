@@ -107,15 +107,16 @@ setup_jetson_containers() {
 }
 
 install_rustdesk() {
-    # if ! command_exists rustdesk; then
-    #     echo "Installing RustDesk..."
-    #     wget https://github.com/rustdesk/rustdesk/releases/download/1.1.9/rustdesk-1.1.9-x86_64.deb
-    #     sudo dpkg -i rustdesk-1.1.9-x86_64.deb
-    #     sudo apt --fix-broken install -y
-    #     rm rustdesk-1.1.9-x86_64.deb
-    # else
-    #     echo "RustDesk already installed."
-    # fi
+   if ! command_exists rustdesk; then
+        echo "Installing RustDesk..."
+        # Update the URL with the correct version and architecture
+        wget https://github.com/rustdesk/rustdesk/releases/download/<latest_version>/rustdesk-<latest_version>-x86_64.deb
+        sudo dpkg -i rustdesk-<latest_version>-x86_64.deb
+        sudo apt --fix-broken install -y
+        rm rustdesk-<latest_version>-x86_64.deb
+    else
+        echo "RustDesk already installed."
+    fi
 }
 
 install_tailscale() {
