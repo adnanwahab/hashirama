@@ -28,6 +28,14 @@ install_1password_cli() {
   #https://developer.1password.com/docs/cli/get-started/
 }
 
+
+install_zig() {
+  sudo add-apt-repository ppa:george-edison55/zig
+  sudo apt update
+  sudo apt install zig
+}
+
+
 install_ros() {
   echo "Installing ROS Noetic..."
   # Add ROS repository and keys
@@ -101,12 +109,6 @@ setup_jetson_containers() {
   # Add commands to install dependencies for whisper_trt, ollama, 3D Diffusion Policy, ZED, JupyterLab
 }
  
-
-
-# Jetson Robotics Setup Script for Ubuntu 24.04
-# This script installs various tools and libraries for robotics development on Jetson devices
-
-
 
 # Update and upgrade the system
 print_header "Updating and upgrading the system"
@@ -555,12 +557,6 @@ alias restart_blog="go run main.go"
 alias restart_blog="go run main.go"
 
 
-install_zig() {
-  sudo add-apt-repository ppa:george-edison55/zig
-  sudo apt update
-  sudo apt install zig
-}
-
 #dhh, primagen, iaso, mitchellh, catonmat, 
 
 # trossen - look up all - robotics companies
@@ -693,3 +689,10 @@ install_zig() {
 
 #https://github.com/anduril/jetpack-nixos
 #https://github.com/anduril/mcap-rs
+
+
+
+# Jetson Robotics Setup Script for Ubuntu 24.04
+# This script installs various tools and libraries for robotics development on Jetson devices
+
+#catonmat + browserify
