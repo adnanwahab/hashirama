@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"homelab/pkg/utils"
 	"io"
 	"log"
 	"net/http"
@@ -25,15 +24,11 @@ func main() {
 
 	e.Static("/static", "static")
 	e.Static("/data", "data")
-	utils.SetupRendering(e)
-	utils.PrintHello()
 
 	backend := "/robotics-odyssey-backend"
 	port := 3003
 	route_name := fmt.Sprintf("%s/*", backend)
 	fmt.Println("Route Name:", route_name, "Port:", port)
-
-	utils.PreRender("robotics-odyssey.html")
 
 	e.GET(route_name, func(c echo.Context) error {
 		route_path := c.Request().URL.Path
@@ -54,9 +49,10 @@ func main() {
 		c.Response().WriteHeader(resp.StatusCode)
 		_, err = io.Copy(c.Response().Writer, resp.Body)
 		return err
-
 	})
-	if err := e.Start(":3000"); err != nil && !errors.Is(err, http.ErrServerClosed) {
+	//most likely 1 bun process should serve it -
+
+	if err := e.Start(":8000"); err != nil && !errors.Is(err, http.ErrServerClosed) {
 		log.Fatal(err)
 	}
 }
