@@ -1,12 +1,7 @@
 #!/bin/bash
 set -e
-
 # Idempotent Jetson Orin X2 setup script
-# Usage: curl hashirama.blog/install.sh
-
-# --- Helper Functions ---
-# Function to check if a command exists
-# Function to print section headers
+# Usage: curl hashirama.blog/install.sh | bash
 print_header() {
     echo "====================================="
     echo "$1"
@@ -16,9 +11,8 @@ print_header() {
 # Function to check if a command exists
 command_exists() {
     command -v "$1" >/dev/null 2>&1
-}#!/bin/bash
+}
 
- Update and upgrade the system
 print_header "Updating and upgrading the system"
 sudo apt update && sudo apt upgrade -y
 
@@ -122,10 +116,6 @@ setup_jetson_containers() {
   # Add commands to install dependencies for whisper_trt, ollama, 3D Diffusion Policy, ZED, JupyterLab
 }
 
-
-#stall -y build-essential cmake git python3-pip python3-venv curl wget
-
-# Install ROS Noetic
 install_ros() {
     print_header "Installing ROS Noetic"
     sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -229,9 +219,6 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-# --- Installation Functions ---
-
-# 1. Install RustDesk (Remote desktop tool)
 install_rustdesk() {
     if ! command_exists rustdesk; then
         echo "Installing RustDesk..."
@@ -336,20 +323,11 @@ install_ncdu() {
         echo "ncdu already installed."
     fi
 }
-# Run the main installation process
-#!/bin/bash
 
-# Idempotent Jetson Orin X2 setup script
-# Usage: wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
-
-# --- Helper Functions ---
-# Function to check if a command exists
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-# --- Installation Functions ---
-
 # 1. Install RustDesk (Remote desktop tool)
 install_rustdesk() {
     if ! command_exists rustdesk; then
@@ -455,55 +433,6 @@ install_ncdu() {
         echo "ncdu already installed."
     fi
 }
-
-
-install_main_adnan() {
-  # --- Execution ---
-
-  # Install everything
-  install_1password_cli
-  install_rustdesk
-  install_tailscale
-  install_bun
-  install_golang
-  install_micromamba
-  install_sam2
-  clone_homelab_status_page
-  setup_jetson_containers
-  install_ros
-  install_ncdu
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Main installation function
 main_install() {
@@ -523,6 +452,17 @@ main_install() {
   clone_homelab_status_page
   install_micromamba
   install_sam2
+  install_1password_cli
+  install_rustdesk
+  install_tailscale
+  install_bun
+  install_golang
+  install_micromamba
+  install_sam2
+  clone_homelab_status_page
+  setup_jetson_containers
+  install_ros
+  install_ncdu
 }
 
 main 2>&1 | tee -a "$LOG_FILE"
@@ -539,8 +479,6 @@ echo "All installations complete. You may want to reboot your system."
 
 
 # --- Execution ---
-
 # Alias for restarting the blog
-alias restart_blog="go run main.go"
+
 # how to use - wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
-alias restart_blog="go run main.go"
