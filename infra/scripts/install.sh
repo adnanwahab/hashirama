@@ -138,8 +138,8 @@ install_ncdu() {
 
 main_install() {
     install_tailscale
-    install_1password_cli
-    install_rustdesk
+    # install_1password_cli
+    # install_rustdesk
     install_bun
     install_golang
     install_micromamba
