@@ -1,0 +1,66 @@
+.filter-data-table {
+  width: calc(100% - 14px);
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter-data-table-page-controls {
+  flex-shrink: 0; 
+  margin-top: 0px; 
+  padding: 6px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  gap: 4px;
+}
+
+.filter-data-table table {
+  border-spacing: 0;
+}
+.filter-data-table th {
+  text-align: left;
+  padding: 0 6px;
+  border-right: 1px solid #ccc;
+}
+.filter-data-table td {
+  text-align: left;
+  padding: 3px 6px;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #eee;
+}
+
+.filter-data-table .ls-cluster select {
+  max-width: 200px;
+}
+.filter-data-table .tags {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+
+.filter-data-table .tag-active {
+  background-color: #fff;
+  border: 1px solid gray;
+}
+
+.filter-data-table .tag-inactive {
+  background-color: #eee;
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  
+  .filter-data-table .tag-active {
+    background-color: #111;
+    border: 1px solid gray;
+  }
+  .filter-data-table .tag-inactive {
+    background-color: #333;
+  }
+}

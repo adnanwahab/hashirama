@@ -2,135 +2,64 @@
   "modules": [
     {
       "title": "Hardware Design + Repair",
-      "topics": [
-        {
-          "title": "Foundations of Robot Hardware Design",
-          "details": [
-            "Key components: Sensors, Actuators, Controllers, and Chassis",
-            "Choosing materials for durability and efficiency"
-          ]
-        },
-        {
-          "title": "Building a Modular Robot: Design Once, Adapt Many",
-          "details": [
-            "Benefits of modular design",
-            "Use of 3D printing and rapid prototyping tools"
-          ]
-        },
-        {
-          "title": "Power Management and Energy Optimization in Robotics",
-          "details": [
-            "Batteries, solar power, and regenerative systems",
-            "Balancing performance and energy consumption"
-          ]
-        },
-        {
-          "title": "Maintenance, Troubleshooting, and Repair",
-          "details": [
-            "Diagnosing hardware failures",
-            "Practical steps for hardware maintenance and repair strategies"
-          ]
-        }
+      "sub_modules": [
+        "Foundations of Robot Hardware Design",
+        "Building a Modular Robot: Design Once, Adapt Many",
+        "Power Management and Energy Optimization in Robotics",
+        "Maintenance, Troubleshooting, and Repair"
       ]
     },
     {
       "title": "Perception",
-      "topics": [
-        {
-          "title": "Computer Vision and Sensor Fusion for Robotics",
-          "details": [
-            "Integrating cameras, LIDAR, and depth sensors",
-            "Real-time image processing with AI models"
-          ]
-        },
-        {
-          "title": "Natural Language Understanding for Human-Robot Interaction",
-          "details": [
-            "NLP techniques to enable spoken communication",
-            "Challenges of context-aware perception in robotics"
-          ]
-        },
-        {
-          "title": "SAM and Real-Time Object Segmentation in Robotics",
-          "details": [
-            "Leveraging Segment Anything Model (SAM)",
-            "Reducing latency for real-time decision-making"
-          ]
-        },
-        {
-          "title": "Neural Networks and Perception in Autonomous Robots",
-          "details": [
-            "Deep learning for environmental awareness",
-            "Training robots to recognize objects, gestures, and people"
-          ]
-        }
+      "sub_modules": [
+        "Computer Vision and Sensor Fusion for Robotics",
+        "Natural Language Understanding for Human-Robot Interaction",
+        "SAM and Real-Time Object Segmentation in Robotics",
+        "Neural Networks and Perception in Autonomous Robots"
       ]
     },
     {
       "title": "Planning + Prediction",
-      "topics": [
-        {
-          "title": "Path Planning and SLAM (Simultaneous Localization and Mapping)",
-          "details": [
-            "Techniques for autonomous navigation",
-            "Building accurate maps for real-world environments"
-          ]
-        },
-        {
-          "title": "Reinforcement Learning for Robot Decision-Making",
-          "details": [
-            "Training robots using rewards and penalties",
-            "Applications in self-driving cars and drones"
-          ]
-        },
-        {
-          "title": "Motion Prediction in Dynamic Environments",
-          "details": [
-            "Planning in environments with moving obstacles",
-            "Predictive models for human-robot interaction"
-          ]
-        },
-        {
-          "title": "Collaborative Robots and Multi-Agent Planning",
-          "details": [
-            "Coordination between multiple robots",
-            "Swarm robotics and distributed intelligence"
-          ]
-        }
+      "sub_modules": [
+        "Path Planning and SLAM (Simultaneous Localization and Mapping)",
+        "Reinforcement Learning for Robot Decision-Making",
+        "Motion Prediction in Dynamic Environments",
+        "Collaborative Robots and Multi-Agent Planning"
       ]
     },
     {
       "title": "Simulation + UI + Real World Applications",
-      "topics": [
-        {
-          "title": "Simulating Real-World Scenarios with Gazebo and Isaac SDK",
-          "details": [
-            "Building test environments using simulation platforms",
-            "Bridging the gap between simulation and reality"
-          ]
-        },
-        {
-          "title": "Designing User Interfaces for Robotics",
-          "details": [
-            "Intuitive UIs for robot control",
-            "Best practices in human-computer interaction (HCI)"
-          ]
-        },
-        {
-          "title": "Deploying Robots in Real-World Applications",
-          "details": [
-            "Case studies in healthcare, agriculture, and logistics",
-            "Challenges in field deployment"
-          ]
-        },
-        {
-          "title": "Future Trends: Robotics in the Metaverse and Beyond",
-          "details": [
-            "Augmented and virtual reality interfaces for robots",
-            "Robotics as a bridge between digital and physical worlds"
-          ]
-        }
+      "sub_modules": [
+        "Simulating Real-World Scenarios with Gazebo and Isaac SDK",
+        "Designing User Interfaces for Robotics",
+        "Deploying Robots in Real-World Applications",
+        "Future Trends: Robotics in the Metaverse and Beyond"
       ]
+    },
+    {
+        "title": "misc-edit-idea-dump-from-people",
+        "sub_modules": [
+          "Reinforcement Learning for Robot Training",
+            "Computer Vision for Robots: Seeing and Understanding the World",
+            "Using Natural Language Processing to Communicate with Robots",
+            "Robot Learning from Demonstration (LfD)",
+            "Building Robots with TinyML: AI at the Edge",
+            "Combining Robotics and Generative AI",
+            "Neural Networks for Motion Planning",
+            "Real-time Object Detection with SAM (Segment Anything Model)",
+            "The Role of Deep Learning in Robot Perception",
+            "How Robots Are Trained to Understand Context",
+            "Foundations & Principles",
+            "History of Robotics: From Ancient Automatons to AI",
+            "Key Concepts in Robotics: Sensors, Actuators, and Control Systems",
+            "The Role of Kinematics in Robot Movement",
+            "Understanding ROS (Robot Operating System): The Robotics Framework",
+            "Embedded Systems for Robots: Microcontrollers and Beyond",
+            "Swarm Robotics: Intelligence in Numbers",
+            "Collaborative Robots (Cobots): Human-Robot Interaction",
+            "Open-Source Robotics: Democratizing Innovation",
+            "From Mechanics to Electronics: Building a Simple Robot Arm"
+        ]
     }
   ]
 }
