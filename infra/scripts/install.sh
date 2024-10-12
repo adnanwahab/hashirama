@@ -22,24 +22,7 @@ install_1password_cli() {
     #https://developer.1password.com/docs/cli/get-started/
 }
 
-install_zig() {
-    #sudo apt update
-    #sudo apt install -y zig
-}
 
-install_ros() {
-    if ! command_exists roscore; then
-        echo "Installing ROS Noetic..."
-        sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-        sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-        sudo apt update
-        sudo apt install -y ros-noetic-desktop-full
-        echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
-        source ~/.bashrc
-    else
-        echo "ROS Noetic already installed."
-    fi
-}
 
 install_dependencies() {
     echo "Installing dependencies..."
@@ -145,12 +128,10 @@ main_install() {
     install_bun
     install_golang
     install_micromamba
-    install_zig
     setup_sam2_environment
     clone_homelab_status_page
     setup_jetson_containers
     install_ncdu
-    install_ros
     install_dynamixel_sdk
 
     echo "Installation complete. Please reboot your system."
