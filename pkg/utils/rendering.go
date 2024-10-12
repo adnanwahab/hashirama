@@ -123,6 +123,11 @@ func SetupRendering(e *echo.Echo) {
 		fmt.Println("signup page", "hi")
 		return c.Render(http.StatusOK, "signup.html", nil)
 	})
+
+	e.POST("/llama-tools", func(c echo.Context) error {
+		fmt.Println("signup page", "hi")
+		return c.Render(http.StatusOK, "llama-tools", nil)
+	})
 }
 
 // func getFilePaths(pattern string) ([]string, error) {
