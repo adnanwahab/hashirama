@@ -99,6 +99,19 @@ func SetupRendering(e *echo.Echo) {
 	// if err := setupDynamicRoutes(e); err != nil {
 	// 	log.Fatalf("Error setting up dynamic routes: %v", err)
 	// }
+<<<<<<< HEAD
+=======
+	e.GET("/", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "blog.html", nil)
+	})
+	e.GET("/robotics-university", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "robotics-odyssey.html", nil)
+	})
+
+	e.GET("/robotiics-odyssey", func(c echo.Context) error {
+		return c.Render(http.StatusOK, "robotics-odyssey.html", nil)
+	})
+>>>>>>> 7caba74 (cool)
 
 	// Define routes dynamically
 	routes := []string{"/pub", "/cgi-tools", "/office-hours", "/signup", "/llama-tools"}
@@ -215,3 +228,5 @@ func PreRender(route string) {
 
 // name 10 companies that had phd founders
 //llms let anyone get a phd -self taught - poke into the knowledge
+
+// purpose of homelab -> run a go process -> ___ catch erorrs -> handle them for users. anduril-lattice 
