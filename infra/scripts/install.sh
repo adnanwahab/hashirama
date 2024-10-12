@@ -58,9 +58,6 @@ install_dynamixel_sdk() {
   sudo make install
 }
 
-
-
-
 # Function to install Bun.sh
 install_bun() {
   echo "Installing Bun.sh..."
@@ -553,38 +550,7 @@ echo "All installations complete. You may want to reboot your system."
 # Alias for restarting the blog
 alias restart_blog="go run main.go"
 # how to use - wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
-# idempottent install.script
-# dependencies 
-# 1. rust desk
-# 2. tailscale
-# 3. rust desk
-# 4. bun.sh
-# 5. latest golang
-# 6. micromamba - deps
-# 7. https://github.com/facebookresearch/sam2 - install deps using a custom environment called - homelab that mirrors their deps
-# 8. git clone github.com/adnanwahab/homelab_status_page - clone and do nothing
-# 9. https://github.com/dusty-nv/jetson-containers - git clone and install deps for jetson-containers/(whisper\_trt, ollama, 3D Diffusion Policy, ZED, JupyterLab)
-# 10. to install jetson - 5 min - run install script
-# sudo apt install ncdu
-# 10 good tools from 10
-# zig - repl - misc tools - 1000
 
-# good exmaples - 
-# https://brew.sh/
-# https://github.com/nvm-sh/nvm
-# Script: https://get.docker.com/
-# Miniconda
-# Oh My Zsh
-# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-# nix - use that manage - hashicorp mitchelH - gen images + virtualization
-# dhh + primagen
-# deno.land 2.0
-# 1pw cli
-
-#https://github.com/dusty-nv/jetson-containers
-
-#https://github.com/anduril/jetpack-nixos
-#https://github.com/anduril/mcap-rs
 
 alias restart_blog="go run main.go"
 
@@ -694,3 +660,36 @@ install_zig() {
 
 
 
+
+# idempottent install.script
+# dependencies 
+# 1. rust desk
+# 2. tailscale
+# 3. rust desk
+# 4. bun.sh
+# 5. latest golang
+# 6. micromamba - deps
+# 7. https://github.com/facebookresearch/sam2 - install deps using a custom environment called - homelab that mirrors their deps
+# 8. git clone github.com/adnanwahab/homelab_status_page - clone and do nothing
+# 9. https://github.com/dusty-nv/jetson-containers - git clone and install deps for jetson-containers/(whisper\_trt, ollama, 3D Diffusion Policy, ZED, JupyterLab)
+# 10. to install jetson - 5 min - run install script
+# sudo apt install ncdu
+# 10 good tools from 10
+# zig - repl - misc tools - 1000
+
+# good exmaples - 
+# https://brew.sh/
+# https://github.com/nvm-sh/nvm
+# Script: https://get.docker.com/
+# Miniconda
+# Oh My Zsh
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# nix - use that manage - hashicorp mitchelH - gen images + virtualization
+# dhh + primagen
+# deno.land 2.0
+# 1pw cli
+
+#https://github.com/dusty-nv/jetson-containers
+
+#https://github.com/anduril/jetpack-nixos
+#https://github.com/anduril/mcap-rs
