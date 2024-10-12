@@ -1,5 +1,26 @@
 {{template "head.html" . }}
+<!-- convert this to jsx -> using llama  3.2 before 3.3 -->
+<!-- just use bun - figure out  -->
+<a href="/cgi-tools/rustkit"> rustkit </a>
+<a href="/cgi-tools/bun-docs"> bun-docs </a>
+<a href="/cgi-tools/chrome-extension"> get-data - bs4 </a>
+<a href="/cgi-tools/frame-splitter"> run on desktop  </a> 
 
+
+<li class="tool-list"> 
+  <!-- so either dev on desktop mainly using ssh - or  -->
+ <!--     -->
+</li>
+<script>
+  const data = await d3.json('/cgi-backend/tools.json');
+
+  const tools = d3.selectAll('.tool-list').selectAll('a')
+  .enter().append('a').attr('href', function(d){
+    return d
+  })
+
+
+</script>
 
 {{define "cgi_iframe" }}
 

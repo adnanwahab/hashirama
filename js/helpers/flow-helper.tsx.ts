@@ -46,3 +46,7 @@ serve({
 // catch screen - rustesk -> save to file  -> finetune - llama for compaitiblity
 // vit label frame - objects 
 // rust-desk - click the button coordinates 
+//  vit label - which screen am i on ? -> click here or type this 
+
+
+// hi, ask questions, 

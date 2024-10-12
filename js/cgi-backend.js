@@ -8,7 +8,6 @@ import { connect_to_livekit } from './bun-livekit-server.js'
 
 const routes = [
   'livekit_video',
-
   'voice_reactive_particles',
   'flux_test', //flux
   // 'git_viusalizer',
@@ -16,9 +15,7 @@ const routes = [
   // 'kill-math',
   // 'nerf',
   // 'scene_reconstruction',
-  
 ]
-
 // obs + jupyter right panel (remote desktop on jupyter)
 const path_maker = (route) => join(goodOnesDir, route + '.html')
 const goodOnesFiles = routes.map(path_maker)
@@ -42,10 +39,15 @@ Bun.serve({
   async fetch(req) {
     let url = new URL(req.url).pathname;
     console.log('url', url);
+    if (url === '/helpers_list') {
+      const helpersDir = path.join(__dirname, 'helpers');
+      const helperFiles = fs.readdirSync(helpersDir);
+      return new Response(JSON.stringify(helperFiles), { headers: { "Content-Type": "application/json" } });
+    }
     if (url === '/') url = 'livekit_video';
     if (url === '/connect') { 
-      const json = await connect_to_livekit()
-      console.log(json, json)
+      const json = await connect_to_livekit();
+      console.log(json, json);
       return new Response(JSON.stringify(json));
     }
     if (url.includes('static')) return new Response(Bun.file(url.slice(1)));
