@@ -1,7 +1,20 @@
-
+# how to use - wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
+# idempottent install.script
+# dependencies 
+# 1. rust desk
+# 2. tailscale
+# 3. rust desk
+# 4. bun.sh
+# 5. latest golang
+# 6. micromamba - deps
+# 7. https://github.com/facebookresearch/sam2 - install deps using a custom environment called - homelab that mirrors their deps
+# 8. git clone github.com/adnanwahab/homelab_status_page - clone and do nothing
+# 9. https://github.com/dusty-nv/jetson-containers - git clone and install deps for jetson-containers/(whisper\_trt, ollama, 3D Diffusion Policy, ZED, JupyterLab)
+# 10. to install jetson - 5 min - run install script
+# sudo apt install ncdu
 alias restart_blog="go run main.go"
 
-
+# 1pw cli
 
 install_ros() {
   echo "Installing ROS Noetic..."
@@ -85,7 +98,19 @@ setup_jetson_containers() {
   cd jetson-containers
   # Add commands to install dependencies for whisper_trt, ollama, 3D Diffusion Policy, ZED, JupyterLab
 }
- 
+
+# Main installation function
+main_install() {
+  install_rustdesk
+  install_tailscale
+  install_bun
+  install_golang
+  install_micromamba
+  setup_sam2_environment
+  clone_homelab_status_page
+  setup_jetson_containers
+}
+
 #!/bin/bash
 
 # Jetson Robotics Setup Script for Ubuntu 24.04
@@ -219,6 +244,22 @@ main() {
     echo "Please reboot your system to ensure all changes take effect."
 }
 
+# Run the main installation process
+main
+
+main_install
+echo "Installation complete. Please reboot your system."
+
+# good exmaples - 
+https://brew.sh/
+# https://github.com/nvm-sh/nvm
+# Script: https://get.docker.com/
+# Miniconda
+# Oh My Zsh
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# nix - use that manage - hashicorp mitchelH - gen images + virtualization
+# dhh + primagen
+# deno.land 2.0
 
 
 #!/bin/bash
@@ -343,7 +384,6 @@ install_ncdu() {
 # --- Execution ---
 
 # Install everything
-install_1password_cli
 install_rustdesk
 install_tailscale
 install_bun
@@ -355,78 +395,7 @@ setup_jetson_containers
 install_ros
 install_ncdu
 
-# Run the main installation process
-
-
-
-    
-    # Run installation functions
- 
-
-# Main installation function
-main_install() {
-  install_rustdesk
-  install_tailscale
-  install_bun
-  install_golang
-  install_micromamba
-  setup_sam2_environment
-  clone_homelab_status_page
-  setup_jetson_containers
-}
-
-#main
-#make_install
-#main_install
-#mkdir -p ~/backup_configs
-#cp ~/.bashrc ~/backup_configs/.bashrc.bak
-echo "Installation complete. Please reboot your system."
-
-
-
-
-# --- Execution ---
-#main 2>&1 | tee -a "$LOG_FILE"
-
-
-
-
 echo "All installations complete. You may want to reboot your system."
-
-
 
 # Alias for restarting the blog
 alias restart_blog="go run main.go"
-# how to use - wget hashirama.blog/bootstraph.sh && bash bootstraph.sh
-# idempottent install.script
-# dependencies 
-# 1. rust desk
-# 2. tailscale
-# 3. rust desk
-# 4. bun.sh
-# 5. latest golang
-# 6. micromamba - deps
-# 7. https://github.com/facebookresearch/sam2 - install deps using a custom environment called - homelab that mirrors their deps
-# 8. git clone github.com/adnanwahab/homelab_status_page - clone and do nothing
-# 9. https://github.com/dusty-nv/jetson-containers - git clone and install deps for jetson-containers/(whisper\_trt, ollama, 3D Diffusion Policy, ZED, JupyterLab)
-# 10. to install jetson - 5 min - run install script
-# sudo apt install ncdu
-# 10 good tools from 10
-# zig - repl - misc tools - 1000
-
-# good exmaples - 
-# https://brew.sh/
-# https://github.com/nvm-sh/nvm
-# Script: https://get.docker.com/
-# Miniconda
-# Oh My Zsh
-# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-# nix - use that manage - hashicorp mitchelH - gen images + virtualization
-# dhh + primagen
-# deno.land 2.0
-# 1pw cli
-
-#https://github.com/dusty-nv/jetson-containers
-
-#https://github.com/anduril/jetpack-nixos
-#https://github.com/anduril/mcap-rs
