@@ -52,3 +52,6 @@ Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a
 
 Bret Victor said text based language is not a proper medium of thought. its fun, and easy, but not sustainable.
 Thats why he uses pictures to construct reality that was previously impossible.
+
+
+observable framework is the payprus for bret vicgtor's magic ink

@@ -3,30 +3,15 @@ from concurrent.futures import ThreadPoolExecutor
 from openai import OpenAI
 import os
 import argparse
-# Retrieve the OpenAI API key from the environment variable
 openai_api_key = os.getenv('OPENAI_KEY')
-# judgment / design / choice / 
-# Initialize the OpenAI client with the API key
+
 client = OpenAI(
     api_key=openai_api_key,
 )
-# def parse_arguments():
-#     parser = argparse.ArgumentParser(description='Process html files with OpenAI.')
 
-#     parser.add_argument('--query', type=str, required=True, help='Query to send to the LLM.')
-#     parser.add_argument('--input_dir', type=str, required=True, help='',)
-#     parser.add_argument('--output_dir', type=str, required=True, help='.')
-
-#     return parser.parse_args()
-
-
-# query = args.query
-# input_dir = args.input_dir
-# output_dir = args.output_dir
-
-prompt = "gen a markdown of example markdown about the robotics topic " 
+query = "gen a markdown of example markdown about the robotics topic " 
 input_dir =  "data/robotics-odyssey"
-output_dir= "js/course_content/docs/"
+
 
 def append_to_file(chunk, index, output_dir):
     with open(f"{output_dir}/parallel_chunk_{index}.txt", 'w') as output_file:
@@ -75,13 +60,14 @@ def process_chunk(filename, content, index):
             {"role": "user", "content": query + os.path.basename(filename)},
             {"role": "user", "content": content}
         ]
-)
+    )  # Fixed indentation and added closing parenthesis
     processed = parse_gpt(chat_completion)
-    print("wiriting to " , filename)
-    with open(filename, 'w') as file:
+    print("writing to", filename)  # Corrected spelling from "wiriting" to "writing"
+    output_dir= "course_content/docs"
+    with open(f"{output_dir}/{os.path.basename(filename)}", 'w') as file:
         file.write(processed)
-    #return processed
-
+    # return processed
+# is jupyter a thing? try collarobaroty - add currsor - to obs+jpy - (LLM_prediciton_planning, cgi, hardware) 
 # add in dict types from fastapi - 
 def process_all_files_in_directory(directory_path):
     files = [os.path.join(directory_path, filename) for filename in os.listdir(directory_path) if filename.endswith('.md')]
@@ -99,9 +85,27 @@ def process_all_files_in_directory(directory_path):
     end_time = time.time()
     print("processing all files in directory took", end_time - start_time, "seconds")
 
-process_all_files_in_directory(input_dir, output_dir)
-#augmne this file to pass in 1tb of embeeddings to llama / anthroipic / openia
+process_all_files_in_directory(input_dir)
+# augment this file to pass in 1tb of embeddings to llama / anthropic / openai
 
 
 
+# (read 5000 research papers + 2 best ourses) -> (gen diagrams) + 1 paragraph per diaagram.
 
+
+# def parse_arguments():
+#     parser = argparse.ArgumentParser(description='Process html files with OpenAI.')
+
+#     parser.add_argument('--query', type=str, required=True, help='Query to send to the LLM.')
+#     parser.add_argument('--input_dir', type=str, required=True, help='',)
+#     parser.add_argument('--output_dir', type=str, required=True, help='.')
+
+#     return parser.parse_args()
+
+
+# query = args.query
+# input_dir = args.input_dir
+# output_dir = args.output_dir
+# judgment / design / choice / 
+# Initialize the OpenAI client with the API key
+# Retrieve the OpenAI API key from the environment variable
