@@ -75,7 +75,7 @@ install_micromamba() {
 setup_sam2_environment() {
     echo "Setting up SAM2 environment..."
     # Add commands to create and configure the 'homelab' environment
-    echo "Setting up SAM2 environmentTDOD"
+    #echo "Setting up SAM2 environmentTDOD"
 }
 
 clone_homelab_status_page() {
@@ -130,7 +130,7 @@ install_tailscale
 install_bun
 install_golang
 install_micromamba
-setup_sam2_environment
+#setup_sam2_environment
 clone_homelab_status_page
 setup_jetson_containers
 install_ncdu
