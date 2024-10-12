@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "js": ["helper_ws_client_chrome_extension.js"]
     }
   ],
   "permissions": [

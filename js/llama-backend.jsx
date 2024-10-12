@@ -76,3 +76,24 @@ Bun.serve({
 });
 
 console.log("running llama-backend on port " + port);
+const socket = new WebSocket('ws://your-websocket-server-url');
+
+// Event listener for when the connection is open
+socket.addEventListener('open', function (event) {
+    console.log('Connected to WebSocket server');
+});
+
+// Event listener for when a message is received from the server
+socket.addEventListener('message', function (event) {
+    console.log('Message from server ', event.data);
+});
+
+// Event listener for when the connection is closed
+socket.addEventListener('close', function (event) {
+    console.log('Disconnected from WebSocket server');
+});
+
+// Event listener for when an error occurs
+socket.addEventListener('error', function (event) {
+    console.error('WebSocket error: ', event);
+});
