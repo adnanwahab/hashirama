@@ -6,8 +6,8 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-#sudo apt update && sudo apt upgrade -y
-echo "Script version: 1.0.0"
+
+echo "Script version: 1.0.1"
 
 install_1password_cli() {
     echo "Installing 1Password CLI..."
@@ -19,10 +19,7 @@ install_1password_cli() {
     sudo groupadd -f onepassword-cli
     sudo chgrp onepassword-cli /usr/local/bin/op
     sudo chmod g+s /usr/local/bin/op
-    #https://developer.1password.com/docs/cli/get-started/
 }
-
-
 
 install_dependencies() {
     echo "Installing dependencies..."
@@ -121,20 +118,19 @@ install_ncdu() {
     fi
 }
 
-main_install() {
-    install_tailscale
-    # install_1password_cli
+
+install_tailscale
+install_bun
+install_golang
+install_micromamba
+setup_sam2_environment
+clone_homelab_status_page
+setup_jetson_containers
+install_ncdu
+install_dynamixel_sdk
+echo "Installation complete. Please reboot your system."
+
+
+#main_install 2>&1 | tee -a "$LOG_FILE"
+   # install_1password_cli
     # install_rustdesk
-    install_bun
-    install_golang
-    install_micromamba
-    setup_sam2_environment
-    clone_homelab_status_page
-    setup_jetson_containers
-    install_ncdu
-    install_dynamixel_sdk
-
-    echo "Installation complete. Please reboot your system."
-}
-
-main_install 2>&1 | tee -a "$LOG_FILE"
