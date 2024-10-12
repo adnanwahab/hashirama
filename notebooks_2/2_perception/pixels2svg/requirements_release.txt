@@ -1,0 +1,4 @@
+bump2version
+setuptools
+twine
+wheel

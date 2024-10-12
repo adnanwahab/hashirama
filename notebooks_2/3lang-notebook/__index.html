@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Scratch pad - for (robotics.university)</title>
+<link rel="stylesheet" type="text/css" href="./inspector.css">
+<body>
+    <img src="/static/lottie/frame_6825.svg">
+
+<script type="module">
+
+import define from "./index.js";
+
+//import {Runtime, Library, Inspector} from "./runtime.js";
+import { Runtime, Inspector, Library } from "./runtime/src/index.js";
+
+
+
+const runtime = new Runtime();
+const main = runtime.module(define, Inspector.into(document.body));
+
+</script>
+<!-- https://observablehq.com/@keystroke/obs-run -->
+<!-- https://github.com/observablehq/examples -->
+<!-- https://github.com/observablehq/parser -->
+<!-- https://github.com/observablehq/htl -->
+<!-- http://localhost:8000/observable-server -->
+<!-- https://observablehq.com/d/06fbbfdc5fc3ea40 -->
+ <!-- https://github.com/observablehq/airbyte -->

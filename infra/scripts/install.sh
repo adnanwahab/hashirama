@@ -138,6 +138,12 @@ install_ncdu() {
 echo "Installation complete. Please reboot your system."
 
 
+#TODO: 
+# better false checking - reinstalling - learn bash basics
+# - setup_op
+# - install_rustdesk
+
+
 #main_install 2>&1 | tee -a "$LOG_FILE"
    # install_1password_cli
     # install_rustdesk

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<path d="M 0 2 L 0 359 L 639 358 L 639 2 Z" fill="rgb(228,201,163)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 326 325 Z" fill="rgb(49,233,229)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 314 150 L 292 155 L 265 174 L 250 202 L 248 233 L 272 276 L 321 295 L 370 274 L 388 246 L 391 211 L 382 185 L 364 165 L 338 152 Z" fill="rgb(186,110,240)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 332 311 L 331 310 L 330 311 Z" fill="rgb(205,86,4)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 333 308 Z" fill="rgb(48,84,22)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 253 297 L 245 300 L 236 309 L 232 321 L 233 332 L 246 348 L 264 351 L 274 347 L 283 338 L 287 327 L 286 315 L 274 300 L 266 297 Z" fill="rgb(191,136,60)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 253 297 L 244 301 L 235 311 L 232 322 L 233 331 L 245 347 L 264 351 L 275 346 L 284 336 L 287 325 L 286 316 L 280 305 L 270 298 Z" fill="rgb(8,7,97)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+</svg>

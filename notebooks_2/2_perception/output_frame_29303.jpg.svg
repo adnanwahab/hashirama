@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<path d="M 387 24 L 361 44 L 356 63 L 400 66 L 358 70 L 357 79 L 376 105 L 411 111 L 436 95 L 444 73 L 409 66 L 445 64 L 423 28 Z" fill="rgb(3,195,136)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 265 62 L 258 75 L 256 103 L 273 104 L 275 103 L 272 74 L 269 70 L 269 67 L 267 66 L 267 63 Z" fill="rgb(108,60,107)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 264 48 L 263 49 L 264 50 L 264 54 L 263 55 L 267 55 L 267 54 L 266 53 L 266 52 L 267 51 L 266 50 L 266 48 Z" fill="rgb(68,242,63)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 603 288 L 599 297 L 596 299 L 593 325 L 594 329 L 613 328 L 611 322 L 610 300 L 604 292 Z" fill="rgb(131,118,11)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 627 70 L 626 71 L 626 77 L 634 94 L 639 98 L 639 70 L 637 69 Z" fill="rgb(55,17,212)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 639 36 L 632 42 L 629 48 L 626 59 L 626 63 L 627 64 L 639 64 Z" fill="rgb(81,92,239)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 535 288 L 534 292 L 528 300 L 528 317 L 526 328 L 543 329 L 545 328 L 542 306 L 543 301 Z" fill="rgb(144,111,47)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 535 66 L 528 75 L 528 91 L 526 103 L 544 104 L 545 101 L 543 93 L 542 74 Z" fill="rgb(224,15,137)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 535 63 L 535 64 L 536 64 L 536 63 Z" fill="rgb(54,221,105)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 333 288 L 329 297 L 326 299 L 325 322 L 323 327 L 325 329 L 342 328 L 340 300 L 334 292 Z" fill="rgb(85,85,150)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 265 67 L 258 76 L 258 93 L 256 103 L 273 104 L 275 102 L 273 96 L 272 75 L 268 71 L 268 68 Z" fill="rgb(58,167,64)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 263 293 L 258 301 L 259 304 L 256 328 L 274 329 L 275 327 L 273 321 L 272 300 L 268 294 Z" fill="rgb(117,83,152)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+</svg>

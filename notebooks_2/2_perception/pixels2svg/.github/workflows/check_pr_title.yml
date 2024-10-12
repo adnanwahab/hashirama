@@ -1,0 +1,19 @@
+name: PR title check
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - edited
+
+jobs:
+  pr_title_check:
+    runs-on: ubuntu-latest
+    name: Check PR title
+    steps:
+    - name: Check PR title
+      uses: Slashgear/action-check-pr-title@v3.0.0
+      with:
+        regexp: '^((\[MAJOR\])|(\[MINOR\])|(\[PATCH\])|(\[CONFIG\])).+$'

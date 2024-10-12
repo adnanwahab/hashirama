@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<path d="M 628 70 L 626 71 L 626 77 L 629 82 L 630 89 L 634 95 L 639 98 L 639 70 Z" fill="rgb(110,24,126)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 639 35 L 632 42 L 628 50 L 626 57 L 626 63 L 627 64 L 632 64 L 633 65 L 634 64 L 639 64 Z" fill="rgb(66,204,64)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 627 295 L 625 300 L 628 309 L 636 322 L 639 323 L 639 295 Z" fill="rgb(18,217,254)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 639 261 L 634 265 L 629 273 L 626 282 L 626 289 L 639 289 Z" fill="rgb(157,124,167)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 535 63 L 528 75 L 526 103 L 543 104 L 545 103 L 542 74 Z" fill="rgb(104,211,139)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 536 51 L 536 52 Z" fill="rgb(149,87,45)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 603 288 L 600 295 L 596 299 L 593 325 L 594 329 L 613 328 L 611 322 L 610 300 L 604 292 Z" fill="rgb(215,42,38)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 603 63 L 595 76 L 595 97 L 593 103 L 596 104 L 612 103 L 610 74 Z" fill="rgb(211,81,131)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 535 288 L 534 292 L 528 300 L 526 328 L 543 329 L 545 328 L 542 306 L 543 301 Z" fill="rgb(254,229,71)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 333 63 L 326 74 L 324 103 L 326 104 L 342 103 L 340 75 Z" fill="rgb(48,29,212)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 333 288 L 329 297 L 326 299 L 325 322 L 323 327 L 325 329 L 342 328 L 340 300 L 334 292 Z" fill="rgb(65,179,143)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 265 66 L 258 76 L 258 93 L 256 103 L 273 104 L 275 102 L 273 96 L 272 75 L 269 72 L 268 68 Z" fill="rgb(61,114,163)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 266 64 Z" fill="rgb(250,44,47)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 263 293 L 258 301 L 259 304 L 256 328 L 274 329 L 275 327 L 273 321 L 272 300 L 268 294 Z" fill="rgb(7,103,4)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 347 135 L 347 148 L 346 149 L 346 150 L 351 150 L 351 149 L 350 148 L 350 135 Z" fill="rgb(222,125,217)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+</svg>

@@ -1,0 +1,4 @@
+connected-components-3d
+Pillow
+svgwrite
+scipy

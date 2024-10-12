@@ -1,0 +1,220 @@
+<html>
+<link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+<script src='https://cdn.jsdelivr.net/npm/immutable@4.0.0-rc.12/dist/immutable.min.js'></script>
+<style>
+:root {
+  --syntax_normal: #1b1e23;
+  --syntax_comment: #a9b0bc;
+  --syntax_number: #20a5ba;
+  --syntax_keyword: #c30771;
+  --syntax_atom: #10a778;
+  --syntax_string: #008ec4;
+  --syntax_error: #ffbedc;
+  --syntax_unknown_variable: #838383;
+  --syntax_known_variable: #005f87;
+  --syntax_matchbracket: #20bbfc;
+  --syntax_key: #6636b4;
+  --selection: #d7d4f0;
+  --mono_fonts: 14px/1.5 Menlo, Consolas, monospace;
+}
+
+.observablehq--expanded,
+.observablehq--collapsed,
+.observablehq--function,
+.observablehq--import,
+.observablehq--string:before,
+.observablehq--string:after,
+.observablehq--gray {
+  color: var(--syntax_normal);
+}
+
+.observablehq--collapsed,
+.observablehq--inspect a {
+  cursor: pointer;
+}
+
+.observablehq--caret {
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.observablehq--string-expand {
+  margin-left: 6px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 80%;
+  background: #eee;
+  color: #888;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.observablehq--string-expand:hover {
+  color: #222;
+}
+
+.observablehq--field {
+  text-indent: -1em;
+  margin-left: 1em;
+}
+
+.observablehq--empty {
+  color: var(--syntax_comment);
+}
+
+a[href],
+.observablehq--keyword,
+.observablehq--blue {
+  color: #3182bd;
+}
+
+.observablehq--forbidden,
+.observablehq--pink {
+  color: #e377c2;
+}
+
+.observablehq--orange {
+  color: #e6550d;
+}
+
+.observablehq--null,
+.observablehq--undefined,
+.observablehq--boolean {
+  color: var(--syntax_atom);
+}
+
+.observablehq--bigint,
+.observablehq--number,
+.observablehq--date,
+.observablehq--regexp,
+.observablehq--symbol,
+.observablehq--green {
+  color: var(--syntax_number);
+}
+
+.observablehq--index,
+.observablehq--key {
+  color: var(--syntax_key);
+}
+
+.observablehq--prototype-key {
+  color: #aaa;
+}
+
+.observablehq--empty {
+  font-style: oblique;
+}
+
+.observablehq--string,
+.observablehq--purple {
+  color: var(--syntax_string);
+}
+
+/* Note: Tachyons' dark-red */
+.observablehq--error,
+.observablehq--red {
+  color: #e7040f;
+}
+
+.observablehq {
+  position: relative;
+  margin: 17px -10px;
+  min-height: 33px; /* Note: adjusted dynamically! */
+  padding: 0 14px 0 10px;
+  border-left: solid 4px transparent;
+  transition: border-left-color 250ms linear;
+}
+
+.observablehq--inspect {
+  font: var(--mono_fonts);
+  overflow-x: auto;
+  display: block;
+  padding: 6px 0;
+  white-space: pre;
+}
+
+.observablehq--error {
+  border-left-color: #e7040f;
+}
+
+.observablehq--error .observablehq--inspect {
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+.observablehq--running,
+.observablehq--changed {
+  border-left-color: hsl(217, 13%, 70%);
+}
+</style>
+ 
+<body class='sans-serif flex flex-column justify-stretch vh-100'>
+<div class='pa4'><div id='inspectorOutput'></div></div>
+<div class='flex flex-column pa4'>
+<div><label class='ttu' for='input'>input (JavaScript)</label></div>
+<textarea class='code pa2 ba' id='input'>[1, 2, 3]</textarea>
+<div id='demos' class='mt4'>
+  <h3>Fixed demos</h3>
+</div>
+</div>
+<script type='module'>
+import {Inspector} from "./src/index.js";
+let inspector = new Inspector(inspectorOutput);
+function update() {
+  try {
+    inspector.fulfilled((new Function(`return ${input.value}`))());
+  } catch(e) { }
+}
+input.addEventListener('input', update);
+update();
+
+function fixed(input, name) {
+  (new Inspector(demos.appendChild(document.createElement('div')))).fulfilled(input, name);
+}
+
+function rejected(input, name) {
+  (new Inspector(demos.appendChild(document.createElement('div')))).rejected(input, name);
+}
+
+class A { b() {} }
+A.prototype.hi = 'hi';
+fixed([1, 2, 3, [2, 3]], 'b')
+fixed(function a() {}, 'a')
+fixed(new A(), 'aClassInstance')
+fixed(new A(), 'aClassInstance')
+rejected(new Error(), 'myErrorCell')
+fixed(new Error(), 'myErrorValue')
+fixed(A, 'aClass')
+fixed(true, 'hasCarrots')
+fixed(undefined, 'isUndefined')
+fixed(/baz/g, 'myRegexp')
+fixed(typeof BigInt !== 'undefined' ? BigInt(100) : 100, 'myBigInt')
+fixed(a => {}, 'a')
+fixed(function* a() {}, 'a')
+fixed(async function* a() {}, 'asyncGenerator')
+fixed(async function a() {}, 'async')
+fixed(new Map([[1, 2], [Symbol('yeah'), 'yeah']]), 'myMap')
+fixed(new Date(), 'today')
+fixed(new Date('1/1/2020'), 'just a day')
+fixed(new Set([1, 2]), 'mySet')
+fixed({a:2, [Symbol('hi')]: 3}, 'q')
+fixed(new Uint8Array([1, 2, 3]), 'z')
+fixed(new Uint16Array([1, 2, 3]), 'nothign')
+fixed(Immutable.Set([1, 2, 3]), 'immutableSet')
+fixed(Immutable.Set(Array.from({ length: 100 }, (_, i) => i)), 'immutableSet')
+fixed(Immutable.OrderedSet([1, 2, 3]), 'immutableOrderedSet')
+fixed(Immutable.List([1, 2, 3]), 'immutableList')
+fixed(Immutable.List([1, Immutable.List([1, 2, 3]), 3]), 'immutableListNested')
+fixed(Immutable.Stack([1, 2, 3]), 'immutableStack')
+fixed(Immutable.Map([[1, 2], [2, 3], [3, 4]]), 'immutableMap')
+fixed(Immutable.Map([[Immutable.List([1, 2, 3]), 2], [2, 3], [3, 4]]), 'immutableMap')
+fixed(Immutable.OrderedMap([[1, 2], [2, 3], [3, 4]]), 'immutableOrderedMap')
+fixed(Immutable.Record({a: 1})({ b:2}), 'immutableRecord')
+fixed("A short string", 'myString')
+fixed({objProp: "A short string"}, 'someVarName')
+fixed(["A short string"], 'An array')
+fixed(Array.from({ length: 1000 }, (_, i) => `hi ${i}`).join('\n'), 'bar')
+fixed({obProp: Array.from({ length: 1000 }, (_, i) => `hi ${i}`).join('\n')}, 'baz')
+</script>
+</body>
+</html>

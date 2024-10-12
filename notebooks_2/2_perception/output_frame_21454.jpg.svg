@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<path d="M 0 2 L 0 359 L 639 358 L 639 1 Z" fill="rgb(117,55,82)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 333 308 Z" fill="rgb(204,24,166)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 253 297 L 244 301 L 236 309 L 232 322 L 233 331 L 245 347 L 264 351 L 275 346 L 284 336 L 287 327 L 286 316 L 281 306 L 274 300 L 266 297 Z" fill="rgb(243,100,231)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+	<path d="M 253 297 L 244 301 L 236 309 L 232 323 L 233 331 L 245 347 L 263 351 L 272 348 L 282 339 L 287 321 L 283 309 L 275 301 L 266 297 Z" fill="rgb(93,98,77)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
+</svg>

@@ -1,0 +1,41 @@
+table.datatable {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+.datatable th, .datatable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  word-wrap: break-word; /* Break long words */
+  overflow-wrap: break-word; /* Alternative to word-wrap */
+}
+
+.datatable th {
+  background-color: #f4f4f4;
+}
+
+.datatable .tag-active {
+  background-color: #fff;
+  border: 1px solid gray;
+}
+.datatable .tag-inactive {
+  background-color: #eee;
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .datatable th {
+    background-color: #141414;
+  }
+
+  .datatable .tag-active {
+    background-color: #111;
+    border: 1px solid gray;
+  }
+  .datatable .tag-inactive {
+    background-color: #333;
+  }
+}

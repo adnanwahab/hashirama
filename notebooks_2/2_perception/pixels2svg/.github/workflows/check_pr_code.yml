@@ -1,0 +1,47 @@
+name: PR code check
+
+on:
+  pull_request:
+
+jobs:
+  code_checks:
+    uses: ./.github/workflows/_code_checks.yml
+
+  count_commits:
+    needs: code_checks
+    runs-on: ubuntu-latest
+    outputs:
+      n_commits: ${{ steps.count_commits.outputs.n_commits }}
+    steps:
+      - name: checkout current branch
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: count commits from main
+        id: count_commits
+        run: |
+          git fetch
+          N_COMMITS=$(git rev-list origin/main.. --count)
+          echo "::set-output name=n_commits::${N_COMMITS}"
+
+  add_empty_commit_if_only_one:
+    needs: count_commits
+    runs-on: ubuntu-latest
+    # 2 commits because the PR code gets merged into a temp commit on main
+    if: ${{ (!!needs.count_commits.outputs.n_commits) && needs.count_commits.outputs.n_commits <= 2 }}
+    steps:
+
+      - name: checkout current branch
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - uses: EndBug/add-and-commit@v8
+        with:
+          default_author: github_actions
+          message: 'Add empty commit to force use PR title during squash merge'
+          commit: --allow-empty
+          add: '.'  # working tree should be clean
+          push: true

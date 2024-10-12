@@ -10,7 +10,8 @@
     "pprof": "go tool trace trace.out",
     "hardware_helper": "bun run js/hardware/hardware-company-helper.js",
     "tailscale_server": "sudo tailscale serve 3000",
-    "download_notebooks": "python infra/scripts/download_notebooks.py"
+    "download_notebooks": "python infra/scripts/download_notebooks.py",
+    "flow_helper": "bun run js/helpers/flow-helper.tsx"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.7.4",

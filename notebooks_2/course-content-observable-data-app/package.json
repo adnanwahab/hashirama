@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "import_docs": "bash build.sh",
+    "clean": "rimraf src/.observablehq/cache",
+    "build": "observable build",
+    "dev": "observable preview --no-open",
+    "deploy": "observable deploy",
+    "observable": "observable",
+    "download_notebooks": "npm run observable convert <url1> <url2> <url3>"
+  },
+  "dependencies": {
+    "@observablehq/framework": "^1.11.0",
+    "d3-dsv": "^3.0.1",
+    "d3-time-format": "^4.1.0"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
