@@ -8,7 +8,7 @@ command_exists() {
 }
 
 
-echo "Script version: 1.0.1"
+echo "Script version: 1.0.5"
 
 install_1password_cli() {
     echo "Installing 1Password CLI..."
@@ -126,15 +126,15 @@ install_ncdu() {
 }
 
 
-install_tailscale
+#install_tailscale
 #install_bun
 #install_golang
 #install_micromamba
 #setup_sam2_environment
 #clone_homelab_status_page
 #setup_jetson_containers
-install_ncdu
-install_dynamixel_sdk
+#install_ncdu
+#install_dynamixel_sdk
 echo "Installation complete. Please reboot your system."
 
 
