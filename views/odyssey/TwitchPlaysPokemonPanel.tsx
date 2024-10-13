@@ -1,4 +1,4 @@
 import React from "react";
 
 
-export default TwitchPlaysPokemonPanel;
+//export default TwitchPlaysPokemonPanel;

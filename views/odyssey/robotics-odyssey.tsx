@@ -116,7 +116,7 @@ function RoboticsOdyssey() {
 
             <TeleGuidance />
 
-            {/* <ObservablePreview></ObservablePreview> */}
+            <ObservablePreview></ObservablePreview>
 
               <DynamicHow  />
         
@@ -340,9 +340,9 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24 lg:flex lg:items-center lg:justify-between">
           <div>
-            <h3 className="text-sm font-semibold leading-6 text-white">Subscribe to our newsletter</h3>
+            <h3 className="text-sm font-semibold leading-6 text-white">Course Content in currently 20% complete</h3>
             <p className="mt-2 text-sm leading-6 text-gray-300">
-              The latest news, articles, and resources, sent to your inbox weekly.
+             Receive an update when the course is complete - ETA Nov 1.
             </p>
           </div>
           <form className="mt-6 sm:flex sm:max-w-md lg:mt-0">
@@ -397,19 +397,19 @@ return (
   <div className="overflow-hidden">
     <div className="pb-24 px-6 lg:px-8">
       <div className="mx-auto max-w-2xl lg:max-w-7xl">
-        <h2 className="max-w-3xl text-pretty text-4xl font-medium tracking-tighter text-gray-950 data-[dark]:text-white sm:text-6xl">
+        {/* <h2 className="max-w-3xl text-pretty text-4xl font-medium tracking-tighter text-gray-950 data-[dark]:text-white sm:text-6xl">
           A snapshot of your entire sales pipeline.
-        </h2>
+        </h2> */}
         <div
           style={{ "--width": 1216, "--height": 768 }}
           className="mt-16 h-[36rem] sm:h-auto sm:w-[76rem] relative aspect-[var(--width)/var(--height)] [--radius:theme(borderRadius.xl)]"
         >
-          <div className="absolute -inset-[var(--padding)] rounded-[calc(var(--radius)+var(--padding))] shadow-sm ring-1 ring-black/5 [--padding:theme(spacing.2)]"></div>
-          <img
+          {/* <img
             alt=""
             src="https://radiant.tailwindui.com/screenshots/app.png"
             className="h-full rounded-[var(--radius)] shadow-2xl ring-1 ring-black/10"
-          />
+          /> */}
+          <iframe className="h-full w-full" src="https://roboticsuniversity.observablehq.cloud/robotics-odyssey/"></iframe>
         </div>
       </div>
     </div>
