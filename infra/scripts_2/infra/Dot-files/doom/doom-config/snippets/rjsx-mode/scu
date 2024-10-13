@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: shouldComponentUpdate
-# key: scu
-# group: react
-# --
-shouldComponentUpdate(${1:nextProps}, ${2:nextState}) {
-  $0
-}

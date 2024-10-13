@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: org wild notifier property
-# key: wild
-# condition: t
-# --
-:PROPERTIES:
-:WILD_NOTIFIER_NOTIFY_BEFORE: 15 30 $0
-:END:

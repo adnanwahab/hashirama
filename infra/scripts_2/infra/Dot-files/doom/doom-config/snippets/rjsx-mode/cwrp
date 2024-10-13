@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: componentWillReceiveProps
-# key: cwrp
-# group: react
-# --
-componentWillReceiveProps(${1:nextProps}) {
-  $0
-}

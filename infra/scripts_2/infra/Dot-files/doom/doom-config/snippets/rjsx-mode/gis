@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: React#getInitialState
-# key: gis
-# group: react
-# --
-getInitialState() {
-  $0
-}

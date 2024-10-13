@@ -6,7 +6,7 @@
 
 # Check if the JSON path is correct and the file is not empty
 
-rm data/odyssey/*.md
+#rm data/odyssey/*.md
 
 #file_names=$(jq -r '.modules[].title | gsub(" "; "-") | ascii_downcase | gsub("[^a-z0-9-]"; "") + ".md"' data/robotics-odyssey/modules.json)
 
@@ -20,6 +20,7 @@ rm data/odyssey/*.md
 for filename in $submodule_file_names; do  # Indentation fixed here
     echo "Processing $filename"  # Add a command inside the loop
     # Add your desired command here, for example:
+    mkdir -p "course_content/src/$filename"
     touch "course_content/src/$filename"
 
     echo "---" > "course_content/src/$filename"
@@ -27,5 +28,7 @@ for filename in $submodule_file_names; do  # Indentation fixed here
     echo "toc: true" >> "course_content/src/$filename"
     echo "---" >> "course_content/src/$filename"
     done
-python3 infra/scripts/course_gen_step_2.py --query "gen a markdown of example markdown about the robotics topic " --input_dir data/odyssey/  --output_dir=data/odyssey/
-cp 
+#python3 infra/scripts/course_gen_step_2.py --query "gen a markdown of example markdown about the robotics topic " --input_dir data/odyssey/  --output_dir=data/odyssey/
+
+
+bun run js/convert_md_to_sqlite

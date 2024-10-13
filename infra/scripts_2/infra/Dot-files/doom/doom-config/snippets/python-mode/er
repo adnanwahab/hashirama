@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: end region
-# key: er
-# condition: t
-# --
-# endregion $0

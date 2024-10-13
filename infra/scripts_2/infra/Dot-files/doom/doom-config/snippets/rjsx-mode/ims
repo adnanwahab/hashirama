@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Import Styled-Component
-# key: ims
-# group: react
-# --
-import styled from 'styled-components'
-$0

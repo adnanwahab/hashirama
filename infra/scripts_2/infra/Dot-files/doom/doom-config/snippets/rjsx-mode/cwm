@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: componentWillMount
-# key: cwm
-# group: react
-# --
-componentWillMount () {
-  $0
-}

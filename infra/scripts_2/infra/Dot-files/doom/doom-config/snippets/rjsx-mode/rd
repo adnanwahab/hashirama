@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: React#@JSX
-# key: rd
-# group: react
-# --
-/** @jsx React.DOM */
-$0

@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: type ignore
-# key: ti
-# condition: t
-# --
-# type: ignore

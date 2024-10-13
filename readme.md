@@ -62,3 +62,5 @@ This repo contains everything you need to build a unicorn robotics startup. ([sh
 4. [sqlite+litestream for db](https://youtu.be/RqubKSF3wig?si=M6okGXrR_pyKB-8J) - + tailscale for connectivity + starlink for 5g in hard to reach places.
 5. extra embedding infra for jetson-container-> $500 semi-autuonomous rosie for feeding cats.
 [![alt text](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)
+----transmission -> research papers / books /
+----llama-tools.com = mini-apple-intelligence nov 1

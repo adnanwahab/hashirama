@@ -50,17 +50,17 @@ client = OpenAI(
 
 
 # find 
-queries = [
-    "gen a javascript code to visualize topic like desmos ",
-    "gen a javascript code to visualize topic like threejs ",
-    " gen a javascript code to visualize topic like worrydream.com",
-    "gen a javascript code to visualize topic like khanacademy",
-    "links to any related research papers",
-    "links to any visualizaions ",
-    "links to videos",
-    "links to tweets or any social media ",
-    "docs / websites "
-]
+queries = {
+    "demos": "gen a javascript code to visualize topic like desmos ",
+    "demos": "gen a javascript code to visualize topic like threejs ",
+    "demos": "gen a javascript code to visualize topic like worrydream.com",
+    "demos": "gen a javascript code to visualize topic like khanacademy",
+    "research_papers": "links to any related research papers",
+    "visualizations": "links to any visualizaions ",
+    "videos": "links to videos",
+    "tweets": "links to tweets or any social media ",
+    "docs": "docs / websites "
+}
 
 
 def query(micro_query):
@@ -126,7 +126,7 @@ def process_chunk(query, filename, content, index):
     # return processed
 # is jupyter a thing? try collarobaroty - add currsor - to obs+jpy - (LLM_prediciton_planning, cgi, hardware) 
 # add in dict types from fastapi - 
-def process_all_files_in_directory(query, directory_path):
+def process_all_files_in_directory(query_type, query, directory_path):
     #print('processing all files in directory', directory_path)
     files = [os.path.join(directory_path, filename) for filename in os.listdir(directory_path) if filename.endswith('.md')]
     file_contents = [open(file_path, 'r').read() for file_path in files] 
@@ -143,54 +143,14 @@ def process_all_files_in_directory(query, directory_path):
     end_time = time.time()
     print("processing all files in directory took", end_time - start_time, "seconds")
 
-
-
-import json
-import re
-
-# def generate_filenames_from_json(json_file_path):
-#     with open(json_file_path, 'r') as file:
-#         data = json.load(file)
-    
-#     filenames = []
-#     for module in data['modules']:
-#         for topic in module['sub_modules']:
-#             # Convert topic title to a valid filename
-#             filename = re.sub(r'[^a-z0-9-]', '', re.sub(r'\s+', '-', topic.lower())) + '.md'
-#             filenames.append(filename)
-    
-#     return filenames
-
-# def process_files_from_json(json_file_path, input_dir, output_dir):
-#     filenames = generate_filenames_from_json(json_file_path)
-    
-#     for filename in filenames:
-#         input_path = os.path.join(input_dir, filename)
-#         output_path = os.path.join(output_dir, filename)
-        
-#         if os.path.exists(input_path):
-#             with open(input_path, 'r') as file:
-#                 content = file.read()
-            
-#             processed_content = process_chunk(filename, content, 0)  # Assuming index 0 for simplicity
-            
-#             with open(output_path, 'w') as file:
-#                 file.write(processed_content)
-            
-#             print(f"Processed and saved: {output_path}")
-#         else:
-#             print(f"File not found: {input_path}")
-
 # Example usage
 json_file_path = 'data/robotics-odyssey/modules.json'
 input_dir = 'course_content/src'
 output_dir = 'course_content/src'
 
-
-
-queries = [query(micro_query) for micro_query in queries]
-for query in queries:
-    process_all_files_in_directory(query, input_dir)
+#queries = [query(micro_query) for micro_query in queries]
+for query_type in queries:
+    process_all_files_in_directory(query_type, queries[query_type], input_dir)
 
 
 

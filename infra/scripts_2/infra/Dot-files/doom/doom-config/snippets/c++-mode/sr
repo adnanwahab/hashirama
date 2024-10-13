@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: start region
-# key: sr
-# condition: t
-# --
-#pragma region $0

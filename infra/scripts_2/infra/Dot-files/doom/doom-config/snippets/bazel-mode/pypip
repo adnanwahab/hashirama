@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: Bazel load pip3 requirement
-# key: pypip
-# condition: t
-# --
-load("@pip3//:requirements.bzl", "requirement")

@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: source highlighter
-# key: hl
-# condition: t
-# --
-:source-highlighter: highlight.js

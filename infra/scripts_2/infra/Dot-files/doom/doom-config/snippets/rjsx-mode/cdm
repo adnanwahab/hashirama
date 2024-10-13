@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: React#componentDidMount
-# key: cdm
-# group: react
-# --
-componentDidMount(${1:rootNode}) {
-  $0
-}

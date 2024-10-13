@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: source block
-# key: src
-# condition: t
-# --
-[source,${1:lang}]
-----
-$0
-----

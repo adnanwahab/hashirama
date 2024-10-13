@@ -1,4 +1,0 @@
-#!/usr/bin/env `(format "%s" sh-shell)`
-set -e
-
-$0

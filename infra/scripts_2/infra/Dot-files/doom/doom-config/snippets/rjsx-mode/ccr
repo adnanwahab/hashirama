@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: Connect Redux
-# key: ccr
-# group: react
-# --
-import { connect } from 'react-redux'
-$0

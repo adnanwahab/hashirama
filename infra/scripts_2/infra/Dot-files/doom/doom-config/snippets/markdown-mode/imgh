@@ -1,9 +1,0 @@
-#name : Image HTML
-#contributor: zhouting@umich.edu
-#key : imgh
-# --
-<figure>
-<img src="$1" alt="$2" style="width:100%;display:block;margin-left:auto;margin-right:auto;"/>
-<figcaption style="text-align:center">$3</figcaption>
-</figure>
-$0

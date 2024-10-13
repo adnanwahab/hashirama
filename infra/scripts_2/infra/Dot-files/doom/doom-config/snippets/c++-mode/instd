@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: #include <bits/stdc++.h>
-# key: instd
-# condition: t
-# --
-#include <bits/stdc++.h>
-$0

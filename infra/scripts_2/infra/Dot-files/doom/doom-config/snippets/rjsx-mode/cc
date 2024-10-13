@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: React.createClass
-# key: cc
-# group: react
-# --
-React.createClass({
-  $0
-})
