@@ -1,4 +1,5 @@
 
+import ReactDOM from "react-dom";
 import { renderToString } from "react-dom/server";
 import React from "react";
 import { serve } from "bun";

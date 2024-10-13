@@ -3,7 +3,6 @@ package main
 import (
 	"errors"
 	"fmt"
-	"homelab/pkg/utils"
 	"io"
 	"log"
 	"net/http"
@@ -29,8 +28,6 @@ func main() {
 	backend := "/robotics-odyssey-backend"
 	port := 3003
 	route_name := fmt.Sprintf("%s/*", backend)
-
-	utils.SetupRendering(e)
 
 	fmt.Println("Route Name:", route_name, "Port:", port)
 

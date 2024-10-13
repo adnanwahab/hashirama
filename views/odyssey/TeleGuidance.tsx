@@ -22,6 +22,15 @@ console.log("returning iframe", src)
 }
 //https://github.com/Erkaman/regl-cnn
 function Whiteboard(){
+  return <iframe
+  style={{ backgroundColor: 'white' }}
+
+  className="h-full object-cover object-left w-full"
+  src="https://observablehq.com/embed/@roboticsuniversity/robotics-hardware?cells=*"
+></iframe>
+
+
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const [firstPoint, setFirstPoint] = useState<any>(null);

@@ -86,7 +86,7 @@ func SetupRendering(e *echo.Echo) {
 	e.Debug = true
 	funcMap := template.FuncMap{}
 	templates := template.New("").Funcs(funcMap)
-	parsedTemplates, err := templates.ParseGlob(filepath.Join("views/**/*.html"))
+	parsedTemplates, err := templates.ParseGlob(filepath.Join("views_/**/*.html"))
 	fmt.Println(parsedTemplates)
 	if err != nil {
 		log.Fatalf("Error parsing templates: %v", err)
@@ -95,39 +95,24 @@ func SetupRendering(e *echo.Echo) {
 		templates: parsedTemplates,
 	}
 
-	// // Call setupDynamicRoutes to dynamically add routes
+	// Call setupDynamicRoutes to dynamically add routes
 	// if err := setupDynamicRoutes(e); err != nil {
 	// 	log.Fatalf("Error setting up dynamic routes: %v", err)
 	// }
-	e.GET("/", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "blog.html", nil)
-	})
-	e.GET("/robotics-odyssey", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "robotics-odyssey.html", nil)
-	})
 
-	e.GET("/pub", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "pub.html", nil)
-	})
-	e.GET("/cgi-tools", func(c echo.Context) error {
-		fmt.Println("cgi page", "hi")
-		return c.Render(http.StatusOK, "cgi-tools.html", nil)
-	})
-	e.GET("/office-hours", func(c echo.Context) error {
-		fmt.Println("cgi page", "hi")
-		// headless ui
-		return c.Render(http.StatusOK, "office-hours.html", nil)
-	})
+	// Define routes dynamically
+	routes := []string{"/pub", "/cgi-tools", "/office-hours", "/signup", "/llama-tools"}
+	for _, route := range routes {
+		e.GET(route, func(c echo.Context) error {
+			return c.Render(http.StatusOK, strings.TrimPrefix(route, "/"), nil)
+		})
+	}
 
-	e.POST("/signup", func(c echo.Context) error {
-		fmt.Println("signup page", "hi")
-		return c.Render(http.StatusOK, "signup.html", nil)
-	})
-
-	e.GET("/llama-tools", func(c echo.Context) error {
-		fmt.Println("signup page", "hi")
-		return c.Render(http.StatusOK, "llama-tools.html", nil)
-	})
+	// PreRender("blog.html")
+	// PreRender("robotics-odyssey.html")
+	// e.GET("/", func(c echo.Context) error {
+	// 	return c.Render(http.StatusOK, "blog.html", nil)
+	// })
 }
 
 // SSR with a golang supervisor -

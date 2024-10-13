@@ -19,9 +19,9 @@ console.log("returning iframe", src)
 }
 
 
-// import {useRef, useEffect} from "react";
-// import {Runtime, Inspector} from "@observablehq/runtime";
-// import notebook from "@roboticsuniversity/alan_how";
+import {useRef, useEffect} from "react";
+import {Runtime, Inspector} from "@observablehq/runtime";
+import notebook from "@roboticsuniversity/alan_how";
 // function Alanhow() {
 //   // const ref = useRef();
 
@@ -43,7 +43,20 @@ console.log("returning iframe", src)
 // export default Alanhow;
 
 
-function Alanhow() {}
+function Alanhow() {
+  return <iframe
+ 
+  className="border border-white/10 h-96 object-cover object-left w-full"
+  src="https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*"
+></iframe>
+
+}
+function DynamicLandOde() {
+  return <iframe width="100%" height="660" frameborder="0"
+  src="https://observablehq.com/embed/@roboticsuniversity/dynamicland?cells=staticDynamicland"></iframe>
+
+}
+
 
 function DynamicHow() {
   const second_bento = [
@@ -60,8 +73,8 @@ function DynamicHow() {
               <div className="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
         
-                <TeleGuidanceFrame link={second_bento[0]}/>
-
+                
+                <Alanhow />
                
                 
               </div>
@@ -74,7 +87,7 @@ function DynamicHow() {
         
                 
                   
-              <Alanhow />
+              <DynamicLandOde />
 
 
                   
