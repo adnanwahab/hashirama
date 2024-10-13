@@ -19,6 +19,7 @@ var serverPorts = map[string]int{
 	"proxy-jupyter": 8888,
 }
 
+// delete echo -> stdlib -> 1 route -> talks 1000 bun + 1 py
 func main() {
 	e := echo.New()
 

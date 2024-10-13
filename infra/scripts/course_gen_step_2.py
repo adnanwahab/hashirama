@@ -120,14 +120,14 @@ def process_chunk(query, filename, content, index):
     )  # Fixed indentation and added closing parenthesis
     processed = parse_gpt(chat_completion)
     print("writing to", filename)  # Corrected spelling from "wiriting" to "writing"
-    output_dir= "course_content/docs"
+    output_dir= "course_content/src"  # Update output_dir to match the file path
     with open(f"{output_dir}/{os.path.basename(filename)}", 'w') as file:
         file.write(processed)
     # return processed
 # is jupyter a thing? try collarobaroty - add currsor - to obs+jpy - (LLM_prediciton_planning, cgi, hardware) 
 # add in dict types from fastapi - 
 def process_all_files_in_directory(query, directory_path):
-    print('processing all files in directory', directory_path)
+    #print('processing all files in directory', directory_path)
     files = [os.path.join(directory_path, filename) for filename in os.listdir(directory_path) if filename.endswith('.md')]
     file_contents = [open(file_path, 'r').read() for file_path in files] 
     file_dict = {file_path: content for file_path, content in zip(files, file_contents)}

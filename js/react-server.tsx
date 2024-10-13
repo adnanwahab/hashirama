@@ -2,82 +2,61 @@
 import { renderToString } from "react-dom/server";
 import React from "react";
 import { serve } from "bun";
-import { writeFile } from "fs";
-import { renderToReadableStream } from 'react-dom/server';
-
 import RoboticsOdyssey from "../views/odyssey/robotics-odyssey.tsx";
-// Bun server that uses JSX and React to render the component on the server
 import fs from 'fs';
 import path from 'path';
 
+let routes = {
+  "framesplitter": "views/framesplitter",
+  "css_webgl_animation_from_paper_image": "views/css_webgl_animation_from_paper_image",
+  "make1e9jobs": "views/make1e9jobs",
+  "vr_ghost_in_shell": "views/vr_ghost_in_shell",
+  "object_search": "views/object_search",
+  "particles": "views/particles",
+  "cloud_flare": "views/cloud_flare",
+  "perspective_transformation": "views/perspective_transformation",
+  "bumble-flow": "views/bumble-flow",
+  "jsonp-yt-instant-everything": "views/jsonp-yt-instant-everything",
+  "request-5k": "views/request-5k",
+  "all_tools_in_obs": "views/all_tools_in_obs",
+  "ffmpeg_vid_to_img": "views/ffmpeg_vid_to_img",
+  "portfolio": "views/portfolio",
+  }
 const filePath = path.join(__dirname, '../views/odyssey/index.html');
 
-let indexHtmlContent = '';
-
-try {
-  indexHtmlContent = fs.readFileSync(filePath, 'utf-8');
-} catch (error) {
-  console.error('Error reading index.html:', error);
-}
-
+let indexHtmlContent =  fs.readFileSync(filePath, 'utf-8');
 
 function App() {
   return <RoboticsOdyssey />
 }
-
-const targets = {
-  '/obs-framework': 'http://localhost:3000', // Route to backend server
-  //'/assets': 'http://localhost:3002', // Route to asset server
-};
-
 
 const html = indexHtmlContent.replace('{{template roboticsodyssey}}', `${renderToString(<App />)}`)
 export default html;
 
 async function proxy(req: Request) {
   const url = new URL(req.url);
-
-  // if ('/obs-framework' == url.pathname) {
-  //     // Forward the request to the target server
-  //   //const newUrl = targetUrl + url.pathname + url.search;
-  //   console.log('hi')
-  //   const proxyReq = new Request("http://localhost:3000", req);
-  //   return await fetch(proxyReq);
-  // }
-
-  // if (url.pathname === "/twitch-plays-pokemon") {
-  //   // const stream = renderToReadableStream(<App />);
-  //   // stream.pipe(res);
-  //   const stream = await renderToReadableStream(App());
-  //   return new Response(stream, {
-  //     headers: { "Content-Type": "text/html" },
-  //   });
-    //return renderToReadableStream(<TwitchPlaysPokemonPanel/>)
-  //}
-
   if (url.pathname === "/" || url.pathname === "/robotics-odyssey") {
-
-
-
     return new Response(html, {
       headers: {
         "Content-Type": "text/html",
       },
     });
-
+  }
+  if (url.pathname in routes) {
+    const html = fs.readFileSync(routes[url.pathname], 'utf-8');
+    return new Response(html, {
+      headers: {
+        "Content-Type": "text/html",
+      },
+    });
   }
 }
 
-
 async function main() {
-  
   serve({
     port: 3000,
     fetch: proxy,
-  });
-
+  })
   console.log("Server running at http://localhost:8003");
-
 } 
-
 main()
