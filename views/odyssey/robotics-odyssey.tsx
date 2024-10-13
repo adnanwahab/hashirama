@@ -421,7 +421,7 @@ return (
 
 function TeleGuidance() {
   const list_of_links = [
-    "livekit_subscriber",
+    "https://observablehq.com/embed/@roboticsuniversity/livekit?cell=*",
     TwitchPlaysPokemonPanel,
     "https://observablehq.com/embed/@roboticsuniversity/robotics-hardware?cell=*",
     "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*",
@@ -437,7 +437,12 @@ function TeleGuidance() {
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
           <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
             <div className="flex-grow">
-              <TeleGuidanceFrame link={list_of_links[0]}/>
+            <iframe
+      style={{ backgroundColor: 'white' }}
+ 
+      className="h-full object-cover object-left w-full"
+      src={"https://observablehq.com/embed/@roboticsuniversity/livekit?cell=*"}
+      ></iframe>
             </div>
             {/* <div className="p-10">
               <h3 className="text-sm font-semibold text-gray-400">Releases</h3>
@@ -462,7 +467,7 @@ function TeleGuidance() {
           </div>
           <div className="lg:col-span-2 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
             <div className="flex-grow">
-              <TeleGuidanceFrame link={list_of_links[3]}/>
+              <TeleGuidanceFrame link={list_of_links[2]}/>
             </div>
             {/* <div className="p-10">
               <h3 className="text-sm font-semibold text-gray-400">Security</h3>
@@ -474,7 +479,7 @@ function TeleGuidance() {
           </div>
           <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
             <div className="flex-grow">
-              <TeleGuidanceFrame link={list_of_links[4]}/>
+              <TeleGuidanceFrame link={list_of_links[3]}/>
             </div>
             {/* <div className="p-10">
               <h3 className="text-sm font-semibold text-gray-400">Performance</h3>
@@ -539,7 +544,7 @@ function DynamicHow() {
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-l-[2rem]"></div>
             </div>
-            <div className="relative max-lg:row-start-1">
+            {/* <div className="relative max-lg:row-start-1">
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem]"></div>
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
 
@@ -561,7 +566,7 @@ function DynamicHow() {
                 </div>
               </div>
               <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5"></div>
-            </div>
+            </div> */}
             <div className="relative lg:row-span-2">
               <div className="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"></div>
               <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
