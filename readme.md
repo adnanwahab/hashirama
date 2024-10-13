@@ -25,16 +25,22 @@
 https://internetat50.com/references/Kay_How.pdf
 https://www.youtube.com/watch?v=yJDv-zdhzMY&ab_channel=Marcel
 ![https://www.ssbwiki.com/File:R.O.B._Famicom.jpg](https://www.ssbwiki.com/images/f/fd/R.O.B._Famicom.jpg)
-Alan Kay met with openai around 2016
+
+Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a>.
+
+
+
+OpeAI was born when Alan Kay met with YCResearch around 2016.
+Alan Kay called sam Altman "the builder of a new civilization"
 Alan Kay talked about one other individual [Bret Victor](https://worrydream.com).
 4. Bret's work has won the Apple Design Award twice.
 5. Bret victor basically said, everything he did before  2014 was past even i thought it was futuristic.
 7. But Bret Victor's newest creation - DynamicLand - is better than anything the world has seen
-
-Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a>.
 ---
 
-> In the Spring of 2016, VPRI joined as part of Y Combinator Research's (YCR) HARC -- Human Advancement Research Community. HARC was founded based on conversations between Alan Kay and Sam Altman of  ycr.org   -----  http://www.vpri.org/ - https://web.archive.org/web/20170914174755/https://harc.ycr.org/
+> In the Spring of 2016, VPRI joined as part of Y Combinator Research's (YCR) HARC -- Human Advancement Research Community.
+> HARC was founded based on conversations between Alan Kay and Sam Altman of  ycr.org   -----  http://www.vpri.org/
+> - https://web.archive.org/web/20170914174755/https://harc.ycr.org/
 >
 > — _Alan Kay talking about bret victor_
 
@@ -49,11 +55,3 @@ Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a
 
 >  "we understand our mental procceses as much as fish understand water"
 > _John Mccarthy_ - Mathematics of Common Sense
-
-Bret Victor said text based language is not a proper medium of thought. its fun, and easy, but not sustainable.
-Thats why he uses pictures to construct reality that was previously impossible.
-
-
-observable framework is the payprus for bret vicgtor's magic ink
-
-thanks to kaprpathy and roon - you are the that paints with magic ink too - (scienfitic art robotic discovery) 

@@ -29,6 +29,7 @@
     "@iconify-json/ic": "^1.1.17",
     "@observablehq/runtime": "5",
     "@octokit/rest": "^21.0.2",
+    "@roboticsuniversity/alan_how": "https://api.observablehq.com/@roboticsuniversity/alan_how@110.tgz?v=3",
     "@roboticsuniversity/dynamicland": "https://api.observablehq.com/@roboticsuniversity/dynamicland.tgz?v=3",
     "@roboticsuniversity/ode-to-dynamicland-org": "https://api.observablehq.com/@roboticsuniversity/ode-to-dynamicland-org.tgz?v=3",
     "@tailwindcss/forms": "^0.5.9",

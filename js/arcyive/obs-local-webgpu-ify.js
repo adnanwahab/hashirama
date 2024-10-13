@@ -117,65 +117,7 @@ const whitboard = `<!DOCTYPE html>
 
 
   <script>
-    const canvas = document.getElementById('whiteboard');
-    const ctx = canvas.getContext('2d');
-
-    function calculateDirection(start, end) {
-        const deltaX = end.x - start.x;
-        const deltaY = end.y - start.y;
-        const radians = Math.atan2(deltaY, deltaX);
-        const degrees = radians * (180 / Math.PI);
-        return degrees;
-    }
-    let painting = false;
-
-    function startPosition(e) {
-      painting = true;
-        firstPoint = { x: e.clientX - canvas.offsetLeft, y: e.clientY - canvas.offsetTop };
-
-      draw(e);
-    }
-
-    function endPosition() {
-      painting = false;
-      ctx.beginPath(); // Reset path
-
-          const direction = calculateDirection(firstPoint, lastPoint);
-          window.direction = direction
-        console.log('Direction from first to last point: ' + direction);
-    }
-
-    function draw(e) {
-      if (!painting) return;
-  lastPoint = { x: e.clientX - canvas.offsetLeft, y: e.clientY - canvas.offsetTop };
-
-      ctx.lineWidth = 5;
-      ctx.lineCap = 'round';
-      ctx.strokeStyle = '#000';
-
-      ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-    }
-
-    // Mouse Events
-    canvas.addEventListener('mousedown', startPosition);
-    canvas.addEventListener('mouseup', endPosition);
-    canvas.addEventListener('mousemove', draw);
-
-    // Clear the canvas
-    function clearCanvas() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
-    // Save canvas as an image
-    function saveImage() {
-      const link = document.createElement('a');
-      link.download = 'whiteboard.png';
-      link.href = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
-      link.click();
-    }
+    
   </script>
 </body>
 </html>
