@@ -42,7 +42,7 @@ hashirama.blog {
 
 		resolvers 1.1.1.1
 	}
-	reverse_proxy localhost:3000
+	reverse_proxy localhost:8080
 }
 #taiyongrobotics.com {}
 #michael-pollan.app{}

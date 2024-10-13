@@ -56,7 +56,7 @@ func main() {
 	})
 	//most likely 1 bun process should serve it -
 
-	if err := e.Start(":8000"); err != nil && !errors.Is(err, http.ErrServerClosed) {
+	if err := e.Start(":8080"); err != nil && !errors.Is(err, http.ErrServerClosed) {
 		log.Fatal(err)
 	}
 }
