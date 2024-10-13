@@ -1,0 +1,1072 @@
+{{template "head.html" . }}
+<div>cover letter</div>
+<div>parameterize</div>
+<div>agentify</div>
+
+<div>resume for happy bear</div>
+
+<!-- https://deno.land/std@0.224.0/webgpu/mod.ts -->
+
+<div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="" crossorigin="anonymous"></script>
+    <link href="" rel="stylesheet" />
+
+    <script
+      src="https://kit.fontawesome.com/123eb529e8.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <link rel="preload" href="./fonts/FiraGO-Regular.latin.woff2" as="font" crossorigin="anonymous"> -->
+    <link
+      href="https://resume-torey-littlefield.netlify.app/build.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="font-firago hyphens-manual">
+      <div
+        class="p-6 mx-auto page max-w-2xl print:max-w-letter md:max-w-letter md:h-letter xsm:p-8 sm:p-9 md:p-16 bg-white"
+      >
+        <header
+          class="flex row-gap-5 flex-row flex-wrap items-center mb-5 md:mb-2 border-b-2 border-opacity-50 border-gray-400"
+        >
+          <div
+            class="initials-container mr-5 text-base leading-none pb-3 pt-3 text-white bg-purple-800 font-medium px-3"
+          >
+            <div class="initial text-center text-2xl pb-1">
+              {{.ResumeData.InitialFirst}}
+            </div>
+            <div class="text-center text-2xl initial">
+              {{.ResumeData.InitialLast}}
+            </div>
+          </div>
+          <h1
+            class="print:text-6xl lg:text-6xl md:text-5xl mr-auto text-3xl font-semibold text-gray-750 pb-px"
+          >
+            {{.ResumeData.FullName}}
+          </h1>
+          <h2
+            id="industry-title"
+            class="print:text-3xl text-purple-700 font-sans self-center md:text-3xl text-2xl font-hairline pb-px"
+          >
+            <code
+              class="print:text-3xl text-purple-700 font-sans self-center md:text-3xl text-2xl font-hairline pb-px"
+              role="heading"
+              aria-label="Software Developer"
+              >{{.ResumeData.JobTitle}}</code
+            >
+          </h2>
+        </header>
+
+        <section class="mb-10 first:mt-0" id="contact">
+          <h2
+            class="mb-2 md:mb-0 font-bold tracking-widest text-sm2 text-gray-550"
+          >
+            CONTACT
+          </h2>
+          <ul
+            class="print:flex-row flex flex-wrap flex-col sm:flex-row justify-between gap-2 list-inside pr-7"
+          >
+            <li class="mt-1.5 leading-normal text-gray-700 text-md">
+              <a
+                href="mailto:{{.ResumeData.Email}}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="far fa-envelope text-purple-900"></i>
+                {{.ResumeData.Email}}
+              </a>
+            </li>
+            <li class="mt-1.5 leading-normal text-gray-700 text-md">
+              <a href="tel:{{.ResumeData.Phone}}">
+                <i class="fas fa-mobile-alt text-purple-900"></i>
+                {{.ResumeData.Phone}}
+              </a>
+            </li>
+            <li class="mt-1.5 leading-normal text-gray-700 text-md">
+              <a
+                href="{{.ResumeData.LinkedinUrl}}"
+                class="group"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-linkedin text-purple-900"></i>
+                {{.ResumeData.LinkedinHandle}}
+                <span
+                  class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in"
+                  >↗</span
+                >
+              </a>
+            </li>
+            <li class="mt-1.5 leading-normal text-gray-700 text-md">
+              <a
+                href="{{.ResumeData.GithubUrl}}"
+                class="group"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="fab fa-github text-purple-900"></i>
+                {{.ResumeData.GithubHandle}}
+                <span
+                  class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in"
+                  >↗</span
+                >
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <div class="grid grid-cols-3 gap-10">
+          <section
+            class="print:col-span-2 col-span-3 md:col-span-2 mt-8 first:mt-0"
+          >
+            <section class="mt-8 first:mt-0" id="profile">
+              <h2
+                class="mb-0 font-bold tracking-widest text-sm2 text-purple-700"
+              >
+                PROFILE
+              </h2>
+
+              <section class="mb-0 grid grid-cols-2">
+                <p class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal">
+                  <span class="-ml-2 select-none text-gray-600">›</span>
+                  <strong> US Citizen - Originally from Houston, TX. </strong>
+                </p>
+                <p class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal">
+                  <span class="-ml-2 select-none text-gray-600">›</span>
+                  Living in San Francisco, California.
+                </p>
+                <p class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal">
+                  <span class="-ml-2 select-none text-gray-600">›</span>
+                  Available Time Zones: US / Canada overlap.
+                </p>
+                <!-- <p class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal">
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    Fully remote permanent or contract role on diverse, trusting, and async team.
+                  </p> -->
+              </section>
+            </section>
+
+            <section class="col-span-3 mt-6 first:mt-0" id="experience">
+              <h2
+                class="mb-4 font-bold tracking-widest text-sm2 text-purple-700"
+              >
+                EXPERIENCE
+              </h2>
+
+              <section class="mb-4.5">
+                <header>
+                  <h3
+                    id="job-title"
+                    class="text-lg font-semibold text-gray-700 leading-snugish"
+                  >
+                    Staff Perception Tools Engineer
+                    <span id="company-name" class="text-gray-550 font-semibold"
+                      >@ Zoox</span
+                    >
+                  </h3>
+                  <p
+                    id="work-date-location"
+                    class="leading-normal text-sm text-gray-700 mt-1"
+                  >
+                    Feb 2021 – Present // <strong>San Francisco</strong>
+                    - USA
+                  </p>
+                </header>
+                <ul id="work-description-bullets" class="">
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    Contracted by <strong>T-Mobile US</strong> to help create
+                    customer facing onboarding pages at t-mobile.com/support
+                    using Vue.js / TypeScript & PHP / Laravel, AWS, GitLab CI/CD
+                    stack with CWAG AA/AAA accessibility rating and
+                    accessibility compliance auditing.
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    Assisted internal T-Mobile engineering teams in testing,
+                    diagnosing and debugging production issues, creating
+                    documentation, code standards for engineering teams.
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    Contracted by <strong>Integrity Testing</strong> an
+                    Australian Structural Engineering firm, to assist on dev
+                    team for creating an internal React.js, TypeScript, Node.js
+                    and AWS Serverless application.
+                  </li>
+                </ul>
+              </section>
+
+              <section class="mb-4.5">
+                <header>
+                  <h3
+                    id="job-title"
+                    class="text-lg font-semibold text-gray-700 leading-snugish"
+                  >
+                    Software Engineer
+                    <span id="company-name" class="text-gray-550 font-semibold"
+                      >@ Hashirama Industries</span
+                    >
+                  </h3>
+                  <p
+                    id="work-date-location"
+                    class="leading-normal text-sm text-gray-700 mt-1"
+                  >
+                    November 2011 – Feb 2021 // SF, CA
+                  </p>
+                </header>
+                <ul id="work-description-bullets" class="">
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    Developed scalable internal application for inventory
+                    management & pricing automation using JavaScript, React.js,
+                    Node.js, REST APIs & GraphQL, and AWS RDS PostgreSQL
+                    database.
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    Developed Shopify eCommerce store for 20K+ SKUs that
+                    consumed our inventory software API.
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    Software was capable of listing & pricing 1000's SKUs per
+                    hour saving 100's of hours & $1000's in labor costs each
+                    month & increased ASP 28% above market benchmarks.
+                  </li>
+                </ul>
+              </section>
+
+              <section class="mb-4.5">
+                <header>
+                  <h3
+                    id="job-title"
+                    class="text-lg font-semibold text-gray-700 leading-snugish"
+                  >
+                    Senior Graphics Engineer
+                    <span id="company-name" class="text-gray-550 font-semibold"
+                      >@ Sama.ai (Samasource)</span
+                    >
+                  </h3>
+                  <p
+                    id="work-date-location"
+                    class="leading-normal text-sm text-gray-700 mt-1"
+                  >
+                    January 2017 – November 2019 // Northampton, MA
+                  </p>
+                </header>
+                <ul id="work-description-bullets" class="">
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    - Built a 3D Annotation Tool for video, LiDAR, and sensor
+                    fusion, for computer vision and reinforcement learning
+                    capabilities in robotics.
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+
+                    - Built offices in Nairobi (Kenya), Kampala and Gulu
+                    (Uganda), and 90 other countries, creating 240,000 job
+                    opportunities worldwide.
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+
+                    - Developed and marketed data quality services, successfully
+                    adopted by over 25% of Fortune 100 companies. "Quality of
+                    Data = Quality of AI" - Peter Norvig, Director of Research @
+                    google
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+
+                    - Designed high-throughput, cost-effective, APIs for
+                    human-in-the-loop machine learning in a variety of
+                    industries and use-cases including manufacturing,
+                    fulfillment logistics, and the nascent AV industry.
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+
+                    Sama received numerous accolades: - MIT Solve award for
+                    social impact leaders with novel solutions to global issues
+                    - Hillary Clinton's Secretary of State Innovation Award
+                    winner - B Corp Best for the World Honoree (top 10% of all
+                    Nonprofits) - 3 times - Featured in Fast Company's Most
+                    Innovative Companies list - 3 times - "Redefining what a
+                    social good business looks like" (https://archive.is/PEgJA)
+                    - "Redefining What It Means To Be A Not-For-Profit"
+                    (https://archive.is/f8G7k) Last 1.5 years as Frontend
+                    Engineer on dev team for internal React.js / JavaScript
+                    applications.
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    Managing marketplace accounts, inventory, multichannel
+                    sales, and advertising campaigns.
+                  </li>
+                </ul>
+              </section>
+            </section>
+            {{if false}}
+            <section class="col-span-3 mt-6 first:mt-0" id="education">
+              <h2
+                class="mb-4 font-bold tracking-widest text-sm2 text-purple-700"
+              >
+                Volunteer & Professional Development
+              </h2>
+              <section class="mb-4.5">
+                <header>
+                  <h3
+                    id="job-title"
+                    class="text-lg font-semibold text-gray-700 leading-snugish"
+                  >
+                    Chapter Co-Lead
+                    <span id="company-name" class="text-gray-550 font-semibold"
+                      >@ Codecademy</span
+                    >
+                  </h3>
+                  <p
+                    id="work-date-location"
+                    class="leading-normal text-sm text-gray-700 mt-1"
+                  >
+                    September 2021 – Present // United States
+                  </p>
+                </header>
+                <ul id="work-description-bullets" class="">
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-nofne text-gray-600">›</span>
+                    Provide live demos, workshops, tutoring, and mentoring for
+                    engineers and students learning JavaScript, React, Next.js,
+                    Node, and AWS, Serverless architecture.
+                  </li>
+                </ul>
+              </section>
+
+              <section class="mb-4.5">
+                <header>
+                  <h3
+                    id="job-title"
+                    class="text-lg font-semibold text-gray-700 leading-snugish"
+                  >
+                    Full-Time Contributor & Co-Host
+                    <a
+                      href="https://streamblog.roarcoder.dev/"
+                      class="group"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span
+                        id="company-name"
+                        class="text-gray-550 font-semibold"
+                        >@ Roar Coders</span
+                      >
+                      <span
+                        class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in"
+                        >↗</span
+                      >
+                    </a>
+                  </h3>
+                  <p
+                    id="work-date-location"
+                    class="leading-normal text-sm text-gray-700 mt-1"
+                  >
+                    August 2021 – Present // Melbourne, Australia
+                  </p>
+                </header>
+                <ul id="work-description-bullets" class="">
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    Devs from Melbourne, Australia hosting a live software
+                    development show: Twitch & YouTube
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <span class="-ml-2 select-none text-gray-600">›</span>
+                    Full-time contributor and co-host building in public and
+                    developing open-source.
+                  </li>
+                </ul>
+              </section>
+            </section>
+            {{end}}
+            <section class="col-span-3 mt-6 first:mt-0" id="experience">
+              <h2
+                class="mb-4 font-bold tracking-widest text-sm2 text-purple-700"
+              >
+                Professional Certification & Achievements
+              </h2>
+
+              <section class="mb-4.5">
+                <ul id="work-description-bullets" class="">
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <a
+                      href="https://www.credly.com/badges/f55dc12c-5cc5-4466-b7d4-856e4d4ec857/public_url"
+                      class="group"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span class="-ml-2 select-none text-gray-600">›</span>
+                      AWS Solutions Architect Associate Certification
+                      <span
+                        class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in"
+                        >↗</span
+                      >
+                    </a>
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <a
+                      href="https://www.credly.com/badges/cf58de7c-d52f-4fc0-b31d-3135edd50b79/public_url"
+                      class="group"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span class="-ml-2 select-none text-gray-600">›</span>
+                      AWS Developer Associate Certification
+                      <span
+                        class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in"
+                        >↗</span
+                      >
+                    </a>
+                  </li>
+                  <li
+                    class="mt-2.1 ml-1.5 text-sm text-gray-700 leading-normal"
+                  >
+                    <a
+                      href="https://bryantdesigns.github.io/hackathon/about.html"
+                      class="group"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span class="-ml-2 select-none text-gray-600">›</span>
+                      Codecademy Hackathon Runner Up - Team Xcessibility
+                      <span
+                        class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in"
+                        >↗</span
+                      >
+                    </a>
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </section>
+        </div>
+
+        <footer class="print:pb-0 pb-5">
+          <section id="resume-info" class="flex flex-row mt-16 print:mt-0">
+            <!-- <h2 class="text-xs font-hairline text-gray-550">
+                {{.ResumeData.FooterText}}
+              </h2> -->
+            <!-- <a href="{{.ResumeData.RepoUrl}}" class="group hover:text-gray-700 border-l border-gray-500 ml-3 pl-3 text-gray-550 text-xs font-hairline">
+                {{.ResumeData.RepoLinkText}}
+                <span class="inline-block text-gray-550 print:text-black font-normal group-hover:text-gray-700 transition duration-100 ease-in">↗</span>
+              </a> -->
+          </section>
+        </footer>
+      </div>
+    </main>
+  </body>
+</div>
+
+<!-- https://fortezhuo.my.id/ -->
+<!-- https://tailwindflex.com/ -->
+<!--
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <title>Greg Brockman's Home Page</title>
+    <style type="text/css" media="screen">
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: #666;
+        color: #000;
+      }
+
+      #contents {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 15%;
+        margin-right: 15%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        background-color: #fff;
+        color: #000;
+      }
+
+      .code {
+        color: #339;
+        background-color: transparent;
+        font-family: times, serif;
+        font-size: 0.9em;
+        padding-left: 40px;
+      }
+
+      ul li {
+        margin-top: 4px;
+      }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script>
+      // From http://stackoverflow.com/questions/12302300/track-all-outbound-links-in-google-analytics
+      // Outbound Link Tracking with Google Analytics
+      // Requires jQuery 1.7 or higher (use .live if using a lower version)
+      $(function () {
+        $("a").on("click", function (e) {
+          var url = $(this).attr("href");
+          // Console logs shows the domain name of the link being clicked and the current window
+          // console.log('e.currentTarget.host: ' + e.currentTarget.host);
+          // console.log('window.location.host: ' + window.location.host);
+          // If the domains names are different, it assumes it is an external link
+          // Be careful with this if you use subdomains
+          if (e.currentTarget.host != window.location.host) {
+            // console.log('external link click');
+            // Outbound link! Fires the Google tracker code.
+            _gat
+              ._getTrackerByName()
+              ._trackEvent("Outbound Links", e.currentTarget.host, url, 0);
+            // Checks to see if the ctrl or command key is held down
+            // which could indicate the link is being opened in a new tab
+            if (e.metaKey || e.ctrlKey) {
+              // console.log('ctrl or meta key pressed');
+              var newtab = true;
+            }
+            // If it is not a new tab, we need to delay the loading
+            // of the new link for a just a second in order to give the
+            // Google track event time to fully fire
+            if (!newtab) {
+              // console.log('default prevented');
+              e.preventDefault();
+              // console.log('loading link after brief timeout');
+              setTimeout('document.location = "' + url + '"', 100);
+            }
+          }
+          /*
+        else {
+            console.log('internal link click');
+        }
+        */
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="contents">
+      <h2>Greg Brockman</h2>
+
+      <img
+        style="float: right"
+        src="https://www.gravatar.com/avatar/a8899262a6722e34f543a3209d16f6cd?s=140"
+      />
+
+      <h3>Contact</h3>
+      <ul>
+        <li><a href="https://twitter.com/gdb">@gdb</a> on Twitter</li>
+        <li><a href="https://github.com/gdb">@gdb</a> on Github</li>
+        <li>
+          <a
+            href="/cdn-cgi/l/email-protection#6205100705220510070500100d01090f030c4c010d0f"
+            ><span
+              class="__cf_email__"
+              data-cfemail="4225302725022530272520302d21292f232c6c212d2f"
+              >[email&#160;protected]</span
+            ></a
+          >
+          via email
+        </li>
+      </ul>
+
+      <h3>Interests</h3>
+
+      <p>
+        I love to build. I sometimes also
+        <a href="https://blog.gregbrockman.com">blog</a>.
+      </p>
+
+      <h3>Projects</h3>
+
+      <ul>
+        <li>
+          <a href="https://openai.com">OpenAI</a>, including
+          <a href="https://github.com/openai/gym">Gym</a>,
+          <a href="https://openai.com/five/">OpenAI Five</a>, our
+          <a href="https://openai.com/blog/openai-api/">API</a>, and training
+          large-scale models such as <a href="https://openai.com/">Codex</a>.
+        </li>
+        <li>
+          I'm the former CTO of <a href="https://stripe.com">Stripe</a>, helping
+          build it from 4 to 250 employees.
+        </li>
+        <li>
+          <a href="https://github.com/gdb/rubysh">Rubysh</a>, a Ruby subprocess
+          library allowing <b>sh</b>-like syntax.
+        </li>
+        <li>
+          <a href="https://stripe.com/blog/capture-the-flag-wrap-up"
+            >Stripe CTF</a
+          >,
+          <a href="https://stripe.com/blog/capturetheflag">Stripe CTF 2.0</a>,
+          and
+          <a href="https://stripe.com/blog/ctf3-architecture">Stripe CTF3</a>
+          (<a href="https://plus.google.com/events/crhd2ttdn04070osveh86dt1rqk"
+            >Q&amp;A</a
+          >).
+        </li>
+        <li>
+          <a href="https://github.com/stripe/einhorn">Einhorn</a>, the
+          language-independent shared socket manager (see my
+          <a href="https://stripe.com/blog/meet-einhorn">Einhorn blog post</a>
+          for more info).
+        </li>
+        <li>
+          <a href="https://github.com/gdb/domaincli">Domaincli</a>: register
+          domains from the command line.
+        </li>
+        <li>
+          <a href="https://github.com/gdb/embedded-mongo">Embedded Mongo</a>: a
+          Ruby library serving as a drop-in replacement for an actual MongoDB
+          server.
+        </li>
+        <li>
+          <a href="https://github.com/gdb/ruby-static-checker"
+            >Ruby Static Checker</a
+          >: statically detect name errors in Ruby.
+        </li>
+        <li>
+          <a href="https://github.com/gdb/anygit">Anygit</a>: Find all parents
+          of an arbitrary <a href="#git-object-model">Git object</a>.
+        </li>
+        <li>
+          I have a
+          <a
+            href="https://github.com/git/git/commit/2dbc887eaa6fbd787edfc9472b86b0faeb54e2ae"
+            >few</a
+          >
+          <a
+            href="https://github.com/git/git/commit/9f29fe9a779e55e7387577cd7f712de0b13b5cd6"
+            >patches</a
+          >
+          <a
+            href="https://github.com/git/git/commit/ad9ac6db5d58de08d0497b9184e86926377c20dd"
+            >in</a
+          >
+          <a
+            href="https://github.com/git/git/commit/e69164ddb9d6092a94915bb984749d48f598cea8"
+            >Git</a
+          >
+          (my personal
+          <a
+            href="https://github.com/git/git/commit/1b0b962d771fb734cbf273f216b487bb58dec7b9"
+            >favorite</a
+          >
+          was for an exploitable
+          <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2010-2542"
+            >buffer overrun</a
+          >
+          I found).
+        </li>
+        <li>
+          I somehow got roped into becoming a
+          <a href="https://github.com/markbates/configatron">configatron</a>
+          maintainer.
+        </li>
+        <li>
+          Some of my <a href="http://bugs.python.org/issue9205">Python</a>
+          <a href="http://bugs.python.org/issue9535">patches</a> worked their
+          way through the bug tracker.
+        </li>
+        <li>
+          While at Harvard, I administered and built systems for the
+          <a href="http://hcs.harvard.edu">Harvard Computer Society</a>.
+        </li>
+        <li>
+          I worked on and maintained a number of popular projects at MIT,
+          including <a href="http://xvm.mit.edu">XVM</a>,
+          <a href="http://linerva.mit.edu">Linerva</a>, and
+          <a href="http://scripts.mit.edu">scripts.mit.edu</a>.
+        </li>
+        <li>
+          I built infrastructure for
+          <a href="http://www.ksplice.com/">Ksplice</a> for about seven months.
+        </li>
+      </ul>
+
+      <h3>Interesting links</h3>
+
+      <p>
+        The following are a collection of technical links that I've found
+        interesting.
+      </p>
+
+      <ul>
+        <li>
+          <a
+            href="http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying"
+            >The Log</a
+          >. Everything you ever wanted to know about structured logs, and how
+          to build distributed systems on top of them.
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=PGLYEDpNu60"
+            >System operation</a
+          >. I think this is the best (and only, really) framework I've seen on
+          how to think about running a complex system.
+        </li>
+        <li>
+          <a href="http://www.debian.org/doc/debian-policy"
+            >The Debian policy manual</a
+          >. It's most useful if you're already somewhat familiar with Debian
+          packaging but want to learn Debian conventions.
+        </li>
+        <li>
+          <a href="http://www.joelonsoftware.com/articles/Unicode.html"
+            >Unicode and character sets</a
+          >. Character sets can be confusing. This article will magically make
+          them not be so.
+        </li>
+        <li>
+          <a
+            href="http://www.imperialviolet.org/2010/06/25/overclocking-ssl.html"
+            >Overclocking SSL</a
+          >: SSL performance tuning. I found this pretty useful when initially
+          setting up Stripe's SSL infrastructure.
+        </li>
+        <li>
+          <a href="http://juliusdavies.ca/logging.html"
+            >Logging best practices</a
+          >: A short guide for how to think about logging. I wish more software
+          followed this article's advice.
+        </li>
+        <li>
+          <a
+            name="git-object-model"
+            href="http://git-scm.com/book/en/Git-Internals-Git-Objects"
+            >Git internals - Git objects</a
+          >: My favorite guide to the Git object model.
+        </li>
+        <li>
+          <a href="http://bitcoinmagazine.com/14282/mining-2/">On mining</a>: A
+          good overview of the challenges Bitcoin mining currently faces.
+        </li>
+      </ul>
+
+      <h3>Writings and talks</h3>
+
+      <ul>
+        <li>
+          <a
+            href="http://www.commerce.senate.gov/public/index.cfm/hearings?ID=042DC718-9250-44C0-9BFE-E0371AFAEBAB"
+            >Testimony</a
+          >
+          at the first Senate hearing on AI.
+        </li>
+        <li>
+          Blog post on the
+          <a href="https://stripe.com/blog/bitcoin-the-stripe-perspective"
+            >Stripe perspective on Bitcoin</a
+          >.
+        </li>
+        <li>
+          The
+          <a href="https://speakerdeck.com/gdb/how-cryptocurrencies-can-succeed"
+            >slides</a
+          >
+          from my CoinSummit 2014 talk on what a Bitcoin for the mainstream
+          might look like.
+        </li>
+        <li>
+          The <a href="https://vimeo.com/97476134">video</a> and
+          <a
+            href="https://speakerdeck.com/gdb/how-we-scaled-stripe-from-4-to-94-employees"
+            >slides</a
+          >
+          from my
+          <a
+            href="https://www.eventbrite.com/e/bv-io-2014-bazaarvoice-tech-conference-and-hackathon-tickets-10615744979"
+            >BV.IO</a
+          >
+          talk on scaling Stripe from 4 to 94 employees.
+        </li>
+        <li>
+          Quora post on
+          <a
+            href="https://www.quora.com/Stripe-company/How-did-Stripe-come-up-with-its-name/answer/Greg-Brockman"
+            >how Stripe got its name</a
+          >.
+        </li>
+        <li>
+          The
+          <a href="https://speakerdeck.com/gdb/rescuing-ruby">slides</a> from my
+          RubyConf AU 2014
+          <a href="http://lanyrd.com/2014/rubyconf-au/sctthz/">keynote</a> on
+          what the Ruby community needs to change in order to remain relevant.
+        </li>
+        <li>
+          The
+          <a
+            href="https://speakerdeck.com/gdb/building-better-software-through-mathematics"
+            >slides</a
+          >
+          from my
+          <a href="http://lanyrd.com/2014/monkigras/">Monkigras 2014</a> talk on
+          building better software through mathematics.
+        </li>
+        <li>
+          The
+          <a href="https://speakerdeck.com/gdb/shipping-at-stripe">slides</a>
+          and <a href="https://vimeo.com/85675272">video</a> from my
+          <a href="http://www.meetup.com/HNLondon/events/160280882/"
+            >HNLondon</a
+          >
+          talk in January 2014 on shipping at Stripe.
+        </li>
+        <li>
+          The
+          <a
+            href="http://www.infoq.com/presentations/stripe-culture">video</a>
+          and
+          <a
+            href="https://speakerdeck.com/gdb/building-a-culture-where-software-projects-get-done"
+            >slides</a
+          >
+          from my talk "Building a Culture Where Software Projects Get Done" at
+          <a
+            href="http://qconsf.com/presentation/building-culture-where-software-projects-get-done"
+            >QConSF 2013</a
+          >. (For detailed presenter's notes, grab the
+          <a
+            href="https://gregbrockman.com/f/building-a-culture-where-software-projects-get-done.key"
+            >original</a
+          >
+          Keynote presentation.)
+        </li>
+        <li>
+          Quora posts on Stripe's
+          <a
+            href="https://www.quora.com/Stripe-company/What-engineering-problems-and-challenges-is-Stripe-solving"
+            >engineering challenges</a
+          >
+          and
+          <a
+            href="https://www.quora.com/Stripe-company/What-is-the-engineering-interview-process-like-at-Stripe"
+            >interview process</a
+          >.
+        </li>
+        <li>
+          The
+          <a
+            href="https://airbrake.io/blog/devops/how-stripe-builds-software-an-interview-with-cto-greg-brockman/"
+            >transcript</a
+          >
+          of an interview I did with Airbrake on how Stripe builds software.
+        </li>
+        <li>
+          Blog post on
+          <a href="https://stripe.com/blog/email-transparency"
+            >email transparency</a
+          >.
+        </li>
+        <li>
+          The
+          <a
+            href="http://firstround.com/article/How-Stripe-built-one-of-Silicon-Valleys-best-engineering-teams"
+            >video and summary</a
+          >
+          of my talk on recruiting at Stripe from the First Round Capital CTO
+          summit in 2012.
+        </li>
+        <li>
+          The
+          <a
+            href="http://www.slideshare.net/thegdb/running-mongodb-for-high-availability"
+            >slides</a
+          >
+          for my talk "Running MongoDB for High Availability" at
+          <a href="http://www.oscon.com/oscon2012/public/schedule/detail/25980"
+            >OSCON 2012</a
+          >. This is an updated version of my MongoSF 2012 talk.
+        </li>
+        <li>
+          The
+          <a
+            href="http://www.slideshare.net/thegdb/high-availability-with-mongodb-for-fun-and-profit"
+            >slides</a
+          >
+          and
+          <a
+            href="http://www.10gen.com/presentations/mongosf-2012/high-availability-with-mongodb-for-fun-and-profit"
+            >video</a
+          >
+          for my talk "High Availability with MongoDB for Fun and Profit" at
+          <a href="http://www.10gen.com/events/mongosf-2012">MongoSF 2012</a>.
+        </li>
+        <li>
+          A piece in Gigaom on
+          <a
+            href="http://gigaom.com/2012/04/28/6-secrets-for-building-a-super-team/"
+            >how we think about recruiting at Stripe</a
+          >.
+        </li>
+        <li>
+          The
+          <a
+            href="http://www.slideshare.net/thegdb/theres-a-monster-in-my-closet-architecture-of-a-mongodbpowered-event-processing-system"
+            >slides</a
+          >
+          and
+          <a
+            href="http://www.10gen.com/presentations/mongosv-2011/theres-a-monster-in-my-closet-architecture-of-a-mongodb-powered-event-processing-system"
+            >video</a
+          >
+          for my talk "There's a Monster in My Closet: Architecture of a
+          MongoDB-powered Event Processing System" at
+          <a href="http://www.10gen.com/events/mongosv-2011">MongoSV 2011</a>.
+        </li>
+      </ul>
+
+      <h3>Papers</h3>
+
+      <ul>
+        <li>
+          Sunil Abraham, Greg Brockman, Stephanie Sapp, Anant Godbole.<br />
+          <a href="/pdfs/omnibus-sequences.pdf"
+            >Omnibus Sequences, Coupon Collection, and Missing Word Counts</a
+          >.<br />
+          Methodology and Computing in Applied Probability (27 August 2011), pp.
+          1-16.
+        </li>
+        <li>
+          Greg Brockman, Bill Kay and Emma E. Snively. <br />
+          <a href="/pdfs/on-universal-cycles.pdf"
+            >On Universal Cycles of Labeled Graphs</a
+          >.<br />
+          The Electronic Journal of Combinatorics. Vol. 17 (2010), No. 1.
+        </li>
+        <li>
+          James Brantner, Greg Brockman, Bill Kay and Emma Snively.<br />
+          <a href="/pdfs/contributions-to-seymour.pdf"
+            >Contributions to Seymour's second neighborhood conjecture</a
+          >.<br />
+          Involve. Vol. 2 (2009), No. 4, 385-393.
+        </li>
+        <li>
+          My paper
+          <a href="/pdfs/asymptotic-behavior.pdf"
+            >Asymptotic Behavior of Certain Ducci Sequences</a
+          >
+          won 6th place in the 2007 Intel Science Talent Search. The first half
+          of this paper was published in Fibonacci Quarterly; it can be found
+          with the following citation:
+          <p>
+            Greg Brockman and Ryan J. Zerr. <br />
+            Asymptotic Behavior of Certain Ducci Sequences. <br />
+            Fibonacci Quarterly. Vol 45 (2007), No. 2, 155-163.
+          </p>
+        </li>
+        <li>
+          In high school, I was very involved in the Chemistry Olympiad
+          (culminating with a Silver Medal in the
+          <a
+            href="https://en.wikipedia.org/wiki/International_Chemistry_Olympiad"
+            >International Chemistry Olympiad</a
+          >). I took a year off before college and spent a decent chunk of it
+          attempting to write a high school chemistry textbook, affectionately
+          dubbed
+          <a href="/pdfs/a-chemical-progression.pdf">A Chemical Progression</a>.
+          I became distracted by computers and forgot about the book, but one
+          day I hope to finish it.
+        </li>
+        <li>
+          Apparently some chemistry research I did in high school was
+          <a
+            href="http://pubs.rsc.org/en/Content/ArticleLanding/2013/NR/C3NR01287E"
+            >published</a
+          >.
+        </li>
+      </ul>
+    </div>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+  </body>
+</html>
+
+
+Ian Johnson Resume (C.V.) LinkedIn GitHub 🐦 @enjalot I help world-class product
+teams bridge UX Design and Scientific Computing. Observable 2020-2022 Developed
+features for simplifying complex data workflows. Taught data visualization to
+thousands of data practitioners. Built open source community and examples for
+d3.js and Observable Plot. Google 2016-2020 Developed data-driven tools
+supporting 300+ person design team. Open-sourced 50 million Quick, Draw drawings
+with the Creative Lab Co-authored 4 publications on Distill. Lever 2012-2015
+First hire, founding software engineer. Designed and built the original data
+infrastructure Designed and built reporting features used by largest customers
+Built internal tools still in use when acquired for $500m in 2022 Open Source,
+Open Science & Open Data Distill was a scientific journal for publishing
+interactive Machine learning research. While at Google I co-authored: How to Use
+t-SNE Effectively Four Experiments in Handwriting with a Neural Network The
+Building Blocks of Interpretability Activation Atlas At Google I helped the
+Creative Lab open source the Quick, Draw! dataset. This data was used to: Write
+up an Introduction to the Quick, Draw! Dataset Work with Google Brain to demo
+the SketchRNN model. Give a talk at OpenVisConf about Machine Learning for
+Visualization I love collecting, exploring and visualizing data! A selection of
+datasets I am proud of: Observable Curated Datasets Wildfire data Air quality
+data Emoji data COVID data Election data Medieval manuscript punctuation data
+(in collaboration with my father) Block Builder was an in-browser editor for
+quickly making, editing, remixing and sharing d3.js code examples. Launched via
+Kickstarter it supported the curation of more than 40,000 community examples.
+Part of my process is building and sharing small experiments. I've got hundreds
+of d3.js blocks, Observable notebooks and collaborations demonstrating various
+data visualization, UX and graphics techniques. Community Leadership Co-founded
+and co-organized the Bay Area d3.js meetup in 2012 which has grown to 5,000+
+members in person and 9,000+ online. Wrote several popular articles on D3
+including: Touring the d3.js ecosystem Hitchhiker's Guide to d3.js The Trouble
+with D3 How do you learn d3.js? Co-founded and co-organized the d3.js
+unconference for 5 years. Each year a 100+ top d3.js practitioners gathered to
+discuss, learn and advance d3.js together. I like to share my understanding on
+YouTube I've published more than covering various aspects of d3, data
+visualization, web cartography and graphics programming. Produced, organized and
+hosted numerous events, workshops and live streams for the Observable Community.

@@ -51,15 +51,33 @@ client = OpenAI(
 
 # find 
 queries = {
-    "demos": "gen a javascript code to visualize topic like desmos ",
-    "demos": "gen a javascript code to visualize topic like threejs ",
-    "demos": "gen a javascript code to visualize topic like worrydream.com",
-    "demos": "gen a javascript code to visualize topic like khanacademy",
+    "desmos": "gen a javascript code to visualize topic like desmos ",
+    "threejs": "gen a javascript code to visualize topic like threejs ",
+    "khanacademy": "gen a javascript code to visualize topic like khanacademy",
+    "observable": "gen a javascript code to visualize topic like observable",
+    "d3js": "gen a javascript code to visualize topic like d3js",
+    # "threejs": "gen a javascript code to visualize topic like threejs",
+    # "threejs": "gen a javascript code to visualize topic like threejs",
+
+
     "research_papers": "links to any related research papers",
     "visualizations": "links to any visualizaions ",
     "videos": "links to videos",
     "tweets": "links to tweets or any social media ",
     "docs": "docs / websites "
+}
+
+query_file_ext = {
+    "demos": "js",
+    "threejs": "js",
+    "khanacademy": "js",
+    "observable": "js",
+    "d3js": "js",
+    "research_papers": "md",
+    "visualizations": "md",
+    "videos": "md",
+    "tweets": "md",
+    "docs": "md",
 }
 
 
@@ -108,7 +126,7 @@ def split_into_chunks(css):
 
 import os
 
-def process_chunk(query, filename, content, index):
+def process_chunk(query, query_type, filename, content, index):
     print("processing chunk", index)
 
     chat_completion = client.chat.completions.create(
@@ -121,7 +139,7 @@ def process_chunk(query, filename, content, index):
     processed = parse_gpt(chat_completion)
     print("writing to", filename)  # Corrected spelling from "wiriting" to "writing"
     output_dir= "course_content/src"  # Update output_dir to match the file path
-    with open(f"{output_dir}/{os.path.basename(filename)}", 'w') as file:
+    with open(f"{output_dir}/{os.path.basename(filename)}/{query_type}${ext}", 'w') as file:
         file.write(processed)
     # return processed
 # is jupyter a thing? try collarobaroty - add currsor - to obs+jpy - (LLM_prediciton_planning, cgi, hardware) 
@@ -136,7 +154,7 @@ def process_all_files_in_directory(query_type, query, directory_path):
         futures = []
         for index, (filename, content) in enumerate(file_dict.items()):
             print(f"File {index}: {filename} with content length {len(content)}")
-            futures.append(executor.submit(process_chunk, query, filename, content, index))
+            futures.append(executor.submit(process_chunk, query_type, query, filename, content, index))
 
         for future in futures:
             future.result()

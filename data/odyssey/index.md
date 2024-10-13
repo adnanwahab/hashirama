@@ -33,9 +33,29 @@ practice + thoery = better
 
 
 ---
-sql 
+sql
 select * from files;
 ---
-
+flocking -webgpu streaming from desktop + all other devices --- share compute --- from scratch or from the module
 
 infra - test latency numbers on yours and mine  - p2p robots
+
+
+Plot.plot({
+  projection: "identity",
+  width: 975,
+  height: 610,
+  marks: [
+    Plot.geo(countiesmesh, {strokeOpacity: 0.5}),
+    Plot.geo(statemesh, {strokeWidth: 0.75}),
+    Plot.geo(nation, {strokeWidth: 1.5})
+  ]
+})
+
+
+c = \pm\sqrt{a^2 + b^2}
+https://observablehq.com/plot/
+
+
+https://101.school/courses/physics-101 - chatbot + twitch chat -> issues commands to queue -
+test gen

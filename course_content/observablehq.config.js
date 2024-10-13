@@ -23,15 +23,16 @@ export default {
   root: "src",
 
   // Some additional configuration options and their defaults:
-  // theme: "default", // try "light", "dark", "slate", etc.
-  // header: "", // what to show in the header (HTML)
-  // footer: "Built with Observable.", // what to show in the footer (HTML)
-  // sidebar: true, // whether to show the sidebar
+  theme: "ocean-floor", // try "light", "dark", "slate", etc.
+  //header: "make cube of worrydream for all things", // what to show in the header (HTML)
+  footer: "(DynamicLand.org+SICP+Zoox+Seinfeld)**2=Zootopia = Golden Chocobo", // what to show in the footer (HTML)
+  sidebar: true, // whether to show the sidebar
   // toc: true, // whether to show the table of contents
   // pager: true, // whether to show previous & next links in the footer
   // output: "dist", // path to the output root for build
-  // search: true, // activate search
-  // linkify: true, // convert URLs in Markdown to links
+  search: true, // activate search
+  linkify: true, // convert URLs in Markdown to links
+  globalStyleSheets: [],
   // typographer: false, // smart quotes and other typographic improvements
   // cleanUrls: true, // drop .html from URLs
 };
