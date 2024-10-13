@@ -9,6 +9,10 @@ CREATE TABLE IF NOT EXISTS files (
 )
 `
 
+const frontMatter  = `---
+title: My favorite page
+toc: false
+---`
 
 
 function convertMdToSqlite() {
@@ -17,45 +21,29 @@ function convertMdToSqlite() {
     db.serialize(() => {
         db.run(schema)
     });
+    const directoryPath = path.join(__dirname, '../data/odyssey');
 
-        const directoryPath = path.join(__dirname, '../data/odyssey');
+    const folders = fs.readdirSync(directoryPath)
+ 
 
-        fs.readdir(directoryPath, (err, folders) => {
-            if (err) {
-                return console.error('Unable to scan directory: ' + err);
-            }
+    folders.forEach(folder => {
+        const folderPath = path.join(directoryPath, folder);
 
-            folders.forEach(folder => {
-                const folderPath = path.join(directoryPath, folder);
+        let buffer = "" + frontMatter
 
-                let buffer = ""
+        const partial_files = fs.readdirSync(folderPath)
+        partial_files.forEach(file => {
+            const filePath = path.join(folderPath, file);
+            const partialfileContent = fs.readFileSync(filePath, 'utf8')
+            const stmt = db.prepare("INSERT INTO files (filename, content) VALUES (?, ?)");
+            stmt.run(file, partialfileContent);
+            stmt.finalize();
+            buffer += partialfileContent
+        });
+       
+        fs.writeFileSync("course_content/src/"+folder+'.md', buffer)
+    });
 
-                fs.readdir(folderPath, (err, files) => {
-                    if (err) {
-                        return console.error('Unable to scan folder: ' + err);
-                    }
-
-
-                    files.forEach(file => {
-                        const filePath = path.join(folderPath, file);
-                        const partialfileContent = fs.readFileSync(filePath, 'utf8')
-                        buffer += partialfileContent
-                        const stmt = db.prepare("INSERT INTO files (filename, content) VALUES (?, ?)");
-                        stmt.run(file, partialfileContent);
-                        stmt.finalize();
-                    //const fileContent  `${folder}.md` 
-                    //buffer += "## " + folder + "\n"
-                    });
-                
-                    
-                    fs.writeFileSync(folderPath+'.md', buffer)
-                });
-
-                
-
-
-            });
-    }); 
 
     db.close((err) => {
         if (err) {
@@ -65,11 +53,9 @@ function convertMdToSqlite() {
     });
 }
 
+
+
 convertMdToSqlite();
-
-function convertFilesToMd() {
-
-}
 
 function main () {
     convertMdToSqlite()

@@ -64,3 +64,4 @@ This repo contains everything you need to build a unicorn robotics startup. ([sh
 [![alt text](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)
 ----transmission -> research papers / books /
 ----llama-tools.com = mini-apple-intelligence nov 1
+--- 3d captcha for open soruce eval
