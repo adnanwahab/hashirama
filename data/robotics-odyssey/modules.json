@@ -147,31 +147,7 @@
         "Disaster Response Robotics – Robots for search and rescue missions after natural disasters."
         
       ]
-    },
-    {
-        "title": "misc-edit-idea-dump-from-people",
-        "sub_modules": [
-          "Reinforcement Learning for Robot Training",
-            "Computer Vision for Robots: Seeing and Understanding the World",
-            "Using Natural Language Processing to Communicate with Robots",
-            "Robot Learning from Demonstration (LfD)",
-            "Building Robots with TinyML: AI at the Edge",
-            "Combining Robotics and Generative AI",
-            "Neural Networks for Motion Planning",
-            "Real-time Object Detection with SAM (Segment Anything Model)",
-            "The Role of Deep Learning in Robot Perception",
-            "How Robots Are Trained to Understand Context",
-            "Foundations & Principles",
-            "History of Robotics: From Ancient Automatons to AI",
-            "Key Concepts in Robotics: Sensors, Actuators, and Control Systems",
-            "The Role of Kinematics in Robot Movement",
-            "Understanding ROS (Robot Operating System): The Robotics Framework",
-            "Embedded Systems for Robots: Microcontrollers and Beyond",
-            "Swarm Robotics: Intelligence in Numbers",
-            "Collaborative Robots (Cobots): Human-Robot Interaction",
-            "Open-Source Robotics: Democratizing Innovation",
-            "From Mechanics to Electronics: Building a Simple Robot Arm"
-        ]
     }
+   
   ]
 }

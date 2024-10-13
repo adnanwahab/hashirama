@@ -153,7 +153,8 @@ function Footer() {
             ))}
           </div>
           <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
-            &copy; 2020 Your Company, Inc. All rights reserved.
+            95$ for adults and $20 for anyone under 18 -> half off if you contribute an imporvmenet tyvm
+            daily updates for the next 65 years. - link to geo hots slam redone by dr. eggnog
           </p>
         </div>
       </div>

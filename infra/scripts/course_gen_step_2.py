@@ -131,7 +131,7 @@ def process_all_files_in_directory(query, directory_path):
     file_contents = [open(file_path, 'r').read() for file_path in files] 
     file_dict = {file_path: content for file_path, content in zip(files, file_contents)}
     start_time = time.time()
-    with ThreadPoolExecutor(max_workers=10) as executor:
+    with ThreadPoolExecutor(max_workers=20) as executor:
         futures = []
         for index, (filename, content) in enumerate(file_dict.items()):
             print(f"File {index}: {filename} with content length {len(content)}")
@@ -187,13 +187,13 @@ output_dir = 'course_content/docs'
 
 
 
+queries = [query(micro_query) for micro_query in queries]
+for query in queries:
+    process_all_files_in_directory(query, input_dir)
 
-process_files_from_json(json_file_path, input_dir, output_dir)
 
 
-# queries = [query(micro_query) for micro_query in queries]
-# for query in queries:
-#     process_all_files_in_directory(query, input_dir)
+
 # augment this file to pass in 1tb of embeddings to llama / anthropic / openai
 # talk 
 
