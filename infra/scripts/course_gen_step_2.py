@@ -147,38 +147,38 @@ def process_all_files_in_directory(query, directory_path):
 import json
 import re
 
-def generate_filenames_from_json(json_file_path):
-    with open(json_file_path, 'r') as file:
-        data = json.load(file)
+# def generate_filenames_from_json(json_file_path):
+#     with open(json_file_path, 'r') as file:
+#         data = json.load(file)
     
-    filenames = []
-    for module in data['modules']:
-        for topic in module['sub_modules']:
-            # Convert topic title to a valid filename
-            filename = re.sub(r'[^a-z0-9-]', '', re.sub(r'\s+', '-', topic.lower())) + '.md'
-            filenames.append(filename)
+#     filenames = []
+#     for module in data['modules']:
+#         for topic in module['sub_modules']:
+#             # Convert topic title to a valid filename
+#             filename = re.sub(r'[^a-z0-9-]', '', re.sub(r'\s+', '-', topic.lower())) + '.md'
+#             filenames.append(filename)
     
-    return filenames
+#     return filenames
 
-def process_files_from_json(json_file_path, input_dir, output_dir):
-    filenames = generate_filenames_from_json(json_file_path)
+# def process_files_from_json(json_file_path, input_dir, output_dir):
+#     filenames = generate_filenames_from_json(json_file_path)
     
-    for filename in filenames:
-        input_path = os.path.join(input_dir, filename)
-        output_path = os.path.join(output_dir, filename)
+#     for filename in filenames:
+#         input_path = os.path.join(input_dir, filename)
+#         output_path = os.path.join(output_dir, filename)
         
-        if os.path.exists(input_path):
-            with open(input_path, 'r') as file:
-                content = file.read()
+#         if os.path.exists(input_path):
+#             with open(input_path, 'r') as file:
+#                 content = file.read()
             
-            processed_content = process_chunk(filename, content, 0)  # Assuming index 0 for simplicity
+#             processed_content = process_chunk(filename, content, 0)  # Assuming index 0 for simplicity
             
-            with open(output_path, 'w') as file:
-                file.write(processed_content)
+#             with open(output_path, 'w') as file:
+#                 file.write(processed_content)
             
-            print(f"Processed and saved: {output_path}")
-        else:
-            print(f"File not found: {input_path}")
+#             print(f"Processed and saved: {output_path}")
+#         else:
+#             print(f"File not found: {input_path}")
 
 # Example usage
 json_file_path = 'data/robotics-odyssey/modules.json'
@@ -191,9 +191,9 @@ output_dir = 'course_content/docs'
 process_files_from_json(json_file_path, input_dir, output_dir)
 
 
-queries = [query(micro_query) for micro_query in queries]
-for query in queries:
-    process_all_files_in_directory(query, input_dir)
+# queries = [query(micro_query) for micro_query in queries]
+# for query in queries:
+#     process_all_files_in_directory(query, input_dir)
 # augment this file to pass in 1tb of embeddings to llama / anthropic / openai
 # talk 
 
