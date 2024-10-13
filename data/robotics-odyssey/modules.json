@@ -72,7 +72,7 @@
       "3. Radar",
       "Doppler effect for motion detection", "frequency modulation continuous wave (FMCW)", "SAR (Synthetic Aperture Radar)", "range-Doppler imaging", "micro-Doppler signatures", "radar cross-section (RCS)", "polarization in radar", "MIMO radar (Multiple Input Multiple Output)", "clutter filtering", "target detection and tracking",
       "4.lidar",
-      "point cloud generation", "point cloud registration", "object detection in LiDAR", "SLAM for LiDAR", "terrain mapping", "range accuracy and calibration", "beam divergence and resolution", "3D segmentation", "LiDAR-camera sensor fusion", "dynamic obstacle detection",
+      "point cloud generation", "point cloud registration", "object detection in LiDAR", "SLAM for LiDAR", "terrain mapping", "range accuracy and calibration", "beam divergence and resolution", "3D segmentation", "LiDAR-camera sensor fusion", "dynamic obstacle detection"
 
     ] 
     },
@@ -83,7 +83,7 @@
         "Path planning algorithms (A*, D*, RRT)", "Trajectory optimization", "Task and motion planning (TAMP)", "Model predictive control (MPC)", "Multi-robot coordination and planning",
 
 
-        "Human motion prediction", "Collision prediction and avoidance", "Future state estimation in dynamic environments", "Behavior prediction using reinforcement learning", "Sensor-based uncertainty modeling",
+        "Human motion prediction", "Collision prediction and avoidance", "Future state estimation in dynamic environments", "Behavior prediction using reinforcement learning", "Sensor-based uncertainty modeling"
       ]
     },
     {
@@ -144,7 +144,7 @@
         "Agricultural Robotics – Robots for crop planting, harvesting, and pest control.",
         "Petroleum and Mining Robotics – Robots for oil drilling, mining, and exploration.",
         "Space Exploration Robotics – Robots for planetary rovers and space station operations.",
-        "Disaster Response Robotics – Robots for search and rescue missions after natural disasters.",
+        "Disaster Response Robotics – Robots for search and rescue missions after natural disasters."
         
       ]
     },

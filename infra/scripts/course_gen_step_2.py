@@ -108,7 +108,7 @@ def split_into_chunks(css):
 
 import os
 
-def process_chunk(filename, content, index):
+def process_chunk(query, filename, content, index):
     print("processing chunk", index)
 
     chat_completion = client.chat.completions.create(
@@ -126,7 +126,7 @@ def process_chunk(filename, content, index):
     # return processed
 # is jupyter a thing? try collarobaroty - add currsor - to obs+jpy - (LLM_prediciton_planning, cgi, hardware) 
 # add in dict types from fastapi - 
-def process_all_files_in_directory(directory_path):
+def process_all_files_in_directory(query, directory_path):
     files = [os.path.join(directory_path, filename) for filename in os.listdir(directory_path) if filename.endswith('.md')]
     file_contents = [open(file_path, 'r').read() for file_path in files] 
     file_dict = {file_path: content for file_path, content in zip(files, file_contents)}
@@ -135,7 +135,7 @@ def process_all_files_in_directory(directory_path):
         futures = []
         for index, (filename, content) in enumerate(file_dict.items()):
             print(f"File {index}: {filename} with content length {len(content)}")
-            futures.append(executor.submit(process_chunk, filename, content, index))
+            futures.append(executor.submit(process_chunk, query, filename, content, index))
 
         for future in futures:
             future.result()
@@ -184,6 +184,10 @@ def process_files_from_json(json_file_path, input_dir, output_dir):
 json_file_path = 'data/robotics-odyssey/modules.json'
 input_dir = 'data/robotics-odyssey/'
 output_dir = 'course_content/docs'
+
+
+
+
 process_files_from_json(json_file_path, input_dir, output_dir)
 
 
@@ -191,7 +195,7 @@ queries = [query(micro_query) for micro_query in queries]
 for query in queries:
     process_all_files_in_directory(query, input_dir)
 # augment this file to pass in 1tb of embeddings to llama / anthropic / openai
-
+# talk 
 
 
 # (read 5000 research papers + 2 best ourses) -> (gen diagrams) + 1 paragraph per diaagram.
