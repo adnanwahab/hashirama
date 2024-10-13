@@ -3,12 +3,20 @@ import TwitchPlaysPokemonPanel from './TwitchPlaysPokemonPanel';
 import {useRef, useEffect, useState} from 'react';
 //import TeleGuidanceFrame from './TeleGuidanceFrame';
 
+
+//const TwitchPlaysPokemonPanel = React.lazy(() => import("./TwitchPlaysPokemonPanel"));
+
+
+function TwitchPlays () {
+  return <TwitchPlaysPokemonPanel/>
+//   return  <React.Suspense fallback={<div>Loading...</div>}>
+// <TwitchPlaysPokemonPanel/>
+// </React.Suspense>
+
+}
 function TeleGuidanceFrame(props) {
   let  src = props.link;
-  if (typeof src === 'function') {
-    console.log("returning twitch pane")
-   return <TwitchPlaysPokemonPanel/>
-  }
+  
 console.log("returning iframe", src)
  //src = "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*"
   return (
@@ -106,11 +114,13 @@ function Whiteboard(){
   );
 }
 
+//const RoboticsOdyssey = React.lazy(() => import("../views/odyssey/robotics-odyssey.tsx"));
+
+
 
 function TeleGuidance() {
   const list_of_links = [
     "https://observablehq.com/embed/@roboticsuniversity/livekit?cell=*",
-    TwitchPlaysPokemonPanel,
     "https://observablehq.com/embed/@roboticsuniversity/robotics-hardware?cell=*",
     "https://observablehq.com/embed/@roboticsuniversity/voxels-diffusion-policy-3d?cell=*",
     
@@ -143,7 +153,7 @@ function TeleGuidance() {
           </div>
           <div className="lg:col-span-2 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
             <div className="flex-grow">
-              <TeleGuidanceFrame link={list_of_links[1]}/>
+            <TwitchPlays/>
             </div>
             {/* <div className="p-10">
               <h3 className="text-sm font-semibold text-gray-400">Integrations</h3>

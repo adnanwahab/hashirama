@@ -44,14 +44,21 @@ Alan Kay talked about one other individual [Bret Victor](https://worrydream.com)
 >
 > — _Alan Kay talking about bret victor_
 
-> "Perhaps the one of the greatest designers of the interface between the mind and machines in the world"
+> “one of the greatest user interface design minds in the world today”
 >
 > — _Edward Tuft recognized Bret as _
 
-> "design theory wizard, at the cutting edge of interface designs for seeing, reasoning"
+> “design theory wizard, at the cutting edge of interface designs for programming, seeing, reasoning”
 
 ![https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg](https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg)
 
-
 >  "we understand our mental procceses as much as fish understand water"
 > _John Mccarthy_ - Mathematics of Common Sense
+
+This repo contains everything you need to build a unicorn robotics startup. ([shipfast](https://shipfa.st/) for robotics)
+1. A react app for MMO-tele-operation + admin for ops, safety, understanding theory->practice.
+2. A (react-native+livekit) app to code agents using on-device llm to gen correct prompts to auto-write infra+anything you want.
+3. A deno server for server-side simulation, webgpu, and unity,unreal, nvidia omniverse integrations.
+4. [sqlite+litestream for db](https://youtu.be/RqubKSF3wig?si=M6okGXrR_pyKB-8J) - + tailscale for connectivity + starlink for 5g in hard to reach places.
+5. extra embedding infra for jetson-container-> $500 semi-autuonomous rosie for feeding cats.
+[![alt text](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)

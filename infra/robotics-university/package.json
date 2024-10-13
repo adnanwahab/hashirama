@@ -1,0 +1,16 @@
+{
+  "name": "robotics-university",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.5.2",
+    "wrangler": "^3.60.3",
+    "vitest": "2.0.5"
+  }
+}

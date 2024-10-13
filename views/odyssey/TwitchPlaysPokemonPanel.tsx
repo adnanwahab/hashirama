@@ -23,7 +23,7 @@ function TwitchPlaysPokemonPanel(props) {
     { name: 'B2badare', vote: 'democracy' },
     { name: 'Go3sauer', vote: 'r' },
   ];
-
+console.log('props')
   return (
     <div className="bg-gray-800 text-white p-4 font-mono text-sm bg-slate-900">
 <script src="https://cdn.tailwindcss.com"></script>
