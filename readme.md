@@ -65,3 +65,7 @@ This repo contains everything you need to build a unicorn robotics startup. ([sh
 ----transmission -> research papers / books /
 ----llama-tools.com = mini-apple-intelligence nov 1
 --- 3d captcha for open soruce eval
+
+//gpt slow for minor text adjueemsetns - so use llama for completing prompts with auto tab completion to manually debug
+
+thanks to norvig, karpathy, pg,

@@ -10,37 +10,8 @@ client = OpenAI(
 )
 
 # find 
-queries = {
-    "desmos": "gen a javascript code to visualize topic like desmos ",
-    "threejs": "gen a javascript code to visualize topic like threejs ",
-    "khanacademy": "gen a javascript code to visualize topic like khanacademy",
-    "observable": "gen a javascript code to visualize topic like observable",
-    "d3js": "gen a javascript code to visualize topic like d3js",
-    # "threejs": "gen a javascript code to visualize topic like threejs",
-    # "threejs": "gen a javascript code to visualize topic like threejs",
-    "research_papers": "links to any related research papers",
-    "visualizations": "links to any visualizaions ",
-    "videos": "links to videos",
-    "tweets": "links to tweets or any social media ",
-    "docs": "docs / websites "
-}
-
-query_file_ext = {
-    "demos": "js",
-    "threejs": "js",
-    "khanacademy": "js",
-    "observable": "js",
-    "d3js": "js",
-    "research_papers": "md",
-    "visualizations": "md",
-    "videos": "md",
-    "tweets": "md",
-    "docs": "md",
-}
 
 
-def query(micro_query):
-    return f"{micro_query} related to this robotics topic for a documentation website for a robotics company using https://observablehq.com/framework/"
 
 json_file_path = 'data/odyssey/modules.json'
 input_dir =  "data/odyssey"
@@ -84,54 +55,86 @@ def split_into_chunks(css):
 
 import os
 
-def process_chunk(query, query_type, filename, content, index):
-    print("processing chunk", index)
-    actual_file_name = f"{output_dir}/{os.path.basename(filename)}/{query_type}${query_file_ext[query_type]}"
-
-    # chat_completion = client.chat.completions.create(
-    #     model="gpt-4o-mini",
-    #     messages=[
-    #         {"role": "user", "content": query + os.path.basename(filename)},
-    #         {"role": "user", "content": content}
-    #     ]
-    # )  # Fixed indentation and added closing parenthesis
-    # processed = parse_gpt(chat_completion)
-    processed = "content"
-
-    print("writing to", actual_file_name)  # Corrected spelling from "wiriting" to "writing"
+    #print("writing to", actual_file_name)  # Corrected spelling from "wiriting" to "writing"
     
-    with open(actual_file_name, 'w') as file:
-        file.write(processed)
+
     # return processed
 # is jupyter a thing? try collarobaroty - add currsor - to obs+jpy - (LLM_prediciton_planning, cgi, hardware) 
 # add in dict types from fastapi - 
-def process_all_files_in_directory(query_type, query, directory_path):
-    #print('processing all files in directory', directory_path)
-    #files = [os.path.join(directory_path, filename) for filename in os.listdir(directory_path) if filename.endswith('.md')]
-    folders = [os.path.join(directory_path, folder) for folder in os.listdir(directory_path) if os.path.isdir(os.path.join(directory_path, folder))]
 
-    #file_contents = [open(file_path, 'r').read() for file_path in files] 
-    #file_dict = {file_path: content for file_path, content in zip(files, file_contents)}
+
+
+
+queries = {
+    "desmos": "gen a javascript code to visualize topic like desmos ",
+    "threejs": "gen a javascript code to visualize topic like threejs ",
+    "khanacademy": "gen a javascript code to visualize topic like khanacademy",
+    "observable": "gen a javascript code to visualize topic like observable",
+    "d3js": "gen a javascript code to visualize topic like d3js",
+    "research_papers": "links to any related research papers",
+    "visualizations": "links to any visualizaions ",
+    "videos": "links to videos",
+    "tweets": "links to tweets or any social media ",
+    "docs": "docs / websites "
+}
+
+query_file_ext = {
+    "demos": "js",
+    "threejs": "js",
+    "khanacademy": "js",
+    "observable": "js",
+    "d3js": "js",
+    "research_papers": "md",
+    "visualizations": "md",
+    "videos": "md",
+    "tweets": "md",
+    "docs": "md",
+    "websites": "md"
+}
+
+
+
+def process_chunk(folder_name, index):
+    prompt = list(queries.values())[index] + f"generate a diagram from the folder name {folder_name} " 
+    print(prompt)
+    chat_completion = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "user", "content": prompt },
+            #{"role": "user", "content": content}
+        ]
+    ) 
+    #actual_file_path = folder_name + "/" + index + file_ext
+    processed = parse_gpt(chat_completion)
+    with open("data/odyssey/" + folder_name + f"/{index}.md", 'w') as file:
+        file.write("")
+    #file_ext = query_file_ext[query_type]
+
+    
+
+
+def process_all_files_in_directory(directory_path):
+    folders = [folder for folder in os.listdir(directory_path) if os.path.isdir(os.path.join(directory_path, folder))]
+    #folder_name = folders[0]
     start_time = time.time()
-    with ThreadPoolExecutor(max_workers=20) as executor:
-        futures = []
-        for index, (filename) in enumerate(folders):
-            #print(f"File {index}: {filename} with content length {len(content)}")
-            futures.append(executor.submit(process_chunk, query_type, query, filename, "", index))
+    #for query_type in queries:
+    for folder in folders:
+        for index in range(0, 10):
+            process_chunk(folder, index)
+    #process_all_files_in_directory(query_type, queries[query_type], input_dir)
+   
+    # with ThreadPoolExecutor(max_workers=20) as executor:
+    #     futures = []
+    #     for index, (dir_name) in enumerate(folders):
+    #         futures.append(executor.submit(process_chunk, dir_name, index))
 
-        for future in futures:
-            future.result()
+    #     for future in futures:
+    #         future.result()
     end_time = time.time()
     print("processing all files in directory took", end_time - start_time, "seconds")
 
-# Example usage
-
-
+process_all_files_in_directory(input_dir)
 #queries = [query(micro_query) for micro_query in queries]
-for query_type in queries:
-    process_all_files_in_directory(query_type, queries[query_type], input_dir)
-
-
 
 
 # augment this file to pass in 1tb of embeddings to llama / anthropic / openai
@@ -157,7 +160,6 @@ for query_type in queries:
 # judgment / design / choice / 
 # Initialize the OpenAI client with the API key
 # Retrieve the OpenAI API key from the environment variable
-
 
 #12 - 64
 #######1.     file-inputs
