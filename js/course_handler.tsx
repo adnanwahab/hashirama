@@ -46,43 +46,51 @@ function makeReactApp() {
 }
 
 async function proxy(req: Request) {
-  const url = new URL(req.url);
+   const url = new URL(req.url);
+   console.log(url.pathname);
+    const html = makeReactApp()
+    return new Response(html, {
+      headers: {
+        "Content-Type": "text/html",
+      },
+    });
+   
 
-          if (url.pathname === "/ws") {
-            const stream = new ReadableStream({
-              start(controller) {
-                const interval = setInterval(() => {
-                  console.log("WebSocket message every 5 seconds");
-                }, 5000);
+  //         if (url.pathname === "/ws") {
+  //           const stream = new ReadableStream({
+  //             start(controller) {
+  //               const interval = setInterval(() => {
+  //                 console.log("WebSocket message every 5 seconds");
+  //               }, 5000);
 
-                // Cleanup when the stream is canceled
-                controller.signal.addEventListener("abort", () => {
-                  clearInterval(interval);
-                });
-              }
-            });
+  //               // Cleanup when the stream is canceled
+  //               controller.signal.addEventListener("abort", () => {
+  //                 clearInterval(interval);
+  //               });
+  //             }
+  //           });
 
-            return new Response(stream, {
-              headers: {
-                "Content-Type": "text/event-stream",
-                "Cache-Control": "no-cache",
-                "Connection": "keep-alive"
-              }
-            });
-          }
+  //           return new Response(stream, {
+  //             headers: {
+  //               "Content-Type": "text/event-stream",
+  //               "Cache-Control": "no-cache",
+  //               "Connection": "keep-alive"
+  //             }
+  //           });
+  //         }
 
 
-if (url.pathname === '/livekit_connect') { 
+// if (url.pathname === '/livekit_connect') { 
 
-  const identity = url.searchParams.get("identity");
-  if (!identity) {
-    return new Response("Identity parameter is missing", { status: 400 });
-  }
+//   const identity = url.searchParams.get("identity");
+//   if (!identity) {
+//     return new Response("Identity parameter is missing", { status: 400 });
+//   }
 
-  const json = await connect_to_livekit();
-  console.log(json, json);
-    return new Response(JSON.stringify(json));
-  }
+//   const json = await connect_to_livekit();
+//   console.log(json, json);
+//     return new Response(JSON.stringify(json));
+//   }
 //}
     if (url.pathname === "/" || url.pathname === "/robotics-odyssey") {
 
@@ -96,17 +104,17 @@ if (url.pathname === '/livekit_connect') {
   }
 
   if (url.pathname === "/sse") {
-    const stream = new ReadableStream({
-      start(controller) {
-        const interval = setInterval(() => {
+    // const stream = new ReadableStream({
+    //   start(controller) {
+    //     const interval = setInterval(() => {
 
-          const message = `data: ${new Date().toISOString()}\n\n`;
-          controller.enqueue(new TextEncoder().encode(message));
-        }, 1000);
+    //       const message = `data: ${new Date().toISOString()}\n\n`;
+    //       controller.enqueue(new TextEncoder().encode(message));
+    //     }, 1000);
 
-        watch("../views", (eventType, filename) => {
-          if (eventType === "change") {
-            controller.enqueue(new TextEncoder().encode("refresh"));
+    //     watch("../views", (eventType, filename) => {
+    //       if (eventType === "change") {
+    //         controller.enqueue(new TextEncoder().encode("refresh"));
             // console.log("File changed:", filename);
             // // Refresh the html content
             // indexHtmlContent = fs.readFileSync(filePath, "utf-8");
@@ -117,50 +125,50 @@ if (url.pathname === '/livekit_connect') {
             // );
             // // Update the exported html
             // html = newHtml;
-          }
-        });
+        //   }
+        // });
 
         // Cleanup when the stream is canceled
         // controller.signal.addEventListener("abort", () => {
         //   clearInterval(interval);
         // });
-      }
-    });
+    //   }
+    // });
 
-    return new Response(stream, {
-      headers: {
-        "Content-Type": "text/event-stream",
-        "Cache-Control": "no-cache",
-        "Connection": "keep-alive"
-      }
-    });
+    // return new Response(stream, {
+    //   headers: {
+    //     "Content-Type": "text/event-stream",
+    //     "Cache-Control": "no-cache",
+    //     "Connection": "keep-alive"
+    //   }
+    // });
   }
 
   
-  console.log("Server running at http://localhost", port);
-  watch("views/odyssey", (eventType, filename) => {
-    if (eventType === "change") {
-      console.log("File changed:", filename);
-      // Refresh the html content
-      indexHtmlContent = fs.readFileSync(filePath, "utf-8");
-      // Update the html variable
-      const newHtml = indexHtmlContent.replace(
-        "{{template roboticsodyssey}}",
-        `${renderToString(<App />)}`,
-      );
-      // Update the exported html
-      html = newHtml;
-    }
-  });
+  // console.log("Server running at http://localhost", port);
+  // watch("views/odyssey", (eventType, filename) => {
+  //   if (eventType === "change") {
+  //     console.log("File changed:", filename);
+  //     // Refresh the html content
+  //     indexHtmlContent = fs.readFileSync(filePath, "utf-8");
+  //     // Update the html variable
+  //     const newHtml = indexHtmlContent.replace(
+  //       "{{template roboticsodyssey}}",
+  //       `${renderToString(<App />)}`,
+  //     );
+  //     // Update the exported html
+  //     html = newHtml;
+  //   }
+  // });
 
-  if (url.pathname in routes) {
-    const html = fs.readFileSync(routes[url.pathname], "utf-8");
-    return new Response(html, {
-      headers: {
-        "Content-Type": "text/html",
-      },
-    });
-  }
+  // if (url.pathname in routes) {
+  //   const html = fs.readFileSync(routes[url.pathname], "utf-8");
+  //   return new Response(html, {
+  //     headers: {
+  //       "Content-Type": "text/html",
+  //     },
+  //   });
+  // }
 }
 const port = 8080;
 async function main() {
@@ -171,3 +179,5 @@ async function main() {
  
 }
 main();
+
+console.log("Server running at http://localhost", port);

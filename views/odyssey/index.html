@@ -108,8 +108,8 @@
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      const socket = new WebSocket("ws://localhost/ws");
-
+     // const socket = new WebSocket("ws://localhost/ws");
+const socket = {}
       socket.onopen = function(event) {
         console.log("WebSocket is open now.");
       };
@@ -117,7 +117,6 @@
       socket.onmessage = function(event) {
         console.log("WebSocket message received:", event.data);
       };
-
       socket.onclose = function(event) {
         console.log("WebSocket is closed now.");
       };
@@ -126,23 +125,23 @@
         console.error("WebSocket error observed:", error);
       };
 
-const refreshInterval = setInterval(() => {
-  socket.send("refresh");
-}, 5000);
+// const refreshInterval = setInterval(() => {
+//   socket.send("refresh");
+// }, 5000);
 
-socket.onmessage = function(event) {
-  if (event.data === "refresh") {
-    window.location.reload();
-  } else {
-    console.log("WebSocket message received:", event.data);
-  }
-};
+// socket.onmessage = function(event) {
+//   if (event.data === "refresh") {
+//     window.location.reload();
+//   } else {
+//     console.log("WebSocket message received:", event.data);
+//   }
+// };
 
-// Cleanup interval on socket close
-socket.onclose = function(event) {
-  clearInterval(refreshInterval);
-  console.log("WebSocket is closed now.");
-};
+// // Cleanup interval on socket close
+// socket.onclose = function(event) {
+//   clearInterval(refreshInterval);
+//   console.log("WebSocket is closed now.");
+// };
 //       // frontend script
 // function refreshPage() {
 //   window.location.reload();
@@ -159,7 +158,7 @@ socket.onclose = function(event) {
 
     </script>
 
-    <script type="module">
+    <!-- <script type="module">
 
 import {
 createLocalTracks,
@@ -210,7 +209,7 @@ client.connect(token).then(() => {
 
 
     </script>
-  
+   -->
   </head>
   <body>
 
@@ -230,7 +229,7 @@ new Runtime().module(define, Inspector.into("#observablehq-2a85717e"));
 </script> -->
 
 
-const fileKey = "your-file-key";
+<!-- const fileKey = "your-file-key";
 const apiKey = "your-api-token";
 const url = `https://api.figma.com/v1/files/${fileKey}`;
 
@@ -240,7 +239,7 @@ fetch(url, {
   }
 })
   .then(response => response.json())
-  .then(data => console.log(data));
+  .then(data => console.log(data)); -->
 
   <!-- https://worrydream.com/MagicInk/p/communication_model.png -->
 <!-- 

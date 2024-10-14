@@ -1,4 +1,14 @@
-
+----
+  title: robotics odyssey
+  description: learn robotics by building a robot
+  image: /images/robotics-odyssey.png
+  tags:
+    - robotics
+    - odyssey
+    - learn
+    - build
+    - robot
+---
 asdfasdf
 
 

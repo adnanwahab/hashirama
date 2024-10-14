@@ -73,5 +73,5 @@ favorite 3 interactive video-dioramas
 # Bibliopgrahy
 1. https://www.youtube.com/watch?v=yJDv-zdhzMY&ab_channel=Marcel
 2. thanks to ~100 billion people for figuring things out.
-3. thanks to BotParty, norvig, karpathy, pg, sicp, ruskin, <a href="yt/breakingbad">Jesse et al</a> -  https://worrydream.com/MagicInk/ - (artist who paints with magic ink = you -- the reader)
+3. thanks to BotParty, norvig, karpathy, pg, sicp, ruskin, <a href="yt/breakingbadco">Jesse et al</a> -  https://worrydream.com/MagicInk/ - (artist who paints with magic ink = you -- the reader)
 [![alt text](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)

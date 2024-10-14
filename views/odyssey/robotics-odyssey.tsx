@@ -21,11 +21,11 @@ function RoboticsOdyssey() {
 
         
 
-            <ObservablePreview></ObservablePreview>
+            {/* <ObservablePreview></ObservablePreview> */}
 
               <DynamicHow  /> 
 
-              <Box></Box>
+              {/* <Box></Box> */}
                   <Footer />
           </main>
         </div>
