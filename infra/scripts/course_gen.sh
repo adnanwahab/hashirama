@@ -24,7 +24,7 @@ for filename in $submodule_file_names; do  # Indentation fixed here
 done
 #python3 infra/scripts/course_gen_step_2.py --query "gen a markdown of example markdown about the robotics topic " --input_dir data/odyssey/  --output_dir=data/odyssey/
 
-
+bun infra/scripts/course_gen_step_2.js
 
 # Find all 'examples' folders in 'course_content' and move their 'data' and 'components' folders
 # find course_content -type d -name "examples" | while read -r example_dir; do

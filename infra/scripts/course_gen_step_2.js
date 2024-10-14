@@ -36,17 +36,6 @@ function parseGPT(results) {
   return messageContent;
 }
 
-function extractCSS(inputText) {
-  const startMarker = '```';
-  const endMarker = '\n';
-
-  const startIdx = inputText.indexOf(startMarker) + startMarker.length;
-  const endIdx = inputText.indexOf(endMarker);
-
-  const cssContent = inputText.slice(startIdx, endIdx);
-  return cssContent;
-}
-
 function splitIntoChunks(css) {
   const cssBlocks = css.split('\n\n');
   const linesPerChunk = 10;
