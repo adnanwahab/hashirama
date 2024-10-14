@@ -1,8 +1,8 @@
-# Robotics-Odyssey.com : goal - Build many dynamicland.org
+# Robotics-Odyssey.com - goal= Build lots dynamicland.org
 
-# Why? Because dynamicland.org is the coolest thing ever invented
+# Why?? dynamicland.org = the coolest thing ever
 
-# we can put a dynamicland in every home by 2030 Modules for info-course -  Fool-proof  robotics 4 feeding stray cats -> clean your room + build robotic art!!
+## 2gether we will put a dynamicland in every home by 2030 Modules for info-course -  Fool-proof  robotics 4 feeding stray cats -> clean your room + build robotic art!!
 
 ## 1. Hardware Design + Repair
 
@@ -17,16 +17,16 @@
 [![Watch the video](https://img.youtube.com/vi/mwMUJg2mfII/maxresdefault.jpg)](https://youtu.be/mwMUJg2mfII) https://www.dailymotion.com/video/x8prum5
 https://youtu.be/SxdOUGdseq4?si=dh0gFVybuG8m3Mgw
 
-![https://www.ssbwiki.com/File:R.O.B._Famicom.jpg](https://www.ssbwiki.com/images/f/fd/R.O.B._Famicom.jpg) - cooperative design of robots - 40,000 people - co-design
+![https://www.ssbwiki.com/File:R.O.B._Famicom.jpg](https://www.ssbwiki.com/images/f/fd/R.O.B._Famicom.jpg)
 # 1. ALan kay + his 25 friends created 60 Trillion in USD in 5 years - thats more than saudi aramco and 250 million years of dino saur fermentation using their mind!
 # 2. Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a>.
 # 3. OpeAI was made when Alan Kay met with YCResearch around 2016.
 # 4. Alan Kay said sam Altman = "the builder of a new civilization"
 # 5. Alan Kay spoke highly about one other individual [Bret Victor](https://worrydream.com).
-# 4. Bret's work has won the Apple Design Award twice.
-# 5. Bret victor basically said, everything he did before  2014 was past even i thought it was futuristic.
-# 7. But Bret Victor's newest creation - DynamicLand - is better than anything the world has seen
-# 8. bret said - programming is just thinking. writing is just thinking. anyone can do it. the best thinking is usually done in pictures! then translated back to a compact representation.
+# 4. Bret's won the Apple Design Award twice.
+# 5. Bret victor basically said, everything he did b4 2014 was complete
+# 7. Bret's  newest creation - DynamicLand - is better than anything
+# 8. bret said - programming = just thinking. writing = just thinking. anyone can do it. the best thinking is usually done in pictures! then translated back to a compact representation.
 ---
 
 > In the Spring of 2016, VPRI joined as part of Y Combinator Research's (YCR) HARC -- Human Advancement Research Community.
