@@ -5,7 +5,7 @@ import Footer from './Footer';
 import TwitchPlaysPokemonPanel from './TwitchPlaysPokemonPanel';
 import TeleGuidance from './TeleGuidance';
 import DynamicHow from './Dynamichow';
-
+import Box from './Box';
 
 function RoboticsOdyssey() {
   return (
@@ -14,24 +14,19 @@ function RoboticsOdyssey() {
       <body className="text-gray-950 antialiased bg-slate-900">
         <div className="overflow-hidden">
           <main>
+          <Box></Box>
 
 
+             <TeleGuidance /> 
 
-            <TeleGuidance />
-
-            <div>
-top 3 uses className
-1. cleaning up the house
-2. feeding stray animals 
-3. buidling dynamicland
-4. vote here for more new usescases 
-
-            </div>
+        
 
             <ObservablePreview></ObservablePreview>
 
-              <DynamicHow  />
-        
+              <DynamicHow  /> 
+
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/_5cga0x8Q9g?si=IljvmBa3RfaxAqEy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
                   <Footer />
           </main>
         </div>

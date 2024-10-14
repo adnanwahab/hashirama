@@ -4,7 +4,6 @@ const path = require('path');
 const goodOnesDir = join('views', 'cgi-tools');
 const Replicate = require("replicate");
 const fs = require('fs'); 
-import { connect_to_livekit } from './bun-livekit-server.js'
 
 const routes = [
   'livekit_video',
