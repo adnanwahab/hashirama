@@ -1,12 +1,18 @@
 const { RoomServiceClient, AccessToken } = require('livekit-server-sdk');
-const { connect, createLocalVideoTrack } = require('@livekit/client');
+//const { connect, createLocalVideoTrack, MediaStreamTrack } = require('livekit/client');
 const { spawn } = require('child_process');
 const fetch = require('node-fetch');
 
+
+
+const API_KEY = process.env.LIVEKIT_API_KEY;
+const API_SECRET = process.env.LIVEKIT_API_SECRET;
+const LIVEKIT_URL = process.env.LIVEKIT_WS_URL;
+// ... existing code ...
 // Replace with your LiveKit server info
-const API_KEY = 'your_api_key';
-const API_SECRET = 'your_api_secret';
-const LIVEKIT_URL = 'https://your-livekit-server-url';
+// const API_KEY = 'your_api_key';
+// const API_SECRET = 'your_api_secret';
+// const LIVEKIT_URL = 'https://your-livekit-server-url';
 const ROOM_NAME = 'test-room';
 const IDENTITY = 'video-publisher';
 
@@ -60,4 +66,4 @@ const publishVideo = async (filePath) => {
 };
 
 // Run the publish function with the path to the video file
-publishVideo('./sample-video.mp4');
+publishVideo('./day1.mp4');

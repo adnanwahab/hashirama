@@ -98,10 +98,10 @@ install_rustdesk() {
    if ! command_exists rustdesk; then
         echo "Installing RustDesk..."
         # Update the URL with the correct version and architecture
-        wget https://github.com/rustdesk/rustdesk/releases/download/<latest_version>/rustdesk-<latest_version>-x86_64.deb
-        sudo dpkg -i rustdesk-<latest_version>-x86_64.deb
+        wget https://github.com/rustdesk/rustdesk/releases/download/1.3.1/rustdesk-1.3.1-x86_64.deb
+        sudo dpkg -i rustdesk-1.3.1-x86_64.deb
         sudo apt --fix-broken install -y
-        rm rustdesk-<latest_version>-x86_64.deb
+        rm rustdesk-1.3.1-x86_64.deb
     else
         echo "RustDesk already installed."
     fi
