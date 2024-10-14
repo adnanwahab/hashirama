@@ -1,0 +1,8 @@
+{
+  "resolve": {
+    "extensions": [".js", ".jsx"]
+  },
+  "env": {
+    "browser": true
+  }
+}

@@ -14,7 +14,7 @@ function RoboticsOdyssey() {
       <body className="text-gray-950 antialiased bg-slate-900">
         <div className="overflow-hidden">
           <main>
-          <Box></Box>
+ 
 
 
              <TeleGuidance /> 
@@ -25,8 +25,7 @@ function RoboticsOdyssey() {
 
               <DynamicHow  /> 
 
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/_5cga0x8Q9g?si=IljvmBa3RfaxAqEy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+              <Box></Box>
                   <Footer />
           </main>
         </div>
@@ -37,6 +36,7 @@ function RoboticsOdyssey() {
 
 
 
+              {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/_5cga0x8Q9g?si=IljvmBa3RfaxAqEy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
 
 export default RoboticsOdyssey;
 

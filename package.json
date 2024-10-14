@@ -1,12 +1,13 @@
 {
   "scripts": {
+
     "style": "npx tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch",
     "format": "npx prettier views/**/*.html --write",
     "format-js": "standard 'static/**/*.js' --fix",
     "format-js-gpt": "python paralel_LLM.py",
     "beautify": "bunx js-beautify static/3_3_journey/https:/threejs-journey.com/bundles/public/HeroExperience-367a3eca.js > static/3_3_journey/https:/threejs-journey.com/bundles/public/HeroExperience-367a3eca.js-2.js",
     "cog": "bun run js/cognition_engine_parser.js",
-    "dev": "bun run js/llama-server.js --hot",
+    "dev": "bun run vite",
     "pprof": "go tool trace trace.out",
     "hardware_helper": "bun run js/hardware/hardware-company-helper.js",
     "tailscale_server": "sudo tailscale serve 3000",
@@ -25,7 +26,9 @@
     "tailwindcss": "^3.4.1",
     "tailwindcss-3d": "^1.0.7",
     "vite": "^5.4.8",
-    "vitepress": "^1.4.0"
+    "vitepress": "^1.4.0",
+      "@vitejs/plugin-react": "^3.0.0" 
+
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.29.0",
@@ -36,6 +39,7 @@
     "@roboticsuniversity/dynamicland": "https://api.observablehq.com/@roboticsuniversity/dynamicland.tgz?v=3",
     "@roboticsuniversity/ode-to-dynamicland-org": "https://api.observablehq.com/@roboticsuniversity/ode-to-dynamicland-org.tgz?v=3",
     "@tailwindcss/forms": "^0.5.9",
+    "d3": "^7.9.0",
     "dotenv": "^16.4.5",
     "draco3d": "^1.5.7",
     "fs": "^0.0.1-security",

@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+  schedule:
+    - cron: "15 10 * * *"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+      id-token: write
+      packages: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'yarn'
+      - run: yarn --frozen-lockfile
+      - id: date
+        run: echo "date=$(TZ=America/Los_Angeles date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+      - id: cache-data
+        uses: actions/cache@v4
+        with:
+          path: docs/.observablehq/cache
+          key: data-${{ hashFiles('docs/data/*') }}-${{ steps.date.outputs.date }}
+      - run: yarn build
+      - run: yarn docs:build
+      - run: yarn docs:deploy
+        env:
+          OBSERVABLE_TOKEN: ${{ secrets.OBSERVABLE_API_TOKEN }}

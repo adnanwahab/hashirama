@@ -1,0 +1,36 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        version: [20, 21]
+        os: [ubuntu-latest, windows-latest]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
+          cache: yarn
+      - run: yarn --frozen-lockfile
+      - run: yarn test:coverage
+      - run: yarn test:tsc
+      - run: |
+          echo ::add-matcher::.github/eslint.json
+          yarn run eslint src test --format=compact --max-warnings=0
+      - run: yarn test:prettier
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-output-changes-${{ matrix.os }}-${{ matrix.version }}
+          path: |
+            test/output/*-changed.*
+            test/output/build/*-changed/
