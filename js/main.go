@@ -87,7 +87,8 @@ func PublishRobotStream() {
 			lksdk.ReaderTrackWithOnWriteComplete(func() { fmt.Println("track finished") }),
 		)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Println("Error creating track:", err)
+			continue // Skip to the next file if track creation fails
 		}
 		fmt.Println("playing bounne yay  4", track)
 
@@ -96,7 +97,8 @@ func PublishRobotStream() {
 			VideoHeight: 480,
 			Name:        file.Name(),
 		}); err != nil {
-			panic(err)
+			fmt.Println("Error publishing track:", err)
+			continue // Skip to the next file if publishing fails
 		}
 
 	}
@@ -129,3 +131,26 @@ func PublishRobotStream() {
 
 //use echo server to make coro w/ saver + publisher
 //2 tracks 1 with current + 1 with computer vision mask on video
+
+// {
+// 	"room_name": "my-room",
+// 	"layout": "grid",
+// 	"preset": "H264_720P_30",
+// 	"custom_base_url": "https://my-custom-template.com",
+// 	"audio_only": false,
+// 	"segment_outputs": [
+// 	  {
+// 		"filename_prefix": "path/to/my-output",
+// 		"playlist_name": "my-output.m3u8",
+// 		"live_playlist_name": "my-output-live.m3u8",
+// 		"segment_duration": 2,
+// 		"s3": {
+// 		  "access_key": "",
+// 		  "secret": "",
+// 		  "region": "",
+// 		  "bucket": "my-bucket",
+// 		  "force_path_style": true
+// 		}
+// 	  }
+// 	]
+//   }
