@@ -7,24 +7,57 @@ import TeleGuidance from './TeleGuidance';
 import DynamicHow from './Dynamichow';
 import Box from './Box';
 
+import PowerPoint from "./PowerPoints";
+
+
+import {useRef, useEffect} from "react";
+import {Runtime, Inspector} from "@observablehq/runtime";
+import notebook from "@roboticsuniversity/agent-dashboard";
+
+function Admin_Panel() {
+  const viewofTableRef = useRef();
+
+  useEffect(() => {
+    const runtime = new Runtime();
+    runtime.module(notebook, name => {
+      if (name === "viewof table") return new Inspector(viewofTableRef.current);
+    });
+    return () => runtime.dispose();
+  }, []);
+
+  return (
+    <>
+      <div className="text-blue-200" ref={viewofTableRef} />
+      <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/agent-dashboard@70">Agent Dashboard - Course Gen by roboticsuniversity</a></p>
+    </>
+  );
+}
+
 function RoboticsOdyssey() {
   return (
     <html className="dark">
       <Header />
       <body className="text-gray-950 antialiased bg-slate-900">
-        <div className="overflow-hidden">
+        <div className="overflow-hidden flex justify-center items-center min-h-screen">
           <main>
- 
+        
 
-
-             <TeleGuidance /> 
+          <h1 className="text-white">
+            Thanks to BotParty.org + Dynamicland.org!
+            </h1>
+            <h2 className="text-white"><PowerPoint /></h2>
+            
+             {/* <TeleGuidance />  */}
 
         
 
             {/* <ObservablePreview></ObservablePreview> */}
 
-              <DynamicHow  /> 
+              {/* <DynamicHow  />  */}
 
+
+
+              {/* <Admin_Panel /> */}
               {/* <Box></Box> */}
                   <Footer />
           </main>

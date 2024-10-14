@@ -1,6 +1,15 @@
 module.exports = {
   // https://github.com/microsoft/clarity
   //prefix: "tw-",
+
+
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  darkMode: false, // or 'media' or 'class'
+
+  variants: {
+    extend: {},
+  },
+  plugins: [],
   content: ["./views/**/*.html"],
   darkMode: "class",
   theme: {

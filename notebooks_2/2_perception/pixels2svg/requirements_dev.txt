@@ -1,6 +1,0 @@
-isort
-flake8
-nose
-coverage
-pytest
-CairoSVG

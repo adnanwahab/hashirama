@@ -4,19 +4,20 @@
 
    export default defineConfig({
      plugins: [react()],
+    //  root: '',
      server: {
-       port: 3000, // You can specify the port here
+       port: 8000, // You can specify the port here
      },
-     resolve: {
-       alias: {
-         $components: '/src/components',
-         $assets: '/src/assets',
-         $styles: '/src/styles',
-         $utils: '/src/utils',
-         $types: '/src/types',
-         $hooks: '/src/hooks',
-         $contexts: '/src/contexts',
-       }
-    } 
+    //  resolve: {
+    //    alias: {
+    //      $components: '/src/components',
+    //      $assets: '/src/assets',
+    //      $styles: '/src/styles',
+    //      $utils: '/src/utils',
+    //      $types: '/src/types',
+    //      $hooks: '/src/hooks',
+    //      $contexts: '/src/contexts',
+    //    }
+    // } 
      
    })

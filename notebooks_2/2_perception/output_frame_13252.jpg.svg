@@ -1,6 +1,0 @@
-<?xml version="1.0" ?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-	<path d="M 398 62 L 400 116 L 542 115 L 541 60 Z" fill="rgb(156,200,58)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
-	<path d="M 188 124 L 100 260 L 98 290 L 137 288 Z" fill="rgb(204,40,2)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
-	<path d="M 65 68 L 66 70 L 66 82 L 65 83 L 66 84 L 75 84 L 77 83 L 78 81 L 78 77 L 77 76 L 78 74 L 78 71 L 74 68 Z" fill="rgb(117,198,87)" fill-opacity="0.5" stroke="blue" stroke-width="1"/>
-</svg>
