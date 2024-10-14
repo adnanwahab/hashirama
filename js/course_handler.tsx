@@ -55,7 +55,7 @@ async function proxy(req: Request) {
     });
   }
 }
-const port = 8003;
+const port = 8080;
 async function main() {
   serve({
     port,

@@ -67,5 +67,14 @@ This repo contains everything you need to build a unicorn robotics startup. ([sh
 --- 3d captcha for open soruce eval
 
 //gpt slow for minor text adjueemsetns - so use llama for completing prompts with auto tab completion to manually debug
+observablehq = the magic papyrus for bret's magic ink
+> Our pioneers are those who transcend interaction—designers whose creations anticipate, not obey. The hero of tomorrow is not the next Steve Wozniak, but the next William Playfair. An artist who redefines how people learn. An artist who paints with magic ink.
+> ___Bret Victor__
 
-thanks to norvig, karpathy, pg,
+thanks to BotParty, norvig, karpathy, pg, https://worrydream.com/MagicInk/ - (artist who paints with magic ink = you -- the reader)
+![https://worrydream.com/MagicInk/p/logo.png](https://worrydream.com/MagicInk/p/logo.png)
+
+<!-- http://cm.bell-labs.com/cm/ms/what/shannonday/shannon1948.pdf -->
+![https://worrydream.com/SeeingSpaces/SeeingSpaces.jpg](https://worrydream.com/SeeingSpaces/SeeingSpaces.jpg)
+
+<!-- https://worrydream.com/MagicInk/predictor.lua -->

@@ -62,9 +62,6 @@ import os
 # is jupyter a thing? try collarobaroty - add currsor - to obs+jpy - (LLM_prediciton_planning, cgi, hardware) 
 # add in dict types from fastapi - 
 
-
-
-
 queries = {
     "desmos": "gen a javascript code to visualize topic like desmos ",
     "threejs": "gen a javascript code to visualize topic like threejs ",
@@ -111,7 +108,8 @@ def process_chunk(folder_name, index):
     #file_ext = query_file_ext[query_type]
 
     
-
+# import previous -> good examples into prompt as screenshots 
+# dynamicland is the eval for these promptsa
 
 def process_all_files_in_directory(directory_path):
     folders = [folder for folder in os.listdir(directory_path) if os.path.isdir(os.path.join(directory_path, folder))]

@@ -109,6 +109,7 @@
     </style>
   </head>
   <body>
+    <!-- <img src="/static/reflections.png" /> -->
     <!-- <div class="scene">
         <div class="mirror"></div>
         <div class="mirror"></div>
@@ -133,3 +134,55 @@ import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/run
 import define from "https://api.observablehq.com/@roboticsuniversity/alanthree.js?v=4";
 new Runtime().module(define, Inspector.into("#observablehq-2a85717e"));
 </script> -->
+
+
+const fileKey = "your-file-key";
+const apiKey = "your-api-token";
+const url = `https://api.figma.com/v1/files/${fileKey}`;
+
+fetch(url, {
+  headers: {
+    'X-Figma-Token': apiKey
+  }
+})
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+  <!-- https://worrydream.com/MagicInk/p/communication_model.png -->
+<!-- 
+  <h1>Zig REPL in Browser</h1>
+  <textarea id="code" placeholder="Enter your Zig code here..."></textarea>
+  <button onclick="runZig()">Run</button>
+  <pre id="output"></pre>
+
+  <script>
+    let wasmModule;
+
+    async function loadWasm() {
+      const response = await fetch('foo.wasm');
+      const buffer = await response.arrayBuffer();
+      const wasm = await WebAssembly.instantiate(buffer);
+      wasmModule = wasm.instance.exports;
+    }
+
+    function runZig() {
+      const code = document.getElementById('code').value;
+      try {
+        const result = wasmModule._evalZig(code);
+        document.getElementById('output').textContent = result;
+      } catch (e) {
+        document.getElementById('output').textContent = 'Error: ' + e.message;
+      }
+    }
+
+    loadWasm();
+  </script> -->
+
+  <!-- https://github.com/zigcc/awesome-zig -->
+  <!-- https://yann.lecun.com/ -->
+   <!-- https://codepen.io/ -->
+    <!-- https://codesandbox.io/p/sandbox/whiteboard-react-app-gozlg?file=%2Fsrc%2FApp.js -->
+    <!-- https://github.com/observablehq/framework/tree/main/examples/codemirror -->
+    <!-- https://observablehq.observablehq.cloud/framework-example-intersection-observer/ -->
+     <!-- https://observablehq.observablehq.cloud/framework-example-responsive-iframe/ -->
+      <!-- https://observablehq.observablehq.cloud/framework-example-custom-stylesheet/ -->

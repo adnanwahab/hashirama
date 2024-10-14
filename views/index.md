@@ -26,6 +26,32 @@ asdfas
 </iframe>
 
 
+
+```tex
+
+\[
+E = mc^2
+\]
+
+\[
+\int_{a}^{b} x^2 \, dx = \frac{b^3}{3} - \frac{a^3}{3}
+\]
+
+\[
+F = G \frac{m_1 m_2}{r^2}
+\]
+
+\[
+\frac{d}{dx}e^x = e^x
+\]
+
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
+\]
+
+```
+
+
 right practice = good - outleirs + sicp
 
 practice + thoery = better

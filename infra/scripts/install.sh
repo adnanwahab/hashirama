@@ -148,3 +148,8 @@ echo "Installation complete. Please reboot your system."
    # install_1password_cli
     # install_rustdesk
     # proxmox
+
+
+install_zig() {
+    zig build-lib -target wasm32-freestanding -dynamic foo.zig
+}

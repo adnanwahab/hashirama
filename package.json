@@ -12,7 +12,8 @@
     "tailscale_server": "sudo tailscale serve 3000",
     "download_notebooks": "python infra/scripts/download_notebooks.py",
     "flow_helper": "bun run js/helpers/flow-helper.tsx",
-    "course_gen": "bash infra/scripts/course_gen.sh"
+    "course_gen": "bash infra/scripts/course_gen.sh",
+    "ffmpeg_frames": "ffmpeg -i input_video.mp4 -vf \"fps=1\" output_frame_%04d.png"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.7.4",
