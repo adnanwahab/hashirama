@@ -1,3 +1,39 @@
+// // Window 1
+
+// https://shop.raise3d.com/checkouts/cn/Z2NwLXVzLWNlbnRyYWwxOjAxSkE0Q0VONlM1Ujc1TU1HUTlUM0dQUjFF/payment
+// https://observablehq.com/framework/
+// https://observablehq.com/settings
+// https://observablehq.com/documentation/data/databases/overview
+// https://observablehq.com/@jwolondon/what-is-your-four-digit-pin
+// https://observablehq.com/@mbostock
+
+
+
+
+
+// https://github.com/observablehq/framework/tree/main/examples/api/src/data
+// https://github.com/observablehq/framework/blob/main/examples/plot/src/index.md
+// https://github.com/adnanwahab/framework/tree/main/examples/plot
+// http://localhost:3000/#analyzing-web-logs
+// https://observablehq.com/@roboticsuniversity/agent-dashboard
+// https://www.linkedin.com/in/raffaello-bonghi/
+// https://www.linkedin.com/in/robotics-university/
+// https://zed.dev/docs/
+// https://observablehq.com/@christophe-yamahata/industrial-robot-irb-120
+// chrome://history/
+// https://chromewebstore.google.com/detail/list-all-tabs/iklkoalaepbjckknpnklbipmplnipcid?hl=en
+// https://chromewebstore.google.com/detail/tab-copy/micdllihgoppmejpecmkilggmaagfdmb
+
+// Window 2
+
+// https://reflect.app/g/awahab/93832131a5134678aa1205c020c82d86
+// https://chatgpt.com/c/670c079e-356c-8013-b7d2-1e86009f9c05
+// https://tailwindcss.com/docs/installation
+// http://localhost:8080/
+
+
+
+
 // // See https://observablehq.com/framework/config for documentation.
 // export default {
 //   // The app’s title; used in the sidebar and webpage titles.
@@ -64,66 +100,6 @@ export default {
   // ],
   pages: [
         {
-          "name": "Hardware Design + Repair",
-          "pages": [
-            "1. Mechanical Engineering for Robotics",
-            "Kinematics and Dynamics – Modeling and analyzing robot motion",
-            "Mechanisms Design – Gears, pulleys, and linkages for optimal motion",
-            "Actuator Selection – Types of motors (servo, stepper, brushless DC)",
-            "Structural Analysis – Stress, strain, and fatigue of robotic components",
-            "Robotic Manipulators – Design of arms and end-effectors",
-            "Design for Weight Optimization – Light but strong materials",
-            "Vibration Control – Damping techniques to avoid instability",
-            "Compliant Mechanisms – Flexible components to mimic biological movement",
-            "Control Systems – PID controllers, torque control, and stability analysis",
-            "Gripper and Claw Design – Design of robotic hands for various tasks",
-            "2. Electrical Engineering for Robotics",
-            "Power Systems – Battery selection and power management",
-            "Motor Drivers and Controllers – PWM controllers, H-bridges, ESCs",
-            "Sensor Integration – IMUs, LiDAR, cameras, and encoders",
-            "Embedded Systems – Microcontrollers like Arduino, STM32, and Jetson Nano",
-            "Circuit Design and PCB Layout – Custom circuits for robot control",
-            "Communication Protocols – UART, SPI, I2C, and CAN for robot coordination",
-            "Signal Processing – Filtering and processing sensor data",
-            "Electromagnetic Interference (EMI) Control – Shielding techniques",
-            "Energy Harvesting for Robots – Solar and regenerative braking systems",
-            "Low-Power Electronics Design – Maximizing battery life for autonomous robots",
-            "3. Hardware Repair for Robotics",
-            "Fault Diagnosis and Troubleshooting – Identifying component failures",
-            "Soldering and Reworking PCB Components – Replacing damaged components",
-            "Motor and Actuator Repair – Servicing stepper, servo, and brushless motors",
-            "Sensor Calibration and Replacement – Aligning and configuring sensors",
-            "Battery Testing and Replacement – Extending lifespan and efficiency",
-            "Cable Management and Wire Repair – Preventing short circuits and wear",
-            "Firmware Reinstallation – Restoring corrupted robot control software",
-            "Bearing and Gear Replacement – Ensuring smooth movement and operation",
-            "Structural Repairs – Fixing cracks and breaks in robot frames",
-            "Cleaning and Preventative Maintenance – Reducing downtime",
-            "4. Hardware Design for Robotics",
-            "3D Modeling and CAD for Robots – Using SolidWorks, Fusion 360, etc.",
-            "Design for Manufacturability (DFM) – Optimizing for production",
-            "Prototyping Methods – 3D printing, CNC machining, and laser cutting",
-            "Material Selection – Lightweight metals, composites, and plastics",
-            "Custom PCB Design – Creating control boards for specific needs",
-            "Design for Modularity – Building robots that can easily be expanded",
-            "Thermal Management – Heat sinks, cooling fans, and thermal paste",
-            "Ergonomic Design – Enhancing usability for human-robot interaction",
-            "Design for Safety and Compliance – Ensuring product meets regulations",
-            "Environmental Durability – Waterproof and dustproof design principles",
-            "Hardware Construction for Robotics (Construction-Worker Friendly)",
-            "Bill of Materials (BoM) Management – Creating accurate parts lists",
-            "IKEA-style Assembly Instructions – Clear step-by-step guides with visuals",
-            "Modular Kits for Robot Construction – Pre-built modules to snap together",
-            "Tools and Techniques – Use of common tools like Allen keys and screwdrivers",
-            "Color-coded Wiring and Connections – Simplifying electrical assembly",
-            "Pre-configured Motor and Servo Units – Plug-and-play actuators",
-            "Nanosauri-style Visual Assistants – AR tools for guided assembly",
-            "Error-proofing Construction – Easy alignment with interlocking parts",
-            "Quick Connectors for Electronics – No soldering needed",
-            "Testing Procedures during Construction – Ensuring components work at every step"
-          ]
-        },
-        {
           "name": "Perception",
           "pages": [
             "1. Machine Perception",
@@ -185,6 +161,67 @@ export default {
             "Future state estimation in dynamic environments",
             "Behavior prediction using reinforcement learning",
             "Sensor-based uncertainty modeling"
+          ]
+        },
+
+        {
+          "name": "Hardware Design + Repair",
+          "pages": [
+            "1. Mechanical Engineering for Robotics",
+            "Kinematics and Dynamics – Modeling and analyzing robot motion",
+            "Mechanisms Design – Gears, pulleys, and linkages for optimal motion",
+            "Actuator Selection – Types of motors (servo, stepper, brushless DC)",
+            "Structural Analysis – Stress, strain, and fatigue of robotic components",
+            "Robotic Manipulators – Design of arms and end-effectors",
+            "Design for Weight Optimization – Light but strong materials",
+            "Vibration Control – Damping techniques to avoid instability",
+            "Compliant Mechanisms – Flexible components to mimic biological movement",
+            "Control Systems – PID controllers, torque control, and stability analysis",
+            "Gripper and Claw Design – Design of robotic hands for various tasks",
+            "2. Electrical Engineering for Robotics",
+            "Power Systems – Battery selection and power management",
+            "Motor Drivers and Controllers – PWM controllers, H-bridges, ESCs",
+            "Sensor Integration – IMUs, LiDAR, cameras, and encoders",
+            "Embedded Systems – Microcontrollers like Arduino, STM32, and Jetson Nano",
+            "Circuit Design and PCB Layout – Custom circuits for robot control",
+            "Communication Protocols – UART, SPI, I2C, and CAN for robot coordination",
+            "Signal Processing – Filtering and processing sensor data",
+            "Electromagnetic Interference (EMI) Control – Shielding techniques",
+            "Energy Harvesting for Robots – Solar and regenerative braking systems",
+            "Low-Power Electronics Design – Maximizing battery life for autonomous robots",
+            "3. Hardware Repair for Robotics",
+            "Fault Diagnosis and Troubleshooting – Identifying component failures",
+            "Soldering and Reworking PCB Components – Replacing damaged components",
+            "Motor and Actuator Repair – Servicing stepper, servo, and brushless motors",
+            "Sensor Calibration and Replacement – Aligning and configuring sensors",
+            "Battery Testing and Replacement – Extending lifespan and efficiency",
+            "Cable Management and Wire Repair – Preventing short circuits and wear",
+            "Firmware Reinstallation – Restoring corrupted robot control software",
+            "Bearing and Gear Replacement – Ensuring smooth movement and operation",
+            "Structural Repairs – Fixing cracks and breaks in robot frames",
+            "Cleaning and Preventative Maintenance – Reducing downtime",
+            "4. Hardware Design for Robotics",
+            "3D Modeling and CAD for Robots – Using SolidWorks, Fusion 360, etc.",
+            "Design for Manufacturability (DFM) – Optimizing for production",
+            "Prototyping Methods – 3D printing, CNC machining, and laser cutting",
+            "Material Selection – Lightweight metals, composites, and plastics",
+            "Custom PCB Design – Creating control boards for specific needs",
+            "Design for Modularity – Building robots that can easily be expanded",
+            "Thermal Management – Heat sinks, cooling fans, and thermal paste",
+            "Ergonomic Design – Enhancing usability for human-robot interaction",
+            "Design for Safety and Compliance – Ensuring product meets regulations",
+            "Environmental Durability – Waterproof and dustproof design principles",
+            "Hardware Construction for Robotics (Construction-Worker Friendly)",
+            "Bill of Materials (BoM) Management – Creating accurate parts lists",
+            "IKEA-style Assembly Instructions – Clear step-by-step guides with visuals",
+            "Modular Kits for Robot Construction – Pre-built modules to snap together",
+            "Tools and Techniques – Use of common tools like Allen keys and screwdrivers",
+            "Color-coded Wiring and Connections – Simplifying electrical assembly",
+            "Pre-configured Motor and Servo Units – Plug-and-play actuators",
+            "Nanosauri-style Visual Assistants – AR tools for guided assembly",
+            "Error-proofing Construction – Easy alignment with interlocking parts",
+            "Quick Connectors for Electronics – No soldering needed",
+            "Testing Procedures during Construction – Ensuring components work at every step"
           ]
         },
         {

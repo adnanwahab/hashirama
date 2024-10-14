@@ -15,7 +15,18 @@ function RoboticsOdyssey() {
         <div className="overflow-hidden">
           <main>
 
+
+
             <TeleGuidance />
+
+            <div>
+top 3 uses className
+1. cleaning up the house
+2. feeding stray animals 
+3. buidling dynamicland
+4. vote here for more new usescases 
+
+            </div>
 
             <ObservablePreview></ObservablePreview>
 
