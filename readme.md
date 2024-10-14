@@ -6,7 +6,7 @@
 
 ## 1. Hardware Design + Repair
 
-## 2. Perception
+## 2. Perception + a little cgi
 
 ## 3. Planing + Predciton
 
@@ -14,18 +14,19 @@
 
 [![Watch the video](https://img.youtube.com/vi/NNzMjrJQKsc/maxresdefault.jpg)](https://youtu.be/NNzMjrJQKsc)
 [![Watch the video](https://img.youtube.com/vi/_gXiVOmaVSo/maxresdefault.jpg)](https://youtu.be/_gXiVOmaVSo)
-[![Watch the video](https://img.youtube.com/vi/mwMUJg2mfII/maxresdefault.jpg)](https://youtu.be/mwMUJg2mfII)
+[![Watch the video](https://img.youtube.com/vi/mwMUJg2mfII/maxresdefault.jpg)](https://youtu.be/mwMUJg2mfII) https://www.dailymotion.com/video/x8prum5
+https://youtu.be/SxdOUGdseq4?si=dh0gFVybuG8m3Mgw
 
 ![https://www.ssbwiki.com/File:R.O.B._Famicom.jpg](https://www.ssbwiki.com/images/f/fd/R.O.B._Famicom.jpg) - cooperative design of robots - 40,000 people - co-design
-ALan kay + his 25 friends created 60 Trillion in USD in 5 years - thats more than saudi aramco and 250 million years of dino saur fermentation using their mind!
-Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a>.
-OpeAI was made when Alan Kay met with YCResearch around 2016.
-Alan Kay said sam Altman = "the builder of a new civilization"
-Alan Kay spoke highly about one other individual [Bret Victor](https://worrydream.com).
-4. Bret's work has won the Apple Design Award twice.
-5. Bret victor basically said, everything he did before  2014 was past even i thought it was futuristic.
-7. But Bret Victor's newest creation - DynamicLand - is better than anything the world has seen
-bret said - programming is just thinking. writing is just thinking. anyone can do it. the best thinking is usually done in pictures! then translated back to a compact representation.
+# 1. ALan kay + his 25 friends created 60 Trillion in USD in 5 years - thats more than saudi aramco and 250 million years of dino saur fermentation using their mind!
+# 2. Alan kay asked <a href="https://internetat50.com/references/Kay_How.pdf">HOW?</a>.
+# 3. OpeAI was made when Alan Kay met with YCResearch around 2016.
+# 4. Alan Kay said sam Altman = "the builder of a new civilization"
+# 5. Alan Kay spoke highly about one other individual [Bret Victor](https://worrydream.com).
+# 4. Bret's work has won the Apple Design Award twice.
+# 5. Bret victor basically said, everything he did before  2014 was past even i thought it was futuristic.
+# 7. But Bret Victor's newest creation - DynamicLand - is better than anything the world has seen
+# 8. bret said - programming is just thinking. writing is just thinking. anyone can do it. the best thinking is usually done in pictures! then translated back to a compact representation.
 ---
 
 > In the Spring of 2016, VPRI joined as part of Y Combinator Research's (YCR) HARC -- Human Advancement Research Community.
@@ -51,10 +52,6 @@ This repo contains everything you need to build a super-cool robotics startup. (
 3. A deno server for server-side simulation, webgpu, and unity,unreal, nvidia omniverse integrations.
 4. [sqlite+litestream for db](https://youtu.be/RqubKSF3wig?si=M6okGXrR_pyKB-8J) - + tailscale for connectivity + starlink for 5g in hard to reach places.
 5. extra embedding infra for jetson-container-> $500 semi-autuonomous rosie for feeding cats.
-[![alt text](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)
-----transmission -> research papers / books /
-----llama-tools.com = mini-apple-intelligence nov 1
---- 3d captcha for open soruce eval
 
 # observablehq = the magic papyrus for bret's magic ink
 
@@ -75,4 +72,6 @@ favorite 3 interactive video-dioramas
 
 # Bibliopgrahy
 1. https://www.youtube.com/watch?v=yJDv-zdhzMY&ab_channel=Marcel
-2. thanks to BotParty, norvig, karpathy, pg, sicp, https://worrydream.com/MagicInk/ - (artist who paints with magic ink = you -- the reader)
+2. thanks to ~100 billion people for figuring things out.
+3. thanks to BotParty, norvig, karpathy, pg, sicp, https://worrydream.com/MagicInk/ - (artist who paints with magic ink = you -- the reader)
+[![alt text](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)](https://dynamicland.org/2024/Front_shelf/2dc5b9c5984d24df5d2aeaedf06442f8.jpg)
