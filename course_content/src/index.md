@@ -7,6 +7,8 @@ import {ApiHeatmap} from "./components/apiHeatmap.js";
 import {ApiHistogram} from "./components/apiHistogram.js";
 ```
 
+Thank the wizards - sicp - refleict visions - morophocde sidepanel -- loading bar +==++++++ rceive input from the electorate
+
 # Analyzing web logs
 
 Web logs capture traffic metadata, such as the request time and route, how long the server took to respond, the response size, and so on. Analyzing web logs sheds light on both server performance and client behavior. Yet the common practice of summary statistics (_e.g._, 95th-percentile latency) often hides interesting patterns! This is because performance varies wildly based on the nature of the request, and unusual clients such as bots can easily hide in a sea of “natural” traffic.

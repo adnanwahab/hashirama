@@ -1,19 +1,25 @@
 import React from 'react';
 import TwitchPlaysPokemonPanel from './TwitchPlaysPokemonPanel';
 import {useRef, useEffect, useState} from 'react';
-import { Runtime, Inspector } from  "@observablehq/runtime"
-import notebook1 from "@roboticsuniversity/livekit";
-import notebook2 from "@roboticsuniversity/robotics-hardware";
-import notebook3 from "@roboticsuniversity/voxels-diffusion-policy-3d";//"@roboticsuniversity/voxels-diffusion-policy-3d";
+//import { Runtime, Inspector } from  "@observablehq/runtime"
+//import notebook1 from "@roboticsuniversity/livekit";
+
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/@roboticsuniversity/livekit.js?v=4";
+import define2 from "https://api.observablehq.com/@roboticsuniversity/robotics-hardware.js?v=4";
+//import define3 from "https://api.observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d.js?v=4";
+import define3 from "https://api.observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d@84.js?v=4";
+
+// v??? - -- adsf 
 
 function Livekit() {
   const lOGORef = useRef();
 
   useEffect(() => {
     const runtime = new Runtime();
-    runtime.module(notebook1, name => {
+    runtime.module(define, name => {
       console.log(name)
-      if (name === "LOGO") return new Inspector(lOGORef.current);
+       if (name === "LOGO") return new Inspector(lOGORef.current);
     });
     return () => runtime.dispose();
   }, []);
@@ -25,13 +31,19 @@ function Livekit() {
     </>
   );
 }
+
+
+// import notebook2 from "@roboticsuniversity/robotics-hardware";
+
 function RoboticsHardware() {
   const viewofModuleNameRef = useRef();
 
   useEffect(() => {
     const runtime = new Runtime();
-    runtime.module(notebook1, name => {
-      if (name === "viewof moduleName") return new Inspector(viewofModuleNameRef.current);
+    runtime.module(define2, name => {
+      if (name === "LOGO") return new Inspector(viewofModuleNameRef.current);
+      console.log(name)
+      //if (name === "viewof moduleName") return new Inspector(viewofModuleNameRef.current);
       return ["basicRequire","dynamicImport","skypackImport","bundleRun","scavengingForLinks","globalLeaksPattern","pkg"].includes(name);
     });
     return () => runtime.dispose();
@@ -50,8 +62,9 @@ function DiffusionVoxelPointCloud() {
 
   useEffect(() => {
     const runtime = new Runtime();
-    runtime.module(notebook1, name => {
-      if (name === "viewof moduleName") return new Inspector(viewofModuleNameRef.current);
+    runtime.module(define3, name => {
+      //if (name === "viewof moduleName") return new Inspector(viewofModuleNameRef.current);
+      if (name === "NOTCH") return new Inspector(viewofModuleNameRef.current);
       return ["basicRequire","dynamicImport","skypackImport","bundleRun","scavengingForLinks","globalLeaksPattern","pkg"].includes(name);
     });
     return () => runtime.dispose();
@@ -74,9 +87,8 @@ function TeleGuidance() {
   return (
     <div className="bg-gray-900 ">
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        {/* <h2 className="text-base font-semibold text-indigo-400">Deploy faster</h2> */}
         <p className="mt-2 max-w-lg text-4xl font-medium tracking-tight text-white sm:text-5xl">
-          {/* Everything you need to deploy your app. */}
+
         </p>
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
           <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
@@ -84,27 +96,14 @@ function TeleGuidance() {
     
       <Livekit />
             </div>
-            {/* <div className="p-10">
-              <h3 className="text-sm font-semibold text-gray-400">Releases</h3>
-              <p className="mt-2 text-lg font-medium tracking-tight text-white">Push to deploy</p>
-              <p className="mt-2 max-w-lg text-sm text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida justo et nulla efficitur, maximus
-                egestas sem pellentesque.
-              </p>
-            </div> */}
+   
           </div>
           <div className="lg:col-span-2 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
             <div className="flex-grow">
-            <TwitchPlaysPokemonPanel/>
+            {/* <TwitchPlaysPokemonPanel/> */}
 
             </div>
-            {/* <div className="p-10">
-              <h3 className="text-sm font-semibold text-gray-400">Integrations</h3>
-              <p className="mt-2 text-lg font-medium tracking-tight text-white">Connect your favorite tools</p>
-              <p className="mt-2 max-w-lg text-sm text-gray-400">
-                Curabitur auctor, ex quis auctor venenatis, eros arcu rhoncus massa.
-              </p>
-            </div> */}
+       
           </div>
           <div className="lg:col-span-2 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
             <div className="flex-grow">
@@ -115,29 +114,15 @@ function TeleGuidance() {
 
               {/* <TeleGuidanceFrame link={list_of_links[2]}/> */}
             </div>
-            {/* <div className="p-10">
-              <h3 className="text-sm font-semibold text-gray-400">Security</h3>
-              <p className="mt-2 text-lg font-medium tracking-tight text-white">Advanced access control</p>
-              <p className="mt-2 max-w-lg text-sm text-gray-400">
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.
-              </p>
-            </div> */}
+   
           </div>
           <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
             <div className="flex-grow">
             <DiffusionVoxelPointCloud/>
 
-            {/* <ModuleRequireDebugger /> */}
-              {/* <TeleGuidanceFrame link={list_of_links[3]}/> */}
+  
             </div>
-            {/* <div className="p-10">
-              <h3 className="text-sm font-semibold text-gray-400">Performance</h3>
-              <p className="mt-2 text-lg font-medium tracking-tight text-white">Lightning-fast builds</p>
-              <p className="mt-2 max-w-lg text-sm text-gray-400">
-                Sed congue eros non finibus molestie. Vestibulum euismod augue vel commodo vulputate. Maecenas at
-                augue sed elit dictum vulputate.
-              </p>
-            </div> */}
+ 
           </div>
         </div>
       </div>

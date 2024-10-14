@@ -1,10 +1,14 @@
 
 // import text from "./human_robot.txt"
-
+// https://www.jasper.ai/
 
 //seuqelitis 
 //metal gear solid - explain war 
 // fallouit - war never changes - 
+
+//             {/* <Admin_Panel /> */}
+// import Box from './Box';
+
 
 function PowerPoint(){
   // mega man x 
@@ -15,7 +19,9 @@ function PowerPoint(){
   return <>illusory reality: </>
 }
 
+// show -> 200,000 pull request in 3 days - iterate on that for 90 days - as far as you know - no oen has used a language model in this way.
 
+// if you invet 5k in robtoics-odyssey+arthur simon - then ill send you back 10k in 365 days - should be better ereturns than anything on the stock market 
 
 // import admin panel
 // import reflect + alll email

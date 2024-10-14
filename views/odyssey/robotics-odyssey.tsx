@@ -5,8 +5,6 @@ import Footer from './Footer';
 import TwitchPlaysPokemonPanel from './TwitchPlaysPokemonPanel';
 import TeleGuidance from './TeleGuidance';
 import DynamicHow from './Dynamichow';
-import Box from './Box';
-
 import PowerPoint from "./PowerPoints";
 
 
@@ -52,11 +50,10 @@ function RoboticsOdyssey() {
             </h1>
             <h2 className="text-white"><PowerPoint /></h2>
             
-            <TeleGuidance /> 
-            <ObservablePreview></ObservablePreview>
-            <DynamicHow  /> 
-            {/* <Admin_Panel /> */}
-            {/* <Box></Box> */}
+         <div className="border border-white/10"> <TeleGuidance />  </div>
+            <div className="border border-white/10"> <ObservablePreview></ObservablePreview> </div>
+            <div className="border border-white/10"> <DynamicHow  />  </div>
+            <PowerPoint />
             <Footer />
           </main>
         </div>

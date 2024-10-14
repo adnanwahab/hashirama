@@ -1,11 +1,18 @@
 import React from 'react';
 import TwitchPlaysPokemonPanel from './TwitchPlaysPokemonPanel';
-import notebook from "@roboticsuniversity/alan_how";
-import notebook2 from "@roboticsuniversity/dynamicland";//"@roboticsuniversity/voxels-diffusion-policy-3d";
+//import notebook from "@roboticsuniversity/alan_how";
+//import notebook2 from "@roboticsuniversity/dynamicland";//"@roboticsuniversity/voxels-diffusion-policy-3d";
 // analyze seinfeild - cant be constant comedy - some boring parts -- watch youtube -with vonnegut annotaion - tvroeps is a datum
 // kapil gupta was a doctor who discovered presiciptriosn were like sledge hammers for yuor neurons - AUC - attia + sapolsky -> 
 // https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable
+import {useRef, useEffect} from "react";
+import {Runtime, Inspector} from "@observablehq/runtime";
 
+//import notebook from "https://api.observablehq.com/@roboticsuniversity/alan_how?v=4";
+//import notebook2 from "https://api.observablehq.com/@roboticsuniversity/dynamicland?v=4";
+
+import notebook from "https://api.observablehq.com/@roboticsuniversity/alan_how.js?v=4";
+import define from "https://api.observablehq.com/@roboticsuniversity/dynamicland.js?v=4";
 
 function Alanhow() {
   const planeDivRef = useRef();
@@ -35,16 +42,13 @@ function Alanhow() {
 
 
 
-//export default Alanhow;
-
-
 function DynamicLand() {
   const viewofModuleNameRef = useRef();
 
   useEffect(() => {
     const runtime = new Runtime();
-    runtime.module(notebook2, name => {
-      if (name === "viewof moduleName") return new Inspector(viewofModuleNameRef.current);
+    runtime.module(define, name => {
+      if (name === "staticDynamicland") return new Inspector(viewofModuleNameRef.current);
       return ["basicRequire","dynamicImport","skypackImport","bundleRun","scavengingForLinks","globalLeaksPattern","pkg"].includes(name);
     });
     return () => runtime.dispose();
@@ -58,68 +62,11 @@ function DynamicLand() {
   );
 }
 
-function TeleGuidanceFrame(props) {
-  let  src = props.link;
-  if (typeof src === 'function') {
-    console.log("returning twitch pane")
-   return <TwitchPlaysPokemonPanel/>
-  }
-console.log("returning iframe", src)
- //src = "https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*"
-  return (
-    <iframe
- 
-      className="border border-white/10 h-96 object-cover object-left w-full"
-      src={src}
-    ></iframe>
-  );
-}
 
-
-import {useRef, useEffect} from "react";
-import {Runtime, Inspector} from "@observablehq/runtime";
-//import notebook from "@roboticsuniversity/alan_how";
-// function Alanhow() {
-//   // const ref = useRef();
-
-//   // useEffect(() => {
-//   //   const runtime = new Runtime();
-//   //   runtime.module(notebook, Inspector.into(ref.current));
-//   //   return () => runtime.dispose();
-//   // }, []);
-
-//   return (
-//     <>
-//       {/* <div ref={ref} /> */}
-//       <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/alan_how@110">ALan - how? by roboticsuniversity</a></p>
-//     </>
-//   );
-// }
-
-
-// export default Alanhow;
-
-
-// function Alanhow() {
-//   return <iframe
- 
-//   className="border border-white/10 h-96 object-cover object-left w-full"
-//   src="https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*"
-// ></iframe>
-
-// }
-function DynamicLandOde() {
-  return <iframe width="100%" height="660" frameborder="0"
-  src="https://observablehq.com/embed/@roboticsuniversity/dynamicland?cells=staticDynamicland"></iframe>
-
-}
 
 
 function DynamicHow() {
-  const second_bento = [
-    'https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*',
-    'https://observablehq.com/embed/@roboticsuniversity/alan-how?cell=*',
-  ]
+
   
     return (
       <div className="bg-slate-900 ">
