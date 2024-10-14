@@ -33,37 +33,35 @@ function Admin_Panel() {
   );
 }
 
+
+// use lots of negative space ---??? maybe ---- try ------ clairty js to see how people fele? 
+
+// also ->>> experiment with alayouts and make it easy to swap layouts super easy 
+
+// prompt -> gen codde -> 3 widgets -> replace them as wyou swish -> radio 
+
 function RoboticsOdyssey() {
   return (
-    <html className="dark">
+    <div className="dark">
       <Header />
-      <body className="text-gray-950 antialiased bg-slate-900">
+      <div className="text-gray-950 antialiased bg-slate-900">
         <div className="overflow-hidden flex justify-center items-center min-h-screen">
           <main>
-        
-
-          <h1 className="text-white">
-            Thanks to BotParty.org + Dynamicland.org!
+            <h1 className="text-white">
+              Thanks to BotParty.org + Dynamicland.org!
             </h1>
             <h2 className="text-white"><PowerPoint /></h2>
             
-             {/* <TeleGuidance />  */}
-
-        
-
-            {/* <ObservablePreview></ObservablePreview> */}
-
-              {/* <DynamicHow  />  */}
-
-
-
-              {/* <Admin_Panel /> */}
-              {/* <Box></Box> */}
-                  <Footer />
+            <TeleGuidance /> 
+            <ObservablePreview></ObservablePreview>
+            <DynamicHow  /> 
+            {/* <Admin_Panel /> */}
+            {/* <Box></Box> */}
+            <Footer />
           </main>
         </div>
-      </body>
-    </html>
+      </div>
+    </div>
   );
 }
 

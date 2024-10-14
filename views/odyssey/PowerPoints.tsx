@@ -2,6 +2,10 @@
 // import text from "./human_robot.txt"
 
 
+//seuqelitis 
+//metal gear solid - explain war 
+// fallouit - war never changes - 
+
 function PowerPoint(){
   // mega man x 
   // current status quo - founder of way mo - hoe noe robots will eat us - people are ivevil wow
@@ -12,5 +16,14 @@ function PowerPoint(){
 }
 
 
+
+// import admin panel
+// import reflect + alll email
+// proxy somehow? 
+// finish flirt flow - iframe on a proxy of a webrtc rustddesk + swipe on peopel you like + first 50% smalltalk -> ask 3 questions - based on asnwer -> send phone number
+// cgi TOOLS + LLAMA TOOSL .com 
+// link to bumble ceo saying - ai matchatmaking 
+
+// link to ocarina of time - sorry go back to your time lime -> no one cares + gannon = past. - all we have is wisomd can docurgage -  
 export default PowerPoint;
 

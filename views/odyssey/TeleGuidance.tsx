@@ -7,21 +7,21 @@ import notebook2 from "@roboticsuniversity/robotics-hardware";
 import notebook3 from "@roboticsuniversity/voxels-diffusion-policy-3d";//"@roboticsuniversity/voxels-diffusion-policy-3d";
 
 function Livekit() {
-  const viewofModuleNameRef = useRef();
+  const lOGORef = useRef();
 
   useEffect(() => {
     const runtime = new Runtime();
     runtime.module(notebook1, name => {
-      if (name === "viewof moduleName") return new Inspector(viewofModuleNameRef.current);
-      return ["basicRequire","dynamicImport","skypackImport","bundleRun","scavengingForLinks","globalLeaksPattern","pkg"].includes(name);
+      console.log(name)
+      if (name === "LOGO") return new Inspector(lOGORef.current);
     });
     return () => runtime.dispose();
   }, []);
 
   return (
     <>
-      <div ref={viewofModuleNameRef} />
-      <p class="text-green-100">Credit: <a href="https://observablehq.com/@observablehq/module-require-debugger">LIVE KIT = WEBRTC = GREAT</a></p>
+      <div ref={lOGORef} />
+      <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/livekit@132">TeleGuidance - Cooperative Robotics Control by roboticsuniversity</a></p>
     </>
   );
 }
@@ -40,7 +40,7 @@ function RoboticsHardware() {
   return (
     <>
       <div ref={viewofModuleNameRef} />
-      <p class="text-green-100">Credit: <a href="https://observablehq.com/@observablehq/module-require-debugger">LIVE KIT = WEBRTC = GREAT</a></p>
+      <p className="text-green-100">Credit: <a href="https://observablehq.com/@observablehq/module-require-debugger">LIVE KIT = WEBRTC = GREAT</a></p>
     </>
   );
 }
@@ -60,7 +60,7 @@ function DiffusionVoxelPointCloud() {
   return (
     <>
       <div ref={viewofModuleNameRef} />
-      <p class="text-green-100">Credit: <a href="https://observablehq.com/@observablehq/module-require-debugger">LIVE KIT = WEBRTC = GREAT</a></p>
+      <p className="text-green-100">Credit: <a href="https://observablehq.com/@observablehq/module-require-debugger">LIVE KIT = WEBRTC = GREAT</a></p>
     </>
   );
 }
@@ -207,3 +207,4 @@ const list_of_links = [
 // bun add "https://api.observablehq.com/@roboticsuniversity/robotics-hardware.tgz"
 // bun add "https://api.observablehq.com/@roboticsuniversity/3-planning-prediction.tgz"
 // bun add "https://api.observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d.tgz"
+
