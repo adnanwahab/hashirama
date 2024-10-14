@@ -3,7 +3,7 @@ Our goal is to make everyone's life 20% easier in 5 years by constructing a dyna
 TLDR: To support this project - please follow[https://worrydream.com - ](https://x.com/worrydream), thank you.
 # Why?? dynamicland.org = the coolest thing ever
 
-# observablehq = the magic papyrus for bret's magic ink
+## observablehq = the magic papyrus for bret's magic ink
 
 ## 1. Hardware Design + Repair
 
@@ -33,21 +33,11 @@ TLDR: To support this project - please follow[https://worrydream.com - ](https:/
 > — _Edward Tuft_ recognized Bret as
 > “design theory wizard, at the cutting edge of interface designs for programming, seeing, reasoning”
 ![https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg](https://dynamicland.org/2024/Roots/e4129e4c77f4d01b2c44d59cfaef451f.jpg)
-This repo contains everything you need to build a super-cool robotics startup. ([shipfast](https://shipfa.st/) for robotics)
-1. A react app for MMO-tele-operation + admin for ops, safety, understanding theory->practice.
-2. A (react-native+livekit) app to code agents using on-device llm to gen correct prompts to auto-write infra+anything you want.
-3. A deno server for server-side simulation, webgpu, and unity,unreal, nvidia omniverse integrations.
-4. [sqlite+litestream for db](https://youtu.be/RqubKSF3wig?si=M6okGXrR_pyKB-8J) - + tailscale for connectivity + starlink for 5g in hard to reach places.
 ![https://worrydream.com/MagicInk/p/logo.png](https://worrydream.com/MagicInk/p/logo.png)
-
-<!-- http://cm.bell-labs.com/cm/ms/what/shannonday/shannon1948.pdf -->
 ![https://worrydream.com/SeeingSpaces/SeeingSpaces.jpg](https://worrydream.com/SeeingSpaces/SeeingSpaces.jpg)
-
-<!-- https://worrydream.com/MagicInk/predictor.lua -->
 
 > Our pioneers are those who transcend interaction—designers whose creations anticipate, not obey. The hero of tomorrow is not the next Steve Wozniak, but the next William Playfair. An artist who redefines how people learn. An artist who paints with magic ink.
 > ___Bret Victor__
-
 # Bibliopgrahy
 1. https://www.youtube.com/watch?v=yJDv-zdhzMY&ab_channel=Marcel
 2. thanks to ~100 billion people for figuring things out.
@@ -60,3 +50,5 @@ favorite 3 interactive video-dioramas
 3. dota + best mod + wow 4 multiplayer story-design + deus ex: invisible war 4 best prediction
 >  "we understand our mental procceses as much as fish understand water"
 > _John Mccarthy_ - Mathematics of Common Sense
+<!-- http://cm.bell-labs.com/cm/ms/what/shannonday/shannon1948.pdf -->
+<!-- https://worrydream.com/MagicInk/predictor.lua -->
