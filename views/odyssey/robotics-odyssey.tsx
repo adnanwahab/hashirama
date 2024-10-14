@@ -7,11 +7,6 @@ import TeleGuidance from './TeleGuidance';
 import DynamicHow from './Dynamichow';
 import PowerPoint from "./PowerPoints";
 
-
-import {useRef, useEffect} from "react";
-import {Runtime, Inspector} from "@observablehq/runtime";
-import notebook from "@roboticsuniversity/agent-dashboard";
-
 function Admin_Panel() {
   const viewofTableRef = useRef();
 
@@ -30,13 +25,6 @@ function Admin_Panel() {
     </>
   );
 }
-
-
-// use lots of negative space ---??? maybe ---- try ------ clairty js to see how people fele? 
-
-// also ->>> experiment with alayouts and make it easy to swap layouts super easy 
-
-// prompt -> gen codde -> 3 widgets -> replace them as wyou swish -> radio 
 
 function RoboticsOdyssey() {
   return (

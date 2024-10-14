@@ -18,25 +18,27 @@
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.7.4",
     "@iconify-json/mdi": "^1.1.66",
+    "@tailwindcss/forms": "^0.5.9",
     "@vitejs/plugin-react": "^4.3.2",
     "daisyui": "4.6.1",
     "eslint-config-prettier": "^9.1.0",
+    "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "standard": "^17.1.2",
     "tailwindcss": "^3.4.13",
     "tailwindcss-3d": "^1.0.7",
     "vite": "^5.4.8",
-    "vitepress": "^1.4.0",
-    "@tailwindcss/forms": "^0.5.9",
-    "postcss": "^8.4.47"
+    "vitepress": "^1.4.0"
   },
   "dependencies": {
-    "d3": "^7.9.0",
-    "@observablehq/runtime": "5",
-    "dynamicland": "https://api.observablehq.com/@roboticsuniversity/dynamicland.tgz",
-    "livekit": "https://api.observablehq.com/@roboticsuniversity/livekit.tgz",
     "3-planning-prediction": "https://api.observablehq.com/@roboticsuniversity/3-planning-prediction.tgz",
-    "voxels-diffusion-policy-3d": "https://api.observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d.tgz",
+    "@anthropic-ai/sdk": "^0.29.0",
+    "@headlessui/react": "^2.1.10",
+    "@observablehq/runtime": "5",
+    "@heroicons/react": "^2.1.4",
+    "framer-motion": "^11.2.10",
+
+    "@octokit/rest": "^21.0.2",
     "@roboticsuniversity/agent-dashboard": "https://api.observablehq.com/@roboticsuniversity/agent-dashboard@70.tgz?v=3",
     "@roboticsuniversity/alan_how": "https://api.observablehq.com/@roboticsuniversity/alan_how.tgz?v=3",
     "@roboticsuniversity/dynamicland": "https://api.observablehq.com/@roboticsuniversity/dynamicland.tgz?v=3",
@@ -44,7 +46,11 @@
     "@roboticsuniversity/ode-to-dynamicland-org": "https://api.observablehq.com/@roboticsuniversity/ode-to-dynamicland-org.tgz?v=3",
     "@roboticsuniversity/robotics-hardware": "https://api.observablehq.com/@roboticsuniversity/robotics-hardware.tgz?v=3",
     "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
+    "d3": "^7.9.0",
     "dotenv": "^16.4.5",
+    "dynamicland": "https://api.observablehq.com/@roboticsuniversity/dynamicland.tgz",
+    "livekit": "https://api.observablehq.com/@roboticsuniversity/livekit.tgz",
     "livekit-client": "^2.5.7",
     "livekit-server-sdk": "^2.7.0",
     "octokit": "^4.0.2",
@@ -54,7 +60,6 @@
     "react-dom": "^18.3.1",
     "replicate": "^1.0.0",
     "sqlite3": "^5.1.7",
-    "@anthropic-ai/sdk": "^0.29.0",
-    "@octokit/rest": "^21.0.2"
+    "voxels-diffusion-policy-3d": "https://api.observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d.tgz"
   }
 }

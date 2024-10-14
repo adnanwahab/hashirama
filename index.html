@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <div>
-
       <meta
         property="og:title"
         content="Robotics Odyssey - Reimagining Robotics: Merging Systems Thinking and Dynamic Media"
@@ -50,126 +49,22 @@
       />
       <meta name="language" content="English" />
       <link href="/static/css/output.css" rel="stylesheet" />
-      <script src="/static/js/htmx.js"></script>
+      <!-- <script src="/static/js/htmx.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 
       <link
         rel="stylesheet"
         type="text/css"
         href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css"
-      />
+      /> -->
     </div>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS 3D Perspective Animation</title>
-   
-    <script>
-     // const socket = new WebSocket("ws://localhost/ws");
-const socket = {}
-      socket.onopen = function(event) {
-        console.log("WebSocket is open now.");
-      };
 
-      socket.onmessage = function(event) {
-        console.log("WebSocket message received:", event.data);
-      };
-      socket.onclose = function(event) {
-        console.log("WebSocket is closed now.");
-      };
-
-      socket.onerror = function(error) {
-        console.error("WebSocket error observed:", error);
-      };
-
-// const refreshInterval = setInterval(() => {
-//   socket.send("refresh");
-// }, 5000);
-
-// socket.onmessage = function(event) {
-//   if (event.data === "refresh") {
-//     window.location.reload();
-//   } else {
-//     console.log("WebSocket message received:", event.data);
-//   }
-// };
-
-// // Cleanup interval on socket close
-// socket.onclose = function(event) {
-//   clearInterval(refreshInterval);
-//   console.log("WebSocket is closed now.");
-// };
-//       // frontend script
-// function refreshPage() {
-//   window.location.reload();
-// }
-
-// const eventSource = new EventSource("/sse");
-// eventSource.onmessage = (event) => {
-//   if (event.data === "refresh") {
-//     refreshPage();
-//   } else {
-//     console.log(event.data);
-//   }
-// };
-
-    </script>
-
-    <!-- <script type="module">
-
-import {
-createLocalTracks,
-    Participant,
-    RemoteParticipant,
-    RemoteTrack,
-    RemoteTrackPublication,
-    RoomEvent,
-VideoPresets,
-    Track,
-    LocalTrackPublication,
-    LocalParticipant,
-    Room 
-} from 'https://unpkg.com/livekit-client@2.5.7/dist/livekit-client.esm.mjs?module'
-
- // Replace with a valid token
-
-
-  //  const data = { identity: "happydream" + Math.random() };
-  const token_get_url = `livekit_connect?identity="happydream.5"`;
-  const datum = await d3.json(token_get_url);
-
-
-//   {const roomName = 'my-room';
-const token =  datum.token
-//token_get_url = `https://shels-macbook-pro.jerboa-kokanue.ts.net/livekit?identity="happydream.5"`
-const client = new LiveKitClient({
-  // Your LiveKit server URL
-  token: datum.token,
-  url: datum.wsUrl
-});
-
-client.connect(token).then(() => {
-  const room = client.joinRoom(roomName);
-
-  // Create a track from the local MP4 file
-  const track = room.createTrack('video', 'local-video', {
-    source: 'file',
-    filePath: 'static/day1.mp4',
-  });
-
-  // Publish the track to the room
-  room.publishTrack(track);
-});
-
-
-
-
-
-    </script>
-   -->
   </head>
   <body >
 
-    <!-- {{template roboticsodyssey}} -->
     <div id="root"></div>
     <div id="app"></div>
 
@@ -177,17 +72,6 @@ client.connect(token).then(() => {
 
   </body>
 </html>
-
-<!--
-        <div id="observablehq-2a85717e"></div>
-<p>Credit: <a href="https://observablehq.com/@roboticsuniversity/alanthree">Three.js by roboticsuniversity</a></p>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-<script type="module">
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-import define from "https://api.observablehq.com/@roboticsuniversity/alanthree.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-2a85717e"));
-</script> -->
 
 
 <!-- const fileKey = "your-file-key";
