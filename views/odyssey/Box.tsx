@@ -389,12 +389,20 @@ function Hafu() {
 }
 // https://www.youtube.com/watch?v=lX6JcybgDFo
 function BotNDolly() {
-
-    return <div className={`bg-blue-100 w-${size} h-${size}`}>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lX6JcybgDFo?si=MGWz9S046-TL9I1W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
-    </div>
+    return (
+        <div className={`bg-blue-100 w-${size} h-${size}`}>
+            <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/lX6JcybgDFo?si=MGWz9S046-TL9I1W"
+                title="YouTube video player"
+                frameBorder="0" // Corrected to camelCase
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin" // Corrected to camelCase
+                allowFullScreen // Corrected to camelCase
+            ></iframe>
+        </div>
+    );
 }
 
 function _() {
@@ -407,10 +415,9 @@ function _() {
 
     
    const elements = d3.shuffle([
-
         // <PeriodicTable />,
         // <Hafu />,
-        <BotNDolly />,
+        <BotNDolly key="botndolly" />,
         // <_ />,
         // <ReadmeInfo />
     ])

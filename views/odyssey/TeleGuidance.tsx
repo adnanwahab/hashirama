@@ -3,7 +3,7 @@ import TwitchPlaysPokemonPanel from "./TwitchPlaysPokemonPanel";
 import { useRef, useEffect, useState } from "react";
 //import { Runtime, Inspector } from  "@observablehq/runtime"
 //import notebook1 from "@roboticsuniversity/livekit";
-
+// btw i publish my rewind.ai, reflect.app, and more daialy to a public folder 4 fun - like carmack.plna - hope to be like him in 25 years like jiro dreams of sushi guy making his first souffle 
 import {
   Runtime,
   Inspector,
@@ -180,10 +180,9 @@ function TeleGuidance() {
 
             {/* <TeleGuidanceFrame link={list_of_links[2]}/> */}
           </div>
-          <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden" style={{ maxHeight: '50vh' }}>
-          <iframe width="100%" height="105" 
-  src="https://observablehq.com/embed/@roboticsuniversity/alanthree@327?cells=pointerAndObjects"></iframe>
-            
+          <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden" style={{ maxHeight: '75vh' }}>
+          <iframe width="900px" height="500px" frameborder="0"
+  src="https://observablehq.com/embed/@roboticsuniversity/alanthree?cell=*"></iframe>
             
             <DiffusionVoxelPointCloud />
           </div>
@@ -192,6 +191,33 @@ function TeleGuidance() {
     </div>
   );
 }
+
+
+
+// import React, {useRef, useEffect} from "react";
+// import {Runtime, Inspector} from "@observablehq/runtime";
+//import alanthree from "@roboticsuniversity/alanthree";
+//import alanthree from "https://api.observablehq.com/@roboticsuniversity/alanthree.js?v= ";
+import alanthree from "https://api.observablehq.com/@roboticsuniversity/alanthree.js?v=4";
+
+function Alanthree() {
+  const ref = useRef();
+
+  useEffect(() => {
+    const runtime = new Runtime();
+    runtime.module(alanthree, Inspector.into(ref.current));
+    return () => runtime.dispose();
+  }, []);
+
+  return (
+    <>
+      <div ref={ref} />
+      <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/alanthree">Three.js by roboticsuniversity</a></p>
+    </>
+  );
+}
+
+//export default Alanthree;
 
 //https://github.com/Erkaman/regl-cnn
 // blip - see conosole - import 

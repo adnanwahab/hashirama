@@ -25,7 +25,7 @@ function PowerPoint() {
     ></iframe>,
   <iframe key="mechanics-design"  src="http://davidcole.me/mechanics-design.html"></iframe>,
     <img 
-    
+    key="reflect-notion-homage"
     className="rainbow-ify"
     src={reflectNotionHomage}></img>,
 

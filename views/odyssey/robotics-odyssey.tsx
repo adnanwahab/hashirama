@@ -25,7 +25,7 @@ function RoboticsOdyssey() {
             </div>
             <div className="border border-white/10">
            
-              {/* <ObservablePreview></ObservablePreview>{" "} */}
+              <ObservablePreview></ObservablePreview>{" "}
 
 
 
