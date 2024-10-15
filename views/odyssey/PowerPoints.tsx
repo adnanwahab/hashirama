@@ -1,7 +1,7 @@
 // import text from "./human_robot.txt"
 // https://www.jasper.ai/
 
-import reflectNotionHomage from '../../public/reflect_notion_homage.png';
+import reflectNotionHomage from "../../public/reflect_notion_homage.png";
 
 //seuqelitis
 //metal gear solid - explain war
@@ -11,29 +11,26 @@ import reflectNotionHomage from '../../public/reflect_notion_homage.png';
 // import Box from './Box';
 
 function PowerPoint() {
-  return (<div class="flex flex-row">[
-   
-    <iframe
-    key="youtube"
-      width="560"
-      height="215"
-      src="https://www.youtube.com/embed/SxdOUGdseq4?si=dh0gFVybuG8m3Mgw"
-      title="YouTube video player"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      
-    ></iframe>,
-  <iframe key="mechanics-design"  src="http://davidcole.me/mechanics-design.html"></iframe>,
-  ,
-
-]  </div>,
-
-<div>my goal = to make all code 100% open sauce like rms wanted because otherwise robots might eat the toaster oh noes.</div>,
-<img 
-    key="reflect-notion-homage"
-    className="rainbow-ify"
-    src={reflectNotionHomage}></img>
-);
+  return (
+    <div class="flex flex-row">
+      [
+      <iframe
+        key="youtube"
+        width="560"
+        height="215"
+        src="https://www.youtube.com/embed/SxdOUGdseq4?si=dh0gFVybuG8m3Mgw"
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      ></iframe>
+      ,
+      <iframe
+        key="mechanics-design"
+        src="http://davidcole.me/mechanics-design.html"
+      ></iframe>
+      , , ]{" "}
+    </div>
+  );
 
   // mega man x
   // current status quo - founder of way mo - hoe noe robots will eat us - people are ivevil wow
@@ -42,6 +39,12 @@ function PowerPoint() {
   // morrowind reference - level up + vanquish guy in temple + secret speeds of bldinign speed + bremen + astonrach + TODO - find thing + olbivison poprtal + dragon from skyrum - --- add psycemttric profile - 80% career + 20% big5 + seung lab
   return <>illusory reality: </>;
 }
+
+// <img
+//   key="reflect-notion-homage"
+//   className="rainbow-ify"
+//   src={reflectNotionHomage}
+// ></img>
 
 // all girls are infinite works of art
 // but there was one, before the great pandemic.
