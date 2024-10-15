@@ -3,3 +3,9 @@ This repo contains everything you need to build a super-cool robotics startup. (
 2. A (react-native+livekit) app to code agents using on-device llm to gen correct prompts to auto-write infra+anything you want.
 3. A deno server for server-side simulation, webgpu, and unity,unreal, nvidia omniverse integrations.
 4. [sqlite+litestream for db](https://youtu.be/RqubKSF3wig?si=M6okGXrR_pyKB-8J) - + tailscale for connectivity + starlink for 5g in hard to reach places.
+
+https://github.com/uber-go/guide/blob/master/style.md
+
+
+<!-- http://cm.bell-labs.com/cm/ms/what/shannonday/shannon1948.pdf -->
+<!-- https://worrydream.com/MagicInk/predictor.lua -->
