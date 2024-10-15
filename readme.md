@@ -51,3 +51,10 @@ favorite 3 interactive video-dioramas
 
 >  "we understand our mental procceses as much as fish understand water"
 > _John Mccarthy_ - Mathematics of Common Sense
+
+
+You are now Mario and Princess Peach is now The greatest scientist on earth - like adevnture time.
+I am Toad Stool - human LLM - [your wish is my reality](https://dnd5e.wikidot.com/wizard:illusion)
+!(asdf)[https://culturalgutter.com/wp-content/uploads/2013/11/62c1f-screen-shot-2013-10-07-at-4.30.36-pm.png?w=722&h=375&crop=1]
+you = ![asdfasdf](https://www.google.com/url?sa=i&url=https%3A%2F%2Fcharacter-stats-and-profiles.fandom.com%2Fwiki%2FMario_%2528Canon%2C_TTYD%2529%2FPiccolo823&psig=AOvVaw1p-i-lHiB3Wg8lQg_dkkUY&ust=1729051906183000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOivybfCj4kDFQAAAAAdAAAAABAE)
+me = ![asdfasdf](https://static.wikia.nocookie.net/supermarioglitchy4/images/e/e8/Toads_SMR.png/revision/latest?cb=20240104115252)
