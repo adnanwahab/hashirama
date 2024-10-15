@@ -70,13 +70,34 @@ function Livekit() {
 
 // import notebook2 from "@roboticsuniversity/robotics-hardware";
 
-import { Tldraw } from 'tldraw'
+import { Tldraw, TldrawApp, TDDocument } from '@tldraw/tldraw';
+
 import 'tldraw/tldraw.css'
 
  function Whiteboard() {
+  const handleMount = (app: TldrawApp) => {
+
+  //app.selectTool('pencil'); 
+
+  // Hide all unnecessary controls like UI, panels, etc.
+  // app.updateSettings({
+  //   isReadonly: true, // Disable interactions that aren't drawing.
+  //   showPages: false, // Hide pages panel.
+  //   showMenu: false,  // Hide the top menu.
+  //   showStyles: false, // Hide style panel.
+  //   showZoom: false,  // Hide zoom controls.
+  //   showMultiplayerMenu: false, // Hide multiplayer options.
+  //   showStatusBar: false, // Hide the status bar.
+  // });
+};
 	return (
 		<div style={{ width: '300px', height: '300px',  inset: 0 }}>
-			<Tldraw />
+		 <Tldraw
+      autofocus // Optional: Focus on the canvas automatically.
+      disableAssets={true} // Disable assets upload.
+      showUI={false} // Hide the general UI.
+      onMount={handleMount} // Set up the app with custom behavior.
+    />
 		</div>
 	)
 }
@@ -131,8 +152,9 @@ function DiffusionVoxelPointCloud() {
   useEffect(() => {
     const runtime = new Runtime();
     runtime.module(VoxelNotebook, name => {
-      if (name === "LOGO") return new Inspector(lOGORef.current);
       if (name === "NOTCH") return new Inspector(nOTCHRef.current);
+      if (name === "LOGO") return new Inspector(lOGORef.current);
+
     });
     return () => runtime.dispose();
   }, []);
@@ -141,8 +163,9 @@ function DiffusionVoxelPointCloud() {
   return (
     <>
       <VoxelPainter />
-      <div ref={lOGORef} />
       <div ref={nOTCHRef} />
+      <div ref={lOGORef} />
+
       {/* <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d@88">Voxels + diffusion-policy-3d by roboticsuniversity</a></p> */}
     </>
   );
@@ -152,9 +175,6 @@ function DiffusionVoxelPointCloud() {
 
 
 
-// https://files.hashirama.blog/static/blog/seeing/cropped_image_0.png
-// https://files.hashirama.blog/static/blog/animated_gifs/Optimized%20%281%29.gif
-// https://files.hashirama.blog/static/blog/animated_gifs/samus.jpeg
 function TeleGuidance() {
   const list_of_links = [
     "https://observablehq.com/embed/@roboticsuniversity/livekit?cell=*",
@@ -180,7 +200,7 @@ function TeleGuidance() {
 
             {/* <TeleGuidanceFrame link={list_of_links[2]}/> */}
           </div>
-          <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden" style={{ maxHeight: '75vh' }}>
+          <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
           <iframe width="900px" height="500px" frameborder="0"
   src="https://observablehq.com/embed/@roboticsuniversity/alanthree?cell=*"></iframe>
             
@@ -193,6 +213,12 @@ function TeleGuidance() {
 }
 
 
+// "The less confident you are, the more serious you have to act."
+//"“At every period of history, people have believed things that were just ridiculous, and believed them so strongly that you risked ostracism or even violence by saying otherwise. If our own time were any different, that would be remarkable. As far as I can tell it isn't.”"
+
+const pg = `“Let's start with a test: Do you have any opinions that you would be reluctant to express in front of a group of your peers?
+
+If the answer is no, you might want to stop and think about that. If everything you believe is something you're supposed to believe, could that possibly be a coincidence? Odds are it isn't. Odds are you just think whatever you're told.”`
 
 // import React, {useRef, useEffect} from "react";
 // import {Runtime, Inspector} from "@observablehq/runtime";

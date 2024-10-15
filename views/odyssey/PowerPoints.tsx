@@ -11,12 +11,12 @@ import reflectNotionHomage from '../../static/reflect_notion_homage.png';
 // import Box from './Box';
 
 function PowerPoint() {
-  return ([
+  return (<div class="flex flex-row">[
    
     <iframe
     key="youtube"
       width="560"
-      height="315"
+      height="215"
       src="https://www.youtube.com/embed/SxdOUGdseq4?si=dh0gFVybuG8m3Mgw"
       title="YouTube video player"
       frameBorder="0"
@@ -24,12 +24,17 @@ function PowerPoint() {
       
     ></iframe>,
   <iframe key="mechanics-design"  src="http://davidcole.me/mechanics-design.html"></iframe>,
-    <img 
+  ,
+
+]  </div>,
+
+<div>my goal = to make all code 100% open sauce like rms wanted because otherwise robots might eat the toaster oh noes.</div>,
+<img 
     key="reflect-notion-homage"
     className="rainbow-ify"
-    src={reflectNotionHomage}></img>,
+    src={reflectNotionHomage}></img>
+);
 
-]);
   // mega man x
   // current status quo - founder of way mo - hoe noe robots will eat us - people are ivevil wow
   // current status quo - raina borrows 5k - vote - sshould raina give eggnog his 5k back? she says "barf" and "i need space" --- her friends say "hes toxic ---- hes tocxic -" -- but sodiam and naicnin
