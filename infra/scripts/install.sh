@@ -8,7 +8,7 @@ command_exists() {
 }
 
 
-echo "Script version: 1.0.5"
+echo "Script version: 1.0.7"
 
 install_1password_cli() {
     echo "Installing 1Password CLI..."
