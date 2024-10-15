@@ -1,6 +1,6 @@
 import { OpenAI } from 'openai';
 import { join } from 'path';
-import { existsSync, readdirSync } from 'fs';
+import { existsSync, readdirSync, readFileSync } from 'fs';
 
 const openai_api_key = process.env.OPENAI_KEY;
 
@@ -81,21 +81,26 @@ async function processChunk(folderName, index) {
   // });
   // const processed = parseGPT(chatCompletion);
   const outputFilePath = join(input_dir, folderName, `${index}.md`);
+  let dummy_path = "data/course_intermediate/" + folderName + "/" + index + ".md";
   await Bun.write(outputFilePath, processed);
 }
 
 async function processAllFilesInDirectory(directoryPath) {
-  const folders = readdirSync(directoryPath).filter(
-    (folder) => existsSync(join(directoryPath, folder)) &&
-      !existsSync(join(directoryPath, folder, 'index.md'))
-  );
+  const module_list = JSON.parse(readFileSync(join(directoryPath, 'module_list.json')));
+  console.log(JSON.stringify(module_list));
+  // const folders = readdirSync(directoryPath).filter(
+  //   (folder) => existsSync(join(directoryPath, folder)) &&
+  //     !existsSync(join(directoryPath, folder, 'index.md'))
+  // );
   const startTime = Date.now();
-  for (const folder of folders) {
-    for (let index = 0; index < 10; index++) {
-      await processChunk(folder, index);
-    }
-  }
+  // for (const folder of folders) {
+  //   for (let index = 0; index < 10; index++) {
+  //     await processChunk(folder, index);
+  //   }
+  // }
   const endTime = Date.now();
+  const outputFilePath = join(directoryPath, 'output.json');
+  await Bun.write(outputFilePath, JSON.stringify(module_list));
   console.log(`processing all files in directory took ${endTime - startTime} milliseconds`);
 }
 

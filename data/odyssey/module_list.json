@@ -183,7 +183,7 @@
     },
     "Real World Applications": {
       "pages": [
-        { "name": "cat robot ", "path": "/applications/feeding-cats" },
+        { "name": "cat robot ", "path": "/applications/feeding-cats" }
 
       ]
     }

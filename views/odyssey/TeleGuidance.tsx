@@ -42,6 +42,58 @@ function Livekit() {
 
 // import notebook2 from "@roboticsuniversity/robotics-hardware";
 
+
+function Whiteboard() {
+  const canvasRef = useRef(null);
+  const [isDrawing, setIsDrawing] = useState(false);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+
+    const startDrawing = ({ nativeEvent }) => {
+      const { offsetX, offsetY } = nativeEvent;
+      context.beginPath();
+      context.moveTo(offsetX, offsetY);
+      setIsDrawing(true);
+    };
+
+    const draw = ({ nativeEvent }) => {
+      if (!isDrawing) return;
+      const { offsetX, offsetY } = nativeEvent;
+      context.lineTo(offsetX, offsetY);
+      context.stroke();
+    };
+
+    const stopDrawing = () => {
+      context.closePath();
+      setIsDrawing(false);
+    };
+
+    canvas.addEventListener("mousedown", startDrawing);
+    canvas.addEventListener("mousemove", draw);
+    canvas.addEventListener("mouseup", stopDrawing);
+    canvas.addEventListener("mouseout", stopDrawing);
+
+    return () => {
+      canvas.removeEventListener("mousedown", startDrawing);
+      canvas.removeEventListener("mousemove", draw);
+      canvas.removeEventListener("mouseup", stopDrawing);
+      canvas.removeEventListener("mouseout", stopDrawing);
+    };
+  }, [isDrawing]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      width={800}
+      height={600}
+      style={{ border: "1px solid black" }}
+    />
+  );
+}
+
+
 function RoboticsHardware() {
   const viewofModuleNameRef = useRef();
 
@@ -66,6 +118,8 @@ function RoboticsHardware() {
 
   return (
     <>
+          <Whiteboard />
+
       <div ref={viewofModuleNameRef} />
       <p className="text-green-100">
         Credit:{" "}

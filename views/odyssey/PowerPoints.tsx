@@ -1,6 +1,8 @@
 // import text from "./human_robot.txt"
 // https://www.jasper.ai/
 
+import reflectNotionHomage from '../../static/reflect_notion_homage.png';
+
 //seuqelitis
 //metal gear solid - explain war
 // fallouit - war never changes -
@@ -9,7 +11,8 @@
 // import Box from './Box';
 
 function PowerPoint() {
-  return (
+  return ([
+   ,
     <iframe
       width="560"
       height="315"
@@ -18,8 +21,14 @@ function PowerPoint() {
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowFullScreen
-    ></iframe>
-  );
+    ></iframe>,
+  <iframe src="http://davidcole.me/mechanics-design.html"></iframe>,
+    <img 
+    
+    className="rainbow-ify"
+    src={reflectNotionHomage}></img>,
+
+]);
   // mega man x
   // current status quo - founder of way mo - hoe noe robots will eat us - people are ivevil wow
   // current status quo - raina borrows 5k - vote - sshould raina give eggnog his 5k back? she says "barf" and "i need space" --- her friends say "hes toxic ---- hes tocxic -" -- but sodiam and naicnin

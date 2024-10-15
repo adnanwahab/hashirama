@@ -4,6 +4,7 @@
 
    export default defineConfig({
      plugins: [react()],
+    publicDir: 'static',
     //  root: '',
      server: {
        port: 8000, // You can specify the port here
@@ -21,3 +22,5 @@
     // } 
      
    })
+
+  //  mexico +london  + japan were fun -> (__inpso__, )

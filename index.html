@@ -61,7 +61,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS 3D Perspective Animation</title>
+<style>
+      .rainbow-ify {
+        animation: rainbow 1s linear infinite;
+      }
+      @keyframes rainbow {
+        0% { filter: hue-rotate(0deg); }
+        100% { filter: hue-rotate(360deg); }
+      }
 
+</style>
   </head>
   <body >
 

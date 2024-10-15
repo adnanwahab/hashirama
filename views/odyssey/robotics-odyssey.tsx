@@ -30,7 +30,7 @@ function RoboticsOdyssey() {
               {" "}
               <DynamicHow />{" "}
             </div>
-            {/* <PowerPoint /> */}
+            <PowerPoint />
             <Footer />
           </main>
         </div>
