@@ -15,6 +15,33 @@ import define3 from "https://api.observablehq.com/@roboticsuniversity/voxels-dif
 
 // v??? - -- adsf
 
+
+//import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import voxelpainter from "https://api.observablehq.com/@roboticsuniversity/alanthree.js?v=4";
+// new Runtime().module(define, name => {
+//   if (name === "pointerAndObjects") return new Inspector(document.querySelector("#observablehq-pointerAndObjects-cd3c836e"));
+// });
+
+function VoxelPainter() {
+
+    const pointerAndObjectsRef = useRef();
+  
+    useEffect(() => {
+      const runtime = new Runtime();
+      runtime.module(voxelpainter, name => {
+        if (name === "pointerAndObjects") return new Inspector(pointerAndObjectsRef.current);
+      });
+      return () => runtime.dispose();
+    }, []);
+  
+    return (
+      <>
+        <div ref={pointerAndObjectsRef} />
+        <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/alanthree">Three.js by roboticsuniversity</a></p>
+      </>
+    );
+  }
+
 function Livekit() {
   const lOGORef = useRef();
 
@@ -42,55 +69,15 @@ function Livekit() {
 
 // import notebook2 from "@roboticsuniversity/robotics-hardware";
 
+import { Tldraw } from 'tldraw'
+import 'tldraw/tldraw.css'
 
-function Whiteboard() {
-  const canvasRef = useRef(null);
-  const [isDrawing, setIsDrawing] = useState(false);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-
-    const startDrawing = ({ nativeEvent }) => {
-      const { offsetX, offsetY } = nativeEvent;
-      context.beginPath();
-      context.moveTo(offsetX, offsetY);
-      setIsDrawing(true);
-    };
-
-    const draw = ({ nativeEvent }) => {
-      if (!isDrawing) return;
-      const { offsetX, offsetY } = nativeEvent;
-      context.lineTo(offsetX, offsetY);
-      context.stroke();
-    };
-
-    const stopDrawing = () => {
-      context.closePath();
-      setIsDrawing(false);
-    };
-
-    canvas.addEventListener("mousedown", startDrawing);
-    canvas.addEventListener("mousemove", draw);
-    canvas.addEventListener("mouseup", stopDrawing);
-    canvas.addEventListener("mouseout", stopDrawing);
-
-    return () => {
-      canvas.removeEventListener("mousedown", startDrawing);
-      canvas.removeEventListener("mousemove", draw);
-      canvas.removeEventListener("mouseup", stopDrawing);
-      canvas.removeEventListener("mouseout", stopDrawing);
-    };
-  }, [isDrawing]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      width={800}
-      height={600}
-      style={{ border: "1px solid black" }}
-    />
-  );
+ function Whiteboard() {
+	return (
+		<div style={{ width: '300px', height: '300px',  inset: 0 }}>
+			<Tldraw />
+		</div>
+	)
 }
 
 
@@ -130,15 +117,22 @@ function RoboticsHardware() {
     </>
   );
 }
+// }https://github.com/tldraw/tldraw
+// https://files.hashirama.blog/static/blog/maze.gif
+// https://files.hashirama.blog/static/blog/health_wealth.gif
+// https://files.hashirama.blog/static/blog/zed_sensor.gif
 
+// https://files.hashirama.blog/static/blog/arm-day1.gif
 function DiffusionVoxelPointCloud() {
   const viewofModuleNameRef = useRef();
+  const viewofModuleNameRef2 = useRef();
 
   useEffect(() => {
     const runtime = new Runtime();
     runtime.module(define3, (name) => {
       //if (name === "viewof moduleName") return new Inspector(viewofModuleNameRef.current);
-      if (name === "NOTCH") return new Inspector(viewofModuleNameRef.current);
+    //if (name === "NOTCH") return new Inspector(viewofModuleNameRef.current);
+      if (name === "LOGO") return new Inspector(viewofModuleNameRef2.current);
       return [
         "basicRequire",
         "dynamicImport",
@@ -162,8 +156,14 @@ function DiffusionVoxelPointCloud() {
         </a>
       </p>
     </>
+
+    
   );
+  // https://files.hashirama.blog/static/blog/animated_gifs/Animated%20GIF%20optimizer.gif
 }
+// https://files.hashirama.blog/static/blog/seeing/cropped_image_0.png
+// https://files.hashirama.blog/static/blog/animated_gifs/Optimized%20%281%29.gif
+// https://files.hashirama.blog/static/blog/animated_gifs/samus.jpeg
 function TeleGuidance() {
   const list_of_links = [
     "https://observablehq.com/embed/@roboticsuniversity/livekit?cell=*",
@@ -175,20 +175,25 @@ function TeleGuidance() {
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
         <p className="mt-2 max-w-lg text-4xl font-medium tracking-tight text-white sm:text-5xl"></p>
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
-          <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
-            <div className="flex-grow">
+
+
+          
+          <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden" style={{ maxHeight: '50vh' }}>
               <Livekit />
-            </div>
           </div>
-          <div className="lg:col-span-2 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
+          <div className="lg:col-span-2 flex flex-col rounded-lg bg-gray-800 overflow-hidden" style={{ maxHeight: '50vh' }}>
             {/* <TwitchPlaysPokemonPanel/> */}
           </div>
-          <div className="lg:col-span-2 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
+          <div className="lg:col-span-2 flex flex-col rounded-lg bg-gray-800 overflow-hidden" style={{ maxHeight: '50vh' }}>
             <RoboticsHardware />
 
             {/* <TeleGuidanceFrame link={list_of_links[2]}/> */}
           </div>
-          <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden">
+          <div className="lg:col-span-4 flex flex-col rounded-lg bg-gray-800 overflow-hidden" style={{ maxHeight: '50vh' }}>
+          <iframe width="100%" height="105" 
+  src="https://observablehq.com/embed/@roboticsuniversity/alanthree@327?cells=pointerAndObjects"></iframe>
+            
+            
             <DiffusionVoxelPointCloud />
           </div>
         </div>
@@ -198,14 +203,13 @@ function TeleGuidance() {
 }
 
 //https://github.com/Erkaman/regl-cnn
-
+// blip - see conosole - import 
 export default TeleGuidance;
 
 //yarn add "https://api.observablehq.com/@observablehq/module-require-debugger.tgz?v=3"
 
 //bun add "https://api.observablehq.com/@roboticsuniversity/livekit.tgz?v=3"
-
-import notebook16 from "@roboticsuniversity/dynamicland";
+//import notebook16 from "@roboticsuniversity/dynamicland";
 //import notebook8 from "@roboticsuniversity/agent-dashboard";
 
 // prompt - make a puzzle peiece in css

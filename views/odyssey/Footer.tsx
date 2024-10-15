@@ -112,7 +112,8 @@ export default function Example() {
       </h2>
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          <div className="grid grid-cols-2 gap-8 xl:col-span-2">
+
+          <div className="grid grid-cols-2 gap-8 xl:col-span-2 hidden">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-white">Solutions</h3>
@@ -143,33 +144,34 @@ export default function Example() {
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-white">Company</h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.company.map((item) => (
+                  {/* {navigation.company.map((item) => (
                     <li key={item.name}>
                       <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
                         {item.name}
                       </a>
                     </li>
-                  ))}
+                  ))} */}
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
                 <h3 className="text-sm font-semibold leading-6 text-white">Legal</h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.legal.map((item) => (
+                  {/* {navigation.legal.map((item) => (
                     <li key={item.name}>
                       <a href={item.href} className="text-sm leading-6 text-gray-300 hover:text-white">
                         {item.name}
                       </a>
                     </li>
-                  ))}
+                  ))} */}
                 </ul>
               </div>
             </div>
           </div>
+          
           <div className="mt-10 xl:mt-0">
-            <h3 className="text-sm font-semibold leading-6 text-white">Subscribe to our newsletter</h3>
+            <h3 className="text-sm font-semibold leading-6 text-white">$95 1 time fee for 95 hours of Video - Nov 1 Launch</h3>
             <p className="mt-2 text-sm leading-6 text-gray-300">
-              The latest news, articles, and resources, sent to your inbox weekly.
+              Everything you need to know to solve all problems permanently in 5 years.
             </p>
             <form className="mt-6 sm:flex sm:max-w-md">
               <label htmlFor="email-address" className="sr-only">

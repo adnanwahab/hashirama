@@ -31,13 +31,10 @@
     "vitepress": "^1.4.0"
   },
   "dependencies": {
-    "3-planning-prediction": "https://api.observablehq.com/@roboticsuniversity/3-planning-prediction.tgz",
     "@anthropic-ai/sdk": "^0.29.0",
     "@headlessui/react": "^2.1.10",
-    "@observablehq/runtime": "5",
     "@heroicons/react": "^2.1.4",
-    "framer-motion": "^11.2.10",
-
+    "@observablehq/runtime": "5",
     "@octokit/rest": "^21.0.2",
     "@roboticsuniversity/agent-dashboard": "https://api.observablehq.com/@roboticsuniversity/agent-dashboard@70.tgz?v=3",
     "@roboticsuniversity/alan_how": "https://api.observablehq.com/@roboticsuniversity/alan_how.tgz?v=3",
@@ -45,11 +42,13 @@
     "@roboticsuniversity/livekit": "https://api.observablehq.com/@roboticsuniversity/livekit.tgz",
     "@roboticsuniversity/ode-to-dynamicland-org": "https://api.observablehq.com/@roboticsuniversity/ode-to-dynamicland-org.tgz?v=3",
     "@roboticsuniversity/robotics-hardware": "https://api.observablehq.com/@roboticsuniversity/robotics-hardware.tgz?v=3",
+    "3-planning-prediction": "https://api.observablehq.com/@roboticsuniversity/3-planning-prediction.tgz",
     "autoprefixer": "^10.4.20",
     "clsx": "^2.1.1",
     "d3": "^7.9.0",
     "dotenv": "^16.4.5",
     "dynamicland": "https://api.observablehq.com/@roboticsuniversity/dynamicland.tgz",
+    "framer-motion": "^11.2.10",
     "livekit": "https://api.observablehq.com/@roboticsuniversity/livekit.tgz",
     "livekit-client": "^2.5.7",
     "livekit-server-sdk": "^2.7.0",
@@ -60,6 +59,7 @@
     "react-dom": "^18.3.1",
     "replicate": "^1.0.0",
     "sqlite3": "^5.1.7",
+    "tldraw": "^3.3.1",
     "voxels-diffusion-policy-3d": "https://api.observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d.tgz"
   }
 }
