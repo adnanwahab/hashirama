@@ -1,0 +1,44 @@
+
+        .hafu {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #222;
+            perspective: 1000px;
+        }
+
+        .scene {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 10s infinite linear;
+        }
+
+        .mirror {
+            width: 100px;
+            height: 150px;
+            position: absolute;
+            background: linear-gradient(45deg, rgba(255,255,255,0.8), rgba(0,0,0,0.2));
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transform-origin: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Positioning mirrors in a 3D grid */
+        .mirror:nth-child(1) { transform: rotateY(0deg) translateZ(150px); }
+        .mirror:nth-child(2) { transform: rotateY(45deg) translateZ(150px); }
+        .mirror:nth-child(3) { transform: rotateY(90deg) translateZ(150px); }
+        .mirror:nth-child(4) { transform: rotateY(135deg) translateZ(150px); }
+        .mirror:nth-child(5) { transform: rotateY(180deg) translateZ(150px); }
+        .mirror:nth-child(6) { transform: rotateY(225deg) translateZ(150px); }
+        .mirror:nth-child(7) { transform: rotateY(270deg) translateZ(150px); }
+        .mirror:nth-child(8) { transform: rotateY(315deg) translateZ(150px); }
+
+        @keyframes rotate {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+    

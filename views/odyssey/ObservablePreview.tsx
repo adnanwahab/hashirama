@@ -9,8 +9,8 @@ function ObservablePreview() {
           A snapshot of your entire sales pipeline.
         </h2> */}
           <div
-            style={{ "--width": 1216, "--height": 768 }}
-            className="mt-16 h-[36rem] sm:h-auto sm:w-[76rem] relative aspect-[var(--width)/var(--height)] [--radius:theme(borderRadius.xl)]
+          
+            className="mt-16  sm:h-auto sm:w-[76rem] relative  [--radius:theme(borderRadius.xl)]
             
             
             flex flex-row"
@@ -21,10 +21,10 @@ function ObservablePreview() {
             className="h-full rounded-[var(--radius)] shadow-2xl ring-1 ring-black/10"
           /> */}
             <iframe
-              className="h-full w-1/3 flex-1"
+              className="h-screen w-1/3 flex-1"
               src="http://localhost:3001"
             ></iframe>
-            <div className="h-full w-1/4 flex flex-col justify-center">
+            <div className="h-full w-1/4 flex flex-col justify-center border border-white/10">
               <h1 className="text-blue-500">Hello</h1>
               <h1 className="text-blue-500">Hello</h1>
               <h1 className="text-blue-500">Hello</h1>

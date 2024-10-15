@@ -12,17 +12,18 @@ import reflectNotionHomage from '../../static/reflect_notion_homage.png';
 
 function PowerPoint() {
   return ([
-   ,
+   
     <iframe
+    key="youtube"
       width="560"
       height="315"
       src="https://www.youtube.com/embed/SxdOUGdseq4?si=dh0gFVybuG8m3Mgw"
       title="YouTube video player"
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowFullScreen
+      
     ></iframe>,
-  <iframe src="http://davidcole.me/mechanics-design.html"></iframe>,
+  <iframe key="mechanics-design"  src="http://davidcole.me/mechanics-design.html"></iframe>,
     <img 
     
     className="rainbow-ify"

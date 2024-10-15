@@ -1,10 +1,10 @@
 import * as d3 from "d3"
-
+import "./demon-mirror-wall.css"
 // In a Vite project, you can import non-JS/TS files like markdown using the `import.meta.glob` or similar methods.
 // However, since we can't actually perform file imports here, I'll simulate this by creating a component that 
 // represents the readme content.
 
-import readmeContent from '../../readme.md'; // This is how you might import in a Vite setup
+//import readmeContent from '../../readme.md'; // This is how you might import in a Vite setup
 
 function ReadmeInfo() {
     return (
@@ -372,6 +372,7 @@ function PeriodicTable() {
 function Hafu() {
     <img src="/static/reflections.png" />
     return <>
+    
 
   <div class="scene">
         <div class="mirror"></div>
@@ -407,10 +408,10 @@ function _() {
     
    const elements = d3.shuffle([
 
-        <PeriodicTable />,
-        <Hafu />,
+        // <PeriodicTable />,
+        // <Hafu />,
         <BotNDolly />,
-        <_ />,
+        // <_ />,
         // <ReadmeInfo />
     ])
 

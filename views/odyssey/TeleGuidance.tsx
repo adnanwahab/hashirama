@@ -11,9 +11,10 @@ import {
 import define from "https://api.observablehq.com/@roboticsuniversity/livekit.js?v=4";
 import define2 from "https://api.observablehq.com/@roboticsuniversity/robotics-hardware.js?v=4";
 //import define3 from "https://api.observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d.js?v=4";
-import define3 from "https://api.observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d@84.js?v=4";
+//import define3 from "https://api.observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d@84.js?v=6";
 
 // v??? - -- adsf
+import VoxelNotebook from "https://api.observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d@88.js?v=4";
 
 
 //import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
@@ -48,7 +49,7 @@ function Livekit() {
   useEffect(() => {
     const runtime = new Runtime();
     runtime.module(define, (name) => {
-      console.log(name);
+      //console.log(name);
       if (name === "LOGO") return new Inspector(lOGORef.current);
     });
     return () => runtime.dispose();
@@ -88,7 +89,7 @@ function RoboticsHardware() {
     const runtime = new Runtime();
     runtime.module(define2, (name) => {
       if (name === "LOGO") return new Inspector(viewofModuleNameRef.current);
-      console.log(name);
+      //console.log(name);
       //if (name === "viewof moduleName") return new Inspector(viewofModuleNameRef.current);
       return [
         "basicRequire",
@@ -124,43 +125,33 @@ function RoboticsHardware() {
 
 // https://files.hashirama.blog/static/blog/arm-day1.gif
 function DiffusionVoxelPointCloud() {
-  const viewofModuleNameRef = useRef();
-  const viewofModuleNameRef2 = useRef();
+  const lOGORef = useRef();
+  const nOTCHRef = useRef();
 
   useEffect(() => {
     const runtime = new Runtime();
-    runtime.module(define3, (name) => {
-      //if (name === "viewof moduleName") return new Inspector(viewofModuleNameRef.current);
-    //if (name === "NOTCH") return new Inspector(viewofModuleNameRef.current);
-      if (name === "LOGO") return new Inspector(viewofModuleNameRef2.current);
-      return [
-        "basicRequire",
-        "dynamicImport",
-        "skypackImport",
-        "bundleRun",
-        "scavengingForLinks",
-        "globalLeaksPattern",
-        "pkg",
-      ].includes(name);
+    runtime.module(VoxelNotebook, name => {
+      if (name === "LOGO") return new Inspector(lOGORef.current);
+      if (name === "NOTCH") return new Inspector(nOTCHRef.current);
     });
     return () => runtime.dispose();
   }, []);
-
+  
+  //return <></>
   return (
     <>
-      <div ref={viewofModuleNameRef} />
-      <p className="text-green-100">
-        Credit:{" "}
-        <a href="https://observablehq.com/@observablehq/module-require-debugger">
-          LIVE KIT = WEBRTC = GREAT
-        </a>
-      </p>
+      <VoxelPainter />
+      <div ref={lOGORef} />
+      <div ref={nOTCHRef} />
+      {/* <p>Credit: <a href="https://observablehq.com/@roboticsuniversity/voxels-diffusion-policy-3d@88">Voxels + diffusion-policy-3d by roboticsuniversity</a></p> */}
     </>
-
-    
   );
+
   // https://files.hashirama.blog/static/blog/animated_gifs/Animated%20GIF%20optimizer.gif
 }
+
+
+
 // https://files.hashirama.blog/static/blog/seeing/cropped_image_0.png
 // https://files.hashirama.blog/static/blog/animated_gifs/Optimized%20%281%29.gif
 // https://files.hashirama.blog/static/blog/animated_gifs/samus.jpeg
@@ -182,7 +173,7 @@ function TeleGuidance() {
               <Livekit />
           </div>
           <div className="lg:col-span-2 flex flex-col rounded-lg bg-gray-800 overflow-hidden" style={{ maxHeight: '50vh' }}>
-            {/* <TwitchPlaysPokemonPanel/> */}
+            <TwitchPlaysPokemonPanel/>
           </div>
           <div className="lg:col-span-2 flex flex-col rounded-lg bg-gray-800 overflow-hidden" style={{ maxHeight: '50vh' }}>
             <RoboticsHardware />

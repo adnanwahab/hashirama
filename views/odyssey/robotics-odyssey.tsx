@@ -6,6 +6,7 @@ import TwitchPlaysPokemonPanel from "./TwitchPlaysPokemonPanel";
 import TeleGuidance from "./TeleGuidance";
 import DynamicHow from "./Dynamichow";
 import PowerPoint from "./PowerPoints";
+import Box from "./Box";
 
 function RoboticsOdyssey() {
   return (
@@ -23,14 +24,18 @@ function RoboticsOdyssey() {
               <TeleGuidance />{" "}
             </div>
             <div className="border border-white/10">
-              {" "}
-              <ObservablePreview></ObservablePreview>{" "}
+           
+              {/* <ObservablePreview></ObservablePreview>{" "} */}
+
+
+
             </div>
             <div className="border border-white/10">
               {" "}
               <DynamicHow />{" "}
             </div>
             <PowerPoint />
+            <Box />
             <Footer />
           </main>
         </div>
