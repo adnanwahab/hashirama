@@ -74,11 +74,12 @@ const queryFileExt = {
 async function processChunk(folderName, index) {
   const prompt = Object.values(queries)[index] + `generate a diagram from the folder name ${folderName} `;
   console.log(prompt);
-  const chatCompletion = await client.chat.completions.create({
-    model: 'gpt-4o-mini',
-    messages: [{ role: 'user', content: prompt }],
-  });
-  const processed = parseGPT(chatCompletion);
+  const processed = "hello";
+  // const chatCompletion = await client.chat.completions.create({
+  //   model: 'gpt-4o-mini',
+  //   messages: [{ role: 'user', content: prompt }],
+  // });
+  // const processed = parseGPT(chatCompletion);
   const outputFilePath = join(input_dir, folderName, `${index}.md`);
   await Bun.write(outputFilePath, processed);
 }

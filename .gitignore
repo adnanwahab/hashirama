@@ -6,9 +6,9 @@ notebooks/2_perception
 notebooks/course-content-observable-data-app
 
 data/alan_kay
+scripts/infra/uv_example
 notebooks/2_perception/test_lottiesrm
 notebooks/2_perception/lottie_2
-scripts/infra/uv_example
 notebooks/diffusion_
 bun.lockb
 .air.toml

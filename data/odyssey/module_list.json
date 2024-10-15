@@ -183,31 +183,8 @@
     },
     "Real World Applications": {
       "pages": [
-        { "name": "Feeding stray cats using robots", "path": "/applications/feeding-cats" },
-        { "name": "House building using robots", "path": "/applications/house-building" },
-        { "name": "Gardening", "path": "/applications/gardening" },
-        { "name": "Medical and Surgical Robotics – Assisting in surgeries, rehabilitation, and diagnostics.", "path": "/applications/medical-surgical-robotics" },
-        { "name": "Industrial Automation – Robots in manufacturing and assembly lines (e.g., robotic arms).", "path": "/applications/industrial-automation" },
-        { "name": "Agricultural Robotics – Precision farming with drones and automated harvesters.", "path": "/applications/agricultural-robotics" },
-        { "name": "Warehouse and Logistics Automation – Sorting, packaging, and warehouse management robots.", "path": "/applications/warehouse-logistics-automation" },
-        { "name": "Service Robots – Robots for cleaning, security, and hospitality (e.g., vacuum cleaners, hotel assistants).", "path": "/applications/service-robots" },
-        { "name": "Swarm Robotics – Coordinated robots working together for tasks like search-and-rescue.", "path": "/applications/swarm-robotics" },
-        { "name": "Humanoid Robots – Robots mimicking human interaction for customer service or research.", "path": "/applications/humanoid-robots" },
-        { "name": "Social Robots – Companion robots used for elder care, mental health, or education.", "path": "/applications/social-robots" },
-        { "name": "Construction Robotics – Robots for bricklaying, 3D printing structures, and infrastructure inspection.", "path": "/applications/construction-robotics" },
-        { "name": "Robots in Space Exploration – Rovers, robotic arms, and probes for extraterrestrial missions.", "path": "/applications/space-exploration-robotics" },
-        { "name": "Defense and Military Robotics – Drones, autonomous weapons, and robotic exoskeletons.", "path": "/applications/defense-military-robotics" },
-        { "name": "Underwater Robotics – Submersibles for deep-sea exploration and pipeline inspection.", "path": "/applications/underwater-robotics" },
-        { "name": "Entertainment Robotics – Theme park animatronics, toys, and gaming robots.", "path": "/applications/entertainment-robotics" },
-        { "name": "Retail Robotics – Robots for customer assistance and shelf-stocking in stores.", "path": "/applications/retail-robotics" },
-        { "name": "Disaster Response Robots – Robots for firefighting, hazardous material handling, and search-and-rescue operations.", "path": "/applications/disaster-response-robots" },
-        { "name": "Personal Assistants and Domestic Robots – Robots that assist with daily tasks at home.", "path": "/applications/personal-assistants-domestic-robots" },
-        { "name": "Robots for Education and Research – Teaching programming, STEM education, and experimental platforms.", "path": "/applications/education-research-robots" },
-        { "name": "Robotics in Mining – Autonomous vehicles and robotic arms for mineral extraction.", "path": "/applications/mining-robotics" },
-        { "name": "Environmental Monitoring and Conservation – Robots for wildlife tracking, environmental sensing, and pollution control.", "path": "/applications/environmental-monitoring-conservation" },
-        { "name": "Robotic Surgery – Minimally invasive robotic assistance in medical procedures.", "path": "/applications/robotic-surgery" },
-        { "name": "Petroleum and Mining Robotics – Robots for oil drilling, mining, and exploration.", "path": "/applications/petroleum-mining-robotics" },
-        { "name": "Space Exploration Robotics – Robots for planetary rovers and space station operations.", "path": "/applications/space-exploration-robotics" }
+        { "name": "cat robot ", "path": "/applications/feeding-cats" },
+
       ]
     }
   },
