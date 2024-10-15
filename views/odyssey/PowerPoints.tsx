@@ -1,7 +1,7 @@
 // import text from "./human_robot.txt"
 // https://www.jasper.ai/
 
-import reflectNotionHomage from '../../static/reflect_notion_homage.png';
+import reflectNotionHomage from '../../public/reflect_notion_homage.png';
 
 //seuqelitis
 //metal gear solid - explain war
