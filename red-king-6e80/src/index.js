@@ -10,6 +10,13 @@
 
 export default {
 	async fetch(request, env, ctx) {
-		return new Response('Hello World!');
+		const fs = require('fs');
+		const filePath = './dist.html';
+		const fileContent = fs.readFileSync(filePath, 'utf-8');
+		return new Response(fileContent, {
+			headers: {
+				'Content-Type': 'text/html',
+			},
+		});
 	},
 };

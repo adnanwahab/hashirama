@@ -80,11 +80,12 @@ setup_sam2_environment() {
 
 clone_homelab_status_page() {
     echo "Cloning Homelab Status Page..."
-    # if [ -d "~/homelab_status_page" ] && [ "$(ls -A ~/homelab_status_page)" ]; then
-    #     echo "Directory ~/homelab_status_page already exists and is not empty. Skipping clone."
-    # else
-    #     git clone https://github.com/adnanwahab/homelab_status_page ~/homelab_status_page
-    # fi
+    if [ -d "~/homelab_status_page" ] && [ "$(ls -A ~/homelab_status_page)" ]; then
+        echo "Directory ~/homelab_status_page already exists and is not empty. Skipping clone."
+    else
+        git clone git@github.com:BotParty/homelab_status_page.git ~/homelab_status_page
+    fi
+
 }
 
 setup_jetson_containers() {
